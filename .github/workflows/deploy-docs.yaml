@@ -55,8 +55,6 @@ jobs:
       - name: Generate schema documentation
         run: |
           just gen-doc
-          uv run mkdocs gh-deploy
-
-      - name: Publish Schema YAMLs in GitHub pages
-        run: |
+          # copy the schema files to the GH pages as a means of publishing them
           cp src/dcat_ap_plus/schema/*.yaml docs/
+          uv run mkdocs gh-deploy
