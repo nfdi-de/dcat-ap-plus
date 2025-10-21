@@ -20,7 +20,7 @@ see_also:
 - https://github.com/StroemPhi/dcat-4C-ap
 - https://github.com/HendrikBorgelt/DCAT-ap_as_LinkML_template/blob/main/src/dcatlinkml/schema/dcatlinkml.yaml
 - https://gitlab.com/opensourcelab/scientificdata/scidats/-/blob/feature/linkml-schemata/schemata/metadata_model_scidats_dcat_ap.yaml?ref_type=heads
-id: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+id: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
 imports:
 - linkml:types
 license: CC-BY 4.0
@@ -96,7 +96,7 @@ prefixes:
     prefix_reference: http://schema.org/
   dcatap_plus:
     prefix_prefix: dcatap_plus
-    prefix_reference: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#
+    prefix_reference: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#
   BFO:
     prefix_prefix: BFO
     prefix_reference: http://purl.obolibrary.org/obo/BFO_
@@ -126,35 +126,35 @@ default_range: string
 subsets:
   domain_agnostic_core:
     name: domain_agnostic_core
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#DomainAgnosticCore
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#DomainAgnosticCore
     description: The elements of this subset are considered the core layer of our
       DCAT-AP extension.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
 types:
   duration:
     name: duration
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#Duration
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Duration
     conforms_to: https://www.w3.org/TR/xmlschema11-2/#duration
     description: The datatype that represents durations of time.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     base: str
     uri: xsd:duration
     pattern: -?P((([0-9]+Y([0-9]+M)?([0-9]+D)?|([0-9]+M)([0-9]+D)?|([0-9]+D))(T(([0-9]+H)([0-9]+M)?([0-9]+(\.[0-9]+)?S)?|([0-9]+M)([0-9]+(\.[0-9]+)?S)?|([0-9]+(\.[0-9]+)?S)))?)|(T(([0-9]+H)([0-9]+M)?([0-9]+(\.[0-9]+)?S)?|([0-9]+M)([0-9]+(\.[0-9]+)?S)?|([0-9]+(\.[0-9]+)?S))))
   hexBinary:
     name: hexBinary
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#HexBinary
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#HexBinary
     conforms_to: https://www.w3.org/TR/xmlschema11-2/#hexBinary
     description: The datatype that represents arbitrary hex-encoded binary data.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     base: str
     uri: xsd:hexBinary
     pattern: ([0-9a-fA-F]{2})*
   nonNegativeInteger:
     name: nonNegativeInteger
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#NonNegativeInteger
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#NonNegativeInteger
     conforms_to: https://www.w3.org/TR/xmlschema11-2/#nonNegativeInteger
     description: The datatype that represents non-negative integers.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     base: int
     uri: xsd:nonNegativeInteger
     pattern: ([\-+]?[0-9]+)
@@ -429,8 +429,8 @@ types:
 enums:
   DatasetThemes:
     name: DatasetThemes
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#DatasetThemes
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#DatasetThemes
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     see_also:
     - https://op.europa.eu/s/zXIN
     enum_uri: http://publications.europa.eu/resource/authority/data-theme
@@ -493,8 +493,8 @@ enums:
         meaning: http://publications.europa.eu/resource/authority/data-theme/TRAN
   TopLevelMediaTypes:
     name: TopLevelMediaTypes
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#TopLevelMediaTypes
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#TopLevelMediaTypes
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     enum_uri: iana:top-level-media-types
     permissible_values:
       application:
@@ -521,7 +521,7 @@ enums:
         text: video
   QUDTQuantityKindEnum:
     name: QUDTQuantityKindEnum
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#QUDTQuantityKindEnum
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#QUDTQuantityKindEnum
     implements:
     - owl:NamedIndividual
     description: Possible kinds of quantifiable attribute types provided as QUDT QualityKind
@@ -533,7 +533,7 @@ enums:
       define Activity subclasses, e.g. NMRSpectroscopy. seeAlso: https://github.com/linkml/linkml-model/blob/main/tests/input/examples/schema_definition-enum_bindings-1.yaml'
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     reachable_from:
       source_ontology: http://qudt.org/2.1/vocab/quantitykind
       source_nodes:
@@ -543,7 +543,7 @@ enums:
       is_direct: true
   QUDTUnitEnum:
     name: QUDTUnitEnum
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#QUDTUnitEnum
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#QUDTUnitEnum
     implements:
     - owl:NamedIndividual
     description: Possible kinds of QUDT unit instances.
@@ -554,7 +554,7 @@ enums:
       define Activity subclasses, e.g. NMRSpectroscopy. seeAlso: https://github.com/linkml/linkml-model/blob/main/tests/input/examples/schema_definition-enum_bindings-1.yaml'
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     reachable_from:
       source_ontology: https://qudt.org/vocab/unit/
       source_nodes:
@@ -565,10 +565,10 @@ enums:
 slots:
   access_URL:
     name: access_URL
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#access_URL
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#access_URL
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:accessURL
     slot_uri: dcat:accessURL
@@ -578,10 +578,10 @@ slots:
     range: string
   access_rights:
     name: access_rights
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#access_rights
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#access_rights
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:accessRights
     slot_uri: dcterms:accessRights
@@ -592,10 +592,10 @@ slots:
     range: string
   access_service:
     name: access_service
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#access_service
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#access_service
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:accessService
     slot_uri: dcat:accessService
@@ -605,10 +605,10 @@ slots:
     range: string
   algorithm:
     name: algorithm
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#algorithm
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#algorithm
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - spdx:algorithm
     slot_uri: spdx:algorithm
@@ -618,10 +618,10 @@ slots:
     range: string
   applicable_legislation:
     name: applicable_legislation
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#applicable_legislation
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#applicable_legislation
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcatap:applicableLegislation
     slot_uri: dcatap:applicableLegislation
@@ -635,10 +635,10 @@ slots:
     range: string
   application_profile:
     name: application_profile
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#application_profile
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#application_profile
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:conformsTo
     slot_uri: dcterms:conformsTo
@@ -648,10 +648,10 @@ slots:
     range: string
   availability:
     name: availability
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#availability
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#availability
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcatap:availability
     slot_uri: dcatap:availability
@@ -661,10 +661,10 @@ slots:
     range: string
   bbox:
     name: bbox
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#bbox
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#bbox
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:bbox
     slot_uri: dcat:bbox
@@ -674,10 +674,10 @@ slots:
     range: string
   beginning:
     name: beginning
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#beginning
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#beginning
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - time:hasBeginning
     slot_uri: time:hasBeginning
@@ -687,10 +687,10 @@ slots:
     range: string
   byte_size:
     name: byte_size
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#byte_size
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#byte_size
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:byteSize
     slot_uri: dcat:byteSize
@@ -700,13 +700,13 @@ slots:
     range: string
   carried_out_by:
     name: carried_out_by
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#carried_out_by
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#carried_out_by
     description: The slot to specify the AgenticEntity that played a certain part
       in carrying out the Activity, either via having a specific role, function or
       disposition that was realized in the Activity.
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - prov:wasAssociatedWith
     slot_uri: prov:wasAssociatedWith
@@ -720,10 +720,10 @@ slots:
     inlined_as_list: true
   catalogue:
     name: catalogue
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#catalogue
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#catalogue
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:catalog
     slot_uri: dcat:catalog
@@ -733,10 +733,10 @@ slots:
     range: string
   centroid:
     name: centroid
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#centroid
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#centroid
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:centroid
     slot_uri: dcat:centroid
@@ -746,10 +746,10 @@ slots:
     range: string
   change_type:
     name: change_type
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#change_type
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#change_type
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - adms:status
     slot_uri: adms:status
@@ -759,10 +759,10 @@ slots:
     range: string
   checksum:
     name: checksum
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#checksum
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#checksum
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - spdx:checksum
     slot_uri: spdx:checksum
@@ -772,10 +772,10 @@ slots:
     range: string
   checksum_value:
     name: checksum_value
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#checksum_value
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#checksum_value
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - spdx:checksumValue
     slot_uri: spdx:checksumValue
@@ -785,10 +785,10 @@ slots:
     range: string
   compression_format:
     name: compression_format
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#compression_format
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#compression_format
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:compressFormat
     slot_uri: dcat:compressFormat
@@ -798,10 +798,10 @@ slots:
     range: string
   conforms_to:
     name: conforms_to
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#conforms_to
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#conforms_to
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:conformsTo
     slot_uri: dcterms:conformsTo
@@ -812,10 +812,10 @@ slots:
     range: string
   contact_point:
     name: contact_point
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#contact_point
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#contact_point
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:contactPoint
     slot_uri: dcat:contactPoint
@@ -827,10 +827,10 @@ slots:
     range: string
   creator:
     name: creator
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#creator
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#creator
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:creator
     slot_uri: dcterms:creator
@@ -841,10 +841,10 @@ slots:
     range: string
   dataset_distribution:
     name: dataset_distribution
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#dataset_distribution
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#dataset_distribution
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:distribution
     slot_uri: dcat:distribution
@@ -854,10 +854,10 @@ slots:
     range: string
   description:
     name: description
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#description
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#description
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:description
     slot_uri: dcterms:description
@@ -902,10 +902,10 @@ slots:
     range: string
   documentation:
     name: documentation
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#documentation
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#documentation
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - foaf:page
     slot_uri: foaf:page
@@ -917,10 +917,10 @@ slots:
     range: string
   download_URL:
     name: download_URL
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#download_URL
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#download_URL
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:downloadURL
     slot_uri: dcat:downloadURL
@@ -930,10 +930,10 @@ slots:
     range: string
   end:
     name: end
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#end
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#end
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - time:hasEnd
     slot_uri: time:hasEnd
@@ -943,10 +943,10 @@ slots:
     range: string
   end_date:
     name: end_date
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#end_date
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#end_date
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:endDate
     slot_uri: dcat:endDate
@@ -956,10 +956,10 @@ slots:
     range: string
   endpoint_URL:
     name: endpoint_URL
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#endpoint_URL
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#endpoint_URL
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:endpointURL
     slot_uri: dcat:endpointURL
@@ -969,10 +969,10 @@ slots:
     range: string
   endpoint_description:
     name: endpoint_description
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#endpoint_description
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#endpoint_description
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:endpointDescription
     slot_uri: dcat:endpointDescription
@@ -982,12 +982,12 @@ slots:
     range: string
   evaluated_activity:
     name: evaluated_activity
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#evaluated_activity
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#evaluated_activity
     description: The slot to specify the Activity about which the DataGeneratingActivity
       produced information.
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - prov:wasInformedBy
     is_a: had_input_activity
@@ -1002,12 +1002,12 @@ slots:
     inlined_as_list: true
   evaluated_entity:
     name: evaluated_entity
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#evaluated_entity
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#evaluated_entity
     description: The slot to specify the Entity about which the DataGeneratingActivity
       produced information.
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - prov:used
     is_a: had_input_entity
@@ -1022,10 +1022,10 @@ slots:
     inlined_as_list: true
   format:
     name: format
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#format
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#format
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:format
     slot_uri: dcterms:format
@@ -1036,10 +1036,10 @@ slots:
     range: string
   frequency:
     name: frequency
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#frequency
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#frequency
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:accrualPeriodicity
     slot_uri: dcterms:accrualPeriodicity
@@ -1050,10 +1050,10 @@ slots:
     range: string
   geographical_coverage:
     name: geographical_coverage
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#geographical_coverage
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#geographical_coverage
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:spatial
     slot_uri: dcterms:spatial
@@ -1065,10 +1065,10 @@ slots:
     range: string
   geometry:
     name: geometry
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#geometry
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#geometry
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - locn:geometry
     slot_uri: locn:geometry
@@ -1078,12 +1078,12 @@ slots:
     range: string
   had_input_activity:
     name: had_input_activity
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#had_input_activity
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#had_input_activity
     description: The slot to provide a previous Activity that informed the Activity
       by being causally via a shared participant.
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - prov:wasInformedBy
     slot_uri: prov:wasInformedBy
@@ -1097,12 +1097,12 @@ slots:
     inlined_as_list: true
   had_input_entity:
     name: had_input_entity
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#had_input_entity
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#had_input_entity
     description: The slot to specify the Entity that was used as an input of an Activity
       that is to be changed, consumed or transformed.
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - prov:used
     slot_uri: prov:used
@@ -1116,12 +1116,12 @@ slots:
     inlined_as_list: true
   had_output_entity:
     name: had_output_entity
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#had_output_entity
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#had_output_entity
     description: The slot to specify the Entity that was generated as an output of
       an Activity.
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - prov:generated
     slot_uri: prov:generated
@@ -1135,10 +1135,10 @@ slots:
     inlined_as_list: true
   had_role:
     name: had_role
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#had_role
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#had_role
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:hadRole
     slot_uri: dcat:hadRole
@@ -1148,10 +1148,10 @@ slots:
     range: string
   has_dataset:
     name: has_dataset
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#has_dataset
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#has_dataset
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:dataset
     slot_uri: dcat:dataset
@@ -1161,10 +1161,10 @@ slots:
     range: string
   has_part:
     name: has_part
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#has_part
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#has_part
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:hasPart
     slot_uri: dcterms:hasPart
@@ -1178,10 +1178,10 @@ slots:
     range: Activity
   has_policy:
     name: has_policy
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#has_policy
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#has_policy
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - odrl:hasPolicy
     slot_uri: odrl:hasPolicy
@@ -1191,12 +1191,12 @@ slots:
     range: string
   has_qualitative_attribute:
     name: has_qualitative_attribute
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#has_qualitative_attribute
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#has_qualitative_attribute
     description: The slot to relate a qualitative attribute to an EvaluatedEntity,
       EvaluatedActivity or AgenticEntity
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:relation
     slot_uri: dcterms:relation
@@ -1212,12 +1212,12 @@ slots:
     inlined_as_list: true
   has_quantitative_attribute:
     name: has_quantitative_attribute
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#has_quantitative_attribute
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#has_quantitative_attribute
     description: The slot to relate a quantitative attribute to an EvaluatedEntity,
       EvaluatedActivity or AgenticEntity
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:relation
     slot_uri: dcterms:relation
@@ -1233,10 +1233,10 @@ slots:
     inlined_as_list: true
   has_version:
     name: has_version
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#has_version
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#has_version
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:hasVersion
     slot_uri: dcat:hasVersion
@@ -1246,10 +1246,10 @@ slots:
     range: string
   homepage:
     name: homepage
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#homepage
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#homepage
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - foaf:homepage
     slot_uri: foaf:homepage
@@ -1259,11 +1259,11 @@ slots:
     range: string
   id:
     name: id
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#id
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#id
     description: A slot to provide an URI for an entity within this schema.
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     slot_uri: dcatap_plus:id
     identifier: true
     owner: Resource
@@ -1281,10 +1281,10 @@ slots:
     required: true
   identifier:
     name: identifier
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#identifier
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#identifier
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:identifier
     slot_uri: dcterms:identifier
@@ -1294,10 +1294,10 @@ slots:
     range: string
   in_series:
     name: in_series
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#in_series
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#in_series
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:inSeries
     slot_uri: dcat:inSeries
@@ -1307,11 +1307,11 @@ slots:
     range: string
   is_about_activity:
     name: is_about_activity
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#is_about_activity
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#is_about_activity
     description: A slot to provide the EvaluatedActivity a Dataset is about.
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:subject
     exact_mappings:
@@ -1327,11 +1327,11 @@ slots:
     inlined_as_list: true
   is_about_entity:
     name: is_about_entity
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#is_about_entity
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#is_about_entity
     description: A slot to provide the EvaluatedEntity a Dataset is about.
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:subject
     exact_mappings:
@@ -1347,10 +1347,10 @@ slots:
     inlined_as_list: true
   is_referenced_by:
     name: is_referenced_by
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#is_referenced_by
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#is_referenced_by
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:isReferencedBy
     slot_uri: dcterms:isReferencedBy
@@ -1360,10 +1360,10 @@ slots:
     range: string
   keyword:
     name: keyword
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#keyword
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#keyword
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:keyword
     slot_uri: dcat:keyword
@@ -1374,10 +1374,10 @@ slots:
     range: string
   landing_page:
     name: landing_page
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#landing_page
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#landing_page
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:landingPage
     slot_uri: dcat:landingPage
@@ -1388,10 +1388,10 @@ slots:
     range: string
   language:
     name: language
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#language
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#language
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:language
     slot_uri: dcterms:language
@@ -1404,10 +1404,10 @@ slots:
     range: string
   licence:
     name: licence
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#licence
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#licence
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:license
     slot_uri: dcterms:license
@@ -1419,10 +1419,10 @@ slots:
     range: string
   linked_schemas:
     name: linked_schemas
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#linked_schemas
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#linked_schemas
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:conformsTo
     slot_uri: dcterms:conformsTo
@@ -1432,10 +1432,10 @@ slots:
     range: string
   listing_date:
     name: listing_date
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#listing_date
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#listing_date
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:issued
     slot_uri: dcterms:issued
@@ -1445,10 +1445,10 @@ slots:
     range: string
   media_type:
     name: media_type
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#media_type
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#media_type
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:mediaType
     slot_uri: dcat:mediaType
@@ -1458,10 +1458,10 @@ slots:
     range: string
   modification_date:
     name: modification_date
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#modification_date
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#modification_date
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:modified
     slot_uri: dcterms:modified
@@ -1475,10 +1475,10 @@ slots:
     range: string
   name:
     name: name
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#name
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#name
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - foaf:name
     slot_uri: foaf:name
@@ -1488,10 +1488,10 @@ slots:
     range: string
   notation:
     name: notation
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#notation
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#notation
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - skos:notation
     slot_uri: skos:notation
@@ -1501,11 +1501,11 @@ slots:
     range: string
   occurred_in:
     name: occurred_in
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#occurred_in
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#occurred_in
     description: The slot to specify the Surrounding in which an Activity took place.
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - prov:atLocation
     slot_uri: prov:atLocation
@@ -1516,10 +1516,10 @@ slots:
     inlined: true
   other_identifier:
     name: other_identifier
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#other_identifier
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#other_identifier
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - adms:identifier
     slot_uri: adms:identifier
@@ -1532,10 +1532,10 @@ slots:
     range: string
   packaging_format:
     name: packaging_format
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#packaging_format
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#packaging_format
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:packageFormat
     slot_uri: dcat:packageFormat
@@ -1545,12 +1545,12 @@ slots:
     range: string
   part_of:
     name: part_of
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#part_of
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#part_of
     description: A slot to specify a related resource in which the described resource
       is physically or logically included.
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:isPartOf
     slot_uri: dcterms:isPartOf
@@ -1563,10 +1563,10 @@ slots:
     range: Activity
   preferred_label:
     name: preferred_label
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#preferred_label
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#preferred_label
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - skos:prefLabel
     slot_uri: skos:prefLabel
@@ -1576,10 +1576,10 @@ slots:
     range: string
   primary_topic:
     name: primary_topic
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#primary_topic
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#primary_topic
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - foaf:primaryTopic
     slot_uri: foaf:primaryTopic
@@ -1589,10 +1589,10 @@ slots:
     range: string
   provenance:
     name: provenance
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#provenance
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#provenance
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:provenance
     slot_uri: dcterms:provenance
@@ -1602,10 +1602,10 @@ slots:
     range: string
   publisher:
     name: publisher
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#publisher
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#publisher
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:publisher
     slot_uri: dcterms:publisher
@@ -1618,10 +1618,10 @@ slots:
     range: string
   qualified_attribution:
     name: qualified_attribution
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#qualified_attribution
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#qualified_attribution
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - prov:qualifiedAttribution
     slot_uri: prov:qualifiedAttribution
@@ -1631,10 +1631,10 @@ slots:
     range: string
   qualified_relation:
     name: qualified_relation
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#qualified_relation
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#qualified_relation
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:qualifiedRelation
     slot_uri: dcat:qualifiedRelation
@@ -1644,12 +1644,12 @@ slots:
     range: string
   rdf_type:
     name: rdf_type
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#rdf_type
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#rdf_type
     description: The slot to specify the ontology class that is instantiated by an
       entity.
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - rdf:type
     slot_uri: rdf:type
@@ -1661,12 +1661,12 @@ slots:
     inlined: true
   realized_plan:
     name: realized_plan
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#realized_plan
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#realized_plan
     description: The slot to specify the Plan (i.e. directive information or procedure)
       that was realized by an Activity.
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - prov:used
     slot_uri: prov:used
@@ -1677,10 +1677,10 @@ slots:
     inlined: true
   record:
     name: record
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#record
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#record
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:record
     slot_uri: dcat:record
@@ -1690,10 +1690,10 @@ slots:
     range: string
   related_resource:
     name: related_resource
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#related_resource
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#related_resource
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:relation
     slot_uri: dcterms:relation
@@ -1703,10 +1703,10 @@ slots:
     range: string
   relation:
     name: relation
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#relation
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#relation
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:relation
     slot_uri: dcterms:relation
@@ -1716,10 +1716,10 @@ slots:
     range: string
   release_date:
     name: release_date
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#release_date
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#release_date
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:issued
     slot_uri: dcterms:issued
@@ -1732,10 +1732,10 @@ slots:
     range: string
   rights:
     name: rights
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#rights
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#rights
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:rights
     slot_uri: dcterms:rights
@@ -1746,10 +1746,10 @@ slots:
     range: string
   sample:
     name: sample
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#sample
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#sample
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - adms:sample
     slot_uri: adms:sample
@@ -1759,10 +1759,10 @@ slots:
     range: string
   serves_dataset:
     name: serves_dataset
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#serves_dataset
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#serves_dataset
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:servesDataset
     slot_uri: dcat:servesDataset
@@ -1772,10 +1772,10 @@ slots:
     range: string
   service:
     name: service
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#service
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#service
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:service
     slot_uri: dcat:service
@@ -1785,10 +1785,10 @@ slots:
     range: string
   source:
     name: source
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#source
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#source
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:source
     slot_uri: dcterms:source
@@ -1798,10 +1798,10 @@ slots:
     range: string
   source_metadata:
     name: source_metadata
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#source_metadata
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#source_metadata
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:source
     slot_uri: dcterms:source
@@ -1811,10 +1811,10 @@ slots:
     range: string
   spatial_resolution:
     name: spatial_resolution
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#spatial_resolution
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#spatial_resolution
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:spatialResolutionInMeters
     slot_uri: dcat:spatialResolutionInMeters
@@ -1825,10 +1825,10 @@ slots:
     range: string
   start_date:
     name: start_date
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#start_date
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#start_date
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:startDate
     slot_uri: dcat:startDate
@@ -1838,10 +1838,10 @@ slots:
     range: string
   status:
     name: status
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#status
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#status
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - adms:status
     slot_uri: adms:status
@@ -1851,10 +1851,10 @@ slots:
     range: string
   temporal_coverage:
     name: temporal_coverage
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#temporal_coverage
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#temporal_coverage
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:temporal
     slot_uri: dcterms:temporal
@@ -1866,10 +1866,10 @@ slots:
     range: string
   temporal_resolution:
     name: temporal_resolution
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#temporal_resolution
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#temporal_resolution
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:temporalResolution
     slot_uri: dcat:temporalResolution
@@ -1880,10 +1880,10 @@ slots:
     range: string
   theme:
     name: theme
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#theme
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#theme
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:theme
     slot_uri: dcat:theme
@@ -1894,10 +1894,10 @@ slots:
     range: string
   themes:
     name: themes
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#themes
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#themes
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:themeTaxonomy
     slot_uri: dcat:themeTaxonomy
@@ -1907,10 +1907,10 @@ slots:
     range: string
   title:
     name: title
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#title
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#title
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:title
     slot_uri: dcterms:title
@@ -1956,10 +1956,10 @@ slots:
     range: string
   type:
     name: type
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#type
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#type
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:type
     slot_uri: dcterms:type
@@ -1972,11 +1972,11 @@ slots:
     range: string
   value:
     name: value
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#value
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#value
     description: A slot to provide the literal value of an attribute.
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - prov:value
     slot_uri: prov:value
@@ -1987,10 +1987,10 @@ slots:
     range: string
   version:
     name: version
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#version
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#version
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:version
     slot_uri: dcat:version
@@ -2000,10 +2000,10 @@ slots:
     range: string
   version_notes:
     name: version_notes
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#version_notes
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#version_notes
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - adms:versionNotes
     slot_uri: adms:versionNotes
@@ -2013,10 +2013,10 @@ slots:
     range: string
   was_generated_by:
     name: was_generated_by
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#was_generated_by
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#was_generated_by
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - prov:wasGeneratedBy
     slot_uri: prov:wasGeneratedBy
@@ -2028,7 +2028,7 @@ slots:
   definedTerm__from_CV:
     name: definedTerm__from_CV
     description: The URL of the controlled vocabulary.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - schema:inDefinedTermSet
     slot_uri: schema:inDefinedTermSet
@@ -2040,7 +2040,7 @@ slots:
   quantitativeAttribute__has_quantity_type:
     name: quantitativeAttribute__has_quantity_type
     description: The type of quality that is quantifiable according to the QUDT ontology.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - qudt:hasQuantityKind
     slot_uri: qudt:hasQuantityKind
@@ -2060,7 +2060,7 @@ slots:
     required: true
   quantitativeAttribute__unit:
     name: quantitativeAttribute__unit
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - qudt:unit
     slot_uri: qudt:unit
@@ -2079,11 +2079,11 @@ slots:
     recommended: true
   Activity_title:
     name: Activity_title
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#title
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#title
     description: The slot to provide a title for the Activity.
     notes:
     - not in DCAT-AP
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:title
     is_a: title
@@ -2100,11 +2100,11 @@ slots:
     inlined_as_list: true
   Activity_description:
     name: Activity_description
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#description
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#description
     description: The slot to provide a description for the Activity.
     notes:
     - not in DCAT-AP
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:description
     is_a: description
@@ -2121,11 +2121,11 @@ slots:
     inlined_as_list: true
   Activity_has_part:
     name: Activity_has_part
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#has_part
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#has_part
     description: The slot to provide an Activity that is part of the Activity.
     notes:
     - not in DCAT-AP
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:hasPart
     is_a: has_part
@@ -2143,13 +2143,13 @@ slots:
     inlined_as_list: true
   Activity_part_of:
     name: Activity_part_of
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#part_of
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#part_of
     description: The slot to provide an Activity of which the Activity is a part.
     notes:
     - not in DCAT-AP
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:isPartOf
     is_a: part_of
@@ -2167,11 +2167,11 @@ slots:
     inlined_as_list: true
   Activity_other_identifier:
     name: Activity_other_identifier
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#other_identifier
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#other_identifier
     description: The slot to provide a secondary identifier of the Activity.
     notes:
     - not in DCAT-AP
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - adms:identifier
     is_a: other_identifier
@@ -2189,14 +2189,14 @@ slots:
     inlined_as_list: true
   Activity_has_qualitative_attribute:
     name: Activity_has_qualitative_attribute
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#has_qualitative_attribute
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#has_qualitative_attribute
     description: The slot to relate a qualitative attribute to an EvaluatedEntity,
       EvaluatedActivity or AgenticEntity
     notes:
     - not in DCAT-AP
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:relation
     is_a: has_qualitative_attribute
@@ -2215,14 +2215,14 @@ slots:
     inlined_as_list: true
   Activity_has_quantitative_attribute:
     name: Activity_has_quantitative_attribute
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#has_quantitative_attribute
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#has_quantitative_attribute
     description: The slot to relate a quantitative attribute to an EvaluatedEntity,
       EvaluatedActivity or AgenticEntity
     notes:
     - not in DCAT-AP
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:relation
     is_a: has_quantitative_attribute
@@ -2241,14 +2241,14 @@ slots:
     inlined_as_list: true
   Activity_had_input_entity:
     name: Activity_had_input_entity
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#had_input_entity
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#had_input_entity
     description: The slot to specify the Entity that was used as an input of an Activity
       that is to be changed, consumed or transformed.
     notes:
     - not in DCAT-AP
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - prov:used
     is_a: had_input_entity
@@ -2267,14 +2267,14 @@ slots:
     inlined_as_list: true
   Activity_had_output_entity:
     name: Activity_had_output_entity
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#had_output_entity
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#had_output_entity
     description: The slot to specify the Entity that was generated as an output of
       an Activity.
     notes:
     - not in DCAT-AP
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - prov:generated
     is_a: had_output_entity
@@ -2293,14 +2293,14 @@ slots:
     inlined_as_list: true
   Activity_had_input_activity:
     name: Activity_had_input_activity
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#had_input_activity
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#had_input_activity
     description: The slot to provide a previous Activity that informed the Activity
       by being causally via a shared participant.
     notes:
     - not in DCAT-AP
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - prov:wasInformedBy
     is_a: had_input_activity
@@ -2319,7 +2319,7 @@ slots:
     inlined_as_list: true
   Activity_carried_out_by:
     name: Activity_carried_out_by
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#carried_out_by
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#carried_out_by
     description: The slot to specify the AgenticEntity that played a certain part
       in carrying out the Activity, either via having a specific role, function or
       disposition that was realized in the Activity.
@@ -2327,7 +2327,7 @@ slots:
     - not in DCAT-AP
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - prov:wasAssociatedWith
     is_a: carried_out_by
@@ -2346,9 +2346,9 @@ slots:
     inlined_as_list: true
   Agent_name:
     name: Agent_name
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#name
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#name
     description: A name of the agent.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - foaf:name
     is_a: name
@@ -2366,9 +2366,9 @@ slots:
     inlined_as_list: true
   Agent_type:
     name: Agent_type
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#type
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#type
     description: The nature of the agent.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:type
     is_a: type
@@ -2388,10 +2388,10 @@ slots:
     inlined_as_list: true
   AgenticEntity_has_part:
     name: AgenticEntity_has_part
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#has_part
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#has_part
     description: The slot to specify parts of an AgenticEntity that are themselves
       AgenticEntities.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:hasPart
     is_a: has_part
@@ -2409,14 +2409,14 @@ slots:
     inlined_as_list: true
   AgenticEntity_part_of:
     name: AgenticEntity_part_of
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#part_of
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#part_of
     description: The slot to provide the AgenticEntity of which theAgenticEntity is
       a part.
     notes:
     - not in DCAT-AP
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:isPartOf
     is_a: part_of
@@ -2434,9 +2434,9 @@ slots:
     inlined_as_list: true
   AgenticEntity_other_identifier:
     name: AgenticEntity_other_identifier
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#other_identifier
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#other_identifier
     description: A slot to provide a secondary identifier for an Instrument.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - adms:identifier
     is_a: other_identifier
@@ -2455,10 +2455,10 @@ slots:
     inlined_as_list: true
   AnalysisDataset_was_generated_by:
     name: AnalysisDataset_was_generated_by
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#was_generated_by
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#was_generated_by
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - prov:wasGeneratedBy
     is_a: was_generated_by
@@ -2476,9 +2476,9 @@ slots:
     inlined_as_list: true
   AnalysisSourceData_was_generated_by:
     name: AnalysisSourceData_was_generated_by
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#was_generated_by
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#was_generated_by
     description: A slot to provide the Activity which created the AnalysisSourceData.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - prov:wasGeneratedBy
     is_a: was_generated_by
@@ -2496,9 +2496,9 @@ slots:
     inlined_as_list: true
   Catalogue_applicable_legislation:
     name: Catalogue_applicable_legislation
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#applicable_legislation
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#applicable_legislation
     description: The legislation that mandates the creation or management of the Catalog.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcatap:applicableLegislation
     is_a: applicable_legislation
@@ -2517,10 +2517,10 @@ slots:
     inlined_as_list: true
   Catalogue_catalogue:
     name: Catalogue_catalogue
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#catalogue
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#catalogue
     description: A catalogue whose contents are of interest in the context of this
       catalogue.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:catalog
     is_a: catalogue
@@ -2539,9 +2539,9 @@ slots:
     inlined_as_list: true
   Catalogue_creator:
     name: Catalogue_creator
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#creator
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#creator
     description: An entity responsible for the creation of the catalogue.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:creator
     is_a: creator
@@ -2560,9 +2560,9 @@ slots:
     inlined_as_list: true
   Catalogue_description:
     name: Catalogue_description
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#description
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#description
     description: A free-text account of the Catalogue.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:description
     is_a: description
@@ -2580,9 +2580,9 @@ slots:
     inlined_as_list: true
   Catalogue_geographical_coverage:
     name: Catalogue_geographical_coverage
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#geographical_coverage
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#geographical_coverage
     description: A geographical area covered by the Catalogue.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:spatial
     is_a: geographical_coverage
@@ -2601,9 +2601,9 @@ slots:
     inlined_as_list: true
   Catalogue_has_dataset:
     name: Catalogue_has_dataset
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#has_dataset
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#has_dataset
     description: A Dataset that is part of the Catalogue.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:dataset
     is_a: has_dataset
@@ -2622,9 +2622,9 @@ slots:
     inlined_as_list: true
   Catalogue_has_part:
     name: Catalogue_has_part
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#has_part
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#has_part
     description: A related Catalogue that is part of the described Catalogue.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:hasPart
     is_a: has_part
@@ -2643,9 +2643,9 @@ slots:
     inlined_as_list: true
   Catalogue_homepage:
     name: Catalogue_homepage
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#homepage
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#homepage
     description: A web page that acts as the main page for the Catalogue.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - foaf:homepage
     is_a: homepage
@@ -2665,10 +2665,10 @@ slots:
     inlined_as_list: true
   Catalogue_language:
     name: Catalogue_language
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#language
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#language
     description: A language used in the textual metadata describing titles, descriptions,
       etc. of the Datasets in the Catalogue.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:language
     is_a: language
@@ -2688,9 +2688,9 @@ slots:
     inlined_as_list: true
   Catalogue_licence:
     name: Catalogue_licence
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#licence
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#licence
     description: A licence under which the Catalogue can be used or reused.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:license
     is_a: licence
@@ -2709,9 +2709,9 @@ slots:
     inlined_as_list: true
   Catalogue_modification_date:
     name: Catalogue_modification_date
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#modification_date
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#modification_date
     description: The most recent date on which the Catalogue was modified.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:modified
     is_a: modification_date
@@ -2730,9 +2730,9 @@ slots:
     inlined_as_list: false
   Catalogue_publisher:
     name: Catalogue_publisher
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#publisher
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#publisher
     description: An entity (organisation) responsible for making the Catalogue available.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:publisher
     is_a: publisher
@@ -2751,9 +2751,9 @@ slots:
     inlined_as_list: true
   Catalogue_record:
     name: Catalogue_record
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#record
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#record
     description: A Catalogue Record that is part of the Catalogue.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:record
     is_a: record
@@ -2772,9 +2772,9 @@ slots:
     inlined_as_list: true
   Catalogue_release_date:
     name: Catalogue_release_date
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#release_date
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#release_date
     description: The date of formal issuance (e.g., publication) of the Catalogue.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:issued
     is_a: release_date
@@ -2793,9 +2793,9 @@ slots:
     inlined_as_list: false
   Catalogue_rights:
     name: Catalogue_rights
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#rights
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#rights
     description: A statement that specifies rights associated with the Catalogue.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:rights
     is_a: rights
@@ -2814,9 +2814,9 @@ slots:
     inlined_as_list: true
   Catalogue_service:
     name: Catalogue_service
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#service
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#service
     description: A site or end-point (Data Service) that is listed in the Catalogue.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:service
     is_a: service
@@ -2835,9 +2835,9 @@ slots:
     inlined_as_list: true
   Catalogue_temporal_coverage:
     name: Catalogue_temporal_coverage
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#temporal_coverage
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#temporal_coverage
     description: A temporal period that the Catalogue covers.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:temporal
     is_a: temporal_coverage
@@ -2856,10 +2856,10 @@ slots:
     inlined_as_list: true
   Catalogue_themes:
     name: Catalogue_themes
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#themes
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#themes
     description: A knowledge organization system used to classify the Resources that
       are in the Catalogue.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:themeTaxonomy
     is_a: themes
@@ -2879,9 +2879,9 @@ slots:
     inlined_as_list: true
   Catalogue_title:
     name: Catalogue_title
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#title
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#title
     description: A name given to the Catalogue.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:title
     is_a: title
@@ -2899,10 +2899,10 @@ slots:
     inlined_as_list: true
   CatalogueRecord_application_profile:
     name: CatalogueRecord_application_profile
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#application_profile
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#application_profile
     description: An Application Profile that the Catalogued Resource&#39;s metadata
       conforms to.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:conformsTo
     is_a: application_profile
@@ -2922,10 +2922,10 @@ slots:
     inlined_as_list: true
   CatalogueRecord_change_type:
     name: CatalogueRecord_change_type
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#change_type
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#change_type
     description: The status of the catalogue record in the context of editorial flow
       of the dataset and data service descriptions.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - adms:status
     is_a: change_type
@@ -2945,10 +2945,10 @@ slots:
     inlined_as_list: true
   CatalogueRecord_description:
     name: CatalogueRecord_description
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#description
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#description
     description: A free-text account of the record. This property can be repeated
       for parallel language versions of the description.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:description
     is_a: description
@@ -2966,10 +2966,10 @@ slots:
     inlined_as_list: true
   CatalogueRecord_language:
     name: CatalogueRecord_language
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#language
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#language
     description: A language used in the textual metadata describing titles, descriptions,
       etc. of the Catalogued Resource.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:language
     is_a: language
@@ -2988,10 +2988,10 @@ slots:
     inlined_as_list: true
   CatalogueRecord_listing_date:
     name: CatalogueRecord_listing_date
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#listing_date
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#listing_date
     description: The date on which the description of the Resource was included in
       the Catalogue.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:issued
     is_a: listing_date
@@ -3010,10 +3010,10 @@ slots:
     inlined_as_list: true
   CatalogueRecord_modification_date:
     name: CatalogueRecord_modification_date
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#modification_date
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#modification_date
     description: The most recent date on which the Catalogue entry was changed or
       modified.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:modified
     is_a: modification_date
@@ -3031,9 +3031,9 @@ slots:
     inlined_as_list: false
   CatalogueRecord_primary_topic:
     name: CatalogueRecord_primary_topic
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#primary_topic
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#primary_topic
     description: A link to the Dataset, Data service or Catalog described in the record.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - foaf:primaryTopic
     is_a: primary_topic
@@ -3057,10 +3057,10 @@ slots:
     - range: DataService
   CatalogueRecord_source_metadata:
     name: CatalogueRecord_source_metadata
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#source_metadata
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#source_metadata
     description: The original metadata that was used in creating metadata for the
       Dataset, Data Service or Dataset Series.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:source
     is_a: source_metadata
@@ -3079,9 +3079,9 @@ slots:
     inlined_as_list: true
   CatalogueRecord_title:
     name: CatalogueRecord_title
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#title
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#title
     description: A name given to the Catalogue Record.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:title
     is_a: title
@@ -3099,9 +3099,9 @@ slots:
     inlined_as_list: true
   Checksum_algorithm:
     name: Checksum_algorithm
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#algorithm
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#algorithm
     description: The algorithm used to produce the subject Checksum.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - spdx:algorithm
     is_a: algorithm
@@ -3120,10 +3120,10 @@ slots:
     inlined_as_list: true
   Checksum_checksum_value:
     name: Checksum_checksum_value
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#checksum_value
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#checksum_value
     description: A lower case hexadecimal encoded digest value produced using a specific
       algorithm.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - spdx:checksumValue
     is_a: checksum_value
@@ -3141,10 +3141,10 @@ slots:
     inlined_as_list: true
   ClassifierMixin_type:
     name: ClassifierMixin_type
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#type
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#type
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:type
     is_a: type
@@ -3160,9 +3160,9 @@ slots:
     inlined: true
   Concept_preferred_label:
     name: Concept_preferred_label
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#preferred_label
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#preferred_label
     description: A preferred label of the concept.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - skos:prefLabel
     is_a: preferred_label
@@ -3180,9 +3180,9 @@ slots:
     inlined_as_list: true
   ConceptScheme_title:
     name: ConceptScheme_title
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#title
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#title
     description: A name of the concept scheme.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:title
     is_a: title
@@ -3200,11 +3200,11 @@ slots:
     inlined_as_list: true
   DataAnalysis_evaluated_entity:
     name: DataAnalysis_evaluated_entity
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#evaluated_entity
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#evaluated_entity
     description: A slot to provide the data that was analysed by the DataAnalysis.
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - prov:used
     is_a: evaluated_entity
@@ -3223,10 +3223,10 @@ slots:
     inlined_as_list: true
   DataService_access_rights:
     name: DataService_access_rights
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#access_rights
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#access_rights
     description: Information regarding access or restrictions based on privacy, security,
       or other policies.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:accessRights
     is_a: access_rights
@@ -3245,10 +3245,10 @@ slots:
     inlined_as_list: true
   DataService_applicable_legislation:
     name: DataService_applicable_legislation
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#applicable_legislation
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#applicable_legislation
     description: The legislation that mandates the creation or management of the Data
       Service.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcatap:applicableLegislation
     is_a: applicable_legislation
@@ -3267,9 +3267,9 @@ slots:
     inlined_as_list: true
   DataService_conforms_to:
     name: DataService_conforms_to
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#conforms_to
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#conforms_to
     description: An established (technical) standard to which the Data Service conforms.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:conformsTo
     is_a: conforms_to
@@ -3289,10 +3289,10 @@ slots:
     inlined_as_list: true
   DataService_contact_point:
     name: DataService_contact_point
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#contact_point
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#contact_point
     description: Contact information that can be used for sending comments about the
       Data Service.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:contactPoint
     is_a: contact_point
@@ -3312,9 +3312,9 @@ slots:
     inlined_as_list: true
   DataService_description:
     name: DataService_description
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#description
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#description
     description: A free-text account of the Data Service.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:description
     is_a: description
@@ -3332,9 +3332,9 @@ slots:
     inlined_as_list: true
   DataService_documentation:
     name: DataService_documentation
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#documentation
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#documentation
     description: A page or document about this Data Service
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - foaf:page
     is_a: documentation
@@ -3353,9 +3353,9 @@ slots:
     inlined_as_list: true
   DataService_endpoint_URL:
     name: DataService_endpoint_URL
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#endpoint_URL
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#endpoint_URL
     description: The root location or primary endpoint of the service (an IRI).
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:endpointURL
     is_a: endpoint_URL
@@ -3374,10 +3374,10 @@ slots:
     inlined_as_list: true
   DataService_endpoint_description:
     name: DataService_endpoint_description
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#endpoint_description
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#endpoint_description
     description: A description of the services available via the end-points, including
       their operations, parameters etc.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:endpointDescription
     is_a: endpoint_description
@@ -3397,9 +3397,9 @@ slots:
     inlined_as_list: true
   DataService_format:
     name: DataService_format
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#format
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#format
     description: The structure that can be returned by querying the endpointURL.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:format
     is_a: format
@@ -3418,9 +3418,9 @@ slots:
     inlined_as_list: true
   DataService_keyword:
     name: DataService_keyword
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#keyword
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#keyword
     description: A keyword or tag describing the Data Service.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:keyword
     is_a: keyword
@@ -3439,10 +3439,10 @@ slots:
     inlined_as_list: true
   DataService_landing_page:
     name: DataService_landing_page
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#landing_page
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#landing_page
     description: A web page that provides access to the Data Service and/or additional
       information.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:landingPage
     is_a: landing_page
@@ -3461,9 +3461,9 @@ slots:
     inlined_as_list: true
   DataService_licence:
     name: DataService_licence
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#licence
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#licence
     description: A licence under which the Data service is made available.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:license
     is_a: licence
@@ -3482,10 +3482,10 @@ slots:
     inlined_as_list: true
   DataService_publisher:
     name: DataService_publisher
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#publisher
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#publisher
     description: An entity (organisation) responsible for making the Data Service
       available.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:publisher
     is_a: publisher
@@ -3504,10 +3504,10 @@ slots:
     inlined_as_list: true
   DataService_serves_dataset:
     name: DataService_serves_dataset
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#serves_dataset
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#serves_dataset
     description: This property refers to a collection of data that this data service
       can distribute.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:servesDataset
     is_a: serves_dataset
@@ -3526,9 +3526,9 @@ slots:
     inlined_as_list: true
   DataService_theme:
     name: DataService_theme
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#theme
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#theme
     description: A category of the Data Service.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:theme
     is_a: theme
@@ -3548,9 +3548,9 @@ slots:
     inlined_as_list: true
   DataService_title:
     name: DataService_title
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#title
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#title
     description: A name given to the Data Service.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:title
     is_a: title
@@ -3568,10 +3568,10 @@ slots:
     inlined_as_list: true
   Dataset_access_rights:
     name: Dataset_access_rights
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#access_rights
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#access_rights
     description: Information that indicates whether the Dataset is publicly accessible,
       has access restrictions or is not public.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:accessRights
     is_a: access_rights
@@ -3590,9 +3590,9 @@ slots:
     inlined_as_list: true
   Dataset_applicable_legislation:
     name: Dataset_applicable_legislation
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#applicable_legislation
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#applicable_legislation
     description: The legislation that mandates the creation or management of the Dataset.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcatap:applicableLegislation
     is_a: applicable_legislation
@@ -3611,9 +3611,9 @@ slots:
     inlined_as_list: true
   Dataset_conforms_to:
     name: Dataset_conforms_to
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#conforms_to
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#conforms_to
     description: An implementing rule or other specification.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:conformsTo
     is_a: conforms_to
@@ -3632,10 +3632,10 @@ slots:
     inlined_as_list: true
   Dataset_contact_point:
     name: Dataset_contact_point
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#contact_point
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#contact_point
     description: Contact information that can be used for sending comments about the
       Dataset.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:contactPoint
     is_a: contact_point
@@ -3655,9 +3655,9 @@ slots:
     inlined_as_list: true
   Dataset_creator:
     name: Dataset_creator
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#creator
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#creator
     description: An entity responsible for producing the dataset.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:creator
     is_a: creator
@@ -3676,9 +3676,9 @@ slots:
     inlined_as_list: true
   Dataset_dataset_distribution:
     name: Dataset_dataset_distribution
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#dataset_distribution
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#dataset_distribution
     description: An available Distribution for the Dataset.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:distribution
     is_a: dataset_distribution
@@ -3697,9 +3697,9 @@ slots:
     inlined_as_list: true
   Dataset_description:
     name: Dataset_description
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#description
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#description
     description: A free-text account of the Dataset.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:description
     is_a: description
@@ -3717,9 +3717,9 @@ slots:
     inlined_as_list: true
   Dataset_documentation:
     name: Dataset_documentation
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#documentation
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#documentation
     description: A page or document about this Dataset.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - foaf:page
     is_a: documentation
@@ -3738,9 +3738,9 @@ slots:
     inlined_as_list: true
   Dataset_frequency:
     name: Dataset_frequency
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#frequency
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#frequency
     description: The frequency at which the Dataset is updated.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:accrualPeriodicity
     is_a: frequency
@@ -3759,9 +3759,9 @@ slots:
     inlined_as_list: false
   Dataset_geographical_coverage:
     name: Dataset_geographical_coverage
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#geographical_coverage
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#geographical_coverage
     description: A geographic region that is covered by the Dataset.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:spatial
     is_a: geographical_coverage
@@ -3780,10 +3780,10 @@ slots:
     inlined_as_list: true
   Dataset_has_version:
     name: Dataset_has_version
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#has_version
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#has_version
     description: A related Dataset that is a version, edition, or adaptation of the
       described Dataset.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:hasVersion
     is_a: has_version
@@ -3802,10 +3802,10 @@ slots:
     inlined_as_list: true
   Dataset_identifier:
     name: Dataset_identifier
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#identifier
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#identifier
     description: The main identifier for the Dataset, e.g. the URI or other unique
       identifier in the context of the Catalogue.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:identifier
     is_a: identifier
@@ -3823,9 +3823,9 @@ slots:
     inlined_as_list: true
   Dataset_in_series:
     name: Dataset_in_series
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#in_series
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#in_series
     description: A dataset series of which the dataset is part.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:inSeries
     is_a: in_series
@@ -3844,10 +3844,10 @@ slots:
     inlined_as_list: true
   Dataset_is_referenced_by:
     name: Dataset_is_referenced_by
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#is_referenced_by
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#is_referenced_by
     description: A related resource, such as a publication, that references, cites,
       or otherwise points to the dataset.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:isReferencedBy
     is_a: is_referenced_by
@@ -3866,9 +3866,9 @@ slots:
     inlined_as_list: true
   Dataset_keyword:
     name: Dataset_keyword
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#keyword
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#keyword
     description: A keyword or tag describing the Dataset.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:keyword
     is_a: keyword
@@ -3887,10 +3887,10 @@ slots:
     inlined_as_list: true
   Dataset_landing_page:
     name: Dataset_landing_page
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#landing_page
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#landing_page
     description: A web page that provides access to the Dataset, its Distributions
       and/or additional information.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:landingPage
     is_a: landing_page
@@ -3909,9 +3909,9 @@ slots:
     inlined_as_list: true
   Dataset_language:
     name: Dataset_language
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#language
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#language
     description: A language of the Dataset.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:language
     is_a: language
@@ -3930,9 +3930,9 @@ slots:
     inlined_as_list: true
   Dataset_modification_date:
     name: Dataset_modification_date
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#modification_date
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#modification_date
     description: The most recent date on which the Dataset was changed or modified.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:modified
     is_a: modification_date
@@ -3950,9 +3950,9 @@ slots:
     inlined_as_list: false
   Dataset_other_identifier:
     name: Dataset_other_identifier
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#other_identifier
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#other_identifier
     description: A secondary identifier of the Dataset
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - adms:identifier
     is_a: other_identifier
@@ -3971,9 +3971,9 @@ slots:
     inlined_as_list: true
   Dataset_provenance:
     name: Dataset_provenance
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#provenance
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#provenance
     description: A statement about the lineage of a Dataset.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:provenance
     is_a: provenance
@@ -3992,9 +3992,9 @@ slots:
     inlined_as_list: true
   Dataset_publisher:
     name: Dataset_publisher
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#publisher
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#publisher
     description: An entity (organisation) responsible for making the Dataset available.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:publisher
     is_a: publisher
@@ -4013,9 +4013,9 @@ slots:
     inlined_as_list: true
   Dataset_qualified_attribution:
     name: Dataset_qualified_attribution
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#qualified_attribution
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#qualified_attribution
     description: An Agent having some form of responsibility for the resource.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - prov:qualifiedAttribution
     is_a: qualified_attribution
@@ -4034,9 +4034,9 @@ slots:
     inlined_as_list: true
   Dataset_qualified_relation:
     name: Dataset_qualified_relation
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#qualified_relation
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#qualified_relation
     description: A description of a relationship with another resource.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:qualifiedRelation
     is_a: qualified_relation
@@ -4055,9 +4055,9 @@ slots:
     inlined_as_list: true
   Dataset_related_resource:
     name: Dataset_related_resource
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#related_resource
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#related_resource
     description: A related resource.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:relation
     is_a: related_resource
@@ -4076,9 +4076,9 @@ slots:
     inlined_as_list: true
   Dataset_release_date:
     name: Dataset_release_date
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#release_date
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#release_date
     description: The date of formal issuance (e.g., publication) of the Dataset.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:issued
     is_a: release_date
@@ -4096,9 +4096,9 @@ slots:
     inlined_as_list: false
   Dataset_sample:
     name: Dataset_sample
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#sample
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#sample
     description: A sample distribution of the dataset.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - adms:sample
     is_a: sample
@@ -4117,9 +4117,9 @@ slots:
     inlined_as_list: true
   Dataset_source:
     name: Dataset_source
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#source
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#source
     description: A related Dataset from which the described Dataset is derived.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:source
     is_a: source
@@ -4138,10 +4138,10 @@ slots:
     inlined_as_list: true
   Dataset_spatial_resolution:
     name: Dataset_spatial_resolution
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#spatial_resolution
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#spatial_resolution
     description: The minimum spatial separation resolvable in a dataset, measured
       in meters.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:spatialResolutionInMeters
     is_a: spatial_resolution
@@ -4159,9 +4159,9 @@ slots:
     inlined_as_list: false
   Dataset_temporal_coverage:
     name: Dataset_temporal_coverage
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#temporal_coverage
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#temporal_coverage
     description: A temporal period that the Dataset covers.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:temporal
     is_a: temporal_coverage
@@ -4180,9 +4180,9 @@ slots:
     inlined_as_list: true
   Dataset_temporal_resolution:
     name: Dataset_temporal_resolution
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#temporal_resolution
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#temporal_resolution
     description: The minimum time period resolvable in the dataset.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:temporalResolution
     is_a: temporal_resolution
@@ -4200,9 +4200,9 @@ slots:
     inlined_as_list: true
   Dataset_theme:
     name: Dataset_theme
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#theme
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#theme
     description: A category of the Dataset.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:theme
     is_a: theme
@@ -4222,9 +4222,9 @@ slots:
     inlined_as_list: true
   Dataset_title:
     name: Dataset_title
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#title
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#title
     description: A name given to the Dataset.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:title
     is_a: title
@@ -4242,9 +4242,9 @@ slots:
     inlined_as_list: true
   Dataset_type:
     name: Dataset_type
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#type
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#type
     description: A type of the Dataset.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:type
     is_a: type
@@ -4263,9 +4263,9 @@ slots:
     inlined_as_list: true
   Dataset_version:
     name: Dataset_version
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#version
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#version
     description: The version indicator (name or identifier) of a resource.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:version
     is_a: version
@@ -4283,10 +4283,10 @@ slots:
     inlined_as_list: true
   Dataset_version_notes:
     name: Dataset_version_notes
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#version_notes
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#version_notes
     description: A description of the differences between this version and a previous
       version of the Dataset.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - adms:versionNotes
     is_a: version_notes
@@ -4304,12 +4304,12 @@ slots:
     inlined_as_list: true
   Dataset_was_generated_by:
     name: Dataset_was_generated_by
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#was_generated_by
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#was_generated_by
     description: An activity that generated, or provides the business context for,
       the creation of the dataset.
     notes:
     - stricter than DCAT-AP
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - prov:wasGeneratedBy
     is_a: was_generated_by
@@ -4328,10 +4328,10 @@ slots:
     inlined_as_list: true
   DatasetSeries_applicable_legislation:
     name: DatasetSeries_applicable_legislation
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#applicable_legislation
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#applicable_legislation
     description: The legislation that mandates the creation or management of the Dataset
       Series.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcatap:applicableLegislation
     is_a: applicable_legislation
@@ -4350,10 +4350,10 @@ slots:
     inlined_as_list: true
   DatasetSeries_contact_point:
     name: DatasetSeries_contact_point
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#contact_point
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#contact_point
     description: Contact information that can be used for sending comments about the
       Dataset Series.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:contactPoint
     is_a: contact_point
@@ -4372,9 +4372,9 @@ slots:
     inlined_as_list: true
   DatasetSeries_description:
     name: DatasetSeries_description
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#description
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#description
     description: A free-text account of the Dataset Series.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:description
     is_a: description
@@ -4392,9 +4392,9 @@ slots:
     inlined_as_list: true
   DatasetSeries_frequency:
     name: DatasetSeries_frequency
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#frequency
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#frequency
     description: The frequency at which the Dataset Series is updated.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:accrualPeriodicity
     is_a: frequency
@@ -4413,9 +4413,9 @@ slots:
     inlined_as_list: false
   DatasetSeries_geographical_coverage:
     name: DatasetSeries_geographical_coverage
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#geographical_coverage
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#geographical_coverage
     description: A geographic region that is covered by the Dataset Series.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:spatial
     is_a: geographical_coverage
@@ -4434,9 +4434,9 @@ slots:
     inlined_as_list: true
   DatasetSeries_modification_date:
     name: DatasetSeries_modification_date
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#modification_date
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#modification_date
     description: The most recent date on which the Dataset Series was changed or modified.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:modified
     is_a: modification_date
@@ -4454,10 +4454,10 @@ slots:
     inlined_as_list: false
   DatasetSeries_publisher:
     name: DatasetSeries_publisher
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#publisher
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#publisher
     description: 'An entity (organisation) responsible for ensuring the coherency
       of the Dataset Series '
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:publisher
     is_a: publisher
@@ -4476,9 +4476,9 @@ slots:
     inlined_as_list: true
   DatasetSeries_release_date:
     name: DatasetSeries_release_date
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#release_date
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#release_date
     description: The date of formal issuance (e.g., publication) of the Dataset Series.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:issued
     is_a: release_date
@@ -4496,9 +4496,9 @@ slots:
     inlined_as_list: false
   DatasetSeries_temporal_coverage:
     name: DatasetSeries_temporal_coverage
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#temporal_coverage
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#temporal_coverage
     description: A temporal period that the Dataset Series covers.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:temporal
     is_a: temporal_coverage
@@ -4517,9 +4517,9 @@ slots:
     inlined_as_list: true
   DatasetSeries_title:
     name: DatasetSeries_title
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#title
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#title
     description: A name given to the Dataset Series.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:title
     is_a: title
@@ -4537,10 +4537,10 @@ slots:
     inlined_as_list: true
   DefinedTerm_title:
     name: DefinedTerm_title
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#title
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#title
     description: This slot is described in more detail within the class in which it
       is used.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - schema:name
     is_a: title
@@ -4555,9 +4555,9 @@ slots:
     range: string
   Device_has_part:
     name: Device_has_part
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#has_part
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#has_part
     description: The slot to specify parts of a Device that are themselves Devices.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:hasPart
     is_a: AgenticEntity_has_part
@@ -4575,9 +4575,9 @@ slots:
     inlined_as_list: true
   Device_other_identifier:
     name: Device_other_identifier
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#other_identifier
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#other_identifier
     description: A slot to provide a secondary identifier for a Device.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - adms:identifier
     is_a: AgenticEntity_other_identifier
@@ -4596,9 +4596,9 @@ slots:
     inlined_as_list: true
   Distribution_access_URL:
     name: Distribution_access_URL
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#access_URL
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#access_URL
     description: A URL that gives access to a Distribution of the Dataset.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:accessURL
     is_a: access_URL
@@ -4617,9 +4617,9 @@ slots:
     inlined_as_list: true
   Distribution_access_service:
     name: Distribution_access_service
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#access_service
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#access_service
     description: A data service that gives access to the distribution of the dataset.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:accessService
     is_a: access_service
@@ -4638,9 +4638,9 @@ slots:
     inlined_as_list: true
   Distribution_applicable_legislation:
     name: Distribution_applicable_legislation
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#applicable_legislation
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#applicable_legislation
     description: The legislation that mandates the creation or management of the Distribution.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcatap:applicableLegislation
     is_a: applicable_legislation
@@ -4659,10 +4659,10 @@ slots:
     inlined_as_list: true
   Distribution_availability:
     name: Distribution_availability
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#availability
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#availability
     description: An indication how long it is planned to keep the Distribution of
       the Dataset available.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcatap:availability
     is_a: availability
@@ -4682,9 +4682,9 @@ slots:
     inlined_as_list: false
   Distribution_byte_size:
     name: Distribution_byte_size
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#byte_size
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#byte_size
     description: The size of a Distribution in bytes.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:byteSize
     is_a: byte_size
@@ -4702,10 +4702,10 @@ slots:
     inlined_as_list: false
   Distribution_checksum:
     name: Distribution_checksum
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#checksum
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#checksum
     description: A mechanism that can be used to verify that the contents of a distribution
       have not changed.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - spdx:checksum
     is_a: checksum
@@ -4724,10 +4724,10 @@ slots:
     inlined_as_list: true
   Distribution_compression_format:
     name: Distribution_compression_format
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#compression_format
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#compression_format
     description: The format of the file in which the data is contained in a compressed
       form, e.g. to reduce the size of the downloadable file.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:compressFormat
     is_a: compression_format
@@ -4746,9 +4746,9 @@ slots:
     inlined_as_list: true
   Distribution_description:
     name: Distribution_description
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#description
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#description
     description: A free-text account of the Distribution.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:description
     is_a: description
@@ -4767,9 +4767,9 @@ slots:
     inlined_as_list: true
   Distribution_documentation:
     name: Distribution_documentation
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#documentation
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#documentation
     description: A page or document about this Distribution.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - foaf:page
     is_a: documentation
@@ -4788,9 +4788,9 @@ slots:
     inlined_as_list: true
   Distribution_download_URL:
     name: Distribution_download_URL
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#download_URL
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#download_URL
     description: A URL that is a direct link to a downloadable file in a given format.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:downloadURL
     is_a: download_URL
@@ -4809,9 +4809,9 @@ slots:
     inlined_as_list: true
   Distribution_format:
     name: Distribution_format
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#format
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#format
     description: The file format of the Distribution.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:format
     is_a: format
@@ -4831,10 +4831,10 @@ slots:
     inlined_as_list: true
   Distribution_has_policy:
     name: Distribution_has_policy
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#has_policy
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#has_policy
     description: The policy expressing the rights associated with the distribution
       if using the [[ODRL]] vocabulary.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - odrl:hasPolicy
     is_a: has_policy
@@ -4853,9 +4853,9 @@ slots:
     inlined_as_list: true
   Distribution_language:
     name: Distribution_language
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#language
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#language
     description: A language used in the Distribution.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:language
     is_a: language
@@ -4874,9 +4874,9 @@ slots:
     inlined_as_list: true
   Distribution_licence:
     name: Distribution_licence
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#licence
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#licence
     description: A licence under which the Distribution is made available.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:license
     is_a: licence
@@ -4895,9 +4895,9 @@ slots:
     inlined_as_list: true
   Distribution_linked_schemas:
     name: Distribution_linked_schemas
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#linked_schemas
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#linked_schemas
     description: An established schema to which the described Distribution conforms.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:conformsTo
     is_a: linked_schemas
@@ -4916,10 +4916,10 @@ slots:
     inlined_as_list: true
   Distribution_media_type:
     name: Distribution_media_type
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#media_type
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#media_type
     description: The media type of the Distribution as defined in the official register
       of media types managed by IANA.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:mediaType
     is_a: media_type
@@ -4938,9 +4938,9 @@ slots:
     inlined_as_list: false
   Distribution_modification_date:
     name: Distribution_modification_date
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#modification_date
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#modification_date
     description: The most recent date on which the Distribution was changed or modified.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:modified
     is_a: modification_date
@@ -4958,10 +4958,10 @@ slots:
     inlined_as_list: false
   Distribution_packaging_format:
     name: Distribution_packaging_format
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#packaging_format
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#packaging_format
     description: The format of the file in which one or more data files are grouped
       together, e.g. to enable a set of related files to be downloaded together.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:packageFormat
     is_a: packaging_format
@@ -4980,9 +4980,9 @@ slots:
     inlined_as_list: true
   Distribution_release_date:
     name: Distribution_release_date
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#release_date
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#release_date
     description: The date of formal issuance (e.g., publication) of the Distribution.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:issued
     is_a: release_date
@@ -5000,9 +5000,9 @@ slots:
     inlined_as_list: false
   Distribution_rights:
     name: Distribution_rights
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#rights
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#rights
     description: A statement that specifies rights associated with the Distribution.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:rights
     is_a: rights
@@ -5021,10 +5021,10 @@ slots:
     inlined_as_list: true
   Distribution_spatial_resolution:
     name: Distribution_spatial_resolution
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#spatial_resolution
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#spatial_resolution
     description: The minimum spatial separation resolvable in a dataset distribution,
       measured in meters.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:spatialResolutionInMeters
     is_a: spatial_resolution
@@ -5042,9 +5042,9 @@ slots:
     inlined_as_list: false
   Distribution_status:
     name: Distribution_status
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#status
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#status
     description: The status of the distribution in the context of maturity lifecycle.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - adms:status
     is_a: status
@@ -5063,9 +5063,9 @@ slots:
     inlined_as_list: true
   Distribution_temporal_resolution:
     name: Distribution_temporal_resolution
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#temporal_resolution
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#temporal_resolution
     description: The minimum time period resolvable in the dataset distribution.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:temporalResolution
     is_a: temporal_resolution
@@ -5083,9 +5083,9 @@ slots:
     inlined_as_list: true
   Distribution_title:
     name: Distribution_title
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#title
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#title
     description: A name given to the Distribution.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:title
     is_a: title
@@ -5103,9 +5103,9 @@ slots:
     inlined_as_list: true
   Entity_title:
     name: Entity_title
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#title
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#title
     description: The slot to provide a title for the Entity.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:title
     is_a: title
@@ -5120,9 +5120,9 @@ slots:
     range: string
   Entity_description:
     name: Entity_description
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#description
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#description
     description: The slot to provide a description for the Entity.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:description
     is_a: description
@@ -5137,9 +5137,9 @@ slots:
     range: string
   Entity_other_identifier:
     name: Entity_other_identifier
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#other_identifier
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#other_identifier
     description: A slot to provide a secondary identifier of the Entity.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - adms:identifier
     is_a: other_identifier
@@ -5158,9 +5158,9 @@ slots:
     inlined_as_list: true
   Entity_has_part:
     name: Entity_has_part
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#has_part
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#has_part
     description: A slot to provide a part of the Entity.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:hasPart
     is_a: has_part
@@ -5178,13 +5178,13 @@ slots:
     inlined_as_list: true
   Entity_part_of:
     name: Entity_part_of
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#part_of
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#part_of
     description: The slot to specify an Entity of which the Entity is a part.
     notes:
     - not in DCAT-AP
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:isPartOf
     is_a: part_of
@@ -5202,9 +5202,9 @@ slots:
     inlined_as_list: true
   EvaluatedActivity_other_identifier:
     name: EvaluatedActivity_other_identifier
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#other_identifier
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#other_identifier
     description: A slot to provide a secondary identifier of the EvaluatedActivity.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - adms:identifier
     is_a: Activity_other_identifier
@@ -5223,9 +5223,9 @@ slots:
     inlined_as_list: true
   EvaluatedEntity_title:
     name: EvaluatedEntity_title
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#title
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#title
     description: The slot to provide a title for the EvaluatedEntity.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:title
     is_a: Entity_title
@@ -5240,9 +5240,9 @@ slots:
     range: string
   EvaluatedEntity_description:
     name: EvaluatedEntity_description
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#description
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#description
     description: The slot to provide a description for the EvaluatedEntity.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:description
     is_a: Entity_description
@@ -5257,9 +5257,9 @@ slots:
     range: string
   EvaluatedEntity_was_generated_by:
     name: EvaluatedEntity_was_generated_by
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#was_generated_by
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#was_generated_by
     description: A slot to provide the Activity which created the EvaluatedEntity.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - prov:wasGeneratedBy
     is_a: was_generated_by
@@ -5277,9 +5277,9 @@ slots:
     inlined_as_list: true
   EvaluatedEntity_other_identifier:
     name: EvaluatedEntity_other_identifier
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#other_identifier
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#other_identifier
     description: A slot to provide a secondary identifier of the EvaluatedEntity.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - adms:identifier
     is_a: Entity_other_identifier
@@ -5298,10 +5298,10 @@ slots:
     inlined_as_list: true
   Identifier_notation:
     name: Identifier_notation
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#notation
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#notation
     description: A string that is an identifier in the context of the identifier scheme
       referenced by its datatype.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - skos:notation
     is_a: notation
@@ -5319,10 +5319,10 @@ slots:
     inlined_as_list: false
   LicenseDocument_type:
     name: LicenseDocument_type
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#type
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#type
     description: A type of licence, e.g. indicating 'public domain' or 'royalties
       required'.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:type
     is_a: type
@@ -5342,9 +5342,9 @@ slots:
     inlined_as_list: true
   Location_bbox:
     name: Location_bbox
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#bbox
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#bbox
     description: The geographic bounding box of a resource.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:bbox
     is_a: bbox
@@ -5363,9 +5363,9 @@ slots:
     inlined_as_list: false
   Location_centroid:
     name: Location_centroid
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#centroid
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#centroid
     description: The geographic center (centroid) of a resource.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:centroid
     is_a: centroid
@@ -5384,9 +5384,9 @@ slots:
     inlined_as_list: false
   Location_geometry:
     name: Location_geometry
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#geometry
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#geometry
     description: The corresponding geometry for a resource.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - locn:geometry
     is_a: geometry
@@ -5405,9 +5405,9 @@ slots:
     inlined_as_list: false
   PeriodOfTime_beginning:
     name: PeriodOfTime_beginning
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#beginning
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#beginning
     description: The beginning of a period or interval.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - time:hasBeginning
     is_a: beginning
@@ -5426,9 +5426,9 @@ slots:
     inlined_as_list: true
   PeriodOfTime_end:
     name: PeriodOfTime_end
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#end
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#end
     description: The end of a period or interval.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - time:hasEnd
     is_a: end
@@ -5447,9 +5447,9 @@ slots:
     inlined_as_list: true
   PeriodOfTime_end_date:
     name: PeriodOfTime_end_date
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#end_date
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#end_date
     description: The end of the period.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:endDate
     is_a: end_date
@@ -5468,9 +5468,9 @@ slots:
     inlined_as_list: true
   PeriodOfTime_start_date:
     name: PeriodOfTime_start_date
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#start_date
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#start_date
     description: The start of the period.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:startDate
     is_a: start_date
@@ -5489,11 +5489,11 @@ slots:
     inlined_as_list: false
   QualitativeAttribute_value:
     name: QualitativeAttribute_value
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#value
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#value
     description: The slot to provide the literal value of the QualitativeAttribute.
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - prov:value
     is_a: value
@@ -5509,11 +5509,11 @@ slots:
     required: true
   QuantitativeAttribute_value:
     name: QuantitativeAttribute_value
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#value
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#value
     description: The slot to provide the literal value of the QuantitativeAttribute.
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - prov:value
     is_a: value
@@ -5529,10 +5529,10 @@ slots:
     required: true
   Relationship_had_role:
     name: Relationship_had_role
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#had_role
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#had_role
     description: A function of an entity or agent with respect to another entity or
       resource.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:hadRole
     is_a: had_role
@@ -5551,9 +5551,9 @@ slots:
     inlined_as_list: true
   Relationship_relation:
     name: Relationship_relation
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#relation
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#relation
     description: A resource related to the source resource.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:relation
     is_a: relation
@@ -5572,9 +5572,9 @@ slots:
     inlined_as_list: true
   Software_has_part:
     name: Software_has_part
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#has_part
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#has_part
     description: The slot to specify parts of a Software that are themselves Software.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:hasPart
     is_a: AgenticEntity_has_part
@@ -5592,9 +5592,9 @@ slots:
     inlined_as_list: true
   Software_other_identifier:
     name: Software_other_identifier
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#other_identifier
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#other_identifier
     description: A slot to provide a secondary identifier for a Software.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - adms:identifier
     is_a: AgenticEntity_other_identifier
@@ -5614,14 +5614,14 @@ slots:
 classes:
   Activity:
     name: Activity
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#Activity
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Activity
     description: See [DCAT-AP specs:Activity](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Activity)
     notes:
     - The specified properties (slots) of this class are part of our extension of
       the DCAT-AP.
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - prov:Activity
     mixins:
@@ -5707,9 +5707,9 @@ classes:
     class_uri: prov:Activity
   Agent:
     name: Agent
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#Agent
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Agent
     description: See [DCAT-AP specs:Agent](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Agent)
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - foaf:Agent
     slots:
@@ -5736,11 +5736,11 @@ classes:
     class_uri: foaf:Agent
   AgenticEntity:
     name: AgenticEntity
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#AgenticEntity
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#AgenticEntity
     description: An entity that is somehow responsible for an Activity to take place.
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - prov:Agent
     mixins:
@@ -5784,14 +5784,14 @@ classes:
     class_uri: prov:Agent
   AnalysisDataset:
     name: AnalysisDataset
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#AnalysisDataset
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#AnalysisDataset
     description: A Dataset that was generated by an analysis of some previously generated
       data. For example, a dataset that contains the data of an assignment of a chemical
       structure to a sample based on the spectral data obtained from the sample is
       an AnalyticalDataset.
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:Dataset
     is_a: Dataset
@@ -5844,11 +5844,11 @@ classes:
     class_uri: dcat:Dataset
   AnalysisSourceData:
     name: AnalysisSourceData
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#AnalysisSourceData
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#AnalysisSourceData
     description: Information that was evaluated within a DataAnalysis.
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - prov:Entity
     is_a: EvaluatedEntity
@@ -5874,10 +5874,10 @@ classes:
     class_uri: prov:Entity
   Any:
     name: Any
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#Any
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Any
     description: This abstract class is needed to create the union of Dataset, DatasetSeries,
       Catalogue and DataService for the range of the slot [primary_topic](https://nfdi-de.github.io/chem-dcat-ap/elements/primary_topic/).
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - linkml:Any
     slots:
@@ -5886,9 +5886,9 @@ classes:
     class_uri: linkml:Any
   Attribution:
     name: Attribution
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#Attribution
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Attribution
     description: See [DCAT-AP specs:Attribution](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Attribution)
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - prov:Attribution
     is_a: SupportiveEntity
@@ -5898,9 +5898,9 @@ classes:
     class_uri: prov:Attribution
   Catalogue:
     name: Catalogue
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#Catalogue
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Catalogue
     description: See [DCAT-AP specs:Catalogue](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Catalogue)
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:Catalog
     slots:
@@ -6089,9 +6089,9 @@ classes:
     class_uri: dcat:Catalog
   CatalogueRecord:
     name: CatalogueRecord
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#CatalogueRecord
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#CatalogueRecord
     description: See [DCAT-AP specs:CatalogueRecord](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#CatalogueRecord)
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:CatalogRecord
     slots:
@@ -6196,9 +6196,9 @@ classes:
     class_uri: dcat:CatalogRecord
   Checksum:
     name: Checksum
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#Checksum
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Checksum
     description: See [DCAT-AP specs:Checksum](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Checksum)
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - spdx:Checksum
     slots:
@@ -6225,9 +6225,9 @@ classes:
     class_uri: spdx:Checksum
   ChecksumAlgorithm:
     name: ChecksumAlgorithm
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#ChecksumAlgorithm
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#ChecksumAlgorithm
     description: See [DCAT-AP specs:ChecksumAlgorithm](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#ChecksumAlgorithm)
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - spdx:ChecksumAlgorithm
     is_a: SupportiveEntity
@@ -6237,12 +6237,12 @@ classes:
     class_uri: spdx:ChecksumAlgorithm
   ClassifierMixin:
     name: ClassifierMixin
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#ClassifierMixin
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#ClassifierMixin
     description: A mixin with which an entity of this schema can be classified via
       an additional rdf:type or dcterms:type assertion.
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     abstract: true
     mixin: true
     slots:
@@ -6256,9 +6256,9 @@ classes:
     class_uri: dcatap_plus:ClassifierMixin
   Concept:
     name: Concept
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#Concept
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Concept
     description: See [DCAT-AP specs:Concept](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Concept)
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - skos:Concept
     is_a: SupportiveEntity
@@ -6278,9 +6278,9 @@ classes:
     class_uri: skos:Concept
   ConceptScheme:
     name: ConceptScheme
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#ConceptScheme
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#ConceptScheme
     description: See [DCAT-AP specs:ConceptScheme](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#ConceptScheme)
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - skos:ConceptScheme
     is_a: SupportiveEntity
@@ -6299,11 +6299,11 @@ classes:
     class_uri: skos:ConceptScheme
   DataAnalysis:
     name: DataAnalysis
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#DataAnalysis
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#DataAnalysis
     description: An Activity that evaluates the data produced by another Activity.
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - prov:Activity
     exact_mappings:
@@ -6340,12 +6340,12 @@ classes:
     class_uri: prov:Activity
   DataGeneratingActivity:
     name: DataGeneratingActivity
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#DataGeneratingActivity
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#DataGeneratingActivity
     description: An Activity (process) that has the objective to produce information
       (in form of a dataset) about another Activity or Entity.
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - prov:Activity
     is_a: Activity
@@ -6371,9 +6371,9 @@ classes:
     class_uri: prov:Activity
   DataService:
     name: DataService
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#DataService
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#DataService
     description: See [DCAT-AP specs:DataService](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#DataService)
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:DataService
     slots:
@@ -6538,12 +6538,12 @@ classes:
     class_uri: dcat:DataService
   Dataset:
     name: Dataset
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#Dataset
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Dataset
     description: A collection of data, published or curated by a single agent, and
       available for access or download in one or more representations.
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:Dataset
     slots:
@@ -6893,9 +6893,9 @@ classes:
     class_uri: dcat:Dataset
   DatasetSeries:
     name: DatasetSeries
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#DatasetSeries
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#DatasetSeries
     description: See [DCAT-AP specs:DatasetSeries](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#DatasetSeries)
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:DatasetSeries
     slots:
@@ -6998,13 +6998,13 @@ classes:
     class_uri: dcat:DatasetSeries
   DefinedTerm:
     name: DefinedTerm
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#DefinedTerm
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#DefinedTerm
     description: A word, name, acronym or phrase that is defined in a controlled vocabulary
       (CV) and that is used to provide an additional rdf:type or dcterms:type of a
       class within this schema.
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - schema:DefinedTerm
     slots:
@@ -7024,12 +7024,12 @@ classes:
     class_uri: schema:DefinedTerm
   Device:
     name: Device
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#Device
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Device
     description: A material instrument that is designed to perform a function primarily
       by means of its mechanical or electrical nature.
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     aliases:
     - hardware instrument
     mappings:
@@ -7070,9 +7070,9 @@ classes:
     class_uri: prov:Agent
   Distribution:
     name: Distribution
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#Distribution
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Distribution
     description: See [DCAT-AP specs:Distribution](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Distribution)
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:Distribution
     slots:
@@ -7309,9 +7309,9 @@ classes:
     class_uri: dcat:Distribution
   Document:
     name: Document
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#Document
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Document
     description: See [DCAT-AP specs:Document](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Document)
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - foaf:Document
     is_a: SupportiveEntity
@@ -7322,12 +7322,12 @@ classes:
     class_uri: foaf:Document
   Entity:
     name: Entity
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#Entity
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Entity
     description: A physical, digital, conceptual, or other kind of thing with some
       fixed aspects; entities may be real or imaginary.
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - prov:Entity
     mixins:
@@ -7374,11 +7374,11 @@ classes:
     class_uri: prov:Entity
   EvaluatedActivity:
     name: EvaluatedActivity
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#EvaluatedActivity
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#EvaluatedActivity
     description: An activity or proces that is being evaluated in a DataGeneratingActivity.
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - prov:Activity
     is_a: Activity
@@ -7408,11 +7408,11 @@ classes:
     class_uri: prov:Activity
   EvaluatedEntity:
     name: EvaluatedEntity
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#EvaluatedEntity
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#EvaluatedEntity
     description: An Entity that is being evaluated in a DataGeneratingActivity.
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - prov:Entity
     is_a: Entity
@@ -7451,9 +7451,9 @@ classes:
     class_uri: prov:Entity
   Frequency:
     name: Frequency
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#Frequency
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Frequency
     description: See [DCAT-AP specs:Frequency](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Frequency)
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:Frequency
     is_a: SupportiveEntity
@@ -7463,9 +7463,9 @@ classes:
     class_uri: dcterms:Frequency
   Geometry:
     name: Geometry
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#Geometry
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Geometry
     description: See [DCAT-AP specs:Geometry](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Geometry)
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - locn:Geometry
     is_a: SupportiveEntity
@@ -7475,9 +7475,9 @@ classes:
     class_uri: locn:Geometry
   Identifier:
     name: Identifier
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#Identifier
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Identifier
     description: See [DCAT-AP specs:Identifier](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Identifier)
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - adms:Identifier
     is_a: SupportiveEntity
@@ -7498,17 +7498,17 @@ classes:
     class_uri: adms:Identifier
   Kind:
     name: Kind
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#Kind
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Kind
     description: See [DCAT-AP specs:Kind](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Kind)
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - vcard:Kind
     class_uri: vcard:Kind
   LegalResource:
     name: LegalResource
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#LegalResource
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#LegalResource
     description: See [DCAT-AP specs:LegalResource](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#LegalResource)
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - eli:LegalResource
     is_a: SupportiveEntity
@@ -7519,9 +7519,9 @@ classes:
     class_uri: eli:LegalResource
   LicenseDocument:
     name: LicenseDocument
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#LicenseDocument
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#LicenseDocument
     description: See [DCAT-AP specs:LicenseDocument](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#LicenseDocument)
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:LicenseDocument
     is_a: SupportiveEntity
@@ -7544,9 +7544,9 @@ classes:
     class_uri: dcterms:LicenseDocument
   LinguisticSystem:
     name: LinguisticSystem
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#LinguisticSystem
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#LinguisticSystem
     description: See [DCAT-AP specs:LinguisticSystem](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#LinguisticSystem)
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:LinguisticSystem
     is_a: SupportiveEntity
@@ -7556,9 +7556,9 @@ classes:
     class_uri: dcterms:LinguisticSystem
   Location:
     name: Location
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#Location
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Location
     description: See [DCAT-AP specs:Location](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Location)
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:Location
     slots:
@@ -7595,9 +7595,9 @@ classes:
     class_uri: dcterms:Location
   MediaType:
     name: MediaType
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#MediaType
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#MediaType
     description: See [DCAT-AP specs:MediaType](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#MediaType)
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:MediaType
     is_a: SupportiveEntity
@@ -7607,9 +7607,9 @@ classes:
     class_uri: dcterms:MediaType
   MediaTypeOrExtent:
     name: MediaTypeOrExtent
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#MediaTypeOrExtent
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#MediaTypeOrExtent
     description: See [DCAT-AP specs:MediaTypeOrExtent](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#MediaTypeOrExtent)
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:MediaTypeOrExtent
     is_a: SupportiveEntity
@@ -7619,9 +7619,9 @@ classes:
     class_uri: dcterms:MediaTypeOrExtent
   PeriodOfTime:
     name: PeriodOfTime
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#PeriodOfTime
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#PeriodOfTime
     description: See [DCAT-AP specs:PeriodOfTime](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#PeriodOfTime)
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:PeriodOfTime
     is_a: SupportiveEntity
@@ -7670,7 +7670,7 @@ classes:
     class_uri: dcterms:PeriodOfTime
   Plan:
     name: Plan
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#Plan
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Plan
     description: A piece of information that specifies how an activity has to be carried
       out by its agents including what kind of steps have to be taken and what kind
       of parameters have to be met/set.
@@ -7680,7 +7680,7 @@ classes:
         K, number of scans: 1024, Solvent : chloroform-D1 (CDCl3).'
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     aliases:
     - Plan Specification
     - Method
@@ -7697,9 +7697,9 @@ classes:
     class_uri: prov:Plan
   Policy:
     name: Policy
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#Policy
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Policy
     description: See [DCAT-AP specs:Policy](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Policy)
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - odrl:Policy
     is_a: SupportiveEntity
@@ -7709,9 +7709,9 @@ classes:
     class_uri: odrl:Policy
   ProvenanceStatement:
     name: ProvenanceStatement
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#ProvenanceStatement
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#ProvenanceStatement
     description: See [DCAT-AP specs:ProvenanceStatement](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#ProvenanceStatement)
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:ProvenanceStatement
     is_a: SupportiveEntity
@@ -7721,12 +7721,12 @@ classes:
     class_uri: dcterms:ProvenanceStatement
   QualitativeAttribute:
     name: QualitativeAttribute
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#QualitativeAttribute
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#QualitativeAttribute
     description: A piece of information that is attributed to an Entity, Activity
       or AgenticEntity.
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - prov:Entity
     mixins:
@@ -7745,12 +7745,12 @@ classes:
     class_uri: prov:Entity
   QuantitativeAttribute:
     name: QuantitativeAttribute
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#QuantitativeAttribute
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#QuantitativeAttribute
     description: A quantifiable piece of information that is attributed to an Entity,
       Activity or AgenticEntity.
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - qudt:Quantity
     mixins:
@@ -7802,9 +7802,9 @@ classes:
     class_uri: qudt:Quantity
   Relationship:
     name: Relationship
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#Relationship
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Relationship
     description: See [DCAT-AP specs:Relationship](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Relationship)
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:Relationship
     slots:
@@ -7831,9 +7831,9 @@ classes:
     class_uri: dcat:Relationship
   Resource:
     name: Resource
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#Resource
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Resource
     description: See [DCAT-AP specs:Resource](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Resource)
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - rdfs:Resource
     is_a: SupportiveEntity
@@ -7844,9 +7844,9 @@ classes:
     class_uri: rdfs:Resource
   RightsStatement:
     name: RightsStatement
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#RightsStatement
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#RightsStatement
     description: See [DCAT-AP specs:RightsStatement](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#RightsStatement)
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:RightsStatement
     is_a: SupportiveEntity
@@ -7856,9 +7856,9 @@ classes:
     class_uri: dcterms:RightsStatement
   Role:
     name: Role
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#Role
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Role
     description: See [DCAT-AP specs:Role](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Role)
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcat:Role
     is_a: SupportiveEntity
@@ -7868,12 +7868,12 @@ classes:
     class_uri: dcat:Role
   Software:
     name: Software
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#Software
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Software
     description: An instrument composed of a series of instructions that can be interpreted
       by or directly executed by a computer.
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - prov:SoftwareAgent
     exact_mappings:
@@ -7908,9 +7908,9 @@ classes:
     class_uri: prov:SoftwareAgent
   Standard:
     name: Standard
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#Standard
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Standard
     description: See [DCAT-AP specs:Standard](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Standard)
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - dcterms:Standard
     is_a: SupportiveEntity
@@ -7920,23 +7920,23 @@ classes:
     class_uri: dcterms:Standard
   SupportiveEntity:
     name: SupportiveEntity
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#SupportiveEntity
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#SupportiveEntity
     description: The supportive entities are supporting the main entities in the Application
       Profile. They are included in the Application Profile because they form the
       range of properties.
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     slots:
     - title
     - description
     class_uri: dcatap_plus:SupportiveEntity
   Surrounding:
     name: Surrounding
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#Surrounding
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Surrounding
     description: The surrounding in which the dataset creating activity took place
       (e.g. a lab).
     in_subset:
     - domain_agnostic_core
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - prov:Location
     mixins:
@@ -7949,9 +7949,9 @@ classes:
     class_uri: prov:Location
   TimeInstant:
     name: TimeInstant
-    definition_uri: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#TimeInstant
+    definition_uri: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#TimeInstant
     description: See [DCAT-AP specs:TimeInstant](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#TimeInstant)
-    from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+    from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
     mappings:
     - time:Instant
     is_a: SupportiveEntity
@@ -7961,7 +7961,7 @@ classes:
     class_uri: time:Instant
 metamodel_version: 1.7.0
 source_file: dcat_ap_plus.yaml
-source_file_date: '2025-10-21T14:28:09'
+source_file_date: '2025-10-21T14:42:44'
 source_file_size: 87979
-generation_date: '2025-10-21T14:28:18'
+generation_date: '2025-10-21T14:42:54'
 

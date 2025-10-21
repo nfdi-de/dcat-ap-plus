@@ -403,28 +403,8 @@ Alias: has_quantitative_attribute</p>
 </thead>
 <tbody>
 <tr>
-<td><a href="../Entity/">Entity</a></td>
-<td>A physical, digital, conceptual, or other kind of thing with some fixed aspec...</td>
-<td>no</td>
-</tr>
-<tr>
 <td><a href="../Software/">Software</a></td>
 <td>An instrument composed of a series of instructions that can be interpreted by...</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../DataGeneratingActivity/">DataGeneratingActivity</a></td>
-<td>An Activity (process) that has the objective to produce information (in form ...</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../Device/">Device</a></td>
-<td>A material instrument that is designed to perform a function primarily by mea...</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../AgenticEntity/">AgenticEntity</a></td>
-<td>An entity that is somehow responsible for an Activity to take place</td>
 <td>no</td>
 </tr>
 <tr>
@@ -438,19 +418,39 @@ Alias: has_quantitative_attribute</p>
 <td>no</td>
 </tr>
 <tr>
+<td><a href="../DataAnalysis/">DataAnalysis</a></td>
+<td>An Activity that evaluates the data produced by another Activity</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../AgenticEntity/">AgenticEntity</a></td>
+<td>An entity that is somehow responsible for an Activity to take place</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../DataGeneratingActivity/">DataGeneratingActivity</a></td>
+<td>An Activity (process) that has the objective to produce information (in form ...</td>
+<td>no</td>
+</tr>
+<tr>
 <td><a href="../AnalysisSourceData/">AnalysisSourceData</a></td>
 <td>Information that was evaluated within a DataAnalysis</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Entity/">Entity</a></td>
+<td>A physical, digital, conceptual, or other kind of thing with some fixed aspec...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Device/">Device</a></td>
+<td>A material instrument that is designed to perform a function primarily by mea...</td>
 <td>no</td>
 </tr>
 <tr>
 <td><a href="../Activity/">Activity</a></td>
 <td>See [DCAT-AP specs:Activity](https://semiceu</td>
 <td>yes</td>
-</tr>
-<tr>
-<td><a href="../DataAnalysis/">DataAnalysis</a></td>
-<td>An Activity that evaluates the data produced by another Activity</td>
-<td>no</td>
 </tr>
 </tbody>
 </table>
@@ -469,7 +469,7 @@ Alias: has_quantitative_attribute</p>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml</li>
+<li>from schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml</li>
 </ul>
 <h2 id="mappings">Mappings</h2>
 <table>
@@ -498,7 +498,7 @@ description: The slot to relate a quantitative attribute to an EvaluatedEntity, 
   or AgenticEntity
 in_subset:
 - domain_agnostic_core
-from_schema: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+from_schema: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
 rank: 1000
 slot_uri: dcterms:relation
 alias: has_quantitative_attribute
