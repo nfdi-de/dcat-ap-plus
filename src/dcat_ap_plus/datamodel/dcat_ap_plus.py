@@ -1,8 +1,8 @@
 # Auto generated from dcat_ap_plus.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-10-21T16:15:02
+# Generation date: 2025-10-21T16:36:17
 # Schema: dcat-ap-plus
 #
-# id: https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml
+# id: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
 # description: This metadata schema is an Extension of the DCAT Application Profile for Providing Links to Use-case Specific Context. It allows to provide additional metadata regarding: which kind(s) of entity(s) or activity(s) were evaluated (the dcat:Dataset is about), which kind of activity generated the dcat:Dataset, which kind of instruments were used in the dataset generating activity, in which surrounding (e.g. a laboratory) and according to which plan the dataset generating activity took place, as well as regarding which kind(s) of qualitative and quantitative characteristic were attributed to the evaluated entity or evaluated activity and to the used instruments.
 # license: CC-BY 4.0
 
@@ -72,7 +72,7 @@ SOSA = CurieNamespace('SOSA', 'http://www.w3.org/ns/sosa/')
 ADMS = CurieNamespace('adms', 'http://www.w3.org/ns/adms#')
 DCAT = CurieNamespace('dcat', 'http://www.w3.org/ns/dcat#')
 DCATAP = CurieNamespace('dcatap', 'http://data.europa.eu/r5r/')
-DCATAP_PLUS = CurieNamespace('dcatap_plus', 'https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#')
+DCATAP_PLUS = CurieNamespace('dcatap_plus', 'https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#')
 DCTERMS = CurieNamespace('dcterms', 'http://purl.org/dc/terms/')
 ELI = CurieNamespace('eli', 'http://data.europa.eu/eli/ontology#')
 EPOS = CurieNamespace('epos', 'https://www.epos-eu.org/epos-dcat-ap#')

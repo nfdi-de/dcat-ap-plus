@@ -385,11 +385,11 @@ def build_dcatap_linkml():
     print('\n   --- Building the DCAT-AP LinkML representation ---')
 
     builder = SchemaBuilder(name="dcat-ap")
-    builder.schema.id = 'https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_linkml.yaml'
+    builder.schema.id = 'https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_linkml.yaml'
     builder.schema.description = DESCRIPTION1 + '\nNOTE:' + NOTE
     builder.schema.default_prefix = 'dcatap_linkml'
     builder.schema.prefixes = PREFIX_MAP
-    builder.schema.prefixes['dcatap_linkml']='https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_linkml.yaml#'
+    builder.schema.prefixes['dcatap_linkml']='https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_linkml.yaml#'
     builder.schema.title = 'LinkML schema representation of DCAT-AP 3.0.0'
     builder.schema.license = 'CC-BY 4.0'
     builder.schema.default_range = 'string'
@@ -962,11 +962,11 @@ def build_dcatap_plus():
     # Initialize the extended DCAT-AP LinkML schema
 
     builder = SchemaBuilder(name="dcat-ap-plus")
-    builder.schema.id = 'https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml'
+    builder.schema.id = 'https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml'
     builder.schema.description = DESCRIPTION2
     builder.schema.default_prefix = 'dcatap_plus'
     builder.schema.prefixes = PREFIX_MAP
-    builder.schema.prefixes['dcatap_plus']='https://nfdi-de.github.io/chem-dcat-ap/dcat_ap_plus.yaml#'
+    builder.schema.prefixes['dcatap_plus']='https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#'
     builder.schema.prefixes['BFO']='http://purl.obolibrary.org/obo/BFO_'
     builder.schema.prefixes['OBI']='http://purl.obolibrary.org/obo/OBI_'
     builder.schema.prefixes['IAO'] = 'http://purl.obolibrary.org/obo/IAO_'
