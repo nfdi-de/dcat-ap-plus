@@ -973,6 +973,7 @@ def build_dcatap_plus():
     builder.schema.prefixes['SIO'] = 'http://semanticscience.org/resource/SIO_'
     builder.schema.prefixes['NCIT']='http://purl.obolibrary.org/obo/NCIT_'
     builder.schema.prefixes['SOSA']='http://www.w3.org/ns/sosa/'
+    builder.schema.prefixes['AFR']='http://purl.allotrope.org/ontologies/equipment#AFE_'
     builder.schema.prefixes['qudt']= 'http://qudt.org/schema/qudt/'
     builder.schema.prefixes['schema']= 'http://schema.org/'
     builder.schema.prefixes['ex']= 'http://example.org/'
