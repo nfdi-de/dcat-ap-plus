@@ -55,7 +55,7 @@ prefixes:
   SIO: http://semanticscience.org/resource/SIO_
   NCIT: http://purl.obolibrary.org/obo/NCIT_
   SOSA: http://www.w3.org/ns/sosa/
-  AFR: http://purl.allotrope.org/ontologies/equipment#AFE_
+  AFE: http://purl.allotrope.org/ontologies/equipment#AFE_
   qudt: http://qudt.org/schema/qudt/
   ex: http://example.org/
 default_prefix: dcatap_plus

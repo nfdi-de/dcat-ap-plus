@@ -138,7 +138,7 @@
       "prefix_reference": "http://www.w3.org/ns/sosa/"
     },
     {
-      "prefix_prefix": "AFR",
+      "prefix_prefix": "AFE",
       "prefix_reference": "http://purl.allotrope.org/ontologies/equipment#AFE_"
     },
     {
@@ -7794,9 +7794,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "dcat_ap_plus.yaml",
-  "source_file_date": "2025-10-22T12:09:21",
+  "source_file_date": "2025-10-22T15:08:33",
   "source_file_size": 88038,
-  "generation_date": "2025-10-22T12:09:30",
+  "generation_date": "2025-10-22T15:09:01",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/dcat_ap_plus.context.jsonld",

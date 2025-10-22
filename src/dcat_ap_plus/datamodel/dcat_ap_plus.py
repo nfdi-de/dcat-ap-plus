@@ -1,5 +1,5 @@
 # Auto generated from dcat_ap_plus.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-10-22T12:18:27
+# Generation date: 2025-10-22T15:09:03
 # Schema: dcat-ap-plus
 #
 # id: https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml
@@ -63,7 +63,7 @@ metamodel_version = "1.7.0"
 version = None
 
 # Namespaces
-AFR = CurieNamespace('AFR', 'http://purl.allotrope.org/ontologies/equipment#AFE_')
+AFE = CurieNamespace('AFE', 'http://purl.allotrope.org/ontologies/equipment#AFE_')
 BFO = CurieNamespace('BFO', 'http://purl.obolibrary.org/obo/BFO_')
 IAO = CurieNamespace('IAO', 'http://purl.obolibrary.org/obo/IAO_')
 NCIT = CurieNamespace('NCIT', 'http://purl.obolibrary.org/obo/NCIT_')
