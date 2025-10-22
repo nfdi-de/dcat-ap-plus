@@ -1,0 +1,669 @@
+# metamodel_version: 1.7.0
+BASE <https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX linkml: <https://w3id.org/linkml/>
+PREFIX spdx: <http://spdx.org/rdf/terms#>
+PREFIX eli: <http://data.europa.eu/eli/ontology#>
+PREFIX locn: <http://www.w3.org/ns/locn#>
+PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
+PREFIX adms: <http://www.w3.org/ns/adms#>
+PREFIX dcatap: <http://data.europa.eu/r5r/>
+PREFIX schema1: <http://schema.org/>
+PREFIX qudt: <http://qudt.org/schema/qudt/>
+
+
+<Duration> xsd:duration
+
+<HexBinary> xsd:hexBinary
+
+<NonNegativeInteger> xsd:nonNegativeInteger
+
+linkml:String xsd:string
+
+linkml:Integer xsd:integer
+
+linkml:Boolean xsd:boolean
+
+linkml:Float xsd:float
+
+linkml:Double xsd:double
+
+linkml:Decimal xsd:decimal
+
+linkml:Time xsd:time
+
+linkml:Date xsd:date
+
+linkml:Datetime xsd:dateTime
+
+linkml:DateOrDatetime linkml:DateOrDatetime
+
+linkml:Uriorcurie IRI
+
+linkml:Curie xsd:string
+
+linkml:Uri IRI
+
+linkml:Ncname xsd:string
+
+linkml:Objectidentifier IRI
+
+linkml:Nodeidentifier NONLITERAL
+
+linkml:Jsonpointer xsd:string
+
+linkml:Jsonpath xsd:string
+
+linkml:Sparqlpath xsd:string
+
+<Activity>  (
+    CLOSED {
+       (  $<Activity_tes> (  &<ClassifierMixin_tes> ;
+             rdf:type [ <ClassifierMixin> ] ? ;
+             dcterms:title @linkml:String * ;
+             dcterms:description @linkml:String * ;
+             adms:identifier @<Identifier> * ;
+             dcterms:hasPart @<Activity> * ;
+             prov:used @<Entity> * ;
+             prov:generated @<Entity> * ;
+             prov:wasInformedBy @<Activity> * ;
+             prov:wasAssociatedWith @<AgenticEntity> * ;
+             dcterms:relation @<QualitativeAttribute> * ;
+             dcterms:relation @<QuantitativeAttribute> * ;
+             dcterms:isPartOf @<Activity> * ;
+             dcterms:type @<DefinedTerm> ? ;
+             rdf:type @<DefinedTerm> ?
+          ) ;
+          rdf:type [ prov:Activity ]
+       )
+    } OR @<DataGeneratingActivity> OR @<EvaluatedActivity>
+)
+
+<Agent> CLOSED {
+    (  $<Agent_tes> (  foaf:name @linkml:String + ;
+          dcterms:type @<Concept> ?
+       ) ;
+       rdf:type [ foaf:Agent ] ?
+    )
+}
+
+<AgenticEntity>  (
+    CLOSED {
+       (  $<AgenticEntity_tes> (  &<ClassifierMixin_tes> ;
+             rdf:type [ <ClassifierMixin> ] ? ;
+             dcterms:title @linkml:String ? ;
+             dcterms:description @linkml:String ? ;
+             adms:identifier @<Identifier> * ;
+             dcterms:relation @<QualitativeAttribute> * ;
+             dcterms:relation @<QuantitativeAttribute> * ;
+             dcterms:hasPart @<AgenticEntity> * ;
+             dcterms:isPartOf @<AgenticEntity> * ;
+             dcterms:type @<DefinedTerm> ? ;
+             rdf:type @<DefinedTerm> ?
+          ) ;
+          rdf:type [ prov:Agent ]
+       )
+    } OR @<Device> OR @<Software>
+)
+
+<AnalysisDataset> CLOSED {
+    (  $<AnalysisDataset_tes> (  &<Dataset_tes> ;
+          rdf:type [ dcat:Dataset ] ? ;
+          prov:wasGeneratedBy @<DataAnalysis> *
+       ) ;
+       rdf:type [ dcat:Dataset ]
+    )
+}
+
+<AnalysisSourceData> CLOSED {
+    (  $<AnalysisSourceData_tes> (  &<EvaluatedEntity_tes> ;
+          rdf:type [ prov:Entity ] ? ;
+          prov:wasGeneratedBy @<DataGeneratingActivity> *
+       ) ;
+       rdf:type [ prov:Entity ]
+    )
+}
+
+<Any> CLOSED {
+    (  $<Any_tes> (  dcterms:title @linkml:String ? ;
+          dcterms:description @linkml:String ?
+       ) ;
+       rdf:type [ linkml:Any ] ?
+    )
+}
+
+<Attribution> CLOSED {
+    (  $<Attribution_tes> (  &<SupportiveEntity_tes> ;
+          rdf:type [ <SupportiveEntity> ] ?
+       ) ;
+       rdf:type [ prov:Attribution ] ?
+    )
+}
+
+<Catalogue> CLOSED {
+    (  $<Catalogue_tes> (  dcatap:applicableLegislation @<LegalResource> * ;
+          dcat:catalog @<Catalogue> * ;
+          dcterms:creator @<Agent> ? ;
+          dcterms:description @linkml:String + ;
+          dcterms:spatial @<Location> * ;
+          dcat:dataset @<Dataset> * ;
+          dcterms:hasPart @<Catalogue> * ;
+          foaf:homepage @<Document> ? ;
+          dcterms:language @<LinguisticSystem> * ;
+          dcterms:license @<LicenseDocument> ? ;
+          dcterms:modified @linkml:Date ? ;
+          dcterms:publisher @<Agent> ;
+          dcat:record @<CatalogueRecord> * ;
+          dcterms:issued @linkml:Date ? ;
+          dcterms:rights @<RightsStatement> ? ;
+          dcat:service @<DataService> * ;
+          dcterms:temporal @<PeriodOfTime> * ;
+          dcat:themeTaxonomy @<ConceptScheme> * ;
+          dcterms:title @linkml:String +
+       ) ;
+       rdf:type [ dcat:Catalog ] ?
+    )
+}
+
+<CatalogueRecord> CLOSED {
+    (  $<CatalogueRecord_tes> (  dcterms:conformsTo @<Standard> * ;
+          adms:status @<Concept> ? ;
+          dcterms:description @linkml:String * ;
+          dcterms:language @<LinguisticSystem> * ;
+          dcterms:issued @linkml:Date ? ;
+          dcterms:modified @linkml:Date ;
+          foaf:primaryTopic @<Any> ;
+          dcterms:source @<CatalogueRecord> ? ;
+          dcterms:title @linkml:String *
+       ) ;
+       rdf:type [ dcat:CatalogRecord ] ?
+    )
+}
+
+<Checksum> CLOSED {
+    (  $<Checksum_tes> (  spdx:algorithm @<ChecksumAlgorithm> ;
+          spdx:checksumValue @<HexBinary>
+       ) ;
+       rdf:type [ spdx:Checksum ] ?
+    )
+}
+
+<ChecksumAlgorithm> CLOSED {
+    (  $<ChecksumAlgorithm_tes> (  &<SupportiveEntity_tes> ;
+          rdf:type [ <SupportiveEntity> ] ?
+       ) ;
+       rdf:type [ spdx:ChecksumAlgorithm ] ?
+    )
+}
+
+<ClassifierMixin> {
+    (  $<ClassifierMixin_tes> (  dcterms:type @<DefinedTerm> ? ;
+          rdf:type @<DefinedTerm> ?
+       ) ;
+       rdf:type [ <ClassifierMixin> ] ?
+    )
+}
+
+<Concept> CLOSED {
+    (  $<Concept_tes> (  &<SupportiveEntity_tes> ;
+          rdf:type [ <SupportiveEntity> ] ? ;
+          skos:prefLabel @linkml:String +
+       ) ;
+       rdf:type [ skos:Concept ] ?
+    )
+}
+
+<ConceptScheme> CLOSED {
+    (  $<ConceptScheme_tes> (  &<SupportiveEntity_tes> ;
+          rdf:type [ <SupportiveEntity> ] ? ;
+          dcterms:title @linkml:String +
+       ) ;
+       rdf:type [ skos:ConceptScheme ] ?
+    )
+}
+
+<DataAnalysis> CLOSED {
+    (  $<DataAnalysis_tes> (  &<DataGeneratingActivity_tes> ;
+          rdf:type [ prov:Activity ] ? ;
+          prov:used @<AnalysisSourceData> *
+       ) ;
+       rdf:type [ prov:Activity ]
+    )
+}
+
+<DataGeneratingActivity>  (
+    CLOSED {
+       (  $<DataGeneratingActivity_tes> (  &<Activity_tes> ;
+             rdf:type [ prov:Activity ] ? ;
+             prov:used @<EvaluatedEntity> * ;
+             prov:wasInformedBy @<EvaluatedActivity> * ;
+             prov:used @<Plan> ? ;
+             prov:atLocation @<Surrounding> ?
+          ) ;
+          rdf:type [ prov:Activity ]
+       )
+    } OR @<DataAnalysis>
+)
+
+<DataService> CLOSED {
+    (  $<DataService_tes> (  dcterms:accessRights @<RightsStatement> ? ;
+          dcatap:applicableLegislation @<LegalResource> * ;
+          dcterms:conformsTo @<Standard> * ;
+          dcat:contactPoint @<Kind> * ;
+          dcterms:description @linkml:String * ;
+          foaf:page @<Document> * ;
+          dcat:endpointURL @<Resource> + ;
+          dcat:endpointDescription @<Resource> * ;
+          dcterms:format @<MediaTypeOrExtent> * ;
+          dcat:keyword @linkml:String * ;
+          dcat:landingPage @<Document> * ;
+          dcterms:license @<LicenseDocument> ? ;
+          dcterms:publisher @<Agent> ? ;
+          dcat:servesDataset @<Dataset> * ;
+          dcat:theme @<Concept> * ;
+          dcterms:title @linkml:String +
+       ) ;
+       rdf:type [ dcat:DataService ] ?
+    )
+}
+
+<Dataset>  (
+    CLOSED {
+       (  $<Dataset_tes> (  dcterms:accessRights @<RightsStatement> ? ;
+             dcatap:applicableLegislation @<LegalResource> * ;
+             dcterms:conformsTo @<Standard> * ;
+             dcat:contactPoint @<Kind> * ;
+             dcterms:creator @<Agent> * ;
+             dcat:distribution @<Distribution> * ;
+             dcterms:description @linkml:String + ;
+             foaf:page @<Document> * ;
+             dcterms:accrualPeriodicity @<Frequency> ? ;
+             dcterms:spatial @<Location> * ;
+             dcat:hasVersion @<Dataset> * ;
+             dcterms:identifier @linkml:String * ;
+             dcat:inSeries @<DatasetSeries> * ;
+             dcterms:isReferencedBy @<Resource> * ;
+             dcat:keyword @linkml:String * ;
+             dcat:landingPage @<Document> * ;
+             dcterms:language @<LinguisticSystem> * ;
+             dcterms:modified @linkml:Date ? ;
+             adms:identifier @<Identifier> * ;
+             dcterms:provenance @<ProvenanceStatement> * ;
+             dcterms:publisher @<Agent> ? ;
+             prov:qualifiedAttribution @<Attribution> * ;
+             dcat:qualifiedRelation @<Relationship> * ;
+             dcterms:relation @<Resource> * ;
+             dcterms:issued @linkml:Date ? ;
+             adms:sample @<Distribution> * ;
+             dcterms:source @<Dataset> * ;
+             dcat:spatialResolutionInMeters @linkml:Decimal ? ;
+             dcterms:temporal @<PeriodOfTime> * ;
+             dcat:temporalResolution @<Duration> ? ;
+             dcat:theme @<Concept> * ;
+             dcterms:title @linkml:String + ;
+             dcterms:type @<Concept> * ;
+             dcat:version @linkml:String ? ;
+             adms:versionNotes @linkml:String * ;
+             prov:wasGeneratedBy @<DataGeneratingActivity> + ;
+             dcterms:subject @<EvaluatedEntity> * ;
+             dcterms:subject @<EvaluatedActivity> *
+          ) ;
+          rdf:type [ dcat:Dataset ]
+       )
+    } OR @<AnalysisDataset>
+)
+
+<DatasetSeries> CLOSED {
+    (  $<DatasetSeries_tes> (  dcatap:applicableLegislation @<LegalResource> * ;
+          dcat:contactPoint @<Kind> * ;
+          dcterms:description @linkml:String + ;
+          dcterms:accrualPeriodicity @<Frequency> ? ;
+          dcterms:spatial @<Location> * ;
+          dcterms:modified @linkml:Date ? ;
+          dcterms:publisher @<Agent> ? ;
+          dcterms:issued @linkml:Date ? ;
+          dcterms:temporal @<PeriodOfTime> * ;
+          dcterms:title @linkml:String +
+       ) ;
+       rdf:type [ dcat:DatasetSeries ] ?
+    )
+}
+
+<DefinedTerm> CLOSED {
+    (  $<DefinedTerm_tes> (  schema1:name @linkml:String ? ;
+          schema1:inDefinedTermSet @linkml:Uriorcurie ?
+       ) ;
+       rdf:type [ schema1:DefinedTerm ]
+    )
+}
+
+<Device> CLOSED {
+    (  $<Device_tes> (  &<AgenticEntity_tes> ;
+          rdf:type [ prov:Agent ] ? ;
+          dcterms:hasPart @<Device> * ;
+          adms:identifier @<Identifier> *
+       ) ;
+       rdf:type [ prov:Agent ]
+    )
+}
+
+<Distribution> CLOSED {
+    (  $<Distribution_tes> (  dcat:accessURL @<Resource> + ;
+          dcat:accessService @<DataService> * ;
+          dcatap:applicableLegislation @<LegalResource> * ;
+          dcatap:availability @<Concept> ? ;
+          dcat:byteSize @<NonNegativeInteger> ? ;
+          spdx:checksum @<Checksum> ? ;
+          dcat:compressFormat @<MediaType> ? ;
+          dcterms:description @linkml:String * ;
+          foaf:page @<Document> * ;
+          dcat:downloadURL @<Resource> * ;
+          dcterms:format @<MediaTypeOrExtent> ? ;
+          odrl:hasPolicy @<Policy> ? ;
+          dcterms:language @<LinguisticSystem> * ;
+          dcterms:license @<LicenseDocument> ? ;
+          dcterms:conformsTo @<Standard> * ;
+          dcat:mediaType @<MediaType> ? ;
+          dcterms:modified @linkml:Date ? ;
+          dcat:packageFormat @<MediaType> ? ;
+          dcterms:issued @linkml:Date ? ;
+          dcterms:rights @<RightsStatement> ? ;
+          dcat:spatialResolutionInMeters @linkml:Decimal ? ;
+          adms:status @<Concept> ? ;
+          dcat:temporalResolution @<Duration> ? ;
+          dcterms:title @linkml:String *
+       ) ;
+       rdf:type [ dcat:Distribution ] ?
+    )
+}
+
+<Document> CLOSED {
+    (  $<Document_tes> (  &<SupportiveEntity_tes> ;
+          rdf:type [ <SupportiveEntity> ] ?
+       ) ;
+       rdf:type [ foaf:Document ]
+    )
+}
+
+<Entity>  (
+    CLOSED {
+       (  $<Entity_tes> (  &<ClassifierMixin_tes> ;
+             rdf:type [ <ClassifierMixin> ] ? ;
+             dcterms:title @linkml:String ? ;
+             dcterms:description @linkml:String ? ;
+             adms:identifier @<Identifier> * ;
+             dcterms:relation @<QualitativeAttribute> * ;
+             dcterms:relation @<QuantitativeAttribute> * ;
+             dcterms:hasPart @<Entity> * ;
+             dcterms:isPartOf @<Entity> * ;
+             dcterms:type @<DefinedTerm> ? ;
+             rdf:type @<DefinedTerm> ?
+          ) ;
+          rdf:type [ prov:Entity ]
+       )
+    } OR @<EvaluatedEntity>
+)
+
+<EvaluatedActivity> CLOSED {
+    (  $<EvaluatedActivity_tes> (  &<Activity_tes> ;
+          rdf:type [ prov:Activity ] ? ;
+          adms:identifier @<Identifier> *
+       ) ;
+       rdf:type [ prov:Activity ]
+    )
+}
+
+<EvaluatedEntity>  (
+    CLOSED {
+       (  $<EvaluatedEntity_tes> (  &<Entity_tes> ;
+             rdf:type [ prov:Entity ] ? ;
+             prov:wasGeneratedBy @<Activity> * ;
+             dcterms:title @linkml:String ? ;
+             dcterms:description @linkml:String ? ;
+             adms:identifier @<Identifier> *
+          ) ;
+          rdf:type [ prov:Entity ]
+       )
+    } OR @<AnalysisSourceData>
+)
+
+<Frequency> CLOSED {
+    (  $<Frequency_tes> (  &<SupportiveEntity_tes> ;
+          rdf:type [ <SupportiveEntity> ] ?
+       ) ;
+       rdf:type [ dcterms:Frequency ] ?
+    )
+}
+
+<Geometry> CLOSED {
+    (  $<Geometry_tes> (  &<SupportiveEntity_tes> ;
+          rdf:type [ <SupportiveEntity> ] ?
+       ) ;
+       rdf:type [ locn:Geometry ] ?
+    )
+}
+
+<Identifier> CLOSED {
+    (  $<Identifier_tes> (  &<SupportiveEntity_tes> ;
+          rdf:type [ <SupportiveEntity> ] ? ;
+          skos:notation @linkml:String
+       ) ;
+       rdf:type [ adms:Identifier ] ?
+    )
+}
+
+<Kind> CLOSED {
+    (  $<Kind_tes> rdf:type . * ;
+       rdf:type [ vcard:Kind ] ?
+    )
+}
+
+<LegalResource> CLOSED {
+    (  $<LegalResource_tes> (  &<SupportiveEntity_tes> ;
+          rdf:type [ <SupportiveEntity> ] ?
+       ) ;
+       rdf:type [ eli:LegalResource ]
+    )
+}
+
+<LicenseDocument> CLOSED {
+    (  $<LicenseDocument_tes> (  &<SupportiveEntity_tes> ;
+          rdf:type [ <SupportiveEntity> ] ? ;
+          dcterms:type @<Concept> *
+       ) ;
+       rdf:type [ dcterms:LicenseDocument ]
+    )
+}
+
+<LinguisticSystem> CLOSED {
+    (  $<LinguisticSystem_tes> (  &<SupportiveEntity_tes> ;
+          rdf:type [ <SupportiveEntity> ] ?
+       ) ;
+       rdf:type [ dcterms:LinguisticSystem ] ?
+    )
+}
+
+<Location> CLOSED {
+    (  $<Location_tes> (  dcat:bbox @linkml:String ? ;
+          dcat:centroid @linkml:String ? ;
+          locn:geometry @<Geometry> ?
+       ) ;
+       rdf:type [ dcterms:Location ] ?
+    )
+}
+
+<MediaType> CLOSED {
+    (  $<MediaType_tes> (  &<SupportiveEntity_tes> ;
+          rdf:type [ <SupportiveEntity> ] ?
+       ) ;
+       rdf:type [ dcterms:MediaType ] ?
+    )
+}
+
+<MediaTypeOrExtent> CLOSED {
+    (  $<MediaTypeOrExtent_tes> (  &<SupportiveEntity_tes> ;
+          rdf:type [ <SupportiveEntity> ] ?
+       ) ;
+       rdf:type [ dcterms:MediaTypeOrExtent ] ?
+    )
+}
+
+<PeriodOfTime> CLOSED {
+    (  $<PeriodOfTime_tes> (  &<SupportiveEntity_tes> ;
+          rdf:type [ <SupportiveEntity> ] ? ;
+          time:hasBeginning @<TimeInstant> ? ;
+          time:hasEnd @<TimeInstant> ? ;
+          dcat:endDate @linkml:Date ? ;
+          dcat:startDate @linkml:Date ?
+       ) ;
+       rdf:type [ dcterms:PeriodOfTime ] ?
+    )
+}
+
+<Plan> CLOSED {
+    (  $<Plan_tes> (  &<ClassifierMixin_tes> ;
+          rdf:type [ <ClassifierMixin> ] ? ;
+          dcterms:title @linkml:String ? ;
+          dcterms:description @linkml:String ? ;
+          dcterms:type @<DefinedTerm> ? ;
+          rdf:type @<DefinedTerm> ?
+       ) ;
+       rdf:type [ prov:Plan ] ?
+    )
+}
+
+<Policy> CLOSED {
+    (  $<Policy_tes> (  &<SupportiveEntity_tes> ;
+          rdf:type [ <SupportiveEntity> ] ?
+       ) ;
+       rdf:type [ odrl:Policy ] ?
+    )
+}
+
+<ProvenanceStatement> CLOSED {
+    (  $<ProvenanceStatement_tes> (  &<SupportiveEntity_tes> ;
+          rdf:type [ <SupportiveEntity> ] ?
+       ) ;
+       rdf:type [ dcterms:ProvenanceStatement ] ?
+    )
+}
+
+<QualitativeAttribute> CLOSED {
+    (  $<QualitativeAttribute_tes> (  &<ClassifierMixin_tes> ;
+          rdf:type [ <ClassifierMixin> ] ? ;
+          dcterms:title @linkml:String ? ;
+          dcterms:description @linkml:String ? ;
+          prov:value @linkml:String ;
+          dcterms:type @<DefinedTerm> ? ;
+          rdf:type @<DefinedTerm> ?
+       ) ;
+       rdf:type [ prov:Entity ] ?
+    )
+}
+
+<QuantitativeAttribute> CLOSED {
+    (  $<QuantitativeAttribute_tes> (  &<ClassifierMixin_tes> ;
+          rdf:type [ <ClassifierMixin> ] ? ;
+          dcterms:title @linkml:String ? ;
+          dcterms:description @linkml:String ? ;
+          prov:value @linkml:Float ;
+          qudt:hasQuantityKind @<DefinedTerm> ;
+          qudt:unit @<DefinedTerm> ? ;
+          dcterms:type @<DefinedTerm> ? ;
+          rdf:type @<DefinedTerm> ?
+       ) ;
+       rdf:type [ qudt:Quantity ] ?
+    )
+}
+
+<Relationship> CLOSED {
+    (  $<Relationship_tes> (  dcat:hadRole @<Role> + ;
+          dcterms:relation @<Resource> +
+       ) ;
+       rdf:type [ dcat:Relationship ] ?
+    )
+}
+
+<Resource> CLOSED {
+    (  $<Resource_tes> (  &<SupportiveEntity_tes> ;
+          rdf:type [ <SupportiveEntity> ] ?
+       ) ;
+       rdf:type [ rdfs:Resource ]
+    )
+}
+
+<RightsStatement> CLOSED {
+    (  $<RightsStatement_tes> (  &<SupportiveEntity_tes> ;
+          rdf:type [ <SupportiveEntity> ] ?
+       ) ;
+       rdf:type [ dcterms:RightsStatement ] ?
+    )
+}
+
+<Role> CLOSED {
+    (  $<Role_tes> (  &<SupportiveEntity_tes> ;
+          rdf:type [ <SupportiveEntity> ] ?
+       ) ;
+       rdf:type [ dcat:Role ] ?
+    )
+}
+
+<Software> CLOSED {
+    (  $<Software_tes> (  &<AgenticEntity_tes> ;
+          rdf:type [ prov:Agent ] ? ;
+          dcterms:hasPart @<Software> * ;
+          adms:identifier @<Identifier> *
+       ) ;
+       rdf:type [ prov:SoftwareAgent ]
+    )
+}
+
+<Standard> CLOSED {
+    (  $<Standard_tes> (  &<SupportiveEntity_tes> ;
+          rdf:type [ <SupportiveEntity> ] ?
+       ) ;
+       rdf:type [ dcterms:Standard ] ?
+    )
+}
+
+<SupportiveEntity>  (
+    CLOSED {
+       (  $<SupportiveEntity_tes> (  dcterms:title @linkml:String ? ;
+             dcterms:description @linkml:String ?
+          ) ;
+          rdf:type [ <SupportiveEntity> ] ?
+       )
+    } OR @<Attribution> OR @<ChecksumAlgorithm> OR @<Concept> OR @<ConceptScheme> OR @<Document> OR @<Frequency> OR @<Geometry> OR
+    @<Identifier> OR @<LegalResource> OR @<LicenseDocument> OR @<LinguisticSystem> OR @<MediaType> OR @<MediaTypeOrExtent> OR
+    @<PeriodOfTime> OR @<Policy> OR @<ProvenanceStatement> OR @<Resource> OR @<RightsStatement> OR @<Role> OR @<Standard> OR
+    @<TimeInstant>
+)
+
+<Surrounding> CLOSED {
+    (  $<Surrounding_tes> (  &<ClassifierMixin_tes> ;
+          rdf:type [ <ClassifierMixin> ] ? ;
+          dcterms:title @linkml:String ? ;
+          dcterms:description @linkml:String ? ;
+          dcterms:type @<DefinedTerm> ? ;
+          rdf:type @<DefinedTerm> ?
+       ) ;
+       rdf:type [ prov:Location ] ?
+    )
+}
+
+<TimeInstant> CLOSED {
+    (  $<TimeInstant_tes> (  &<SupportiveEntity_tes> ;
+          rdf:type [ <SupportiveEntity> ] ?
+       ) ;
+       rdf:type [ time:Instant ] ?
+    )
+}
