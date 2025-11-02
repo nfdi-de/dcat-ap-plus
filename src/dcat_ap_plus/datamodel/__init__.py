@@ -1,5 +1,4 @@
 from pathlib import Path
-from .dcat_ap_plus import *
 
 THIS_PATH = Path(__file__).parent
 
