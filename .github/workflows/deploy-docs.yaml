@@ -9,8 +9,6 @@ permissions: {}
 
 jobs:
   build-docs:
-    # Only run in the canonical repository to avoid failures on forks
-    if: ${{ github.repository == 'nfdi-de/dcat-ap-plus' }}
     runs-on: ubuntu-latest
 
     # Grant GITHUB_TOKEN the permissions required to make a gh-pages deployment
