@@ -120,7 +120,7 @@ def load_dcat_ap_shacl_shapes(jsonld_file='dcat_ap_shacl.jsonld'):
         - A Python object containing the loaded SHACL shapes
     TODO: Use Requests to download directly from the script, maybe with cache option.
     """
-    filepath = os.path.join('src', jsonld_file)
+    filepath = os.path.join('src', 'dcat_ap_plus', jsonld_file)
     with open(filepath, 'r') as file:
         print(f'INFO: Loaded the DCAT-AP SHACL shapes from {filepath}.')
         return json.load(file)
