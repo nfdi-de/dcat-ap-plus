@@ -38,7 +38,7 @@ dest := "project"
 pymodel := src / schema_name / "datamodel"
 source_schema_path := source_schema_dir / schema_name + ".yaml"
 docdir := "docs/elements"  # Directory for generated documentation
-merged_schema_path := "docs/schema" / schema_name + ".yaml"
+distrib_schema_path := "docs/schema"  # Directory for published schema artifacts
 
 # ============== Project recipes ==============
 
@@ -92,9 +92,9 @@ test: _test-schema _test-python _test-examples
 lint:
   uv run linkml-lint {{source_schema_dir}}
 
-# Generate md documentation for the schema
+# Generate md documentation for the schema and add artifacts
 [group('model development')]
-gen-doc: _gen-yaml
+gen-doc: _gen-yaml && _add-artifacts
   uv run gen-doc {{gen_doc_args}} -d {{docdir}} {{source_schema_path}}
 
 # Build docs and run test server
@@ -112,7 +112,6 @@ gen-project:
   uv run gen-project {{config_yaml}} -d {{dest}} {{source_schema_path}}
   mv {{dest}}/*.py {{pymodel}}
   uv run gen-pydantic {{gen_pydantic_args}} {{source_schema_path}} > {{pymodel}}/{{schema_name}}_pydantic.py
-  # We need to special-case generators that are not yet reading config.yaml (https://github.com/linkml/linkml/issues/2537)
   @if [ ! ${{gen_java_args}} ]; then \
     uv run gen-java {{gen_java_args}} --output-directory {{dest}}/java/ {{source_schema_path}} || true ; \
   fi
@@ -200,10 +199,10 @@ _test-examples: _ensure_examples_output
     --output-directory examples/output \
     --schema {{source_schema_path}} > examples/output/README.md
 
-# Generate merged model
+# Add the merged model to docs/schema.
 _gen-yaml:
-  -mkdir -p docs/schema
-  uv run gen-yaml {{source_schema_path}} > {{merged_schema_path}}
+  -mkdir -p {{distrib_schema_path}}
+  uv run gen-yaml {{source_schema_path}} > {{distrib_schema_path}}/{{schema_name}}.yaml
 
 # Run documentation server
 _serve:
