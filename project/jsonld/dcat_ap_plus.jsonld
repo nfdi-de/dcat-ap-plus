@@ -11,7 +11,8 @@
     "https://github.com/HendrikBorgelt/DCAT-ap_as_LinkML_template/blob/main/src/dcatlinkml/schema/dcatlinkml.yaml",
     "https://gitlab.com/opensourcelab/scientificdata/scidats/-/blob/feature/linkml-schemata/schemata/metadata_model_scidats_dcat_ap.yaml?ref_type=heads"
   ],
-  "id": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+  "id": "https://w3id.org/nfdi-de/dcat-ap-plus/",
+  "version": "0.1.0rc1.post13.dev0+5c0f19e",
   "imports": [
     "linkml:types"
   ],
@@ -111,7 +112,7 @@
     },
     {
       "prefix_prefix": "dcatap_plus",
-      "prefix_reference": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#"
+      "prefix_reference": "https://w3id.org/nfdi-de/dcat-ap-plus/"
     },
     {
       "prefix_prefix": "BFO",
@@ -155,19 +156,19 @@
   "subsets": [
     {
       "name": "domain_agnostic_core",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#DomainAgnosticCore",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/DomainAgnosticCore",
       "description": "The elements of this subset are considered the core layer of our DCAT-AP extension.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "@type": "SubsetDefinition"
     }
   ],
   "types": [
     {
       "name": "duration",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Duration",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Duration",
       "conforms_to": "https://www.w3.org/TR/xmlschema11-2/#duration",
       "description": "The datatype that represents durations of time.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "base": "str",
       "uri": "http://www.w3.org/2001/XMLSchema#duration",
       "pattern": "-?P((([0-9]+Y([0-9]+M)?([0-9]+D)?|([0-9]+M)([0-9]+D)?|([0-9]+D))(T(([0-9]+H)([0-9]+M)?([0-9]+(\\.[0-9]+)?S)?|([0-9]+M)([0-9]+(\\.[0-9]+)?S)?|([0-9]+(\\.[0-9]+)?S)))?)|(T(([0-9]+H)([0-9]+M)?([0-9]+(\\.[0-9]+)?S)?|([0-9]+M)([0-9]+(\\.[0-9]+)?S)?|([0-9]+(\\.[0-9]+)?S))))",
@@ -175,10 +176,10 @@
     },
     {
       "name": "hexBinary",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#HexBinary",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/HexBinary",
       "conforms_to": "https://www.w3.org/TR/xmlschema11-2/#hexBinary",
       "description": "The datatype that represents arbitrary hex-encoded binary data.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "base": "str",
       "uri": "http://www.w3.org/2001/XMLSchema#hexBinary",
       "pattern": "([0-9a-fA-F]{2})*",
@@ -186,10 +187,10 @@
     },
     {
       "name": "nonNegativeInteger",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#NonNegativeInteger",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/NonNegativeInteger",
       "conforms_to": "https://www.w3.org/TR/xmlschema11-2/#nonNegativeInteger",
       "description": "The datatype that represents non-negative integers.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "base": "int",
       "uri": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
       "pattern": "([\\-+]?[0-9]+)",
@@ -507,8 +508,8 @@
   "enums": [
     {
       "name": "DatasetThemes",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#DatasetThemes",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/DatasetThemes",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "see_also": [
         "https://op.europa.eu/s/zXIN"
       ],
@@ -588,8 +589,8 @@
     },
     {
       "name": "TopLevelMediaTypes",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#TopLevelMediaTypes",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/TopLevelMediaTypes",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "enum_uri": "iana:top-level-media-types",
       "permissible_values": [
         {
@@ -629,7 +630,7 @@
     },
     {
       "name": "QUDTQuantityKindEnum",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#QUDTQuantityKindEnum",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/QUDTQuantityKindEnum",
       "implements": [
         "owl:NamedIndividual"
       ],
@@ -640,7 +641,7 @@
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "reachable_from": {
         "source_ontology": "http://qudt.org/2.1/vocab/quantitykind",
         "source_nodes": [
@@ -654,7 +655,7 @@
     },
     {
       "name": "QUDTUnitEnum",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#QUDTUnitEnum",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/QUDTUnitEnum",
       "implements": [
         "owl:NamedIndividual"
       ],
@@ -665,7 +666,7 @@
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "reachable_from": {
         "source_ontology": "https://qudt.org/vocab/unit/",
         "source_nodes": [
@@ -681,9 +682,9 @@
   "slots": [
     {
       "name": "access_URL",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#access_URL",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/access_URL",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#accessURL"
       ],
@@ -697,9 +698,9 @@
     },
     {
       "name": "access_rights",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#access_rights",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/access_rights",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/accessRights"
       ],
@@ -714,9 +715,9 @@
     },
     {
       "name": "access_service",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#access_service",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/access_service",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#accessService"
       ],
@@ -730,9 +731,9 @@
     },
     {
       "name": "algorithm",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#algorithm",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/algorithm",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://spdx.org/rdf/terms#algorithm"
       ],
@@ -746,9 +747,9 @@
     },
     {
       "name": "applicable_legislation",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#applicable_legislation",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/applicable_legislation",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://data.europa.eu/r5r/applicableLegislation"
       ],
@@ -766,9 +767,9 @@
     },
     {
       "name": "application_profile",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#application_profile",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/application_profile",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/conformsTo"
       ],
@@ -782,9 +783,9 @@
     },
     {
       "name": "availability",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#availability",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/availability",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://data.europa.eu/r5r/availability"
       ],
@@ -798,9 +799,9 @@
     },
     {
       "name": "bbox",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#bbox",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/bbox",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#bbox"
       ],
@@ -814,9 +815,9 @@
     },
     {
       "name": "beginning",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#beginning",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/beginning",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/2006/time#hasBeginning"
       ],
@@ -830,9 +831,9 @@
     },
     {
       "name": "byte_size",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#byte_size",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/byte_size",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#byteSize"
       ],
@@ -846,12 +847,12 @@
     },
     {
       "name": "carried_out_by",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#carried_out_by",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/carried_out_by",
       "description": "The slot to specify the AgenticEntity that played a certain part in carrying out the Activity, either via having a specific role, function or disposition that was realized in the Activity.",
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/prov#wasAssociatedWith"
       ],
@@ -869,9 +870,9 @@
     },
     {
       "name": "catalogue",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#catalogue",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/catalogue",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#catalog"
       ],
@@ -885,9 +886,9 @@
     },
     {
       "name": "centroid",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#centroid",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/centroid",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#centroid"
       ],
@@ -901,9 +902,9 @@
     },
     {
       "name": "change_type",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#change_type",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/change_type",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/adms#status"
       ],
@@ -917,9 +918,9 @@
     },
     {
       "name": "checksum",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#checksum",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/checksum",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://spdx.org/rdf/terms#checksum"
       ],
@@ -933,9 +934,9 @@
     },
     {
       "name": "checksum_value",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#checksum_value",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/checksum_value",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://spdx.org/rdf/terms#checksumValue"
       ],
@@ -949,9 +950,9 @@
     },
     {
       "name": "compression_format",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#compression_format",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/compression_format",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#compressFormat"
       ],
@@ -965,9 +966,9 @@
     },
     {
       "name": "conforms_to",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#conforms_to",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/conforms_to",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/conformsTo"
       ],
@@ -982,9 +983,9 @@
     },
     {
       "name": "contact_point",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#contact_point",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/contact_point",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#contactPoint"
       ],
@@ -1000,9 +1001,9 @@
     },
     {
       "name": "creator",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#creator",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/creator",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/creator"
       ],
@@ -1017,9 +1018,9 @@
     },
     {
       "name": "dataset_distribution",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#dataset_distribution",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/dataset_distribution",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#distribution"
       ],
@@ -1033,9 +1034,9 @@
     },
     {
       "name": "description",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#description",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/description",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/description"
       ],
@@ -1084,9 +1085,9 @@
     },
     {
       "name": "documentation",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#documentation",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/documentation",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://xmlns.com/foaf/0.1/page"
       ],
@@ -1102,9 +1103,9 @@
     },
     {
       "name": "download_URL",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#download_URL",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/download_URL",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#downloadURL"
       ],
@@ -1118,9 +1119,9 @@
     },
     {
       "name": "end",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#end",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/end",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/2006/time#hasEnd"
       ],
@@ -1134,9 +1135,9 @@
     },
     {
       "name": "end_date",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#end_date",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/end_date",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#endDate"
       ],
@@ -1150,9 +1151,9 @@
     },
     {
       "name": "endpoint_URL",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#endpoint_URL",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/endpoint_URL",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#endpointURL"
       ],
@@ -1166,9 +1167,9 @@
     },
     {
       "name": "endpoint_description",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#endpoint_description",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/endpoint_description",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#endpointDescription"
       ],
@@ -1182,12 +1183,12 @@
     },
     {
       "name": "evaluated_activity",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#evaluated_activity",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/evaluated_activity",
       "description": "The slot to specify the Activity about which the DataGeneratingActivity produced information.",
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/prov#wasInformedBy"
       ],
@@ -1206,12 +1207,12 @@
     },
     {
       "name": "evaluated_entity",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#evaluated_entity",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/evaluated_entity",
       "description": "The slot to specify the Entity about which the DataGeneratingActivity produced information.",
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/prov#used"
       ],
@@ -1230,9 +1231,9 @@
     },
     {
       "name": "format",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#format",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/format",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/format"
       ],
@@ -1247,9 +1248,9 @@
     },
     {
       "name": "frequency",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#frequency",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/frequency",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/accrualPeriodicity"
       ],
@@ -1264,9 +1265,9 @@
     },
     {
       "name": "geographical_coverage",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#geographical_coverage",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/geographical_coverage",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/spatial"
       ],
@@ -1282,9 +1283,9 @@
     },
     {
       "name": "geometry",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#geometry",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/geometry",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/locn#geometry"
       ],
@@ -1298,12 +1299,12 @@
     },
     {
       "name": "had_input_activity",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#had_input_activity",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/had_input_activity",
       "description": "The slot to provide a previous Activity that informed the Activity by being causally via a shared participant.",
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/prov#wasInformedBy"
       ],
@@ -1321,12 +1322,12 @@
     },
     {
       "name": "had_input_entity",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#had_input_entity",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/had_input_entity",
       "description": "The slot to specify the Entity that was used as an input of an Activity that is to be changed, consumed or transformed.",
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/prov#used"
       ],
@@ -1344,12 +1345,12 @@
     },
     {
       "name": "had_output_entity",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#had_output_entity",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/had_output_entity",
       "description": "The slot to specify the Entity that was generated as an output of an Activity.",
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/prov#generated"
       ],
@@ -1367,9 +1368,9 @@
     },
     {
       "name": "had_role",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#had_role",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/had_role",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#hadRole"
       ],
@@ -1383,9 +1384,9 @@
     },
     {
       "name": "has_dataset",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#has_dataset",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/has_dataset",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#dataset"
       ],
@@ -1399,9 +1400,9 @@
     },
     {
       "name": "has_part",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#has_part",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/has_part",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/hasPart"
       ],
@@ -1419,9 +1420,9 @@
     },
     {
       "name": "has_policy",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#has_policy",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/has_policy",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/odrl/2/hasPolicy"
       ],
@@ -1435,12 +1436,12 @@
     },
     {
       "name": "has_qualitative_attribute",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#has_qualitative_attribute",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/has_qualitative_attribute",
       "description": "The slot to relate a qualitative attribute to an EvaluatedEntity, EvaluatedActivity or AgenticEntity",
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/relation"
       ],
@@ -1460,12 +1461,12 @@
     },
     {
       "name": "has_quantitative_attribute",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#has_quantitative_attribute",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/has_quantitative_attribute",
       "description": "The slot to relate a quantitative attribute to an EvaluatedEntity, EvaluatedActivity or AgenticEntity",
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/relation"
       ],
@@ -1485,9 +1486,9 @@
     },
     {
       "name": "has_version",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#has_version",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/has_version",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#hasVersion"
       ],
@@ -1501,9 +1502,9 @@
     },
     {
       "name": "homepage",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#homepage",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/homepage",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://xmlns.com/foaf/0.1/homepage"
       ],
@@ -1517,13 +1518,13 @@
     },
     {
       "name": "id",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#id",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/id",
       "description": "A slot to provide an URI for an entity within this schema.",
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
-      "slot_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#id",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
+      "slot_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/id",
       "identifier": true,
       "owner": "Resource",
       "domain_of": [
@@ -1543,9 +1544,9 @@
     },
     {
       "name": "identifier",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/identifier",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/identifier"
       ],
@@ -1559,9 +1560,9 @@
     },
     {
       "name": "in_series",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#in_series",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/in_series",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#inSeries"
       ],
@@ -1575,12 +1576,12 @@
     },
     {
       "name": "is_about_activity",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#is_about_activity",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/is_about_activity",
       "description": "A slot to provide the EvaluatedActivity a Dataset is about.",
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/subject"
       ],
@@ -1601,12 +1602,12 @@
     },
     {
       "name": "is_about_entity",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#is_about_entity",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/is_about_entity",
       "description": "A slot to provide the EvaluatedEntity a Dataset is about.",
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/subject"
       ],
@@ -1627,9 +1628,9 @@
     },
     {
       "name": "is_referenced_by",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#is_referenced_by",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/is_referenced_by",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/isReferencedBy"
       ],
@@ -1643,9 +1644,9 @@
     },
     {
       "name": "keyword",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#keyword",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/keyword",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#keyword"
       ],
@@ -1660,9 +1661,9 @@
     },
     {
       "name": "landing_page",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#landing_page",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/landing_page",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#landingPage"
       ],
@@ -1677,9 +1678,9 @@
     },
     {
       "name": "language",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#language",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/language",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/language"
       ],
@@ -1696,9 +1697,9 @@
     },
     {
       "name": "licence",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#licence",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/licence",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/license"
       ],
@@ -1714,9 +1715,9 @@
     },
     {
       "name": "linked_schemas",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#linked_schemas",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/linked_schemas",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/conformsTo"
       ],
@@ -1730,9 +1731,9 @@
     },
     {
       "name": "listing_date",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#listing_date",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/listing_date",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/issued"
       ],
@@ -1746,9 +1747,9 @@
     },
     {
       "name": "media_type",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#media_type",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/media_type",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#mediaType"
       ],
@@ -1762,9 +1763,9 @@
     },
     {
       "name": "modification_date",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#modification_date",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/modification_date",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/modified"
       ],
@@ -1782,9 +1783,9 @@
     },
     {
       "name": "name",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#name",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/name",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://xmlns.com/foaf/0.1/name"
       ],
@@ -1798,9 +1799,9 @@
     },
     {
       "name": "notation",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#notation",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/notation",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/2004/02/skos/core#notation"
       ],
@@ -1814,12 +1815,12 @@
     },
     {
       "name": "occurred_in",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#occurred_in",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/occurred_in",
       "description": "The slot to specify the Surrounding in which an Activity took place.",
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/prov#atLocation"
       ],
@@ -1834,9 +1835,9 @@
     },
     {
       "name": "other_identifier",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#other_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/other_identifier",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/adms#identifier"
       ],
@@ -1853,9 +1854,9 @@
     },
     {
       "name": "packaging_format",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#packaging_format",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/packaging_format",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#packageFormat"
       ],
@@ -1869,12 +1870,12 @@
     },
     {
       "name": "part_of",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#part_of",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/part_of",
       "description": "A slot to specify a related resource in which the described resource is physically or logically included.",
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/isPartOf"
       ],
@@ -1891,9 +1892,9 @@
     },
     {
       "name": "preferred_label",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#preferred_label",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/preferred_label",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/2004/02/skos/core#prefLabel"
       ],
@@ -1907,9 +1908,9 @@
     },
     {
       "name": "primary_topic",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#primary_topic",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/primary_topic",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://xmlns.com/foaf/0.1/primaryTopic"
       ],
@@ -1923,9 +1924,9 @@
     },
     {
       "name": "provenance",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#provenance",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/provenance",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/provenance"
       ],
@@ -1939,9 +1940,9 @@
     },
     {
       "name": "publisher",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#publisher",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/publisher",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/publisher"
       ],
@@ -1958,9 +1959,9 @@
     },
     {
       "name": "qualified_attribution",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#qualified_attribution",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/qualified_attribution",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/prov#qualifiedAttribution"
       ],
@@ -1974,9 +1975,9 @@
     },
     {
       "name": "qualified_relation",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#qualified_relation",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/qualified_relation",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#qualifiedRelation"
       ],
@@ -1990,12 +1991,12 @@
     },
     {
       "name": "rdf_type",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#rdf_type",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/rdf_type",
       "description": "The slot to specify the ontology class that is instantiated by an entity.",
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
       ],
@@ -2011,12 +2012,12 @@
     },
     {
       "name": "realized_plan",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#realized_plan",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/realized_plan",
       "description": "The slot to specify the Plan (i.e. directive information or procedure) that was realized by an Activity.",
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/prov#used"
       ],
@@ -2031,9 +2032,9 @@
     },
     {
       "name": "record",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#record",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/record",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#record"
       ],
@@ -2047,9 +2048,9 @@
     },
     {
       "name": "related_resource",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#related_resource",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/related_resource",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/relation"
       ],
@@ -2063,9 +2064,9 @@
     },
     {
       "name": "relation",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#relation",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/relation",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/relation"
       ],
@@ -2079,9 +2080,9 @@
     },
     {
       "name": "release_date",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#release_date",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/release_date",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/issued"
       ],
@@ -2098,9 +2099,9 @@
     },
     {
       "name": "rights",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#rights",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/rights",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/rights"
       ],
@@ -2115,9 +2116,9 @@
     },
     {
       "name": "sample",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#sample",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/sample",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/adms#sample"
       ],
@@ -2131,9 +2132,9 @@
     },
     {
       "name": "serves_dataset",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#serves_dataset",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/serves_dataset",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#servesDataset"
       ],
@@ -2147,9 +2148,9 @@
     },
     {
       "name": "service",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#service",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/service",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#service"
       ],
@@ -2163,9 +2164,9 @@
     },
     {
       "name": "source",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#source",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/source",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/source"
       ],
@@ -2179,9 +2180,9 @@
     },
     {
       "name": "source_metadata",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#source_metadata",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/source_metadata",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/source"
       ],
@@ -2195,9 +2196,9 @@
     },
     {
       "name": "spatial_resolution",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#spatial_resolution",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/spatial_resolution",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#spatialResolutionInMeters"
       ],
@@ -2212,9 +2213,9 @@
     },
     {
       "name": "start_date",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#start_date",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/start_date",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#startDate"
       ],
@@ -2228,9 +2229,9 @@
     },
     {
       "name": "status",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#status",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/status",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/adms#status"
       ],
@@ -2244,9 +2245,9 @@
     },
     {
       "name": "temporal_coverage",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#temporal_coverage",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/temporal_coverage",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/temporal"
       ],
@@ -2262,9 +2263,9 @@
     },
     {
       "name": "temporal_resolution",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#temporal_resolution",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/temporal_resolution",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#temporalResolution"
       ],
@@ -2279,9 +2280,9 @@
     },
     {
       "name": "theme",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#theme",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/theme",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#theme"
       ],
@@ -2296,9 +2297,9 @@
     },
     {
       "name": "themes",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#themes",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/themes",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#themeTaxonomy"
       ],
@@ -2312,9 +2313,9 @@
     },
     {
       "name": "title",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#title",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/title",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/title"
       ],
@@ -2364,9 +2365,9 @@
     },
     {
       "name": "type",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#type",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/type",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/type"
       ],
@@ -2383,12 +2384,12 @@
     },
     {
       "name": "value",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#value",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/value",
       "description": "A slot to provide the literal value of an attribute.",
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/prov#value"
       ],
@@ -2403,9 +2404,9 @@
     },
     {
       "name": "version",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#version",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/version",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#version"
       ],
@@ -2419,9 +2420,9 @@
     },
     {
       "name": "version_notes",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#version_notes",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/version_notes",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/adms#versionNotes"
       ],
@@ -2435,9 +2436,9 @@
     },
     {
       "name": "was_generated_by",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#was_generated_by",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/was_generated_by",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/prov#wasGeneratedBy"
       ],
@@ -2453,7 +2454,7 @@
     {
       "name": "definedTerm__from_CV",
       "description": "The URL of the controlled vocabulary.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://schema.org/inDefinedTermSet"
       ],
@@ -2469,7 +2470,7 @@
     {
       "name": "quantitativeAttribute__has_quantity_type",
       "description": "The type of quality that is quantifiable according to the QUDT ontology.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://qudt.org/schema/qudt/hasQuantityKind"
       ],
@@ -2498,7 +2499,7 @@
     },
     {
       "name": "quantitativeAttribute__unit",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://qudt.org/schema/qudt/unit"
       ],
@@ -2527,12 +2528,12 @@
     },
     {
       "name": "Activity_title",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#title",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/title",
       "description": "The slot to provide a title for the Activity.",
       "notes": [
         "not in DCAT-AP"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/title"
       ],
@@ -2553,12 +2554,12 @@
     },
     {
       "name": "Activity_description",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#description",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/description",
       "description": "The slot to provide a description for the Activity.",
       "notes": [
         "not in DCAT-AP"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/description"
       ],
@@ -2579,12 +2580,12 @@
     },
     {
       "name": "Activity_has_part",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#has_part",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/has_part",
       "description": "The slot to provide an Activity that is part of the Activity.",
       "notes": [
         "not in DCAT-AP"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/hasPart"
       ],
@@ -2606,7 +2607,7 @@
     },
     {
       "name": "Activity_part_of",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#part_of",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/part_of",
       "description": "The slot to provide an Activity of which the Activity is a part.",
       "notes": [
         "not in DCAT-AP"
@@ -2614,7 +2615,7 @@
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/isPartOf"
       ],
@@ -2636,12 +2637,12 @@
     },
     {
       "name": "Activity_other_identifier",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#other_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/other_identifier",
       "description": "The slot to provide a secondary identifier of the Activity.",
       "notes": [
         "not in DCAT-AP"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/adms#identifier"
       ],
@@ -2663,7 +2664,7 @@
     },
     {
       "name": "Activity_has_qualitative_attribute",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#has_qualitative_attribute",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/has_qualitative_attribute",
       "description": "The slot to relate a qualitative attribute to an EvaluatedEntity, EvaluatedActivity or AgenticEntity",
       "notes": [
         "not in DCAT-AP"
@@ -2671,7 +2672,7 @@
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/relation"
       ],
@@ -2694,7 +2695,7 @@
     },
     {
       "name": "Activity_has_quantitative_attribute",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#has_quantitative_attribute",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/has_quantitative_attribute",
       "description": "The slot to relate a quantitative attribute to an EvaluatedEntity, EvaluatedActivity or AgenticEntity",
       "notes": [
         "not in DCAT-AP"
@@ -2702,7 +2703,7 @@
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/relation"
       ],
@@ -2725,7 +2726,7 @@
     },
     {
       "name": "Activity_had_input_entity",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#had_input_entity",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/had_input_entity",
       "description": "The slot to specify the Entity that was used as an input of an Activity that is to be changed, consumed or transformed.",
       "notes": [
         "not in DCAT-AP"
@@ -2733,7 +2734,7 @@
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/prov#used"
       ],
@@ -2756,7 +2757,7 @@
     },
     {
       "name": "Activity_had_output_entity",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#had_output_entity",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/had_output_entity",
       "description": "The slot to specify the Entity that was generated as an output of an Activity.",
       "notes": [
         "not in DCAT-AP"
@@ -2764,7 +2765,7 @@
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/prov#generated"
       ],
@@ -2787,7 +2788,7 @@
     },
     {
       "name": "Activity_had_input_activity",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#had_input_activity",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/had_input_activity",
       "description": "The slot to provide a previous Activity that informed the Activity by being causally via a shared participant.",
       "notes": [
         "not in DCAT-AP"
@@ -2795,7 +2796,7 @@
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/prov#wasInformedBy"
       ],
@@ -2818,7 +2819,7 @@
     },
     {
       "name": "Activity_carried_out_by",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#carried_out_by",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/carried_out_by",
       "description": "The slot to specify the AgenticEntity that played a certain part in carrying out the Activity, either via having a specific role, function or disposition that was realized in the Activity.",
       "notes": [
         "not in DCAT-AP"
@@ -2826,7 +2827,7 @@
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/prov#wasAssociatedWith"
       ],
@@ -2849,9 +2850,9 @@
     },
     {
       "name": "Agent_name",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#name",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/name",
       "description": "A name of the agent.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://xmlns.com/foaf/0.1/name"
       ],
@@ -2873,9 +2874,9 @@
     },
     {
       "name": "Agent_type",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#type",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/type",
       "description": "The nature of the agent.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/type"
       ],
@@ -2897,9 +2898,9 @@
     },
     {
       "name": "AgenticEntity_has_part",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#has_part",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/has_part",
       "description": "The slot to specify parts of an AgenticEntity that are themselves AgenticEntities.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/hasPart"
       ],
@@ -2921,7 +2922,7 @@
     },
     {
       "name": "AgenticEntity_part_of",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#part_of",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/part_of",
       "description": "The slot to provide the AgenticEntity of which theAgenticEntity is a part.",
       "notes": [
         "not in DCAT-AP"
@@ -2929,7 +2930,7 @@
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/isPartOf"
       ],
@@ -2951,9 +2952,9 @@
     },
     {
       "name": "AgenticEntity_other_identifier",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#other_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/other_identifier",
       "description": "A slot to provide a secondary identifier for an Instrument.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/adms#identifier"
       ],
@@ -2975,9 +2976,9 @@
     },
     {
       "name": "AnalysisDataset_was_generated_by",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#was_generated_by",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/was_generated_by",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/prov#wasGeneratedBy"
       ],
@@ -2999,9 +3000,9 @@
     },
     {
       "name": "AnalysisSourceData_was_generated_by",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#was_generated_by",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/was_generated_by",
       "description": "A slot to provide the Activity which created the AnalysisSourceData.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/prov#wasGeneratedBy"
       ],
@@ -3023,9 +3024,9 @@
     },
     {
       "name": "Catalogue_applicable_legislation",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#applicable_legislation",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/applicable_legislation",
       "description": "The legislation that mandates the creation or management of the Catalog.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://data.europa.eu/r5r/applicableLegislation"
       ],
@@ -3047,9 +3048,9 @@
     },
     {
       "name": "Catalogue_catalogue",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#catalogue",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/catalogue",
       "description": "A catalogue whose contents are of interest in the context of this catalogue.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#catalog"
       ],
@@ -3071,9 +3072,9 @@
     },
     {
       "name": "Catalogue_creator",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#creator",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/creator",
       "description": "An entity responsible for the creation of the catalogue.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/creator"
       ],
@@ -3094,9 +3095,9 @@
     },
     {
       "name": "Catalogue_description",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#description",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/description",
       "description": "A free-text account of the Catalogue.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/description"
       ],
@@ -3118,9 +3119,9 @@
     },
     {
       "name": "Catalogue_geographical_coverage",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#geographical_coverage",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/geographical_coverage",
       "description": "A geographical area covered by the Catalogue.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/spatial"
       ],
@@ -3142,9 +3143,9 @@
     },
     {
       "name": "Catalogue_has_dataset",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#has_dataset",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/has_dataset",
       "description": "A Dataset that is part of the Catalogue.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#dataset"
       ],
@@ -3166,9 +3167,9 @@
     },
     {
       "name": "Catalogue_has_part",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#has_part",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/has_part",
       "description": "A related Catalogue that is part of the described Catalogue.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/hasPart"
       ],
@@ -3190,9 +3191,9 @@
     },
     {
       "name": "Catalogue_homepage",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#homepage",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/homepage",
       "description": "A web page that acts as the main page for the Catalogue.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://xmlns.com/foaf/0.1/homepage"
       ],
@@ -3214,9 +3215,9 @@
     },
     {
       "name": "Catalogue_language",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#language",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/language",
       "description": "A language used in the textual metadata describing titles, descriptions, etc. of the Datasets in the Catalogue.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/language"
       ],
@@ -3239,9 +3240,9 @@
     },
     {
       "name": "Catalogue_licence",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#licence",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/licence",
       "description": "A licence under which the Catalogue can be used or reused.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/license"
       ],
@@ -3262,9 +3263,9 @@
     },
     {
       "name": "Catalogue_modification_date",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#modification_date",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/modification_date",
       "description": "The most recent date on which the Catalogue was modified.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/modified"
       ],
@@ -3284,9 +3285,9 @@
     },
     {
       "name": "Catalogue_publisher",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#publisher",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/publisher",
       "description": "An entity (organisation) responsible for making the Catalogue available.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/publisher"
       ],
@@ -3308,9 +3309,9 @@
     },
     {
       "name": "Catalogue_record",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#record",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/record",
       "description": "A Catalogue Record that is part of the Catalogue.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#record"
       ],
@@ -3332,9 +3333,9 @@
     },
     {
       "name": "Catalogue_release_date",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#release_date",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/release_date",
       "description": "The date of formal issuance (e.g., publication) of the Catalogue.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/issued"
       ],
@@ -3354,9 +3355,9 @@
     },
     {
       "name": "Catalogue_rights",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#rights",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/rights",
       "description": "A statement that specifies rights associated with the Catalogue.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/rights"
       ],
@@ -3377,9 +3378,9 @@
     },
     {
       "name": "Catalogue_service",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#service",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/service",
       "description": "A site or end-point (Data Service) that is listed in the Catalogue.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#service"
       ],
@@ -3401,9 +3402,9 @@
     },
     {
       "name": "Catalogue_temporal_coverage",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#temporal_coverage",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/temporal_coverage",
       "description": "A temporal period that the Catalogue covers.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/temporal"
       ],
@@ -3425,9 +3426,9 @@
     },
     {
       "name": "Catalogue_themes",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#themes",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/themes",
       "description": "A knowledge organization system used to classify the Resources that are in the Catalogue.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#themeTaxonomy"
       ],
@@ -3450,9 +3451,9 @@
     },
     {
       "name": "Catalogue_title",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#title",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/title",
       "description": "A name given to the Catalogue.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/title"
       ],
@@ -3474,9 +3475,9 @@
     },
     {
       "name": "CatalogueRecord_application_profile",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#application_profile",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/application_profile",
       "description": "An Application Profile that the Catalogued Resource&#39;s metadata conforms to.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/conformsTo"
       ],
@@ -3499,9 +3500,9 @@
     },
     {
       "name": "CatalogueRecord_change_type",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#change_type",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/change_type",
       "description": "The status of the catalogue record in the context of editorial flow of the dataset and data service descriptions.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/adms#status"
       ],
@@ -3523,9 +3524,9 @@
     },
     {
       "name": "CatalogueRecord_description",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#description",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/description",
       "description": "A free-text account of the record. This property can be repeated for parallel language versions of the description.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/description"
       ],
@@ -3546,9 +3547,9 @@
     },
     {
       "name": "CatalogueRecord_language",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#language",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/language",
       "description": "A language used in the textual metadata describing titles, descriptions, etc. of the Catalogued Resource.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/language"
       ],
@@ -3570,9 +3571,9 @@
     },
     {
       "name": "CatalogueRecord_listing_date",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#listing_date",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/listing_date",
       "description": "The date on which the description of the Resource was included in the Catalogue.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/issued"
       ],
@@ -3593,9 +3594,9 @@
     },
     {
       "name": "CatalogueRecord_modification_date",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#modification_date",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/modification_date",
       "description": "The most recent date on which the Catalogue entry was changed or modified.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/modified"
       ],
@@ -3615,9 +3616,9 @@
     },
     {
       "name": "CatalogueRecord_primary_topic",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#primary_topic",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/primary_topic",
       "description": "A link to the Dataset, Data service or Catalog described in the record.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://xmlns.com/foaf/0.1/primaryTopic"
       ],
@@ -3656,9 +3657,9 @@
     },
     {
       "name": "CatalogueRecord_source_metadata",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#source_metadata",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/source_metadata",
       "description": "The original metadata that was used in creating metadata for the Dataset, Data Service or Dataset Series.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/source"
       ],
@@ -3679,9 +3680,9 @@
     },
     {
       "name": "CatalogueRecord_title",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#title",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/title",
       "description": "A name given to the Catalogue Record.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/title"
       ],
@@ -3702,9 +3703,9 @@
     },
     {
       "name": "Checksum_algorithm",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#algorithm",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/algorithm",
       "description": "The algorithm used to produce the subject Checksum.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://spdx.org/rdf/terms#algorithm"
       ],
@@ -3726,9 +3727,9 @@
     },
     {
       "name": "Checksum_checksum_value",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#checksum_value",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/checksum_value",
       "description": "A lower case hexadecimal encoded digest value produced using a specific algorithm.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://spdx.org/rdf/terms#checksumValue"
       ],
@@ -3749,9 +3750,9 @@
     },
     {
       "name": "ClassifierMixin_type",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#type",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/type",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/type"
       ],
@@ -3771,9 +3772,9 @@
     },
     {
       "name": "Concept_preferred_label",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#preferred_label",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/preferred_label",
       "description": "A preferred label of the concept.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/2004/02/skos/core#prefLabel"
       ],
@@ -3795,9 +3796,9 @@
     },
     {
       "name": "ConceptScheme_title",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#title",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/title",
       "description": "A name of the concept scheme.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/title"
       ],
@@ -3819,12 +3820,12 @@
     },
     {
       "name": "DataAnalysis_evaluated_entity",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#evaluated_entity",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/evaluated_entity",
       "description": "A slot to provide the data that was analysed by the DataAnalysis.",
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/prov#used"
       ],
@@ -3847,9 +3848,9 @@
     },
     {
       "name": "DataService_access_rights",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#access_rights",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/access_rights",
       "description": "Information regarding access or restrictions based on privacy, security, or other policies.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/accessRights"
       ],
@@ -3870,9 +3871,9 @@
     },
     {
       "name": "DataService_applicable_legislation",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#applicable_legislation",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/applicable_legislation",
       "description": "The legislation that mandates the creation or management of the Data Service.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://data.europa.eu/r5r/applicableLegislation"
       ],
@@ -3894,9 +3895,9 @@
     },
     {
       "name": "DataService_conforms_to",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#conforms_to",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/conforms_to",
       "description": "An established (technical) standard to which the Data Service conforms.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/conformsTo"
       ],
@@ -3919,9 +3920,9 @@
     },
     {
       "name": "DataService_contact_point",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#contact_point",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/contact_point",
       "description": "Contact information that can be used for sending comments about the Data Service.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#contactPoint"
       ],
@@ -3944,9 +3945,9 @@
     },
     {
       "name": "DataService_description",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#description",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/description",
       "description": "A free-text account of the Data Service.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/description"
       ],
@@ -3967,9 +3968,9 @@
     },
     {
       "name": "DataService_documentation",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#documentation",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/documentation",
       "description": "A page or document about this Data Service",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://xmlns.com/foaf/0.1/page"
       ],
@@ -3991,9 +3992,9 @@
     },
     {
       "name": "DataService_endpoint_URL",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#endpoint_URL",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/endpoint_URL",
       "description": "The root location or primary endpoint of the service (an IRI).",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#endpointURL"
       ],
@@ -4016,9 +4017,9 @@
     },
     {
       "name": "DataService_endpoint_description",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#endpoint_description",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/endpoint_description",
       "description": "A description of the services available via the end-points, including their operations, parameters etc.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#endpointDescription"
       ],
@@ -4041,9 +4042,9 @@
     },
     {
       "name": "DataService_format",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#format",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/format",
       "description": "The structure that can be returned by querying the endpointURL.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/format"
       ],
@@ -4065,9 +4066,9 @@
     },
     {
       "name": "DataService_keyword",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#keyword",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/keyword",
       "description": "A keyword or tag describing the Data Service.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#keyword"
       ],
@@ -4089,9 +4090,9 @@
     },
     {
       "name": "DataService_landing_page",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#landing_page",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/landing_page",
       "description": "A web page that provides access to the Data Service and/or additional information.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#landingPage"
       ],
@@ -4113,9 +4114,9 @@
     },
     {
       "name": "DataService_licence",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#licence",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/licence",
       "description": "A licence under which the Data service is made available.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/license"
       ],
@@ -4136,9 +4137,9 @@
     },
     {
       "name": "DataService_publisher",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#publisher",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/publisher",
       "description": "An entity (organisation) responsible for making the Data Service available.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/publisher"
       ],
@@ -4159,9 +4160,9 @@
     },
     {
       "name": "DataService_serves_dataset",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#serves_dataset",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/serves_dataset",
       "description": "This property refers to a collection of data that this data service can distribute.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#servesDataset"
       ],
@@ -4183,9 +4184,9 @@
     },
     {
       "name": "DataService_theme",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#theme",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/theme",
       "description": "A category of the Data Service.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#theme"
       ],
@@ -4208,9 +4209,9 @@
     },
     {
       "name": "DataService_title",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#title",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/title",
       "description": "A name given to the Data Service.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/title"
       ],
@@ -4232,9 +4233,9 @@
     },
     {
       "name": "Dataset_access_rights",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#access_rights",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/access_rights",
       "description": "Information that indicates whether the Dataset is publicly accessible, has access restrictions or is not public.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/accessRights"
       ],
@@ -4255,9 +4256,9 @@
     },
     {
       "name": "Dataset_applicable_legislation",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#applicable_legislation",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/applicable_legislation",
       "description": "The legislation that mandates the creation or management of the Dataset.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://data.europa.eu/r5r/applicableLegislation"
       ],
@@ -4279,9 +4280,9 @@
     },
     {
       "name": "Dataset_conforms_to",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#conforms_to",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/conforms_to",
       "description": "An implementing rule or other specification.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/conformsTo"
       ],
@@ -4303,9 +4304,9 @@
     },
     {
       "name": "Dataset_contact_point",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#contact_point",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/contact_point",
       "description": "Contact information that can be used for sending comments about the Dataset.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#contactPoint"
       ],
@@ -4328,9 +4329,9 @@
     },
     {
       "name": "Dataset_creator",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#creator",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/creator",
       "description": "An entity responsible for producing the dataset.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/creator"
       ],
@@ -4352,9 +4353,9 @@
     },
     {
       "name": "Dataset_dataset_distribution",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#dataset_distribution",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/dataset_distribution",
       "description": "An available Distribution for the Dataset.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#distribution"
       ],
@@ -4376,9 +4377,9 @@
     },
     {
       "name": "Dataset_description",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#description",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/description",
       "description": "A free-text account of the Dataset.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/description"
       ],
@@ -4400,9 +4401,9 @@
     },
     {
       "name": "Dataset_documentation",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#documentation",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/documentation",
       "description": "A page or document about this Dataset.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://xmlns.com/foaf/0.1/page"
       ],
@@ -4424,9 +4425,9 @@
     },
     {
       "name": "Dataset_frequency",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#frequency",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/frequency",
       "description": "The frequency at which the Dataset is updated.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/accrualPeriodicity"
       ],
@@ -4446,9 +4447,9 @@
     },
     {
       "name": "Dataset_geographical_coverage",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#geographical_coverage",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/geographical_coverage",
       "description": "A geographic region that is covered by the Dataset.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/spatial"
       ],
@@ -4470,9 +4471,9 @@
     },
     {
       "name": "Dataset_has_version",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#has_version",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/has_version",
       "description": "A related Dataset that is a version, edition, or adaptation of the described Dataset.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#hasVersion"
       ],
@@ -4494,9 +4495,9 @@
     },
     {
       "name": "Dataset_identifier",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/identifier",
       "description": "The main identifier for the Dataset, e.g. the URI or other unique identifier in the context of the Catalogue.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/identifier"
       ],
@@ -4517,9 +4518,9 @@
     },
     {
       "name": "Dataset_in_series",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#in_series",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/in_series",
       "description": "A dataset series of which the dataset is part.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#inSeries"
       ],
@@ -4541,9 +4542,9 @@
     },
     {
       "name": "Dataset_is_referenced_by",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#is_referenced_by",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/is_referenced_by",
       "description": "A related resource, such as a publication, that references, cites, or otherwise points to the dataset.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/isReferencedBy"
       ],
@@ -4565,9 +4566,9 @@
     },
     {
       "name": "Dataset_keyword",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#keyword",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/keyword",
       "description": "A keyword or tag describing the Dataset.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#keyword"
       ],
@@ -4589,9 +4590,9 @@
     },
     {
       "name": "Dataset_landing_page",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#landing_page",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/landing_page",
       "description": "A web page that provides access to the Dataset, its Distributions and/or additional information.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#landingPage"
       ],
@@ -4613,9 +4614,9 @@
     },
     {
       "name": "Dataset_language",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#language",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/language",
       "description": "A language of the Dataset.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/language"
       ],
@@ -4637,9 +4638,9 @@
     },
     {
       "name": "Dataset_modification_date",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#modification_date",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/modification_date",
       "description": "The most recent date on which the Dataset was changed or modified.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/modified"
       ],
@@ -4658,9 +4659,9 @@
     },
     {
       "name": "Dataset_other_identifier",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#other_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/other_identifier",
       "description": "A secondary identifier of the Dataset",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/adms#identifier"
       ],
@@ -4682,9 +4683,9 @@
     },
     {
       "name": "Dataset_provenance",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#provenance",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/provenance",
       "description": "A statement about the lineage of a Dataset.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/provenance"
       ],
@@ -4706,9 +4707,9 @@
     },
     {
       "name": "Dataset_publisher",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#publisher",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/publisher",
       "description": "An entity (organisation) responsible for making the Dataset available.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/publisher"
       ],
@@ -4729,9 +4730,9 @@
     },
     {
       "name": "Dataset_qualified_attribution",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#qualified_attribution",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/qualified_attribution",
       "description": "An Agent having some form of responsibility for the resource.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/prov#qualifiedAttribution"
       ],
@@ -4753,9 +4754,9 @@
     },
     {
       "name": "Dataset_qualified_relation",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#qualified_relation",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/qualified_relation",
       "description": "A description of a relationship with another resource.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#qualifiedRelation"
       ],
@@ -4777,9 +4778,9 @@
     },
     {
       "name": "Dataset_related_resource",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#related_resource",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/related_resource",
       "description": "A related resource.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/relation"
       ],
@@ -4801,9 +4802,9 @@
     },
     {
       "name": "Dataset_release_date",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#release_date",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/release_date",
       "description": "The date of formal issuance (e.g., publication) of the Dataset.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/issued"
       ],
@@ -4822,9 +4823,9 @@
     },
     {
       "name": "Dataset_sample",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#sample",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/sample",
       "description": "A sample distribution of the dataset.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/adms#sample"
       ],
@@ -4846,9 +4847,9 @@
     },
     {
       "name": "Dataset_source",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#source",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/source",
       "description": "A related Dataset from which the described Dataset is derived.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/source"
       ],
@@ -4870,9 +4871,9 @@
     },
     {
       "name": "Dataset_spatial_resolution",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#spatial_resolution",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/spatial_resolution",
       "description": "The minimum spatial separation resolvable in a dataset, measured in meters.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#spatialResolutionInMeters"
       ],
@@ -4891,9 +4892,9 @@
     },
     {
       "name": "Dataset_temporal_coverage",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#temporal_coverage",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/temporal_coverage",
       "description": "A temporal period that the Dataset covers.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/temporal"
       ],
@@ -4915,9 +4916,9 @@
     },
     {
       "name": "Dataset_temporal_resolution",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#temporal_resolution",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/temporal_resolution",
       "description": "The minimum time period resolvable in the dataset.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#temporalResolution"
       ],
@@ -4937,9 +4938,9 @@
     },
     {
       "name": "Dataset_theme",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#theme",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/theme",
       "description": "A category of the Dataset.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#theme"
       ],
@@ -4962,9 +4963,9 @@
     },
     {
       "name": "Dataset_title",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#title",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/title",
       "description": "A name given to the Dataset.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/title"
       ],
@@ -4986,9 +4987,9 @@
     },
     {
       "name": "Dataset_type",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#type",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/type",
       "description": "A type of the Dataset.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/type"
       ],
@@ -5010,9 +5011,9 @@
     },
     {
       "name": "Dataset_version",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#version",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/version",
       "description": "The version indicator (name or identifier) of a resource.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#version"
       ],
@@ -5032,9 +5033,9 @@
     },
     {
       "name": "Dataset_version_notes",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#version_notes",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/version_notes",
       "description": "A description of the differences between this version and a previous version of the Dataset.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/adms#versionNotes"
       ],
@@ -5055,12 +5056,12 @@
     },
     {
       "name": "Dataset_was_generated_by",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#was_generated_by",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/was_generated_by",
       "description": "An activity that generated, or provides the business context for, the creation of the dataset.",
       "notes": [
         "stricter than DCAT-AP"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/prov#wasGeneratedBy"
       ],
@@ -5083,9 +5084,9 @@
     },
     {
       "name": "DatasetSeries_applicable_legislation",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#applicable_legislation",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/applicable_legislation",
       "description": "The legislation that mandates the creation or management of the Dataset Series.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://data.europa.eu/r5r/applicableLegislation"
       ],
@@ -5107,9 +5108,9 @@
     },
     {
       "name": "DatasetSeries_contact_point",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#contact_point",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/contact_point",
       "description": "Contact information that can be used for sending comments about the Dataset Series.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#contactPoint"
       ],
@@ -5131,9 +5132,9 @@
     },
     {
       "name": "DatasetSeries_description",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#description",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/description",
       "description": "A free-text account of the Dataset Series.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/description"
       ],
@@ -5155,9 +5156,9 @@
     },
     {
       "name": "DatasetSeries_frequency",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#frequency",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/frequency",
       "description": "The frequency at which the Dataset Series is updated.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/accrualPeriodicity"
       ],
@@ -5177,9 +5178,9 @@
     },
     {
       "name": "DatasetSeries_geographical_coverage",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#geographical_coverage",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/geographical_coverage",
       "description": "A geographic region that is covered by the Dataset Series.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/spatial"
       ],
@@ -5201,9 +5202,9 @@
     },
     {
       "name": "DatasetSeries_modification_date",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#modification_date",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/modification_date",
       "description": "The most recent date on which the Dataset Series was changed or modified.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/modified"
       ],
@@ -5222,9 +5223,9 @@
     },
     {
       "name": "DatasetSeries_publisher",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#publisher",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/publisher",
       "description": "An entity (organisation) responsible for ensuring the coherency of the Dataset Series ",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/publisher"
       ],
@@ -5245,9 +5246,9 @@
     },
     {
       "name": "DatasetSeries_release_date",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#release_date",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/release_date",
       "description": "The date of formal issuance (e.g., publication) of the Dataset Series.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/issued"
       ],
@@ -5266,9 +5267,9 @@
     },
     {
       "name": "DatasetSeries_temporal_coverage",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#temporal_coverage",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/temporal_coverage",
       "description": "A temporal period that the Dataset Series covers.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/temporal"
       ],
@@ -5290,9 +5291,9 @@
     },
     {
       "name": "DatasetSeries_title",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#title",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/title",
       "description": "A name given to the Dataset Series.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/title"
       ],
@@ -5314,9 +5315,9 @@
     },
     {
       "name": "DefinedTerm_title",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#title",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/title",
       "description": "This slot is described in more detail within the class in which it is used.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://schema.org/name"
       ],
@@ -5335,9 +5336,9 @@
     },
     {
       "name": "Device_has_part",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#has_part",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/has_part",
       "description": "The slot to specify parts of a Device that are themselves Devices.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/hasPart"
       ],
@@ -5359,9 +5360,9 @@
     },
     {
       "name": "Device_other_identifier",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#other_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/other_identifier",
       "description": "A slot to provide a secondary identifier for a Device.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/adms#identifier"
       ],
@@ -5383,9 +5384,9 @@
     },
     {
       "name": "Distribution_access_URL",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#access_URL",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/access_URL",
       "description": "A URL that gives access to a Distribution of the Dataset.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#accessURL"
       ],
@@ -5408,9 +5409,9 @@
     },
     {
       "name": "Distribution_access_service",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#access_service",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/access_service",
       "description": "A data service that gives access to the distribution of the dataset.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#accessService"
       ],
@@ -5432,9 +5433,9 @@
     },
     {
       "name": "Distribution_applicable_legislation",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#applicable_legislation",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/applicable_legislation",
       "description": "The legislation that mandates the creation or management of the Distribution.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://data.europa.eu/r5r/applicableLegislation"
       ],
@@ -5456,9 +5457,9 @@
     },
     {
       "name": "Distribution_availability",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#availability",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/availability",
       "description": "An indication how long it is planned to keep the Distribution of the Dataset available.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://data.europa.eu/r5r/availability"
       ],
@@ -5479,9 +5480,9 @@
     },
     {
       "name": "Distribution_byte_size",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#byte_size",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/byte_size",
       "description": "The size of a Distribution in bytes.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#byteSize"
       ],
@@ -5500,9 +5501,9 @@
     },
     {
       "name": "Distribution_checksum",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#checksum",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/checksum",
       "description": "A mechanism that can be used to verify that the contents of a distribution have not changed.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://spdx.org/rdf/terms#checksum"
       ],
@@ -5523,9 +5524,9 @@
     },
     {
       "name": "Distribution_compression_format",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#compression_format",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/compression_format",
       "description": "The format of the file in which the data is contained in a compressed form, e.g. to reduce the size of the downloadable file.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#compressFormat"
       ],
@@ -5546,9 +5547,9 @@
     },
     {
       "name": "Distribution_description",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#description",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/description",
       "description": "A free-text account of the Distribution.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/description"
       ],
@@ -5570,9 +5571,9 @@
     },
     {
       "name": "Distribution_documentation",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#documentation",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/documentation",
       "description": "A page or document about this Distribution.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://xmlns.com/foaf/0.1/page"
       ],
@@ -5594,9 +5595,9 @@
     },
     {
       "name": "Distribution_download_URL",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#download_URL",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/download_URL",
       "description": "A URL that is a direct link to a downloadable file in a given format.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#downloadURL"
       ],
@@ -5618,9 +5619,9 @@
     },
     {
       "name": "Distribution_format",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#format",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/format",
       "description": "The file format of the Distribution.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/format"
       ],
@@ -5642,9 +5643,9 @@
     },
     {
       "name": "Distribution_has_policy",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#has_policy",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/has_policy",
       "description": "The policy expressing the rights associated with the distribution if using the [[ODRL]] vocabulary.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/odrl/2/hasPolicy"
       ],
@@ -5665,9 +5666,9 @@
     },
     {
       "name": "Distribution_language",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#language",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/language",
       "description": "A language used in the Distribution.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/language"
       ],
@@ -5689,9 +5690,9 @@
     },
     {
       "name": "Distribution_licence",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#licence",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/licence",
       "description": "A licence under which the Distribution is made available.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/license"
       ],
@@ -5712,9 +5713,9 @@
     },
     {
       "name": "Distribution_linked_schemas",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#linked_schemas",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/linked_schemas",
       "description": "An established schema to which the described Distribution conforms.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/conformsTo"
       ],
@@ -5736,9 +5737,9 @@
     },
     {
       "name": "Distribution_media_type",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#media_type",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/media_type",
       "description": "The media type of the Distribution as defined in the official register of media types managed by IANA.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#mediaType"
       ],
@@ -5758,9 +5759,9 @@
     },
     {
       "name": "Distribution_modification_date",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#modification_date",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/modification_date",
       "description": "The most recent date on which the Distribution was changed or modified.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/modified"
       ],
@@ -5779,9 +5780,9 @@
     },
     {
       "name": "Distribution_packaging_format",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#packaging_format",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/packaging_format",
       "description": "The format of the file in which one or more data files are grouped together, e.g. to enable a set of related files to be downloaded together.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#packageFormat"
       ],
@@ -5802,9 +5803,9 @@
     },
     {
       "name": "Distribution_release_date",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#release_date",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/release_date",
       "description": "The date of formal issuance (e.g., publication) of the Distribution.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/issued"
       ],
@@ -5823,9 +5824,9 @@
     },
     {
       "name": "Distribution_rights",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#rights",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/rights",
       "description": "A statement that specifies rights associated with the Distribution.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/rights"
       ],
@@ -5846,9 +5847,9 @@
     },
     {
       "name": "Distribution_spatial_resolution",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#spatial_resolution",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/spatial_resolution",
       "description": "The minimum spatial separation resolvable in a dataset distribution, measured in meters.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#spatialResolutionInMeters"
       ],
@@ -5867,9 +5868,9 @@
     },
     {
       "name": "Distribution_status",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#status",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/status",
       "description": "The status of the distribution in the context of maturity lifecycle.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/adms#status"
       ],
@@ -5890,9 +5891,9 @@
     },
     {
       "name": "Distribution_temporal_resolution",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#temporal_resolution",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/temporal_resolution",
       "description": "The minimum time period resolvable in the dataset distribution.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#temporalResolution"
       ],
@@ -5912,9 +5913,9 @@
     },
     {
       "name": "Distribution_title",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#title",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/title",
       "description": "A name given to the Distribution.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/title"
       ],
@@ -5935,9 +5936,9 @@
     },
     {
       "name": "Entity_title",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#title",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/title",
       "description": "The slot to provide a title for the Entity.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/title"
       ],
@@ -5956,9 +5957,9 @@
     },
     {
       "name": "Entity_description",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#description",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/description",
       "description": "The slot to provide a description for the Entity.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/description"
       ],
@@ -5977,9 +5978,9 @@
     },
     {
       "name": "Entity_other_identifier",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#other_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/other_identifier",
       "description": "A slot to provide a secondary identifier of the Entity.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/adms#identifier"
       ],
@@ -6001,9 +6002,9 @@
     },
     {
       "name": "Entity_has_part",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#has_part",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/has_part",
       "description": "A slot to provide a part of the Entity.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/hasPart"
       ],
@@ -6025,7 +6026,7 @@
     },
     {
       "name": "Entity_part_of",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#part_of",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/part_of",
       "description": "The slot to specify an Entity of which the Entity is a part.",
       "notes": [
         "not in DCAT-AP"
@@ -6033,7 +6034,7 @@
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/isPartOf"
       ],
@@ -6055,9 +6056,9 @@
     },
     {
       "name": "EvaluatedActivity_other_identifier",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#other_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/other_identifier",
       "description": "A slot to provide a secondary identifier of the EvaluatedActivity.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/adms#identifier"
       ],
@@ -6079,9 +6080,9 @@
     },
     {
       "name": "EvaluatedEntity_title",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#title",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/title",
       "description": "The slot to provide a title for the EvaluatedEntity.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/title"
       ],
@@ -6100,9 +6101,9 @@
     },
     {
       "name": "EvaluatedEntity_description",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#description",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/description",
       "description": "The slot to provide a description for the EvaluatedEntity.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/description"
       ],
@@ -6121,9 +6122,9 @@
     },
     {
       "name": "EvaluatedEntity_was_generated_by",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#was_generated_by",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/was_generated_by",
       "description": "A slot to provide the Activity which created the EvaluatedEntity.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/prov#wasGeneratedBy"
       ],
@@ -6145,9 +6146,9 @@
     },
     {
       "name": "EvaluatedEntity_other_identifier",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#other_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/other_identifier",
       "description": "A slot to provide a secondary identifier of the EvaluatedEntity.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/adms#identifier"
       ],
@@ -6169,9 +6170,9 @@
     },
     {
       "name": "Identifier_notation",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#notation",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/notation",
       "description": "A string that is an identifier in the context of the identifier scheme referenced by its datatype.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/2004/02/skos/core#notation"
       ],
@@ -6191,9 +6192,9 @@
     },
     {
       "name": "LicenseDocument_type",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#type",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/type",
       "description": "A type of licence, e.g. indicating 'public domain' or 'royalties required'.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/type"
       ],
@@ -6216,9 +6217,9 @@
     },
     {
       "name": "Location_bbox",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#bbox",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/bbox",
       "description": "The geographic bounding box of a resource.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#bbox"
       ],
@@ -6238,9 +6239,9 @@
     },
     {
       "name": "Location_centroid",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#centroid",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/centroid",
       "description": "The geographic center (centroid) of a resource.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#centroid"
       ],
@@ -6260,9 +6261,9 @@
     },
     {
       "name": "Location_geometry",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#geometry",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/geometry",
       "description": "The corresponding geometry for a resource.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/locn#geometry"
       ],
@@ -6282,9 +6283,9 @@
     },
     {
       "name": "PeriodOfTime_beginning",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#beginning",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/beginning",
       "description": "The beginning of a period or interval.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/2006/time#hasBeginning"
       ],
@@ -6305,9 +6306,9 @@
     },
     {
       "name": "PeriodOfTime_end",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#end",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/end",
       "description": "The end of a period or interval.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/2006/time#hasEnd"
       ],
@@ -6328,9 +6329,9 @@
     },
     {
       "name": "PeriodOfTime_end_date",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#end_date",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/end_date",
       "description": "The end of the period.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#endDate"
       ],
@@ -6351,9 +6352,9 @@
     },
     {
       "name": "PeriodOfTime_start_date",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#start_date",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/start_date",
       "description": "The start of the period.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#startDate"
       ],
@@ -6373,12 +6374,12 @@
     },
     {
       "name": "QualitativeAttribute_value",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#value",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/value",
       "description": "The slot to provide the literal value of the QualitativeAttribute.",
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/prov#value"
       ],
@@ -6398,12 +6399,12 @@
     },
     {
       "name": "QuantitativeAttribute_value",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#value",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/value",
       "description": "The slot to provide the literal value of the QuantitativeAttribute.",
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/prov#value"
       ],
@@ -6423,9 +6424,9 @@
     },
     {
       "name": "Relationship_had_role",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#had_role",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/had_role",
       "description": "A function of an entity or agent with respect to another entity or resource.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/dcat#hadRole"
       ],
@@ -6448,9 +6449,9 @@
     },
     {
       "name": "Relationship_relation",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#relation",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/relation",
       "description": "A resource related to the source resource.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/relation"
       ],
@@ -6473,9 +6474,9 @@
     },
     {
       "name": "Software_has_part",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#has_part",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/has_part",
       "description": "The slot to specify parts of a Software that are themselves Software.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://purl.org/dc/terms/hasPart"
       ],
@@ -6497,9 +6498,9 @@
     },
     {
       "name": "Software_other_identifier",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#other_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/other_identifier",
       "description": "A slot to provide a secondary identifier for a Software.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "http://www.w3.org/ns/adms#identifier"
       ],
@@ -6523,7 +6524,7 @@
   "classes": [
     {
       "name": "Activity",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Activity",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Activity",
       "description": "See [DCAT-AP specs:Activity](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Activity)",
       "notes": [
         "The specified properties (slots) of this class are part of our extension of the DCAT-AP."
@@ -6531,7 +6532,7 @@
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "prov:Activity"
       ],
@@ -6560,9 +6561,9 @@
     },
     {
       "name": "Agent",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Agent",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Agent",
       "description": "See [DCAT-AP specs:Agent](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Agent)",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "foaf:Agent"
       ],
@@ -6576,12 +6577,12 @@
     },
     {
       "name": "AgenticEntity",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#AgenticEntity",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/AgenticEntity",
       "description": "An entity that is somehow responsible for an Activity to take place.",
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "prov:Agent"
       ],
@@ -6606,12 +6607,12 @@
     },
     {
       "name": "AnalysisDataset",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#AnalysisDataset",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/AnalysisDataset",
       "description": "A Dataset that was generated by an analysis of some previously generated data. For example, a dataset that contains the data of an assignment of a chemical structure to a sample based on the spectral data obtained from the sample is an AnalyticalDataset.",
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "dcat:Dataset"
       ],
@@ -6663,12 +6664,12 @@
     },
     {
       "name": "AnalysisSourceData",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#AnalysisSourceData",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/AnalysisSourceData",
       "description": "Information that was evaluated within a DataAnalysis.",
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "prov:Entity"
       ],
@@ -6692,9 +6693,9 @@
     },
     {
       "name": "Any",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Any",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Any",
       "description": "This abstract class is needed to create the union of Dataset, DatasetSeries, Catalogue and DataService for the range of the slot [primary_topic](https://nfdi-de.github.io/chem-dcat-ap/elements/primary_topic/).",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "linkml:Any"
       ],
@@ -6708,9 +6709,9 @@
     },
     {
       "name": "Attribution",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Attribution",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Attribution",
       "description": "See [DCAT-AP specs:Attribution](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Attribution)",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "prov:Attribution"
       ],
@@ -6725,9 +6726,9 @@
     },
     {
       "name": "Catalogue",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Catalogue",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Catalogue",
       "description": "See [DCAT-AP specs:Catalogue](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Catalogue)",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "dcat:Catalog"
       ],
@@ -6758,9 +6759,9 @@
     },
     {
       "name": "CatalogueRecord",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#CatalogueRecord",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/CatalogueRecord",
       "description": "See [DCAT-AP specs:CatalogueRecord](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#CatalogueRecord)",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "dcat:CatalogRecord"
       ],
@@ -6781,9 +6782,9 @@
     },
     {
       "name": "Checksum",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Checksum",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Checksum",
       "description": "See [DCAT-AP specs:Checksum](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Checksum)",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "spdx:Checksum"
       ],
@@ -6797,9 +6798,9 @@
     },
     {
       "name": "ChecksumAlgorithm",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#ChecksumAlgorithm",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/ChecksumAlgorithm",
       "description": "See [DCAT-AP specs:ChecksumAlgorithm](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#ChecksumAlgorithm)",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "spdx:ChecksumAlgorithm"
       ],
@@ -6814,12 +6815,12 @@
     },
     {
       "name": "ClassifierMixin",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#ClassifierMixin",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/ClassifierMixin",
       "description": "A mixin with which an entity of this schema can be classified via an additional rdf:type or dcterms:type assertion.",
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "abstract": true,
       "mixin": true,
       "slots": [
@@ -6827,14 +6828,14 @@
         "rdf_type"
       ],
       "slot_usage": {},
-      "class_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#ClassifierMixin",
+      "class_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/ClassifierMixin",
       "@type": "ClassDefinition"
     },
     {
       "name": "Concept",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Concept",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Concept",
       "description": "See [DCAT-AP specs:Concept](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Concept)",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "skos:Concept"
       ],
@@ -6850,9 +6851,9 @@
     },
     {
       "name": "ConceptScheme",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#ConceptScheme",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/ConceptScheme",
       "description": "See [DCAT-AP specs:ConceptScheme](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#ConceptScheme)",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "skos:ConceptScheme"
       ],
@@ -6867,12 +6868,12 @@
     },
     {
       "name": "DataAnalysis",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#DataAnalysis",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/DataAnalysis",
       "description": "An Activity that evaluates the data produced by another Activity.",
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "prov:Activity"
       ],
@@ -6909,12 +6910,12 @@
     },
     {
       "name": "DataGeneratingActivity",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#DataGeneratingActivity",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/DataGeneratingActivity",
       "description": "An Activity (process) that has the objective to produce information (in form of a dataset) about another Activity or Entity.",
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "prov:Activity"
       ],
@@ -6945,9 +6946,9 @@
     },
     {
       "name": "DataService",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#DataService",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/DataService",
       "description": "See [DCAT-AP specs:DataService](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#DataService)",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "dcat:DataService"
       ],
@@ -6975,12 +6976,12 @@
     },
     {
       "name": "Dataset",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Dataset",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Dataset",
       "description": "A collection of data, published or curated by a single agent, and available for access or download in one or more representations.",
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "dcat:Dataset"
       ],
@@ -7031,9 +7032,9 @@
     },
     {
       "name": "DatasetSeries",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#DatasetSeries",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/DatasetSeries",
       "description": "See [DCAT-AP specs:DatasetSeries](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#DatasetSeries)",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "dcat:DatasetSeries"
       ],
@@ -7055,12 +7056,12 @@
     },
     {
       "name": "DefinedTerm",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#DefinedTerm",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/DefinedTerm",
       "description": "A word, name, acronym or phrase that is defined in a controlled vocabulary (CV) and that is used to provide an additional rdf:type or dcterms:type of a class within this schema.",
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "schema:DefinedTerm"
       ],
@@ -7084,12 +7085,12 @@
     },
     {
       "name": "Device",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Device",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Device",
       "description": "A material instrument that is designed to perform a function primarily by means of its mechanical or electrical nature.",
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "aliases": [
         "hardware instrument"
       ],
@@ -7122,9 +7123,9 @@
     },
     {
       "name": "Distribution",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Distribution",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Distribution",
       "description": "See [DCAT-AP specs:Distribution](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Distribution)",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "dcat:Distribution"
       ],
@@ -7160,9 +7161,9 @@
     },
     {
       "name": "Document",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Document",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Document",
       "description": "See [DCAT-AP specs:Document](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Document)",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "foaf:Document"
       ],
@@ -7178,12 +7179,12 @@
     },
     {
       "name": "Entity",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Entity",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Entity",
       "description": "A physical, digital, conceptual, or other kind of thing with some fixed aspects; entities may be real or imaginary.",
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "prov:Entity"
       ],
@@ -7208,12 +7209,12 @@
     },
     {
       "name": "EvaluatedActivity",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#EvaluatedActivity",
-      "description": "An activity or proces that is being evaluated in a DataGeneratingActivity.",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/EvaluatedActivity",
+      "description": "An activity or process that is being evaluated in a DataGeneratingActivity.",
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "prov:Activity"
       ],
@@ -7240,12 +7241,12 @@
     },
     {
       "name": "EvaluatedEntity",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#EvaluatedEntity",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/EvaluatedEntity",
       "description": "An Entity that is being evaluated in a DataGeneratingActivity.",
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "prov:Entity"
       ],
@@ -7269,9 +7270,9 @@
     },
     {
       "name": "Frequency",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Frequency",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Frequency",
       "description": "See [DCAT-AP specs:Frequency](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Frequency)",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "dcterms:Frequency"
       ],
@@ -7286,9 +7287,9 @@
     },
     {
       "name": "Geometry",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Geometry",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Geometry",
       "description": "See [DCAT-AP specs:Geometry](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Geometry)",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "locn:Geometry"
       ],
@@ -7303,9 +7304,9 @@
     },
     {
       "name": "Identifier",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Identifier",
       "description": "See [DCAT-AP specs:Identifier](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Identifier)",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "adms:Identifier"
       ],
@@ -7321,9 +7322,9 @@
     },
     {
       "name": "Kind",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Kind",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Kind",
       "description": "See [DCAT-AP specs:Kind](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Kind)",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "vcard:Kind"
       ],
@@ -7333,9 +7334,9 @@
     },
     {
       "name": "LegalResource",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#LegalResource",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/LegalResource",
       "description": "See [DCAT-AP specs:LegalResource](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#LegalResource)",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "eli:LegalResource"
       ],
@@ -7351,9 +7352,9 @@
     },
     {
       "name": "LicenseDocument",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#LicenseDocument",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/LicenseDocument",
       "description": "See [DCAT-AP specs:LicenseDocument](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#LicenseDocument)",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "dcterms:LicenseDocument"
       ],
@@ -7370,9 +7371,9 @@
     },
     {
       "name": "LinguisticSystem",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#LinguisticSystem",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/LinguisticSystem",
       "description": "See [DCAT-AP specs:LinguisticSystem](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#LinguisticSystem)",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "dcterms:LinguisticSystem"
       ],
@@ -7387,9 +7388,9 @@
     },
     {
       "name": "Location",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Location",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Location",
       "description": "See [DCAT-AP specs:Location](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Location)",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "dcterms:Location"
       ],
@@ -7404,9 +7405,9 @@
     },
     {
       "name": "MediaType",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#MediaType",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/MediaType",
       "description": "See [DCAT-AP specs:MediaType](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#MediaType)",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "dcterms:MediaType"
       ],
@@ -7421,9 +7422,9 @@
     },
     {
       "name": "MediaTypeOrExtent",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#MediaTypeOrExtent",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/MediaTypeOrExtent",
       "description": "See [DCAT-AP specs:MediaTypeOrExtent](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#MediaTypeOrExtent)",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "dcterms:MediaTypeOrExtent"
       ],
@@ -7438,9 +7439,9 @@
     },
     {
       "name": "PeriodOfTime",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#PeriodOfTime",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/PeriodOfTime",
       "description": "See [DCAT-AP specs:PeriodOfTime](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#PeriodOfTime)",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "dcterms:PeriodOfTime"
       ],
@@ -7459,7 +7460,7 @@
     },
     {
       "name": "Plan",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Plan",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Plan",
       "description": "A piece of information that specifies how an activity has to be carried out by its agents including what kind of steps have to be taken and what kind of parameters have to be met/set.",
       "examples": [
         {
@@ -7470,7 +7471,7 @@
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "aliases": [
         "Plan Specification",
         "Method",
@@ -7494,9 +7495,9 @@
     },
     {
       "name": "Policy",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Policy",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Policy",
       "description": "See [DCAT-AP specs:Policy](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Policy)",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "odrl:Policy"
       ],
@@ -7511,9 +7512,9 @@
     },
     {
       "name": "ProvenanceStatement",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#ProvenanceStatement",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/ProvenanceStatement",
       "description": "See [DCAT-AP specs:ProvenanceStatement](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#ProvenanceStatement)",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "dcterms:ProvenanceStatement"
       ],
@@ -7528,12 +7529,12 @@
     },
     {
       "name": "QualitativeAttribute",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#QualitativeAttribute",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/QualitativeAttribute",
       "description": "A piece of information that is attributed to an Entity, Activity or AgenticEntity.",
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "prov:Entity"
       ],
@@ -7553,12 +7554,12 @@
     },
     {
       "name": "QuantitativeAttribute",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#QuantitativeAttribute",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/QuantitativeAttribute",
       "description": "A quantifiable piece of information that is attributed to an Entity, Activity or AgenticEntity.",
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "qudt:Quantity"
       ],
@@ -7623,9 +7624,9 @@
     },
     {
       "name": "Relationship",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Relationship",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Relationship",
       "description": "See [DCAT-AP specs:Relationship](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Relationship)",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "dcat:Relationship"
       ],
@@ -7639,9 +7640,9 @@
     },
     {
       "name": "Resource",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Resource",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Resource",
       "description": "See [DCAT-AP specs:Resource](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Resource)",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "rdfs:Resource"
       ],
@@ -7657,9 +7658,9 @@
     },
     {
       "name": "RightsStatement",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#RightsStatement",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/RightsStatement",
       "description": "See [DCAT-AP specs:RightsStatement](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#RightsStatement)",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "dcterms:RightsStatement"
       ],
@@ -7674,9 +7675,9 @@
     },
     {
       "name": "Role",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Role",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Role",
       "description": "See [DCAT-AP specs:Role](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Role)",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "dcat:Role"
       ],
@@ -7691,12 +7692,12 @@
     },
     {
       "name": "Software",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Software",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Software",
       "description": "An instrument composed of a series of instructions that can be interpreted by or directly executed by a computer.",
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "prov:SoftwareAgent"
       ],
@@ -7722,9 +7723,9 @@
     },
     {
       "name": "Standard",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Standard",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Standard",
       "description": "See [DCAT-AP specs:Standard](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Standard)",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "dcterms:Standard"
       ],
@@ -7739,25 +7740,25 @@
     },
     {
       "name": "SupportiveEntity",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#SupportiveEntity",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/SupportiveEntity",
       "description": "The supportive entities are supporting the main entities in the Application Profile. They are included in the Application Profile because they form the range of properties.",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "slots": [
         "title",
         "description"
       ],
       "slot_usage": {},
-      "class_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#SupportiveEntity",
+      "class_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/SupportiveEntity",
       "@type": "ClassDefinition"
     },
     {
       "name": "Surrounding",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#Surrounding",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Surrounding",
       "description": "The surrounding in which the dataset creating activity took place (e.g. a lab).",
       "in_subset": [
         "domain_agnostic_core"
       ],
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "prov:Location"
       ],
@@ -7776,9 +7777,9 @@
     },
     {
       "name": "TimeInstant",
-      "definition_uri": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#TimeInstant",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/TimeInstant",
       "description": "See [DCAT-AP specs:TimeInstant](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#TimeInstant)",
-      "from_schema": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
       "mappings": [
         "time:Instant"
       ],
@@ -7794,15 +7795,15 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "dcat_ap_plus.yaml",
-  "source_file_date": "2025-10-22T15:08:33",
-  "source_file_size": 88038,
-  "generation_date": "2025-10-22T15:09:01",
+  "source_file_date": "2025-11-23T12:02:52",
+  "source_file_size": 88109,
+  "generation_date": "2025-11-23T13:49:17",
   "@type": "SchemaDefinition",
   "@context": [
-    "project/jsonld/dcat_ap_plus.context.jsonld",
+    "project\\jsonld/dcat_ap_plus.context.jsonld",
     "https://w3id.org/linkml/types.context.jsonld",
     {
-      "@base": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml#"
+      "@base": "https://w3id.org/nfdi-de/dcat-ap-plus/"
     }
   ]
 }

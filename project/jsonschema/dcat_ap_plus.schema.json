@@ -2778,7 +2778,7 @@
         },
         "EvaluatedActivity": {
             "additionalProperties": false,
-            "description": "An activity or proces that is being evaluated in a DataGeneratingActivity.",
+            "description": "An activity or process that is being evaluated in a DataGeneratingActivity.",
             "properties": {
                 "carried_out_by": {
                     "description": "The slot to specify the AgenticEntity that played a certain part in carrying out the Activity, either via having a specific role, function or disposition that was realized in the Activity.",
@@ -3880,11 +3880,11 @@
             "type": "string"
         }
     },
-    "$id": "https://nfdi-de.github.io/dcat-ap-plus/dcat_ap_plus.yaml",
+    "$id": "https://w3id.org/nfdi-de/dcat-ap-plus/",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
     "metamodel_version": "1.7.0",
     "title": "dcat-ap-plus",
     "type": "object",
-    "version": null
+    "version": "0.1.0rc1.post13.dev0+5c0f19e"
 }
