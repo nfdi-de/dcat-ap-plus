@@ -112,7 +112,10 @@ gen-project:
   uv run gen-project {{config_yaml}} -d {{dest}} {{source_schema_path}}
   mv {{dest}}/*.py {{pymodel}}
   uv run gen-pydantic {{gen_pydantic_args}} {{source_schema_path}} > {{pymodel}}/{{schema_name}}_pydantic.py
-  uv run gen-java {{gen_java_args}} --output-directory {{dest}}/java/ {{source_schema_path}}
+  # We need to special-case generators that are not yet reading config.yaml (https://github.com/linkml/linkml/issues/2537)
+  @if [ ! ${{gen_java_args}} ]; then \
+    uv run gen-java {{gen_java_args}} --output-directory {{dest}}/java/ {{source_schema_path}} || true ; \
+  fi
   @if [ ! ${{gen_owl_args}} ]; then \
     mkdir -p {{dest}}/owl && \
     uv run gen-owl {{gen_owl_args}} {{source_schema_path}} > {{dest}}/owl/{{schema_name}}.owl.ttl || true ; \
