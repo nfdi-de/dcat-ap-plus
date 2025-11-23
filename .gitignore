@@ -12,8 +12,11 @@ examples/output/
 
 # Derived schemas, generated from the schema.yaml
 tmp/
-#project/
-!project/README.md
+
+# generated model representations of generators that ignore config.yaml
+project/java
+project/owl
+project/typescript
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
