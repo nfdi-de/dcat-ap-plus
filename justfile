@@ -49,7 +49,7 @@ _default: _status
 # Initialize a new project (use this for projects not yet under version control)
 [group('project management')]
 setup: _check-config _git-init install _git-add && _setup_part2
-  git commit -m "Initialise git with minimal project" -a
+  git commit -m "Initialise git with minimal project" -a || true
 
 _setup_part2: gen-project gen-doc
   @echo
@@ -204,6 +204,9 @@ _gen-yaml:
   -mkdir -p {{distrib_schema_path}}
   uv run gen-yaml {{source_schema_path}} > {{distrib_schema_path}}/{{schema_name}}.yaml
 
+# Overridable recipe to add project-specific artifacts to the distribution schema path
+_add-artifacts:
+
 # Run documentation server
 _serve:
   uv run mkdocs serve
@@ -249,3 +252,21 @@ _ensure_examples_output:  # Ensure a clean examples/output directory exists
 # ============== Include project-specific recipes ==============
 
 import "project.justfile"
+
+# ====== Override recipes from above with custom versions =======
+
+# Uncomment the following line to allow duplicate recipe names
+set allow-duplicate-recipes
+
+# Overriding recipes from the root justfile by adding a recipe with the same
+# name in an imported file is not possible until a known issue in just is fixed,
+# https://github.com/casey/just/issues/2540
+
+# Custom recipe for dcat-ap-plus to add project-specific artifacts to the distribution schema path
+_add-artifacts:
+  @echo "Adding project-specific artifacts to {{distrib_schema_path}} for deploying to gh-pages"
+  for d in "{{distrib_schema_path}}"/*/; do rm -rf "$d"/; done
+  for d in "{{dest}}"/*/; do cp -a "$d" "{{distrib_schema_path}}"/; done
+  cp {{source_schema_dir}}/*.yaml {{distrib_schema_path}}/
+  @mkdir -p {{distrib_schema_path}}/merged-yaml
+  uv run gen-yaml {{source_schema_path}} > {{distrib_schema_path}}/merged-yaml/{{schema_name}}.yaml
