@@ -38,7 +38,7 @@ dest := "project"
 pymodel := src / schema_name / "datamodel"
 source_schema_path := source_schema_dir / schema_name + ".yaml"
 docdir := "docs/elements"  # Directory for generated documentation
-distrib_schema_path := "docs/schema"  # Directory for published schema artifacts
+distrib_schema_path := "docs/schema"  # Directory for publishing schema artifacts
 
 # ============== Project recipes ==============
 
@@ -112,16 +112,19 @@ gen-project:
   uv run gen-project {{config_yaml}} -d {{dest}} {{source_schema_path}}
   mv {{dest}}/*.py {{pymodel}}
   uv run gen-pydantic {{gen_pydantic_args}} {{source_schema_path}} > {{pymodel}}/{{schema_name}}_pydantic.py
-  @if [ ! ${{gen_java_args}} ]; then \
-    uv run gen-java {{gen_java_args}} --output-directory {{dest}}/java/ {{source_schema_path}} || true ; \
+
+  @# Some generators ignore config_yaml or cannot create directories, so we run them separately.
+  uv run gen-java {{gen_java_args}} --output-directory {{dest}}/java/ {{source_schema_path}}
+
+  @if [ ! -d "{{dest}}/typescript" ]; then \
+    mkdir -p {{dest}}/typescript ; \
   fi
-  @if [ ! ${{gen_owl_args}} ]; then \
-    mkdir -p {{dest}}/owl && \
-    uv run gen-owl {{gen_owl_args}} {{source_schema_path}} > {{dest}}/owl/{{schema_name}}.owl.ttl || true ; \
+  uv run gen-typescript {{gen_ts_args}} {{source_schema_path}} > {{dest}}/typescript/{{schema_name}}.ts
+
+  @if [ ! -d "{{dest}}/owl" ]; then \
+    mkdir -p {{dest}}/owl ; \
   fi
-  @if [ ! ${{gen_ts_args}} ]; then \
-    uv run gen-typescript {{gen_ts_args}} {{source_schema_path}} > {{dest}}/typescript/{{schema_name}}.ts || true ; \
-  fi
+  uv run gen-owl {{gen_owl_args}} {{source_schema_path}} > "{{dest}}/owl/{{schema_name}}.owl.ttl"
 
 # ============== Migrations recipes for Copier ==============
 
