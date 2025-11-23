@@ -21,7 +21,7 @@ see_also:
 - https://github.com/HendrikBorgelt/DCAT-ap_as_LinkML_template/blob/main/src/dcatlinkml/schema/dcatlinkml.yaml
 - https://gitlab.com/opensourcelab/scientificdata/scidats/-/blob/feature/linkml-schemata/schemata/metadata_model_scidats_dcat_ap.yaml?ref_type=heads
 id: https://w3id.org/nfdi-de/dcat-ap-plus/
-version: 0.1.0rc1.post15.dev0+638c7af
+version: 0.1.0rc1.post15.dev0+0bc4b8e
 imports:
 - linkml:types
 license: CC-BY 4.0
@@ -7965,7 +7965,7 @@ classes:
     class_uri: time:Instant
 metamodel_version: 1.7.0
 source_file: dcat_ap_plus.yaml
-source_file_date: '2025-11-23T20:56:56'
+source_file_date: '2025-11-23T21:03:22'
 source_file_size: 88109
-generation_date: '2025-11-23T20:57:05'
+generation_date: '2025-11-23T21:03:31'
 
