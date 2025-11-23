@@ -1,5 +1,5 @@
 ---
-id: https://nfdi-de.github.io/dcat-ap-plus/dev/schema/
+id: https://nfdi-de.github.io/dcat-ap-plus/dev/
 version: "0.1.0rc1.post11.dev0+ad10de1"  # Managed by dynamic-versioning. Don't change this line!
 name: dcat-ap-plus
 description: >-
@@ -53,7 +53,7 @@ prefixes:
   iana: https://www.iana.org/assignments/
   epos: https://www.epos-eu.org/epos-dcat-ap#
   schema: http://schema.org/
-  dcatap_plus: https://nfdi-de.github.io/dcat-ap-plus/dev/schema/
+  dcatap_plus: https://nfdi-de.github.io/dcat-ap-plus/dev/
   BFO: http://purl.obolibrary.org/obo/BFO_
   OBI: http://purl.obolibrary.org/obo/OBI_
   IAO: http://purl.obolibrary.org/obo/IAO_
