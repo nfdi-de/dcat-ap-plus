@@ -385,11 +385,11 @@ def build_dcatap_linkml():
     print('\n   --- Building the DCAT-AP LinkML representation ---')
 
     builder = SchemaBuilder(name="dcat-ap-linkml")
-    builder.schema.id = 'https://w3id.org/nfdi-de/dcat_ap_linkml'
+    builder.schema.id = 'https://w3id.org/nfdi-de/dcat-ap-linkml'
     builder.schema.description = DESCRIPTION1 + '\nNOTE:' + NOTE
     builder.schema.default_prefix = 'dcatap_linkml'
     builder.schema.prefixes = PREFIX_MAP
-    builder.schema.prefixes['dcatap_linkml']='https://w3id.org/nfdi-de/dcat_ap_linkml/'
+    builder.schema.prefixes['dcatap_linkml']='https://w3id.org/nfdi-de/dcat-ap-linkml/'
     builder.schema.title = 'LinkML schema representation of DCAT-AP 3.0.0'
     builder.schema.license = 'CC-BY 4.0'
     builder.schema.default_range = 'string'
