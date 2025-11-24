@@ -190,7 +190,7 @@ def parse_dcat_ap_shacl_shapes(builder):
                     # Check cardinality constraints of a slot
                     required = True if 'sh:minCount' in slot_shape and int(slot_shape['sh:minCount']) == 1 else False
                     multivalued = False if 'sh:maxCount' in slot_shape and int(slot_shape['sh:maxCount']) == 1 else True
-                    inlined_as_list = False if multivalued == False else True
+                    inlined_as_list = False if not multivalued else True
                     # Use default slot range 'string' as substitute for 'rdfs:Literal' and 'xsd:date' for
                     # https://semiceu.github.io/DCAT-AP/releases/3.0.0/#TemporalLiteral, except for
                     # https://semiceu.github.io/DCAT-AP/releases/3.0.0/#CataloguedResource, which uses linkml:Any.
@@ -385,11 +385,11 @@ def build_dcatap_linkml():
     print('\n   --- Building the DCAT-AP LinkML representation ---')
 
     builder = SchemaBuilder(name="dcat-ap-linkml")
-    builder.schema.id = 'https://w3id.org/nfdi-de/dcat-ap-plus/dcat_ap_linkml.yaml'
+    builder.schema.id = 'https://w3id.org/nfdi-de/dcat_ap_linkml'
     builder.schema.description = DESCRIPTION1 + '\nNOTE:' + NOTE
     builder.schema.default_prefix = 'dcatap_linkml'
     builder.schema.prefixes = PREFIX_MAP
-    builder.schema.prefixes['dcatap_linkml']='https://w3id.org/nfdi-de/dcat-ap-plus/dcat_ap_linkml.yaml#'
+    builder.schema.prefixes['dcatap_linkml']='https://w3id.org/nfdi-de/dcat_ap_linkml/'
     builder.schema.title = 'LinkML schema representation of DCAT-AP 3.0.0'
     builder.schema.license = 'CC-BY 4.0'
     builder.schema.default_range = 'string'
@@ -411,7 +411,7 @@ def build_dcatap_linkml():
 
 def build_dcatap_plus():
     """
-    Create a LinkML schema representation of DCAT-AP with additional classes, slots and contraints.
+    Create a LinkML schema representation of DCAT-AP with additional classes, slots and constraints.
     """
     print('\n  --- Building the extended DCAT-AP LinkML representation ---')
 
@@ -598,7 +598,7 @@ def build_dcatap_plus():
                                           in_subset='domain_agnostic_core'))
 
 
-    def extend_supportive_entites():
+    def extend_supportive_entities():
         for supportive_entity in builder.schema.classes.keys():
             slots = builder.schema.classes[supportive_entity].slots
             if supportive_entity not in (MAIN_NODES + DATATYPES + ["DataGeneratingActivity"]):
@@ -710,7 +710,7 @@ def build_dcatap_plus():
         builder.add_class(ClassDefinition(name='EvaluatedActivity',
                                           is_a='Activity',
                                           class_uri='prov:Activity',
-                                          description='An activity or proces that is being evaluated in a '
+                                          description='An activity or process that is being evaluated in a '
                                                       'DataGeneratingActivity.',
                                           slot_usage={
                                               'other_identifier':{
@@ -996,7 +996,7 @@ def build_dcatap_plus():
     # Add slots & constraints to DCAT-AP's Dataset class
     extend_dataset()
     extend_activity()
-    extend_supportive_entites()
+    extend_supportive_entities()
 
     # Add classes and properties needed to extend DCAT-AP
     add_classification_context()
