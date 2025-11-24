@@ -1,5 +1,5 @@
-id: https://nfdi-de.github.io/dcat_ap_linkml
-name: dcat_ap_linkml
+id: https://w3id.org/nfdi-de/dcat-ap-linkml
+name: dcat-ap-linkml
 description: 'This LinkML schema representation of DCAT-AP 3.0.0 was automatically
   created from these [JSON-LD SHACL shapes](https://github.com/SEMICeu/DCAT-AP/blob/master/releases/3.0.0/shacl/dcat-ap-SHACL.jsonld)
   using this Python script: https://github.com/StroemPhi/dcat-4C-ap/tree/main/src/dcat-ap_shacl_2_linkml.py.
