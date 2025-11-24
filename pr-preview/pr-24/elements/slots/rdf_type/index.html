@@ -473,13 +473,18 @@ Alias: rdf_type</p>
 </thead>
 <tbody>
 <tr>
-<td><a href="../../classes/EvaluatedEntity/">EvaluatedEntity</a></td>
-<td>An Entity that is being evaluated in a DataGeneratingActivity.</td>
+<td><a href="../../classes/ClassifierMixin/">ClassifierMixin</a></td>
+<td>A mixin with which an entity of this schema can be classified via an additional rdf:type or dcterms:type assertion.</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../../classes/DataGeneratingActivity/">DataGeneratingActivity</a></td>
-<td>An Activity (process) that has the objective to produce information (in form of a dataset) about another Activity or Entity.</td>
+<td><a href="../../classes/Activity/">Activity</a></td>
+<td>See <a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Activity">DCAT-AP specs:Activity</a></td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../../classes/Software/">Software</a></td>
+<td>An instrument composed of a series of instructions that can be interpreted by or directly executed by a computer.</td>
 <td>no</td>
 </tr>
 <tr>
@@ -498,33 +503,8 @@ Alias: rdf_type</p>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../../classes/AnalysisSourceData/">AnalysisSourceData</a></td>
-<td>Information that was evaluated within a DataAnalysis.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/Device/">Device</a></td>
-<td>A material instrument that is designed to perform a function primarily by means of its mechanical or electrical nature.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/EvaluatedActivity/">EvaluatedActivity</a></td>
-<td>An activity or proces that is being evaluated in a DataGeneratingActivity.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/Software/">Software</a></td>
-<td>An instrument composed of a series of instructions that can be interpreted by or directly executed by a computer.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/Activity/">Activity</a></td>
-<td>See <a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Activity">DCAT-AP specs:Activity</a></td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/QualitativeAttribute/">QualitativeAttribute</a></td>
-<td>A piece of information that is attributed to an Entity, Activity or AgenticEntity.</td>
+<td><a href="../../classes/EvaluatedEntity/">EvaluatedEntity</a></td>
+<td>An Entity that is being evaluated in a DataGeneratingActivity.</td>
 <td>no</td>
 </tr>
 <tr>
@@ -533,8 +513,28 @@ Alias: rdf_type</p>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../../classes/ClassifierMixin/">ClassifierMixin</a></td>
-<td>A mixin with which an entity of this schema can be classified via an additional rdf:type or dcterms:type assertion.</td>
+<td><a href="../../classes/QualitativeAttribute/">QualitativeAttribute</a></td>
+<td>A piece of information that is attributed to an Entity, Activity or AgenticEntity.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../../classes/DataGeneratingActivity/">DataGeneratingActivity</a></td>
+<td>An Activity (process) that has the objective to produce information (in form of a dataset) about another Activity or Entity.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../../classes/EvaluatedActivity/">EvaluatedActivity</a></td>
+<td>An activity or process that is being evaluated in a DataGeneratingActivity.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../../classes/AnalysisSourceData/">AnalysisSourceData</a></td>
+<td>Information that was evaluated within a DataAnalysis.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../../classes/DataAnalysis/">DataAnalysis</a></td>
+<td>An Activity that evaluates the data produced by another Activity.</td>
 <td>no</td>
 </tr>
 <tr>
@@ -543,8 +543,8 @@ Alias: rdf_type</p>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../../classes/DataAnalysis/">DataAnalysis</a></td>
-<td>An Activity that evaluates the data produced by another Activity.</td>
+<td><a href="../../classes/Device/">Device</a></td>
+<td>A material instrument that is designed to perform a function primarily by means of its mechanical or electrical nature.</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -561,7 +561,7 @@ Alias: rdf_type</p>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: https://w3id.org/nfdi-de/dcat-ap-plus</li>
+<li>from schema: https://w3id.org/nfdi-de/dcat-ap-plus/</li>
 </ul>
 <h2 id="mappings">Mappings</h2>
 <table>
@@ -588,7 +588,7 @@ Alias: rdf_type</p>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The slot to specify the ontology class that is instantiated by an entity.</span>
 <span class="nt">in_subset</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">domain_agnostic_core</span>
-<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/nfdi-de/dcat-ap-plus</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/nfdi-de/dcat-ap-plus/</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rdf:type</span>
 <span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rdf_type</span>

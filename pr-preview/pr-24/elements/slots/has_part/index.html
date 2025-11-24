@@ -473,14 +473,14 @@ Alias: has_part</p>
 </thead>
 <tbody>
 <tr>
-<td><a href="../../classes/EvaluatedEntity/">EvaluatedEntity</a></td>
-<td>An Entity that is being evaluated in a DataGeneratingActivity.</td>
-<td>no</td>
+<td><a href="../../classes/Activity/">Activity</a></td>
+<td>See <a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Activity">DCAT-AP specs:Activity</a></td>
+<td>yes</td>
 </tr>
 <tr>
-<td><a href="../../classes/DataGeneratingActivity/">DataGeneratingActivity</a></td>
-<td>An Activity (process) that has the objective to produce information (in form of a dataset) about another Activity or Entity.</td>
-<td>no</td>
+<td><a href="../../classes/Software/">Software</a></td>
+<td>An instrument composed of a series of instructions that can be interpreted by or directly executed by a computer.</td>
+<td>yes</td>
 </tr>
 <tr>
 <td><a href="../../classes/AgenticEntity/">AgenticEntity</a></td>
@@ -493,8 +493,28 @@ Alias: has_part</p>
 <td>yes</td>
 </tr>
 <tr>
+<td><a href="../../classes/EvaluatedEntity/">EvaluatedEntity</a></td>
+<td>An Entity that is being evaluated in a DataGeneratingActivity.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../../classes/DataGeneratingActivity/">DataGeneratingActivity</a></td>
+<td>An Activity (process) that has the objective to produce information (in form of a dataset) about another Activity or Entity.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../../classes/EvaluatedActivity/">EvaluatedActivity</a></td>
+<td>An activity or process that is being evaluated in a DataGeneratingActivity.</td>
+<td>no</td>
+</tr>
+<tr>
 <td><a href="../../classes/AnalysisSourceData/">AnalysisSourceData</a></td>
 <td>Information that was evaluated within a DataAnalysis.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../../classes/DataAnalysis/">DataAnalysis</a></td>
+<td>An Activity that evaluates the data produced by another Activity.</td>
 <td>no</td>
 </tr>
 <tr>
@@ -503,29 +523,9 @@ Alias: has_part</p>
 <td>yes</td>
 </tr>
 <tr>
-<td><a href="../../classes/EvaluatedActivity/">EvaluatedActivity</a></td>
-<td>An activity or proces that is being evaluated in a DataGeneratingActivity.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/Software/">Software</a></td>
-<td>An instrument composed of a series of instructions that can be interpreted by or directly executed by a computer.</td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../../classes/Activity/">Activity</a></td>
-<td>See <a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Activity">DCAT-AP specs:Activity</a></td>
-<td>yes</td>
-</tr>
-<tr>
 <td><a href="../../classes/Catalogue/">Catalogue</a></td>
 <td>See <a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Catalogue">DCAT-AP specs:Catalogue</a></td>
 <td>yes</td>
-</tr>
-<tr>
-<td><a href="../../classes/DataAnalysis/">DataAnalysis</a></td>
-<td>An Activity that evaluates the data produced by another Activity.</td>
-<td>no</td>
 </tr>
 </tbody>
 </table>
@@ -536,7 +536,7 @@ Alias: has_part</p>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: https://w3id.org/nfdi-de/dcat-ap-plus</li>
+<li>from schema: https://w3id.org/nfdi-de/dcat-ap-plus/</li>
 </ul>
 <h2 id="mappings">Mappings</h2>
 <table>
@@ -562,7 +562,7 @@ Alias: has_part</p>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_part</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">This slot is described in more detail within the class in which it is</span>
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">used.</span>
-<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/nfdi-de/dcat-ap-plus</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/nfdi-de/dcat-ap-plus/</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dcterms:hasPart</span>
 <span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_part</span>
