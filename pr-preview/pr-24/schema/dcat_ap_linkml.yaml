@@ -56,7 +56,7 @@ prefixes:
   iana: https://www.iana.org/assignments/
   epos: https://www.epos-eu.org/epos-dcat-ap#
   schema: https://schema.org/
-  dcatap_linkml: https://w3id.org/nfdi-de/dcat_ap_linkml/
+  dcatap_linkml: https://w3id.org/nfdi-de/dcat-ap-linkml/
 default_prefix: dcatap_linkml
 default_range: string
 types:
