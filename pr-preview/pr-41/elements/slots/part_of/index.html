@@ -539,28 +539,8 @@ Alias: part_of</p>
 </thead>
 <tbody>
 <tr>
-<td><a href="../../classes/AgenticEntity/">AgenticEntity</a></td>
-<td>An entity that is somehow responsible for an Activity to take place.</td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../../classes/Activity/">Activity</a></td>
-<td>See <a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Activity">DCAT-AP specs:Activity</a></td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../../classes/Entity/">Entity</a></td>
-<td>A physical, digital, conceptual, or other kind of thing with some fixed aspects; entities may be real or imaginary.</td>
-<td>yes</td>
-</tr>
-<tr>
 <td><a href="../../classes/AnalysisSourceData/">AnalysisSourceData</a></td>
 <td>Information that was evaluated within a DataAnalysis.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/EvaluatedActivity/">EvaluatedActivity</a></td>
-<td>An activity or process that is being evaluated in a DataGeneratingActivity.</td>
 <td>no</td>
 </tr>
 <tr>
@@ -569,8 +549,13 @@ Alias: part_of</p>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../../classes/EvaluatedEntity/">EvaluatedEntity</a></td>
-<td>An Entity that is being evaluated in a DataGeneratingActivity.</td>
+<td><a href="../../classes/Entity/">Entity</a></td>
+<td>A physical, digital, conceptual, or other kind of thing with some fixed aspects; entities may be real or imaginary.</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../../classes/DataAnalysis/">DataAnalysis</a></td>
+<td>An Activity that evaluates the data produced by another Activity.</td>
 <td>no</td>
 </tr>
 <tr>
@@ -579,13 +564,28 @@ Alias: part_of</p>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../../classes/DataAnalysis/">DataAnalysis</a></td>
-<td>An Activity that evaluates the data produced by another Activity.</td>
+<td><a href="../../classes/EvaluatedActivity/">EvaluatedActivity</a></td>
+<td>An activity or process that is being evaluated in a DataGeneratingActivity.</td>
 <td>no</td>
+</tr>
+<tr>
+<td><a href="../../classes/Activity/">Activity</a></td>
+<td>See <a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Activity">DCAT-AP specs:Activity</a></td>
+<td>yes</td>
 </tr>
 <tr>
 <td><a href="../../classes/Device/">Device</a></td>
 <td>A material instrument that is designed to perform a function primarily by means of its mechanical or electrical nature.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../../classes/AgenticEntity/">AgenticEntity</a></td>
+<td>An entity that is somehow responsible for an Activity to take place.</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../../classes/EvaluatedEntity/">EvaluatedEntity</a></td>
+<td>An Entity that is being evaluated in a DataGeneratingActivity.</td>
 <td>no</td>
 </tr>
 </tbody>
