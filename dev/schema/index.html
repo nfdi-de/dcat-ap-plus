@@ -18,7 +18,7 @@
     
     
       
-        <title>Merged model - dcat-ap-plus Documentation</title>
+        <title>Merged model - DCAT-AP+ Documentation</title>
       
     
     
@@ -98,7 +98,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="dcat-ap-plus Documentation" class="md-header__button md-logo" aria-label="dcat-ap-plus Documentation" data-md-component="logo">
+    <a href=".." title="DCAT-AP+ Documentation" class="md-header__button md-logo" aria-label="DCAT-AP+ Documentation" data-md-component="logo">
       <img id="logo_dark_mode" src="../images/logo-icon.svg" alt="logo">
 <img id="logo_light_mode" src="../images/logo-icon.svg" alt="logo">
     </a>
@@ -110,7 +110,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            dcat-ap-plus Documentation
+            DCAT-AP+ Documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -242,11 +242,11 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="dcat-ap-plus Documentation" class="md-nav__button md-logo" aria-label="dcat-ap-plus Documentation" data-md-component="logo">
+    <a href=".." title="DCAT-AP+ Documentation" class="md-nav__button md-logo" aria-label="DCAT-AP+ Documentation" data-md-component="logo">
       <img id="logo_dark_mode" src="../images/logo-icon.svg" alt="logo">
 <img id="logo_light_mode" src="../images/logo-icon.svg" alt="logo">
     </a>
-    dcat-ap-plus Documentation
+    DCAT-AP+ Documentation
   </label>
   
     <div class="md-nav__source">
@@ -292,6 +292,50 @@
   
   
     <li class="md-nav__item">
+      <a href="../design-patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Design Patterns
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../automatic-generation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Automatic Generation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../elements/overview/" class="md-nav__link">
         
   
@@ -320,6 +364,28 @@
   
   <span class="md-ellipsis">
     Versioning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dcat-ap-plus-users/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Users
     
   </span>
   
@@ -389,10 +455,19 @@
 
 
 <h1 id="merged-model">Merged model</h1>
-<p>This folder contains the fully resolved pid4cat model, including all imported models.
-The files are auto-generated from the schema in the <code>src/dcat_ap_plus/schema</code> folder and version-stamped by uv-dynamic-versioning.
-For releases, these files are copied to gh-pages along with the rest of the documentation, making schema files with version information available on gh-pages.
-The w3id.org redirects link to these files.</p>
+<p>This folder contains the DCAT-AP+ model serialized as:
+* LinkML YAML, 
+* JSON schema, 
+* JSON-LD (including context) 
+* and SHACL shapes.</p>
+<p>It also contains the prefix map in YAML and <a href="dcat_ap_linkml.yaml">dcat_ap_linkml.yaml</a>, 
+the direct translation of DCAT-AP into LinkML.</p>
+<p>These files are auto-generated from the schema in the <code>src/dcat_ap_plus/schema</code> folder and version-stamped by 
+uv-dynamic-versioning.
+For releases, these files are copied to gh-pages along with the rest of the documentation, 
+making schema files with version information available on gh-pages. The w3id.org redirects link to these files.</p>
+<p>A fully resolved version of the DCAT-AP+ model with imported models merged in is located in the 
+subfolder <a href="merged-yaml">merged-yaml</a>.</p>
 <p>Note, that the generated files are git-ignored.</p>
 
 

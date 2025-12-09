@@ -2,734 +2,746 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/about/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
+    </url>
+    <url>
+         <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/automatic-generation/</loc>
+         <lastmod>2025-12-09</lastmod>
+    </url>
+    <url>
+         <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/dcat-ap-plus-users/</loc>
+         <lastmod>2025-12-09</lastmod>
+    </url>
+    <url>
+         <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/design-patterns/</loc>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/versioning/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/overview/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/Activity/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/Agent/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/AgenticEntity/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/AnalysisDataset/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/AnalysisSourceData/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/Any/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/Attribution/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/Catalogue/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/CatalogueRecord/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/Checksum/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/ChecksumAlgorithm/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/ClassifierMixin/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/Concept/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/ConceptScheme/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/DataAnalysis/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/DataGeneratingActivity/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/DataService/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/Dataset/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/DatasetSeries/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/DefinedTerm/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/Device/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/Distribution/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/Document/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/Entity/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/EvaluatedActivity/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/EvaluatedEntity/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/Frequency/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/Geometry/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/Identifier/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/Kind/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/LegalResource/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/LicenseDocument/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/LinguisticSystem/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/Location/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/MediaType/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/MediaTypeOrExtent/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/PeriodOfTime/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/Plan/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/Policy/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/ProvenanceStatement/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/QualitativeAttribute/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/QuantitativeAttribute/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/Relationship/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/Resource/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/RightsStatement/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/Role/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/Software/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/Standard/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/SupportiveEntity/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/Surrounding/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/classes/TimeInstant/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/enums/DatasetThemes/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/enums/QUDTQuantityKindEnum/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/enums/QUDTUnitEnum/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/enums/TopLevelMediaTypes/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/schemas/dcat-ap-plus/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/access_URL/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/access_rights/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/access_service/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/algorithm/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/applicable_legislation/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/application_profile/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/availability/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/bbox/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/beginning/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/byte_size/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/carried_out_by/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/catalogue/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/centroid/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/change_type/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/checksum/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/checksum_value/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/compression_format/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/conforms_to/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/contact_point/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/creator/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/dataset_distribution/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/description/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/documentation/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/download_URL/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/end/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/end_date/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/endpoint_URL/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/endpoint_description/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/evaluated_activity/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/evaluated_entity/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/format/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/frequency/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/from_CV/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/geographical_coverage/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/geometry/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/had_input_activity/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/had_input_entity/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/had_output_entity/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/had_role/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/has_dataset/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/has_part/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/has_policy/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/has_qualitative_attribute/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/has_quantitative_attribute/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/has_quantity_type/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/has_version/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/homepage/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/id/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/identifier/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/in_series/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/is_about_activity/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/is_about_entity/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/is_referenced_by/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/keyword/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/landing_page/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/language/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/licence/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/linked_schemas/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/listing_date/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/media_type/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/modification_date/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/name/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/notation/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/occurred_in/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/other_identifier/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/packaging_format/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/part_of/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/preferred_label/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/primary_topic/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/provenance/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/publisher/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/qualified_attribution/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/qualified_relation/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/rdf_type/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/realized_plan/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/record/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/related_resource/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/relation/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/release_date/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/rights/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/sample/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/serves_dataset/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/service/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/source/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/source_metadata/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/spatial_resolution/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/start_date/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/status/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/temporal_coverage/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/temporal_resolution/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/theme/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/themes/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/title/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/type/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/unit/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/value/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/version/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/version_notes/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/slots/was_generated_by/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/subsets/DomainAgnosticCore/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/types/Boolean/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/types/Curie/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/types/Date/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/types/DateOrDatetime/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/types/Datetime/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/types/Decimal/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/types/Double/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/types/Duration/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/types/Float/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/types/HexBinary/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/types/Integer/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/types/Jsonpath/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/types/Jsonpointer/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/types/Ncname/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/types/Nodeidentifier/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/types/NonNegativeInteger/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/types/Objectidentifier/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/types/Sparqlpath/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/types/String/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/types/Time/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/types/Uri/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/elements/types/Uriorcurie/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
     <url>
          <loc>https://nfdi-de.github.io/dcat-ap-plus/latest/schema/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-09</lastmod>
     </url>
 </urlset>
