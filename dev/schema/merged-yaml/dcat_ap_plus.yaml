@@ -21,7 +21,7 @@ see_also:
 - https://github.com/HendrikBorgelt/DCAT-ap_as_LinkML_template/blob/main/src/dcatlinkml/schema/dcatlinkml.yaml
 - https://gitlab.com/opensourcelab/scientificdata/scidats/-/blob/feature/linkml-schemata/schemata/metadata_model_scidats_dcat_ap.yaml?ref_type=heads
 id: https://w3id.org/nfdi-de/dcat-ap-plus/
-version: 0.1.0rc3.post21.dev0+913fb36
+version: 0.1.0rc3.post23.dev0+4cf76fb
 imports:
 - linkml:types
 license: CC-BY 4.0
@@ -95,8 +95,8 @@ prefixes:
   schema:
     prefix_prefix: schema
     prefix_reference: http://schema.org/
-  dcatap_plus:
-    prefix_prefix: dcatap_plus
+  dcatapplus:
+    prefix_prefix: dcatapplus
     prefix_reference: https://w3id.org/nfdi-de/dcat-ap-plus/
   BFO:
     prefix_prefix: BFO
@@ -125,7 +125,7 @@ prefixes:
   ex:
     prefix_prefix: ex
     prefix_reference: http://example.org/
-default_prefix: dcatap_plus
+default_prefix: dcatapplus
 default_range: string
 subsets:
   domain_agnostic_core:
@@ -1268,7 +1268,7 @@ slots:
     in_subset:
     - domain_agnostic_core
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus/
-    slot_uri: dcatap_plus:id
+    slot_uri: dcatapplus:id
     identifier: true
     owner: Resource
     domain_of:
@@ -6257,7 +6257,7 @@ classes:
         name: type
         range: DefinedTerm
         inlined: true
-    class_uri: dcatap_plus:ClassifierMixin
+    class_uri: dcatapplus:ClassifierMixin
   Concept:
     name: Concept
     definition_uri: https://w3id.org/nfdi-de/dcat-ap-plus/Concept
@@ -7932,7 +7932,7 @@ classes:
     slots:
     - title
     - description
-    class_uri: dcatap_plus:SupportiveEntity
+    class_uri: dcatapplus:SupportiveEntity
   Surrounding:
     name: Surrounding
     definition_uri: https://w3id.org/nfdi-de/dcat-ap-plus/Surrounding
@@ -7965,7 +7965,7 @@ classes:
     class_uri: time:Instant
 metamodel_version: 1.7.0
 source_file: dcat_ap_plus.yaml
-source_file_date: '2026-01-01T11:15:42'
-source_file_size: 88109
-generation_date: '2026-01-01T11:15:50'
+source_file_date: '2026-01-27T12:06:22'
+source_file_size: 88107
+generation_date: '2026-01-27T12:06:30'
 

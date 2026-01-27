@@ -1,6 +1,6 @@
 ---
 id: https://w3id.org/nfdi-de/dcat-ap-plus/
-version: "0.1.0rc3.post21.dev0+913fb36"  # Managed by dynamic-versioning. Don't change this line!
+version: "0.1.0rc3.post23.dev0+4cf76fb"  # Managed by dynamic-versioning. Don't change this line!
 name: dcat-ap-plus
 description: >-
   This metadata schema is an Extension of the DCAT Application Profile
@@ -53,7 +53,7 @@ prefixes:
   iana: https://www.iana.org/assignments/
   epos: https://www.epos-eu.org/epos-dcat-ap#
   schema: http://schema.org/
-  dcatap_plus: https://w3id.org/nfdi-de/dcat-ap-plus/
+  dcatapplus: https://w3id.org/nfdi-de/dcat-ap-plus/
   BFO: http://purl.obolibrary.org/obo/BFO_
   OBI: http://purl.obolibrary.org/obo/OBI_
   IAO: http://purl.obolibrary.org/obo/IAO_
@@ -63,7 +63,7 @@ prefixes:
   AFE: http://purl.allotrope.org/ontologies/equipment#AFE_
   qudt: http://qudt.org/schema/qudt/
   ex: http://example.org/
-default_prefix: dcatap_plus
+default_prefix: dcatapplus
 default_range: string
 subsets:
   domain_agnostic_core:
