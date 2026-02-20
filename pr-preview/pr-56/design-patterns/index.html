@@ -1346,7 +1346,7 @@
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Why not <code>foaf:Agent</code>?</p>
-<p>DCAT-AP already uses <code>foaf:Agent</code> for people and organisations responsible for a dataset's <em>publication</em>. <code>AgenticEntity</code> (mapped to <code>prov:Agent</code>) serves a different purpose: it describes what was involved in the dataset's <em>generation</em>. Renaming avoids confusion between the two distinct roles.</p>
+<p>DCAT-AP already uses <code>foaf:Agent</code> for people and organisations responsible for a dataset's <em>publication</em>. <code>AgenticEntity</code> (mapped to <code>prov:Agent</code>) serves a different purpose: it describes what was involved in the dataset's <em>generation</em>. Also, it is part of the core PROV-O activity pattern and should thus be reused. We renamed it to avoid confusion between these two distinct roles.</p>
 </div>
 <h3 id="datageneratingactivity-the-specialization-for-data-production">DataGeneratingActivity: the specialization for data production</h3>
 <p>Since DCAT-AP+ specifically concerns how datasets are generated, it introduces <code>DataGeneratingActivity</code> as a subclass of <code>Activity</code>:</p>
