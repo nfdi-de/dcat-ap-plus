@@ -379,28 +379,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#foundational-principle-linkml-classes-as-node-shapes" class="md-nav__link">
+  <a href="#foundational-principle-linkml-elements-as-shacl-shapes" class="md-nav__link">
     <span class="md-ellipsis">
-      Foundational principle: LinkML classes as node shapes
+      Foundational principle: LinkML elements as SHACL shapes
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Foundational principle: LinkML classes as node shapes">
+    <nav class="md-nav" aria-label="Foundational principle: LinkML elements as SHACL shapes">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#example-from-the-schema" class="md-nav__link">
+  <a href="#for-classes-multiple-node-shapes-one-ontology-class" class="md-nav__link">
     <span class="md-ellipsis">
-      Example from the schema
+      For classes: multiple node shapes, one ontology class
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#what-this-means-for-profile-developers" class="md-nav__link">
+  <a href="#for-slots-property-shapes-with-replaceable-predicates" class="md-nav__link">
     <span class="md-ellipsis">
-      What this means for profile developers
+      For slots: property shapes with replaceable predicates
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-this-means-for-extending-dcat-ap" class="md-nav__link">
+    <span class="md-ellipsis">
+      What this means for extending DCAT-AP+
     </span>
   </a>
   
@@ -508,6 +517,15 @@
   
     <nav class="md-nav" aria-label="QuantitativeAttribute">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#design-rationale-why-a-single-node-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design rationale: why a single-node pattern
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#worked-example-describing-a-measurement-temperature" class="md-nav__link">
@@ -896,28 +914,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#foundational-principle-linkml-classes-as-node-shapes" class="md-nav__link">
+  <a href="#foundational-principle-linkml-elements-as-shacl-shapes" class="md-nav__link">
     <span class="md-ellipsis">
-      Foundational principle: LinkML classes as node shapes
+      Foundational principle: LinkML elements as SHACL shapes
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Foundational principle: LinkML classes as node shapes">
+    <nav class="md-nav" aria-label="Foundational principle: LinkML elements as SHACL shapes">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#example-from-the-schema" class="md-nav__link">
+  <a href="#for-classes-multiple-node-shapes-one-ontology-class" class="md-nav__link">
     <span class="md-ellipsis">
-      Example from the schema
+      For classes: multiple node shapes, one ontology class
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#what-this-means-for-profile-developers" class="md-nav__link">
+  <a href="#for-slots-property-shapes-with-replaceable-predicates" class="md-nav__link">
     <span class="md-ellipsis">
-      What this means for profile developers
+      For slots: property shapes with replaceable predicates
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-this-means-for-extending-dcat-ap" class="md-nav__link">
+    <span class="md-ellipsis">
+      What this means for extending DCAT-AP+
     </span>
   </a>
   
@@ -1025,6 +1052,15 @@
   
     <nav class="md-nav" aria-label="QuantitativeAttribute">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#design-rationale-why-a-single-node-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design rationale: why a single-node pattern
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#worked-example-describing-a-measurement-temperature" class="md-nav__link">
@@ -1266,11 +1302,11 @@
 <p><strong>Problem #5 — Disadvantages of generalisation.</strong> The recommended approach for semantic adaptation in DCAT-AP extensions is to create subclasses or subproperties. But this can hinder adoption: if every domain creates its own <code>dcat:Dataset</code> subclass, interoperability requires reasoners or explicit multi-typing. DCAT-AP+ avoids subclass proliferation through its <a href="#pattern-3-flexible-classification-classifiermixin"><code>ClassifierMixin</code></a>, which uses <code>rdf:type</code> and <code>dcterms:type</code> to classify instances with domain-specific ontology terms <em>without</em> introducing new OWL subclasses. This approach is <a href="https://interoperable-europe.ec.europa.eu/collection/semic-support-centre/application-profiles-what-are-they-and-how-model-and-reuse-them-properly-look-through-dcat-ap">explicitly endorsed by the DCAT-AP developers</a>.</p>
 <p><strong>Problem #6 — No entity profile mechanism.</strong> There is no established way to define multiple usage profiles for the same entity. DCAT-AP+ addresses this through LinkML's class model, where <a href="#foundational-principle-linkml-classes-as-node-shapes">LinkML classes function as SHACL node shapes</a>, each with its own IRI, while referencing the same underlying ontology class.</p>
 <hr />
-<h2 id="foundational-principle-linkml-classes-as-node-shapes">Foundational principle: LinkML classes as node shapes</h2>
+<h2 id="foundational-principle-linkml-elements-as-shacl-shapes">Foundational principle: LinkML elements as SHACL shapes</h2>
 <p>This is the single most important concept for understanding and extending DCAT-AP+.</p>
-<p>DCAT-AP+ is an <strong>application profile</strong> (a graph shape specification), not an ontology. Its LinkML classes and slots correspond to <strong>SHACL node shapes and property shapes</strong>, not to OWL classes and properties. The ontology terms they constrain are referenced via the LinkML metamodel slots <code>class_uri</code> and <code>slot_uri</code>.</p>
-<p>This means <strong>multiple LinkML classes can map to the same ontology class</strong>. Each represents a different <em>usage context</em> (node shape) for that ontology class.</p>
-<h3 id="example-from-the-schema">Example from the schema</h3>
+<p>DCAT-AP+ is an <strong>application profile</strong>, a graph shape specification, not an ontology. Its LinkML classes correspond to <strong>SHACL node shapes</strong> and its slots to <strong>SHACL property shapes</strong>. The ontology terms they constrain are referenced via <code>class_uri</code> (on classes) and <code>slot_uri</code> (on properties), but the LinkML elements themselves are not those ontology terms.</p>
+<p>This separation has a concrete consequence: <strong>multiple LinkML elements can reference the same ontology term</strong>. Each represents a different <em>usage context</em>, a different shape, for that term.</p>
+<h3 id="for-classes-multiple-node-shapes-one-ontology-class">For classes: multiple node shapes, one ontology class</h3>
 <p>Consider these three DCAT-AP+ classes:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">Entity</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prov:Entity</span><span class="w">          </span><span class="c1"># ← all three share</span>
@@ -1286,17 +1322,46 @@
 <span class="w">  </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prov:Entity</span><span class="w">          </span><span class="c1"># ← still prov:Entity</span>
 <span class="w">  </span><span class="c1"># most specific: data produced by a prior activity, now being analysed</span>
 </code></pre></div>
-<p>All three have <code>class_uri: prov:Entity</code>. In the generated SHACL, they become three distinct node shapes, each with different property constraints, that all target <code>prov:Entity</code>. This is exactly the "entity profile" mechanism the SEMIC blog post calls for: different profiles of the same entity, each with a unique identifier, without redefining the ontology term for that entity.</p>
-<h3 id="what-this-means-for-profile-developers">What this means for profile developers</h3>
-<p>When you extend DCAT-AP+ for your domain (e.g. ChemDCAT-AP), you create new LinkML classes using <code>is_a</code> to inherit from DCAT-AP+ classes. Your new class may keep the parent's <code>class_uri</code> (if it's a more constrained usage of the same concept) or provide its own if it should map to a different ontology class.</p>
-<div class="admonition warning">
-<p class="admonition-title">Changing <code>class_uri</code> affects PROV-O interoperability</p>
-<p>If you assign a different <code>class_uri</code>, your instances will no longer be typed as the parent's PROV-O class. SPARQL queries expecting e.g. <code>?x a prov:Agent</code> will miss them. This is fine if your domain ontology is aligned with PROV-O (as BFO-based ontologies are, via the <a href="https://doi.org/10.1038/s41597-025-04580-1">BFO → PROV-O mapping</a>), because a reasoner can infer the PROV-O type. If your ontology is not aligned, consider whether losing PROV-O discoverability is acceptable for your use case. You can use <code>rdf_type</code> for multiple type assertions, see: <a href="./#pattern-3-flexible-classification-classifiermixin">Pattern 3: Flexible classification (ClassifierMixin)</a></p>
-</div>
-<p>Either way, you are defining a <strong>new node shape</strong>, not a new OWL class.</p>
+<p>All three have <code>class_uri: prov:Entity</code>. In the generated SHACL, they become three distinct node shapes that all target <code>prov:Entity</code>, but each with different property constraints. This is exactly the "entity profile" mechanism that the <a href="https://interoperable-europe.ec.europa.eu/collection/semic-support-centre/application-profiles-what-are-they-and-how-model-and-reuse-them-properly-look-through-dcat-ap">SEMIC blog post on application profile modelling</a> calls for: different profiles of the same entity, each with a unique shape identifier, without minting a new OWL class.</p>
+<h3 id="for-slots-property-shapes-with-replaceable-predicates">For slots: property shapes with replaceable predicates</h3>
+<p>The same logic applies to slots. DCAT-AP+ assigns <code>slot_uri</code> values to its slots. These are the RDF predicates used in the generated triples. When a domain-specific profile creates a sub-slot (via <code>is_a</code>), it inherits the parent's structural role but may assign a different <code>slot_uri</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># In DCAT-AP+:</span>
+<span class="nt">has_quantitative_attribute</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dcterms:relation</span><span class="w">      </span><span class="c1"># ← intentionally generic default</span>
+<span class="w">  </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">QuantitativeAttribute</span>
+
+<span class="c1"># In a domain-specific profile:</span>
+<span class="nt">has_temperature</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_quantitative_attribute</span>
+<span class="w">  </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SIO:000008</span><span class="w">            </span><span class="c1"># ← domain-specific predicate</span>
+<span class="w">  </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Temperature</span><span class="w">              </span><span class="c1"># ← narrower range</span>
+</code></pre></div>
+<p>The sub-slot plays the same role in the graph shape as the parent, but the RDF predicate changes. The DCAT-AP+ default predicates (<code>dcterms:relation</code> for attributes, <code>dcterms:subject</code> for aboutness) are intentionally semantics-thin. They were chosen as the lowest common denominator that avoids conflicting with domain-specific vocabularies, not to carry deep ontological commitments.</p>
+<p>For a worked example of vocabulary replacement including the interoperability considerations, see the <a href="https://nfdi-de.github.io/chem-dcat-ap/ontology-alignment/">ChemDCAT-AP ontology alignment documentation</a>.</p>
+<h3 id="what-this-means-for-extending-dcat-ap">What this means for extending DCAT-AP+</h3>
+<p>When you create a domain profile, you define <strong>new shapes</strong>, not new ontology terms. Your LinkML classes inherit slots from DCAT-AP+ classes via <code>is_a</code> and may:</p>
+<ul>
+<li><strong>Keep the parent's <code>class_uri</code></strong>: if your class is a more constrained usage of the same ontology concept (a narrower shape, not a new type). This preserves discoverability: SPARQL queries for the parent type still find your instances.</li>
+<li><strong>Assign a different <code>class_uri</code></strong>: if your class should map to a domain ontology term. Your instances will then be typed with that domain term, not the parent's PROV-O class. If your ontology is aligned with PROV-O (as BFO-based ontologies are, via the <a href="https://doi.org/10.1038/s41597-025-04580-1">BFO → PROV-O mapping</a>), a reasoner can still infer the PROV-O type. If it is not aligned, consider whether losing PROV-O discoverability is acceptable, or use <code>rdf_type</code> for explicit multi-typing (see <a href="#pattern-3-flexible-classification-classifiermixin">Pattern 3: ClassifierMixin</a>).</li>
+</ul>
+<p>The same applies to <code>slot_uri</code> on sub-slots: keep the parent's predicate for interoperability, or replace it with a semantically richer domain predicate where the generic default is insufficient.</p>
 <div class="admonition warning">
 <p class="admonition-title">Don't confuse LinkML inheritance with OWL subclassing</p>
-<p><code>is_a: EvaluatedEntity</code> in LinkML means "this new LinkML class inherits the slots of EvaluatedEntity." It does <strong>not</strong> generate an <code>rdfs:subClassOf</code> axiom. The ontological alignment is controlled solely by <code>class_uri</code> and <code>rdf_type</code>.</p>
+<p><code>is_a: EvaluatedEntity</code> in LinkML means "this LinkML class inherits the slots of EvaluatedEntity." It does <strong>not</strong> generate an <code>rdfs:subClassOf</code> axiom. The ontological alignment is controlled solely by <code>class_uri</code>. Likewise, a sub-slot does not generate <code>rdfs:subPropertyOf</code>. It inherits the parent's structural constraints, not its RDF predicate (unless <code>slot_uri</code> is left unchanged).</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Blank node duplication when projecting between vocabularies</p>
+<p>If a knowledge graph generates RDF from the same instance data against both the DCAT-AP+ and a domain-specific schema, any inlined node without an <code>id</code> (i.e. a blank node) will be created twice, once per schema, with different predicates connecting it to its parent:</p>
+<div class="highlight"><pre><span></span><code><span class="c"># From DCAT-AP+ schema</span>
+<span class="nn">ex</span><span class="p">:</span><span class="nt">sample-001</span> <span class="nn">dcterms</span><span class="p">:</span><span class="nt">relation</span> <span class="nn">_</span><span class="p">:</span><span class="nt">b1</span> <span class="p">.</span>
+<span class="nn">_</span><span class="p">:</span><span class="nt">b1</span> <span class="nn">prov</span><span class="p">:</span><span class="nt">value</span> <span class="mf">300.0</span> <span class="p">.</span>
+
+<span class="c"># From domain-specific schema (different slot_uri)</span>
+<span class="nn">ex</span><span class="p">:</span><span class="nt">sample-001</span> <span class="nv">&lt;domain:hasAttribute&gt;</span> <span class="nn">_</span><span class="p">:</span><span class="nt">b2</span> <span class="p">.</span>
+<span class="nn">_</span><span class="p">:</span><span class="nt">b2</span> <span class="nn">prov</span><span class="p">:</span><span class="nt">value</span> <span class="mf">300.0</span> <span class="p">.</span>
+</code></pre></div>
+<p><code>_:b1</code> and <code>_:b2</code> are structurally identical but distinct blank nodes. Queries aggregating values will produce wrong results.</p>
+<p>To avoid this: (a) ensure all inlined nodes carry IRIs, or (b) generate RDF from the domain-specific schema only and use SPARQL CONSTRUCT rules to add the DCAT-AP+ predicates to the existing nodes (see <a href="https://nfdi-de.github.io/chem-dcat-ap/ontology-alignment/">ChemDCAT-AP ontology alignment documentation</a>.</p>
 </div>
 <p>For more on how to extend DCAT-AP+ see our <a href="../how-to-extend/">Rules for domain profiles</a>.</p>
 <hr />
@@ -1404,6 +1469,14 @@
 <div class="admonition warning">
 <p class="admonition-title">Experimental feature</p>
 <p>LinkML's enum binding feature is declared in the schema but may not yet be fully supported by the <code>linkml-runtime</code> validation tooling. The bindings express the <em>intent</em> that values should come from QUDT vocabularies and will be enforced once the feature matures. In the meantime, validation of these constraints may require additional checks outside of <code>linkml-validate</code>.</p>
+</div>
+<h4 id="design-rationale-why-a-single-node-pattern">Design rationale: why a single-node pattern</h4>
+<p><code>QuantitativeAttribute</code> represents a <strong>recorded value</strong>. It is the number a researcher writes down or a software tool exports. It is not an ontological model of the physical property itself. This is a deliberate choice. More expressive models exist (notably in the OBO Foundry stack, which separates physical qualities from information entities <em>about</em> those qualities through multiple intermediate nodes). These models offer stronger reasoning support but require data producers to understand and instantiate multi-hop structures that are not intuitive outside the ontology engineering community.</p>
+<p>DCAT-AP+'s single-node pattern, <code>value</code> + <code>quantity kind</code> + <code>unit</code>, matches <a href="https://www.qudt.org/">QUDT</a>'s <code>Quantity</code> model, which is an established standard for quantity representation in engineering, industrial, and web-of-data contexts. It is immediately understandable, directly queryable (one hop from entity to value), and sufficient for the structured discovery that DCAT-AP+ enables over plain DCAT-AP's free-text descriptions.</p>
+<p>The classification slots from the <a href="#pattern-3-flexible-classification-classifiermixin">ClassifierMixin</a> provide an extension point: domain profiles can use <code>rdf_type</code> to classify an attribute more precisely (e.g. as a measured value vs. a specified parameter) without changing the structural pattern.</p>
+<div class="admonition note">
+<p class="admonition-title">Alignment with richer measurement models</p>
+<p>Domain profiles that need the full expressivity of ontological measurement models (e.g. for reasoning over quality–datum–value chains) can subclass <code>QuantitativeAttribute</code> to add the necessary structure. The base pattern is intentionally minimal to remain accessible across research domains, from chemistry to digital humanities, where data producers have widely varying familiarity with formal ontology.</p>
 </div>
 <h4 id="worked-example-describing-a-measurement-temperature">Worked example: describing a measurement temperature</h4>
 <p>Suppose an NMR measurement was performed at 298 K. In DCAT-AP+ instance data:</p>
