@@ -1366,11 +1366,11 @@
 <p>The same applies to <code>slot_uri</code> on sub-slots: keep the parent's predicate for interoperability, or replace it with a semantically richer domain predicate where the generic default is insufficient.</p>
 <div class="admonition warning">
 <p class="admonition-title">Don't confuse LinkML inheritance with OWL subclassing</p>
-<p><code>is_a: EvaluatedEntity</code> in LinkML means "this LinkML class inherits the slots of EvaluatedEntity." It does <strong>not</strong> generate an <code>rdfs:subClassOf</code> axiom. The ontological alignment is controlled solely by <code>class_uri</code>. Likewise, a sub-slot does not generate <code>rdfs:subPropertyOf</code>. It inherits the parent's structural constraints, not its RDF predicate (unless <code>slot_uri</code> is left unchanged).</p>
+<p><code>is_a: EvaluatedEntity</code> in LinkML means "this LinkML class inherits the slots of EvaluatedEntity." It does <strong>not</strong> generate an <code>rdfs:subClassOf</code> axiom. The ontological alignment is controlled solely by <code>class_uri</code>. Likewise, a sub-slot does not generate <code>rdfs:subPropertyOf</code>. It inherits the parent's structural constraints, not its RDF predicate (the same <code>slot_uri</code> value must be set manually for this).</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Blank node duplication when projecting between vocabularies</p>
-<p>If a knowledge graph generates RDF from the same instance data against both the DCAT-AP+ and a domain-specific schema, any inlined node without an <code>id</code> (i.e. a blank node) will be created twice, once per schema, with different predicates connecting it to its parent:</p>
+<p>If a knowledge graph generates RDF from the same instance data against both the DCAT-AP+ and a domain-specific schema, any inlined node without an <code>id</code> (i.e. a blank node) will be created twice, once per schema, with different predicates connecting it to its subject:</p>
 <div class="highlight"><pre><span></span><code><span class="c"># From DCAT-AP+ schema</span>
 <span class="nn">ex</span><span class="p">:</span><span class="nt">sample-001</span> <span class="nn">dcterms</span><span class="p">:</span><span class="nt">relation</span> <span class="nn">_</span><span class="p">:</span><span class="nt">b1</span> <span class="p">.</span>
 <span class="nn">_</span><span class="p">:</span><span class="nt">b1</span> <span class="nn">prov</span><span class="p">:</span><span class="nt">value</span> <span class="mf">300.0</span> <span class="p">.</span>
