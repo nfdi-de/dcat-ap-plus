@@ -641,7 +641,7 @@
 <h2 id="what-you-must-not-do">What you MUST NOT do</h2>
 <ul>
 <li><strong>Don't broaden cardinality</strong> on inherited slots (e.g. don't make a <code>required</code> slot optional).</li>
-<li><strong>Don't change <code>slot_uri</code> or <code>class_uri</code></strong> of DCAT-AP+ elements — that would break the RDF mapping.</li>
+<li><strong>Don't change <code>slot_uri</code> or <code>class_uri</code> on inherited DCAT-AP+ elements</strong> — modifying the base schema's ontology mappings would break the RDF mapping for all profiles. You <strong>may</strong> assign different <code>class_uri</code> or <code>slot_uri</code> values on your own subclasses and sub-slots. See <a href="../design-patterns/#foundational-principle-linkml-elements-as-shacl-shapes">Foundational principle: LinkML elements as SHACL shapes</a> for guidance.</li>
 <li><strong>Don't add domain-specific classes directly to DCAT-AP+</strong>. Create your own schema that imports it.</li>
 <li><strong>Don't duplicate existing DCAT-AP classes or properties</strong> — add new ones or specialize existing ones.</li>
 </ul>
