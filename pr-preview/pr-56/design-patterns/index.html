@@ -1324,6 +1324,7 @@
 <p>This is the single most important concept for understanding and extending DCAT-AP+.</p>
 <p>DCAT-AP+ is an <strong>application profile</strong>, a graph shape specification, not an ontology. Its LinkML classes correspond to <strong>SHACL node shapes</strong> and its slots to <strong>SHACL property shapes</strong>. The ontology terms they constrain are referenced via <code>class_uri</code> (on classes) and <code>slot_uri</code> (on properties), but the LinkML elements themselves are not those ontology terms.</p>
 <p>This separation has a concrete consequence: <strong>multiple LinkML elements can reference the same ontology term</strong>. Each represents a different <em>usage context</em>, a different shape, for that term.</p>
+<p>Accordingly, DCAT-AP+ often names its classes and slots differently from the OWL terms they reference. This serves three purposes: it signals that these are (different) shapes, not the ontology terms themselves; it follows LinkML naming conventions (e.g. snake_case for slots); and it allows more suitable labels where the OWL term label might be ambiguous or opaque for our usage context.</p>
 <h3 id="for-classes-multiple-node-shapes-one-ontology-class">For classes: multiple node shapes, one ontology class</h3>
 <p>Consider these three DCAT-AP+ classes:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">Entity</span><span class="p">:</span>
@@ -1408,10 +1409,10 @@
 <li><strong>Computational science</strong>: simulations, data transformations, model training — where ProvONE's workflow model fits but SOSA's sensor model does not</li>
 </ul>
 <p>A literature analysis that produces a dataset is a <code>prov:Activity</code> that <code>prov:generated</code> a <code>dcat:Dataset</code>. It is not a SOSA <code>Observation</code> of an <code>ObservedProperty</code>. A humanities researcher should not be forced into an observation-centric vocabulary to describe their data provenance.</p>
-<p>PROV-O's generality is a feature in this context: its starting point terms (<code>Activity</code>, <code>Entity</code>, <code>Agent</code>, <code>used</code>, <code>wasGeneratedBy</code>, <code>wasAssociatedWith</code>) are abstract enough to describe any data-producing process without imposing domain-specific assumptions. Domain profiles can then add precision where needed — ChemDCAT-AP adds chemical reaction roles, an NMR profile adds spectroscopy-specific constraints — without the base layer excluding entire research disciplines.</p>
+<p>PROV-O's generality is a feature in this context: its starting point terms (<code>Activity</code>, <code>Entity</code>, <code>Agent</code>, <code>used</code>, <code>wasGeneratedBy</code>, <code>wasAssociatedWith</code>) are abstract enough to describe any data-producing process without imposing domain-specific assumptions. Domain-specific profiles can then add precision where needed. For example, ChemDCAT-AP adds chemical substances and reaction relevant classes and slots.</p>
 <div class="admonition note">
 <p class="admonition-title">Domain profiles can still reference SOSA or P-Plan</p>
-<p>Nothing prevents a domain profile from adding <code>exact_mappings</code> or <code>close_mappings</code> to SOSA or P-Plan terms on its classes. For example, a sensor-network profile could map <code>DataGeneratingActivity</code> → <code>sosa:Observation</code> and <code>Device</code> → <code>sosa:Sensor</code>. The PROV-O base layer does not preclude this — it simply does not require it.</p>
+<p>Nothing prevents a domain profile from adding <code>exact_mappings</code> or <code>close_mappings</code> to SOSA or P-Plan terms on its classes. For example, a sensor-network profile could map <code>DataGeneratingActivity</code> → <code>sosa:Observation</code> and <code>Device</code> → <code>sosa:Sensor</code>. The PROV-O base layer does not preclude this. It simply does not require it.</p>
 </div>
 <h3 id="the-activity-pattern">The Activity pattern</h3>
 <p>DCAT-AP+ extends the <code>Activity</code> class (aligned to <code>prov:Activity</code>) with slots for its inputs, outputs, and agents:</p>
@@ -1432,7 +1433,7 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_part</span><span class="w">                   </span><span class="c1"># dcterms:hasPart → Activity</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">part_of</span><span class="w">                    </span><span class="c1"># dcterms:isPartOf → Activity</span>
 </code></pre></div>
-<p>The slot-to-predicate mappings (shown as comments) are defined via <code>slot_uri</code> in the schema. They reuse established vocabulary terms verbatim — DCAT-AP+ does not mint new RDF properties where existing ones suffice.</p>
+<p>The slots are aligned to the PROV-O predicates and ranges from the <code>prov:Activity</code> base pattern, as well as to basic DC Terms via <code>slot_uri</code> in the schema (shown as comments).</p>
 <h3 id="agenticentity-why-agents-not-entities">AgenticEntity: why agents, not entities</h3>
 <p>DCAT-AP+ introduces <code>AgenticEntity</code> (aligned to <code>prov:Agent</code>) as the range of <code>carried_out_by</code>. In PROV-O, an <em>agent</em> is something that bears responsibility for an activity. It <em>influences</em> the activity taking place. This fits instruments and software: a spectrometer doesn't just <em>exist</em> during a measurement, it <em>causes</em> the measurement to happen.</p>
 <p><code>AgenticEntity</code> has two concrete subclasses:</p>
@@ -1450,7 +1451,7 @@
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Why not <code>foaf:Agent</code>?</p>
-<p>DCAT-AP already uses <code>foaf:Agent</code> for people and organisations responsible for a dataset's <em>publication</em>. <code>AgenticEntity</code> (mapped to <code>prov:Agent</code>) serves a different purpose: it describes what was involved in the dataset's <em>generation</em>. Also, it is part of the core PROV-O activity pattern and should thus be reused. We renamed it to avoid confusion between these two distinct roles.</p>
+<p>DCAT-AP already uses <code>foaf:Agent</code> for people and organisations responsible for a dataset's <em>publication</em>. <code>AgenticEntity</code> (mapped to <code>prov:Agent</code>) serves a different purpose: it describes what was involved in the dataset's <em>generation</em>. Also, it is part of the core PROV-O <code>Activity</code> pattern and should thus be reused. We renamed it to avoid confusion between these two distinct shapes.</p>
 </div>
 <h3 id="datageneratingactivity-the-specialization-for-data-production">DataGeneratingActivity: the specialization for data production</h3>
 <p>Since DCAT-AP+ specifically concerns how datasets are generated, it introduces <code>DataGeneratingActivity</code> as a subclass of <code>Activity</code>:</p>

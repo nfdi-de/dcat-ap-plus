@@ -616,7 +616,7 @@
 
 <h1 id="versioning">Versioning</h1>
 <h2 id="versioning-scheme-schemaver">Versioning scheme: SchemaVer</h2>
-<p>DCAT-AP+ follows the <strong>SchemaVer</strong> scheme (<a href="https://snowplow.io/blog/introducing-schemaver-for-semantic-versioning-of-schemas">introduced by Snowplow</a>, also used by <a href="https://github.com/HumanCellAtlas/metadata-schema/blob/master/docs/evolution.md#schema-versioning">Human Cell Atlas</a> and <a href="https://github.com/OpenLineage/OpenLineage/blob/main/spec/Versioning.md">OpenLineage</a>). SchemaVer is designed for data schemas, where the critical question is <em>"will existing data still validate?"</em> — unlike SemVer, which is designed for code APIs.</p>
+<p>DCAT-AP+ follows the <strong>SchemaVer</strong> scheme (<a href="https://snowplow.io/blog/introducing-schemaver-for-semantic-versioning-of-schemas">introduced by Snowplow</a>, also used by <a href="https://github.com/HumanCellAtlas/metadata-schema/blob/master/docs/evolution.md#schema-versioning">Human Cell Atlas</a> and <a href="https://github.com/OpenLineage/OpenLineage/blob/main/spec/Versioning.md">OpenLineage</a>). SchemaVer is designed for data schemas, where the critical question is <em>"will existing data still validate?"</em>, unlike SemVer, which is designed for code APIs.</p>
 <p>Given a version number <strong>MODEL.REVISION.ADDITION</strong>:</p>
 <table>
 <thead>
@@ -663,7 +663,7 @@
 <p>During development, the version string in the schema YAML header is managed by <a href="https://github.com/pypa/hatch-vcs"><code>setuptools-scm</code> / <code>hatch-vcs</code></a> via a dynamic versioning plugin. This is why the schema header shows a version like:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0.1.0rc3.post21.dev0+913fb36&quot;</span>
 </code></pre></div>
-<p>This string is <strong>auto-generated from git tags</strong> — it should not be edited manually. The components mean:</p>
+<p>This string is <strong>auto-generated from git tags</strong>. Hence, it should not be edited manually. The components mean:</p>
 <table>
 <thead>
 <tr>
