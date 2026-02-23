@@ -1489,9 +1489,9 @@
 <hr />
 <h2 id="pattern-2-generic-attribute-description">Pattern 2: Generic attribute description</h2>
 <h3 id="motivation_1">Motivation</h3>
-<p>Domain-specific metadata often involves quantitative or qualitative properties attached to entities, activities, or instruments — a temperature, a concentration, a solvent name, a calibration standard. In plain DCAT-AP, the only option is to encode these as free text in <code>dcterms:description</code>. DCAT-AP+ provides a structured alternative.</p>
+<p>Domain-specific metadata often involves quantitative or qualitative properties attached to entities, activities, or instruments, i.e. a temperature, a concentration, a solvent name, a calibration standard. In plain DCAT-AP, the only option is to encode these as free text in <code>dcterms:description</code>. DCAT-AP+ provides a structured alternative.</p>
 <h3 id="quantitativeattribute">QuantitativeAttribute</h3>
-<p>Aligned to <code>qudt:Quantity</code>, this class represents a measurable property with a numeric value, a quantity kind, and a unit:</p>
+<p>Aligned to <code>qudt:Quantity</code>, this class represents a quantifiable property with a numeric value, a quantity kind, and a unit:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">QuantitativeAttribute</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">qudt:Quantity</span>
 <span class="w">  </span><span class="nt">mixins</span><span class="p">:</span>
@@ -1504,24 +1504,28 @@
 <span class="w">    </span><span class="nt">has_quantity_type</span><span class="p">:</span><span class="w">      </span><span class="c1"># qudt:hasQuantityKind → DefinedTerm, required</span>
 <span class="w">    </span><span class="nt">unit</span><span class="p">:</span><span class="w">                  </span><span class="c1"># qudt:unit → DefinedTerm, recommended</span>
 </code></pre></div>
-<p>The <code>has_quantity_type</code> and <code>unit</code> attributes use <a href="https://linkml.io/linkml/schemas/enums.html">LinkML enum bindings</a> to constrain their values to QUDT's QuantityKind and Unit vocabularies respectively.</p>
+<p>The <code>has_quantity_type</code> and <code>unit</code> attributes use <a href="https://linkml.io/linkml/schemas/enums.html">LinkML enum bindings</a> to constrain their values to QUDT's <a href="http://qudt.org/vocab/quantitykind/">QuantityKind</a> and <a href="http://qudt.org/vocab/unit/">Unit</a> vocabularies respectively.</p>
 <div class="admonition warning">
 <p class="admonition-title">Experimental feature</p>
-<p>LinkML's enum binding feature is declared in the schema but may not yet be fully supported by the <code>linkml-runtime</code> validation tooling. The bindings express the <em>intent</em> that values should come from QUDT vocabularies and will be enforced once the feature matures. In the meantime, validation of these constraints may require additional checks outside of <code>linkml-validate</code>.</p>
+<p>LinkML's enum binding feature is declared in the schema but may not yet be fully supported by the <code>linkml-runtime</code> validation tooling. The bindings express the <em>intent</em> that values should come from QUDT vocabularies () and will be enforced once the feature matures. In the meantime, validation of these constraints may require additional checks outside of <code>linkml-validate</code>.</p>
 </div>
 <h4 id="design-rationale-why-a-single-node-pattern">Design rationale: why a single-node pattern</h4>
 <p><code>QuantitativeAttribute</code> represents a <strong>recorded value</strong>. It is the number a researcher writes down or a software tool exports. It is not an ontological model of the physical property itself. This is a deliberate choice. More expressive models exist (notably in the OBO Foundry stack, which separates physical qualities from information entities <em>about</em> those qualities through multiple intermediate nodes). These models offer stronger reasoning support but require data producers to understand and instantiate multi-hop structures that are not intuitive outside the ontology engineering community.</p>
 <p>DCAT-AP+'s single-node pattern, <code>value</code> + <code>quantity kind</code> + <code>unit</code>, matches <a href="https://www.qudt.org/">QUDT</a>'s <code>Quantity</code> model, which is an established standard for quantity representation in engineering, industrial, and web-of-data contexts. It is immediately understandable, directly queryable (one hop from entity to value), and sufficient for the structured discovery that DCAT-AP+ enables over plain DCAT-AP's free-text descriptions.</p>
-<p>The classification slots from the <a href="#pattern-3-flexible-classification-classifiermixin">ClassifierMixin</a> provide an extension point: domain profiles can use <code>rdf_type</code> to classify an attribute more precisely (e.g. as a measured value vs. a specified parameter) without changing the structural pattern.</p>
+<p>The classification slots from the <a href="#pattern-3-flexible-classification-classifiermixin">ClassifierMixin</a> provide an extension point: domain-specific profiles can use <code>rdf_type</code> to classify an attribute more precisely (e.g. as a measured value vs. a specified parameter) without changing the structural pattern.</p>
 <div class="admonition note">
 <p class="admonition-title">Alignment with richer measurement models</p>
 <p>Domain profiles that need the full expressivity of ontological measurement models (e.g. for reasoning over quality–datum–value chains) can subclass <code>QuantitativeAttribute</code> to add the necessary structure. The base pattern is intentionally minimal to remain accessible across research domains, from chemistry to digital humanities, where data producers have widely varying familiarity with formal ontology.</p>
 </div>
 <h4 id="worked-example-describing-a-measurement-temperature">Worked example: describing a measurement temperature</h4>
-<p>Suppose an NMR measurement was performed at 298 K. In DCAT-AP+ instance data:</p>
+<p>Suppose an NMR measurement was performed at 298.0 K. In DCAT-AP+ instance data:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Inside a DataGeneratingActivity or EvaluatedEntity:</span>
 <span class="nt">has_quantitative_attribute</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">298.0</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;sample</span><span class="nv"> </span><span class="s">temperature</span><span class="nv"> </span><span class="s">setting&quot;</span>
+<span class="w">    </span><span class="nt">rdf_type</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NMR:1400262</span>
+<span class="w">      </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;sample</span><span class="nv"> </span><span class="s">temperature</span><span class="nv"> </span><span class="s">information&quot;</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">298.0</span>
 <span class="w">    </span><span class="nt">has_quantity_type</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://qudt.org/vocab/quantitykind/Temperature</span>
 <span class="w">      </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Temperature&quot;</span>
@@ -1533,9 +1537,9 @@
 <div class="highlight"><pre><span></span><code><span class="c1"># DCAT-AP: free text only</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Measurement</span><span class="nv"> </span><span class="s">performed</span><span class="nv"> </span><span class="s">at</span><span class="nv"> </span><span class="s">298</span><span class="nv"> </span><span class="s">K&quot;</span>
 </code></pre></div>
-<p>The DCAT-AP version is not queryable, not validatable, and not interoperable. The DCAT-AP+ version enables SPARQL queries like "find all datasets where the measurement temperature was between 290 and 310 K".</p>
+<p>The DCAT-AP version is not easily queryable, validatable, nor really interoperable. The DCAT-AP+ version enables SPARQL queries like "find all datasets where the measurement temperature was between 290 and 310 K".</p>
 <h3 id="qualitativeattribute">QualitativeAttribute</h3>
-<p>Aligned to <code>prov:Entity</code>, this class represents a non-numeric property — a string value that should be further classified using the <code>ClassifierMixin</code>:</p>
+<p>Aligned to <code>prov:Entity</code>, this class represents a <strong>recorded non-numeric characterization</strong> of an entity, activity, or agent. Like <code>QuantitativeAttribute</code>, it captures what a researcher noted down, not the inherent property itself. The <code>value</code> slot carries the string representation; the <code>ClassifierMixin</code> provides ontology-grounded classification or vocabulary bound categorization of what that string describes:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">QualitativeAttribute</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prov:Entity</span>
 <span class="w">  </span><span class="nt">mixins</span><span class="p">:</span>
@@ -1546,19 +1550,19 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">value</span><span class="w">                </span><span class="c1"># prov:value, range: string, required</span>
 </code></pre></div>
 <h4 id="worked-example-describing-a-spectrometer-setting">Worked example: describing a spectrometer setting</h4>
-<p>An NMR spectrometer uses a specific pulse program. This is a qualitative property of the instrument (or the activity), classified with an ontology term:</p>
+<p>An NMR spectrometer uses a specific pulse program. Recording this setting as a qualitative attribute makes it discoverable and classifiable via an ontology term:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Inside a Device (e.g. an NMR spectrometer) or DataGeneratingActivity:</span>
 <span class="nt">has_qualitative_attribute</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">zgpg30</span>
-<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Puls program</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">used pulse program setting</span>
 <span class="w">    </span><span class="nt">rdf_type</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NMR:1400037</span>
 <span class="w">      </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NMR pulse sequence</span>
 </code></pre></div>
-<p>The <code>value</code> slot carries the human-readable string; <code>rdf_type</code> provides the machine-actionable classification via the NMR ontology. The <code>title</code> slot acts as a human-friendly label for the attribute itself.</p>
+<p>The <code>value</code> slot represents a specific pulse program code of a Bruker NMR spectrometer; <code>rdf_type</code> provides the machine-actionable classification via the NMR ontology, and the <code>title</code> slots act as human-readable labels for this attribute.</p>
 <h4 id="worked-example-describing-an-assigned-chemical-identifier">Worked example: describing an assigned chemical identifier</h4>
 <p>When an NMR spectrum is analysed and a chemical structure is assigned, the resulting InChIKey is a qualitative attribute of the evaluated substance sample:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Inside an EvaluatedEntity (e.g. a SubstanceSample in ChemDCAT-AP):</span>
+<p><div class="highlight"><pre><span></span><code><span class="c1"># Inside an EvaluatedEntity (e.g. a SubstanceSample in ChemDCAT-AP):</span>
 <span class="nt">has_qualitative_attribute</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KVOIVNBYNQXCNY-BOCHJOTCSA-N</span>
 <span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">assigned InChiKey</span>
@@ -1566,7 +1570,7 @@
 <span class="w">      </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CHEMINF:000059</span>
 <span class="w">      </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">InChiKey</span>
 </code></pre></div>
-<p>This pattern lets you attach <em>any</em> qualitative property to <em>any</em> DCAT-AP+ entity without modifying the schema. You only need to know the right ontology term for classification via <code>rdf_type</code>, or the right controlled vocabulary term for tagging via <code>type</code>.</p>
+This pattern lets you record <em>any</em> non-numeric characterization on <em>any</em> DCAT-AP+ entity without modifying the schema. You only need the right ontology term for classification via <code>rdf_type</code>, or the right controlled vocabulary term for tagging via <code>type</code>.</p>
 <div class="admonition tip">
 <p class="admonition-title">When to use QualitativeAttribute vs. a domain profile sub-property</p>
 <p><code>QualitativeAttribute</code> is the <strong>generic fallback</strong>. If your domain profile (e.g. ChemDCAT-AP) defines a dedicated property like <code>smiles</code> or <code>inchikey</code>, use that instead. It is more explicit, easier to validate, and produces more concise instance data. Use <code>QualitativeAttribute</code> when no dedicated property exists.</p>
