@@ -632,8 +632,8 @@
 </ul>
 <h2 id="what-you-may-do">What you MAY do</h2>
 <ul>
-<li><strong>Subclass DCAT-AP+ classes</strong> using <code>is_a</code>. For example, ChemDCAT-AP defines <code>SubstanceSample</code> as <code>is_a: EvaluatedEntity</code> with <code>class_uri: SIO:001378</code>. But you should make sure to remain PROV-O aligned. See <a href="../design-patterns/#foundational-principle-linkml-elements-as-shacl-shapes">Foundational principle: LinkML elements as SHACL shapes</a> for guidance.</li>
-<li><strong>Create sub-slots</strong> using <code>is_a</code> on slots. For example, ChemDCAT-AP defines <code>used_catalyst</code> as <code>is_a: carried_out_by</code> with <code>slot_uri: RXNO:0000425</code>. This narrows the range and adds semantic precision while maintaining backward compatibility, if you stay PROV-O aligned. See <a href="../design-patterns/#foundational-principle-linkml-elements-as-shacl-shapes">Foundational principle: LinkML elements as SHACL shapes</a> for guidance.</li>
+<li><strong>Subclass DCAT-AP+ classes</strong> using <code>is_a</code> to create a new node shape with additional slots or stricter slot constraints. When you do so and also choose to map to a semantically narrower ontology term via <code>class_uri</code>, you should make sure to remain PROV-O aligned for DCAT-AP+ interoperability. See <a href="../design-patterns/#foundational-principle-linkml-elements-as-shacl-shapes">Foundational principle: LinkML elements as SHACL shapes</a> for guidance. For example, ChemDCAT-AP defines <code>SubstanceSample</code> as <code>is_a: EvaluatedEntity</code> with <code>class_uri: SIO:001378</code>.</li>
+<li><strong>Create sub-slots</strong> using <code>is_a</code> on slots for making stricter constraints. When you do so and also choose to map to a semantically narrower ontology term via <code>slot_uri</code>, you should make sure to remain PROV-O aligned for DCAT-AP+ interoperability. See <a href="../design-patterns/#foundational-principle-linkml-elements-as-shacl-shapes">Foundational principle: LinkML elements as SHACL shapes</a> for guidance. For example, ChemDCAT-AP defines <code>used_catalyst</code> as <code>is_a: carried_out_by</code> with <code>slot_uri: RXNO:0000425</code>. </li>
 <li><strong>Add new slots</strong> to your domain classes.</li>
 <li><strong>Constrain ranges</strong> further (narrowing is allowed by DCAT-AP extension rules).</li>
 <li><strong>Provide domain-specific enums</strong> to bind <code>rdf_type</code> or <code>type</code> to specific controlled vocabularies.</li>
@@ -641,9 +641,9 @@
 <h2 id="what-you-must-not-do">What you MUST NOT do</h2>
 <ul>
 <li><strong>Don't broaden cardinality</strong> on inherited slots (e.g. don't make a <code>required</code> slot optional).</li>
-<li><strong>Don't change <code>slot_uri</code> or <code>class_uri</code> on imported DCAT-AP+ elements!</strong> Modifying the base schema's ontology mappings would break the RDF mapping for all profiles!</li>
-<li><strong>Don't add domain-specific classes directly to DCAT-AP+!</strong> Create your own schema that imports it.</li>
-<li><strong>Don't duplicate existing DCAT-AP classes or properties!</strong> Add new ones or specialize existing ones.</li>
+<li><strong>Don't change <code>slot_uri</code> or <code>class_uri</code> on imported DCAT-AP+ elements.</strong> Modifying the base schema's ontology mappings would break the RDF mapping for all profiles.</li>
+<li><strong>Don't add domain-specific classes directly to DCAT-AP+.</strong> Create your own schema that imports it.</li>
+<li><strong>Don't duplicate existing DCAT-AP classes or properties.</strong> Add new ones or specialize existing ones.</li>
 </ul>
 <h2 id="conformance-checklist-for-your-domain-profile">Conformance checklist for your domain profile</h2>
 <ul class="task-list">

@@ -669,7 +669,7 @@
 
 
 <h1 id="automatic-generation-of-dcat-ap">Automatic Generation of DCAT-AP+</h1>
-<p>In DCAT-AP+ we do not manually recreate DCAT-AP in LinkML but <strong>auto-generate</strong> it as the base layer from the authoritative SHACL shapes published by SEMIC. This ensures that the LinkML schema stays faithful to the official specification and can be updated systematically when DCAT-AP evolves.</p>
+<p>In DCAT-AP+ we do not manually recreate DCAT-AP in LinkML but <strong>auto-generate</strong> it as the base layer from the authoritative SHACL shapes published by SEMIC. This ensures that the LinkML schema stays fully aligned with the official specification and can be updated systematically when DCAT-AP evolves.</p>
 <h2 id="why-auto-generate">Why auto-generate?</h2>
 <p>Manual porting of a complex specification invites drift. The DCAT-AP SHACL shapes define ~25 node shapes with ~150 property shapes, each with cardinality constraints, range definitions, and IRI mappings. Reproducing this by hand would be error-prone and hard to maintain across DCAT-AP releases.</p>
 <p>By scripting the translation, we get two guarantees:</p>
