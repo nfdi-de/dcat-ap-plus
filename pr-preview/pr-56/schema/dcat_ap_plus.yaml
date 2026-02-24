@@ -1,6 +1,6 @@
 ---
 id: https://w3id.org/nfdi-de/dcat-ap-plus/
-version: "0.1.0rc3.post50.dev0+f0297ea"  # Managed by dynamic-versioning. Don't change this line!
+version: "0.1.0rc3.post51.dev0+bf2c47f"  # Managed by dynamic-versioning. Don't change this line!
 name: dcat-ap-plus
 description: >-
   This metadata schema is an Extension of the DCAT Application Profile
