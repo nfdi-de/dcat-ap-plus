@@ -15,7 +15,7 @@
         <link rel="next" href="design-patterns/">
       
       
-      <link rel="icon" href="images/favicon.svg">
+      <link rel="icon" href="images/DCAT-AP-PLUS-Logo.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#dcat-application-profile-for-providing-links-to-use-case-specific-context-dcat-ap" class="md-skip">
+        <a href="#dcat-ap-plus-links-to-use-case-specific-context-dcat-ap" class="md-skip">
           Skip to content
         </a>
       
@@ -101,8 +101,8 @@
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="." title="DCAT-AP+ Documentation" class="md-header__button md-logo" aria-label="DCAT-AP+ Documentation" data-md-component="logo">
-      <img id="logo_dark_mode" src="images/logo-icon.svg" alt="logo">
-<img id="logo_light_mode" src="images/logo-icon.svg" alt="logo">
+      <img id="logo_dark_mode" src="images/DCAT-AP-PLUS-Logo.png" alt="logo">
+<img id="logo_light_mode" src="images/DCAT-AP-PLUS-Logo.png" alt="logo">
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
@@ -245,8 +245,8 @@
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="." title="DCAT-AP+ Documentation" class="md-nav__button md-logo" aria-label="DCAT-AP+ Documentation" data-md-component="logo">
-      <img id="logo_dark_mode" src="images/logo-icon.svg" alt="logo">
-<img id="logo_light_mode" src="images/logo-icon.svg" alt="logo">
+      <img id="logo_dark_mode" src="images/DCAT-AP-PLUS-Logo.png" alt="logo">
+<img id="logo_light_mode" src="images/DCAT-AP-PLUS-Logo.png" alt="logo">
     </a>
     DCAT-AP+ Documentation
   </label>
@@ -281,6 +281,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="." class="md-nav__link md-nav__link--active">
         
   
@@ -292,6 +305,52 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start-what-does-dcat-ap-add" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick start: What does DCAT-AP+ add?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Source code
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -310,6 +369,28 @@
   
   <span class="md-ellipsis">
     Design Patterns
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="how-to-extend/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Extending Rules
     
   </span>
   
@@ -449,6 +530,41 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start-what-does-dcat-ap-add" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick start: What does DCAT-AP+ add?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Source code
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -466,16 +582,53 @@
   
 
 
-<h1 id="dcat-application-profile-for-providing-links-to-use-case-specific-context-dcat-ap">DCAT Application Profile for Providing Links to Use-case Specific Context (DCAT-AP+)</h1>
-<p>This LinkML schema is an extension of the <a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/">DCAT Application Profile</a>. 
-The purpose of DCAT-AP+ is to provide an additional provenance layer that allows a detailed description of a dataset's generation with  domain-specific metadata in a unified generic manner, based on the <a href="https://www.w3.org/TR/prov-o/#description-starting-point-terms">Starting Point Terms of the Provenance Ontology (PROV-O)</a>.</p>
+<h1 id="dcat-ap-plus-links-to-use-case-specific-context-dcat-ap">DCAT-AP Plus Links to Use-case Specific Context (DCAT-AP+)</h1>
+<p>DCAT-AP+ is a <a href="https://linkml.io/">LinkML</a>-based extension of the <a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/">DCAT Application Profile 3.0</a> that adds a <strong>provenance layer</strong> for describing <em>how</em> a dataset was generated and <em>what</em> it is about, using the <a href="https://www.w3.org/TR/prov-o/#description-starting-point-terms">Starting Point Terms of PROV-O</a>, the <a href="https://www.qudt.org/">QUDT ontology</a>, and <a href="http://purl.org/dc/terms/">Dublin Core Terms</a>.</p>
+<p>DCAT-AP+ is <strong>domain-agnostic</strong>. It provides a generic set of classes and properties that any domain can import and specialize into its own application profile. <a href="https://github.com/nfdi-de/chem-dcat-ap">ChemDCAT-AP</a> is the first such domain profile, built for chemistry and catalysis research data.</p>
+<h2 id="quick-start-what-does-dcat-ap-add">Quick start: What does DCAT-AP+ add?</h2>
+<p>In plain DCAT-AP, a <code>Dataset</code> can link to a <code>prov:Activity</code> via <code>prov:wasGeneratedBy</code>, but that DCAT-AP's <code>Activity</code> has no specified properties → it is currently a dead end. You are left with <code>dcterms:description</code> (free text), <code>dcat:keyword</code> (free text), and <code>dcat:theme</code> (a very generic controlled vocabulary) to say what a dataset is actually about.</p>
+<p>DCAT-AP+ turns that dead end into a structured provenance graph:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># A dataset about an NMR measurement of a chemical sample</span>
+<span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ex:dataset-001</span>
+<span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;13C</span><span class="nv"> </span><span class="s">NMR</span><span class="nv"> </span><span class="s">spectrum</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">aspirin&quot;</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;13C</span><span class="nv"> </span><span class="s">NMR</span><span class="nv"> </span><span class="s">spectral</span><span class="nv"> </span><span class="s">data</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">acetylsalicylic</span><span class="nv"> </span><span class="s">acid</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">CDCl3&quot;</span>
+<span class="nt">was_generated_by</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ex:measurement-001</span>
+<span class="w">    </span><span class="c1"># an instance of the 13C NMR class from the Chemical Methods Ontology</span>
+<span class="w">    </span><span class="nt">rdf_type</span><span class="p">:</span><span class="w">   </span>
+<span class="w">      </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CHMO:0000595</span><span class="w">       </span>
+<span class="w">      </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;carbon-13</span><span class="nv"> </span><span class="s">nuclear</span><span class="nv"> </span><span class="s">magnetic</span><span class="nv"> </span><span class="s">resonance</span><span class="nv"> </span><span class="s">spectroscopy&quot;</span>
+<span class="w">    </span><span class="nt">evaluated_entity</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ex:sample-001</span>
+<span class="w">        </span><span class="c1"># an instance of &quot;material sample&quot; class from the Ontology for Biomedical Investigations</span>
+<span class="w">        </span><span class="nt">rdf_type</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OBI:0000747</span><span class="w">  </span>
+<span class="w">          </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;material</span><span class="nv"> </span><span class="s">sample&quot;</span>
+<span class="w">        </span><span class="nt">has_quantitative_attribute</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">298.0</span>
+<span class="w">            </span><span class="nt">has_quantity_type</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">qudt:Temperature</span>
+<span class="w">            </span><span class="nt">unit</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">qudt:K</span>
+<span class="w">    </span><span class="nt">carried_out_by</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ex:spectrometer-001</span>
+<span class="w">        </span><span class="c1"># an instance of &quot;JEOL ECX NMR spectrometer&quot; class from OBI</span>
+<span class="w">        </span><span class="nt">rdf_type</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OBI:0000625</span><span class="w"> </span>
+<span class="w">          </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;JEOL</span><span class="nv"> </span><span class="s">ECX</span><span class="nv"> </span><span class="s">NMR</span><span class="nv"> </span><span class="s">spectrometer&quot;</span>
+</code></pre></div>
+<p>This is valid DCAT-AP+ instance data. Every class and property is mapped to an established ontology term and instance data can be validated and converted to RDF using the LinkML tooling. The schema itself (<a href="schema/dcat_ap_plus.yaml">dcat_ap_plus.yaml</a>) serves as the single source of truth from which SHACL shapes, JSON Schema, Python/Pydantic data classes, and an HTML schema reference documentation are generated, which means all are guaranteed to be coherent.</p>
+<h2 id="documentation">Documentation</h2>
 <ul>
-<li>Description of the <a href="design-patterns/">design patterns &amp; decisions</a></li>
-<li>Description of the script-based <a href="automatic-generation/">build process</a></li>
-<li>Auto-generated <a href="elements/overview/">schema documentation</a></li>
-<li>Description of the <a href="versioning/">versioning rationale</a></li>
-<li><a href="dcat-ap-plus-users/">Projects using DCAT-AP+</a></li>
+<li><a href="design-patterns/"><strong>Design Patterns &amp; Decisions</strong></a> — The reasoning behind DCAT-AP+ and how its patterns work</li>
+<li><a href="how-to-extend/"><strong>Extension Rules</strong></a> — Rules for how to extend DCAT-AP+ in domain-specific profiles</li>
+<li><a href="automatic-generation/"><strong>Automatic Generation</strong></a> — How the DCAT-AP LinkML schema is built from the official DCAT-AP SHACL shapes</li>
+<li><a href="elements/overview/"><strong>Schema Reference Documentation</strong></a> — Auto-generated reference for all classes and slots</li>
+<li><a href="versioning/"><strong>Versioning</strong></a> — Versioning rationale</li>
+<li><a href="dcat-ap-plus-users/"><strong>Projects using DCAT-AP+</strong></a> — Known adopters and domain profiles</li>
 </ul>
+<h2 id="source-code">Source code</h2>
+<p>The LinkML schema, build scripts, and documentation source are on GitHub: <a href="https://github.com/nfdi-de/dcat-ap-plus">nfdi-de/dcat-ap-plus</a></p>
 
 
 
