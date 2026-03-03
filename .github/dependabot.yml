@@ -1,5 +1,6 @@
-# Please see the documentation for all configuration options:
-# https://docs.github.com/en/code-security/dependabot/working-with-dependabot/dependabot-options-reference
+# This configures updates via dependabot only for github actions.
+# All updates are grouped into a single PR.
+# https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
 
 version: 2
 updates:
@@ -7,3 +8,7 @@ updates:
     directory: "/"
     schedule:
       interval: monthly
+    groups:
+      github-actions:
+        patterns:
+          - "*"
