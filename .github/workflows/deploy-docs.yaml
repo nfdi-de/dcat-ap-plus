@@ -2,7 +2,7 @@
 name: Deploy docs
 on:  # yamllint disable-line rule:truthy
   push:
-    tags:
+    branches: [main]
       - 'v[0-9]+.[0-9]+.[0-9]+'
       - 'v[0-9]+.[0-9]+.[0-9]+rc[0-9]'
     branches:
@@ -17,6 +17,10 @@ permissions: {}
 jobs:
   build-docs:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        pyversion: ["3.13"]
 
     # Grant GITHUB_TOKEN the permissions required to make a gh-pages deployment
     permissions:
@@ -42,7 +46,7 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v7.3.1
         with:
-          python-version: 3.13
+          python-version: ${{ matrix.pyversion }}
           enable-cache: true
           cache-dependency-glob: "uv.lock"
 
@@ -50,7 +54,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v6.2.0
         with:
-          python-version: 3.13
+          python-version: ${{ matrix.pyversion }}
 
       - name: Install just
         run: |

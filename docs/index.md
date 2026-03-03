@@ -18,8 +18,8 @@ description: "13C NMR spectral data for acetylsalicylic acid in CDCl3"
 was_generated_by:
   - id: ex:measurement-001
     # an instance of the 13C NMR class from the Chemical Methods Ontology
-    rdf_type:   
-      id: CHMO:0000595       
+    rdf_type:  
+      id: CHMO:0000595  
       title: "carbon-13 nuclear magnetic resonance spectroscopy"
     evaluated_entity:
       - id: ex:sample-001
@@ -37,7 +37,7 @@ was_generated_by:
       - id: ex:spectrometer-001
         # an instance of "JEOL ECX NMR spectrometer" class from OBI
         rdf_type:
-          id: OBI:0000625 
+          id: OBI:0000625
           title: "JEOL ECX NMR spectrometer"
 ```
 

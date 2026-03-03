@@ -211,4 +211,3 @@ was_generated_by: # a DataAnalysis
                     has_quantity_type: http://qudt.org/vocab/quantitykind/DimensionlessRatio
                     unit: https://qudt.org/vocab/unit/PPM
                     value: 39.52
-

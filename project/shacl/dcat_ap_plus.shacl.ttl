@@ -2387,4 +2387,3 @@ schema1:DefinedTerm a sh:NodeShape ;
             sh:order 1 ;
             sh:path schema1:name ] ;
     sh:targetClass schema1:DefinedTerm .
-
