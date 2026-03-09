@@ -1,0 +1,823 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://nfdi-de.github.io/dcat-ap-plus/latest/automatic-generation/">
+      
+      
+        <link rel="prev" href="../how-to-extend/">
+      
+      
+        <link rel="next" href="../elements/overview/">
+      
+      
+      <link rel="icon" href="../images/DCAT-AP-PLUS-Logo.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>Automatic Generation - DCAT-AP+ Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../css/ansi-colours.css">
+    
+      <link rel="stylesheet" href="../css/jupyter-cells.css">
+    
+      <link rel="stylesheet" href="../css/pandas-dataframe.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#automatic-generation-of-dcat-ap" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="DCAT-AP+ Documentation" class="md-header__button md-logo" aria-label="DCAT-AP+ Documentation" data-md-component="logo">
+      <img id="logo_dark_mode" src="../images/DCAT-AP-PLUS-Logo.png" alt="logo">
+<img id="logo_light_mode" src="../images/DCAT-AP-PLUS-Logo.png" alt="logo">
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DCAT-AP+ Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Automatic Generation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/nfdi-de/dcat-ap-plus" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="DCAT-AP+ Documentation" class="md-nav__button md-logo" aria-label="DCAT-AP+ Documentation" data-md-component="logo">
+      <img id="logo_dark_mode" src="../images/DCAT-AP-PLUS-Logo.png" alt="logo">
+<img id="logo_light_mode" src="../images/DCAT-AP-PLUS-Logo.png" alt="logo">
+    </a>
+    DCAT-AP+ Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/nfdi-de/dcat-ap-plus" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Design Patterns
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-extend/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Extending Rules
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Automatic Generation
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Automatic Generation
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-auto-generate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why auto-generate?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      The pipeline
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#input-which-shacl-shapes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Input: Which SHACL shapes?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-the-translation-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How the translation works
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How the translation works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#handling-of-union-ranges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Handling of union ranges
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-auto-generated-vs-manually-authored" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is auto-generated vs. manually authored
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#re-running-the-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Re-running the generation
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../elements/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schema
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../versioning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Versioning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dcat-ap-plus-users/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Users
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-auto-generate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why auto-generate?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      The pipeline
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#input-which-shacl-shapes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Input: Which SHACL shapes?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-the-translation-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How the translation works
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How the translation works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#handling-of-union-ranges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Handling of union ranges
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-auto-generated-vs-manually-authored" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is auto-generated vs. manually authored
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#re-running-the-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Re-running the generation
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="automatic-generation-of-dcat-ap">Automatic Generation of DCAT-AP+</h1>
+<p>In DCAT-AP+ we do not manually recreate DCAT-AP in LinkML but <strong>auto-generate</strong> it as the base layer from the authoritative SHACL shapes published by SEMIC. This ensures that the LinkML schema stays fully aligned with the official specification and can be updated systematically when DCAT-AP evolves.</p>
+<h2 id="why-auto-generate">Why auto-generate?</h2>
+<p>Manual porting of a complex specification invites drift. The DCAT-AP SHACL shapes define ~25 node shapes with ~150 property shapes, each with cardinality constraints, range definitions, and IRI mappings. Reproducing this by hand would be error-prone and hard to maintain across DCAT-AP releases.</p>
+<p>By scripting the translation, we get two guarantees:</p>
+<ol>
+<li><strong>Semantic identity</strong>: Every <code>class_uri</code> and <code>slot_uri</code> in the generated LinkML schema is copied verbatim from the SHACL <code>sh:targetClass</code> and <code>sh:path</code> attributes. The resulting model is structurally equivalent to the official shapes.</li>
+<li><strong>Reproducibility</strong>: When SEMIC publishes a new DCAT-AP release, re-running the script against the updated SHACL shapes produces an updated base layer, making the delta to our extension layer explicit.</li>
+</ol>
+<h2 id="the-pipeline">The pipeline</h2>
+<p><img alt="conversion_pipeline_dark.svg" src="../images/conversion_pipeline_dark.svg#only-dark" />
+<img alt="conversion_pipeline_light.svg" src="../images/conversion_pipeline_light.svg#only-light" />
+The script produces <strong>two</strong> LinkML schemas from the same input:</p>
+<table>
+<thead>
+<tr>
+<th>Output</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../schema/dcat_ap_linkml.yaml"><code>dcat_ap_linkml.yaml</code></a></td>
+<td>A near-1:1 translation of the DCAT-AP SHACL shapes into LinkML. Useful as a standalone reusable artifact for anyone wanting DCAT-AP in LinkML without extensions.</td>
+</tr>
+<tr>
+<td><a href="../schema/dcat_ap_plus.yaml"><code>dcat_ap_plus.yaml</code></a></td>
+<td>The same base layer <strong>plus</strong> the DCAT-AP+ extension: the provenance core, attribute patterns, and classification pattern described in <a href="../design-patterns/">Design Patterns</a>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="input-which-shacl-shapes">Input: Which SHACL shapes?</h2>
+<p>The script uses the JSON-LD serialization of the DCAT-AP 3.0.0 SHACL shapes, downloaded from the <a href="https://github.com/SEMICeu/DCAT-AP/tree/master/releases/3.0.0/shacl">SEMIC DCAT-AP repository (<code>master</code> branch, <code>releases/3.0.0/shacl/</code>)</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">SEMIC publishes multiple shape files that differ</p>
+<p>The shapes in the <code>master</code> branch's <code>releases/3.0.0</code> folder differ from those in the <a href="https://github.com/SEMICeu/DCAT-AP/releases/tag/3.0.0">tagged <code>3.0.0</code> release</a> and the <code>3.0.0</code> branch. We use the <code>master</code> branch version because it is the one linked from the <a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/">official specification website</a> and reflects the most recent editorial corrections. See also <a href="https://github.com/SEMICeu/DCAT-AP/issues/428">DCAT-AP issue #428</a>.</p>
+</div>
+<h2 id="how-the-translation-works">How the translation works</h2>
+<p>The <a href="https://github.com/nfdi-de/dcat-ap-plus/blob/main/src/dcat_ap_plus/dcat_ap_shacl_2_linkml.py"><code>dcat_ap_shacl_2_linkml.py</code></a> script iterates over each SHACL node shape in the <a href="https://github.com/nfdi-de/dcat-ap-plus/blob/main/src/dcat_ap_plus/dcat_ap_shacl.jsonld">JSON-LD file</a> and maps it to a LinkML construct:</p>
+<p><strong>Node shapes → classes or datatypes.</strong> A node shape whose <code>sh:targetClass</code> points to an ontology class (e.g. <code>dcat:Dataset</code>) becomes a LinkML class. A node shape targeting an XSD datatype (e.g. <code>xsd:duration</code>) becomes a LinkML datatype.</p>
+<p><strong>Property shapes → slots.</strong> Each <code>sh:property</code> within a node shape becomes a slot on the derived class. Cardinality (<code>sh:minCount</code>, <code>sh:maxCount</code>), range (<code>sh:class</code>, <code>sh:datatype</code>), and the property IRI (<code>sh:path</code>) are all preserved.</p>
+<p><strong>Naming convention.</strong> Slot names are converted from the DCAT-AP camelCase convention to LinkML's snake_case (e.g. <code>accessURL</code> → <code>access_URL</code>, <code>contactPoint</code> → <code>contact_point</code>).</p>
+<h3 id="handling-of-union-ranges">Handling of union ranges</h3>
+<p>The DCAT-AP shapes contain two kinds of unions:</p>
+<ul>
+<li><strong>Object class unions</strong> (e.g. <code>dcat:primaryTopic</code> can range over <code>Dataset</code>, <code>DatasetSeries</code>, <code>Catalogue</code>, or <code>DataService</code>): handled via LinkML's <a href="https://linkml.io/linkml/schemas/advanced.html#unions-as-ranges"><code>any_of</code></a> keyword.</li>
+<li><strong>Datatype unions</strong> (e.g. the <code>TemporalLiteral</code> shape unions <code>xsd:date</code>, <code>xsd:dateTime</code>, <code>xsd:gYear</code>, and <code>xsd:gYearMonth</code>): due to a <a href="https://github.com/linkml/linkml/issues/1813">known LinkML limitation</a>, these are conservatively restricted to <code>xsd:date</code>. This is a stricter interpretation than the official DCAT-AP shapes and will be relaxed once LinkML supports datatype unions.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Shapes that are skipped</p>
+<p>The script explicitly ignores <code>rdfs:Literal</code> (replaced by LinkML's default <code>string</code> range), the <code>CataloguedResource</code> union shape (replaced by the <code>Any</code> class with <code>any_of</code> constraints), and a duplicate <code>mediaType</code> shape that appears to be an editorial error in the source.</p>
+</div>
+<h2 id="what-is-auto-generated-vs-manually-authored">What is auto-generated vs. manually authored</h2>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>How it's created</th>
+<th>Where in the script</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DCAT-AP base</strong> (classes, slots, datatypes, enums from the official shapes)</td>
+<td>Auto-generated by <code>parse_dcat_ap_shacl_shapes()</code></td>
+<td><a href="https://github.com/nfdi-de/dcat-ap-plus/blob/main/src/dcat_ap_plus/dcat_ap_shacl_2_linkml.py#L1-L411">Lines 1–411</a></td>
+</tr>
+<tr>
+<td><strong>DCAT-AP+ extension</strong> (provenance core, attributes, <code>ClassifierMixin</code>, contextual metadata)</td>
+<td>Programmatically added by <code>build_dcatapplus_linkml()</code></td>
+<td><a href="https://github.com/nfdi-de/dcat-ap-plus/blob/main/src/dcat_ap_plus/dcat_ap_shacl_2_linkml.py#L412-L991">Lines 412–991</a></td>
+</tr>
+</tbody>
+</table>
+<p>The extension layer is authored <em>in Python code</em>, not in raw YAML, so that it builds on top of the same <code>SchemaBuilder</code> object that holds the auto-generated DCAT-AP base. This ensures that references between base and extension elements (e.g. making <code>was_generated_by</code> mandatory on <code>Dataset</code>, or adding slots to <code>Activity</code>) are validated at build time.</p>
+<p>Elements belonging to the DCAT-AP+ extension are tagged with <code>in_subset: [domain_agnostic_core]</code> in the schema, making it easy to distinguish them from the auto-generated DCAT-AP base.</p>
+<h2 id="re-running-the-generation">Re-running the generation</h2>
+<p>To regenerate both schemas after updating the input SHACL shapes or modifying the extension code:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 1. If DCAT-AP has released new shapes, replace the input file:</span>
+<span class="c1">#    Download the updated dcat_ap_shacl.jsonld into src/dcat_ap_plus/</span>
+
+<span class="c1"># 2. Run the build script:</span>
+uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>src/dcat_ap_plus/dcat_ap_shacl_2_linkml.py
+
+<span class="c1"># 3. Validate the generated schema and test data:</span>
+uv<span class="w"> </span>run<span class="w"> </span>linkml-validate<span class="w"> </span>tests/data/valid/AnalysisDataset-001.yaml<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-s<span class="w"> </span>src/dcat_ap_plus/schema/dcat_ap_plus.yaml<span class="w"> </span>-C<span class="w"> </span>AnalysisDataset
+
+<span class="c1"># 4. Regenerate the documentation:</span>
+rm<span class="w"> </span>-rf<span class="w"> </span>docs/elements/*.md<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>uv<span class="w"> </span>run<span class="w"> </span>gen-doc<span class="w"> </span>-d<span class="w"> </span>docs/elements<span class="w"> </span>src/dcat_ap_plus/schema/dcat_ap_plus.yaml
+</code></pre></div>
+<p>The CI pipeline (GitHub Actions) runs schema validation and data validation on every pull request, catching regressions automatically.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link", "search.highlight", "navigation.expand", "navigation.instant", "navigation.instant.progress", "navigation.tracking"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "default": ["stable"], "provider": "mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>

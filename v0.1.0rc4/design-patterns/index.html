@@ -1,0 +1,1764 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://nfdi-de.github.io/dcat-ap-plus/latest/design-patterns/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../how-to-extend/">
+      
+      
+      <link rel="icon" href="../images/DCAT-AP-PLUS-Logo.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>Design Patterns - DCAT-AP+ Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../css/ansi-colours.css">
+    
+      <link rel="stylesheet" href="../css/jupyter-cells.css">
+    
+      <link rel="stylesheet" href="../css/pandas-dataframe.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#design-patterns-decisions-of-dcat-ap" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="DCAT-AP+ Documentation" class="md-header__button md-logo" aria-label="DCAT-AP+ Documentation" data-md-component="logo">
+      <img id="logo_dark_mode" src="../images/DCAT-AP-PLUS-Logo.png" alt="logo">
+<img id="logo_light_mode" src="../images/DCAT-AP-PLUS-Logo.png" alt="logo">
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DCAT-AP+ Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Design Patterns
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/nfdi-de/dcat-ap-plus" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="DCAT-AP+ Documentation" class="md-nav__button md-logo" aria-label="DCAT-AP+ Documentation" data-md-component="logo">
+      <img id="logo_dark_mode" src="../images/DCAT-AP-PLUS-Logo.png" alt="logo">
+<img id="logo_light_mode" src="../images/DCAT-AP-PLUS-Logo.png" alt="logo">
+    </a>
+    DCAT-AP+ Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/nfdi-de/dcat-ap-plus" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Design Patterns
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Design Patterns
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-dcat-ap-exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why DCAT-AP+ exists
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why DCAT-AP+ exists">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-gap-in-dcat-ap" class="md-nav__link">
+    <span class="md-ellipsis">
+      The gap in DCAT-AP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problems-dcat-ap-addresses" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problems DCAT-AP+ addresses
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#foundational-principle-linkml-elements-as-shacl-shapes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Foundational principle: LinkML elements as SHACL shapes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Foundational principle: LinkML elements as SHACL shapes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-classes-multiple-node-shapes-one-ontology-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      For classes: multiple node shapes, one ontology class
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-slots-property-shapes-with-replaceable-predicates" class="md-nav__link">
+    <span class="md-ellipsis">
+      For slots: property shapes with replaceable predicates
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-this-means-for-extending-dcat-ap" class="md-nav__link">
+    <span class="md-ellipsis">
+      What this means for extending DCAT-AP+
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pattern-1-the-provenance-core-prov-o-alignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern 1: The provenance core (PROV-O alignment)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pattern 1: The provenance core (PROV-O alignment)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#motivation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Motivation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-not-sosa-p-plan-or-provone" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why not SOSA, P-Plan, or ProvONE?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-activity-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Activity pattern
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agenticentity-why-agents-not-entities" class="md-nav__link">
+    <span class="md-ellipsis">
+      AgenticEntity: why agents, not entities
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datageneratingactivity-the-specialization-for-data-production" class="md-nav__link">
+    <span class="md-ellipsis">
+      DataGeneratingActivity: the specialization for data production
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dual-linking-dataset-subject-matter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dual linking: Dataset ↔ subject matter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-dataanalysis-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      The DataAnalysis chain
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pattern-2-generic-attribute-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern 2: Generic attribute description
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pattern 2: Generic attribute description">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#motivation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Motivation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quantitativeattribute" class="md-nav__link">
+    <span class="md-ellipsis">
+      QuantitativeAttribute
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="QuantitativeAttribute">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#design-rationale-why-a-single-node-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design rationale: why a single-node pattern
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#worked-example-describing-a-measurement-temperature" class="md-nav__link">
+    <span class="md-ellipsis">
+      Worked example: describing a measurement temperature
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qualitativeattribute" class="md-nav__link">
+    <span class="md-ellipsis">
+      QualitativeAttribute
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="QualitativeAttribute">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#worked-example-describing-a-spectrometer-setting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Worked example: describing a spectrometer setting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#worked-example-describing-an-assigned-chemical-identifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      Worked example: describing an assigned chemical identifier
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#where-attributes-can-be-attached" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where attributes can be attached
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pattern-3-flexible-classification-classifiermixin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern 3: Flexible classification (ClassifierMixin)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pattern 3: Flexible classification (ClassifierMixin)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-mechanism" class="md-nav__link">
+    <span class="md-ellipsis">
+      The mechanism
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rdf_type-vs-type-when-to-use-which" class="md-nav__link">
+    <span class="md-ellipsis">
+      rdf_type vs. type: when to use which
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="rdf_type vs. type: when to use which">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#do-classify-a-measurement-with-an-ontology-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      Do: classify a measurement with an ontology class
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#do-tag-with-a-skos-concept" class="md-nav__link">
+    <span class="md-ellipsis">
+      Do: tag with a SKOS concept
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dont-use-rdf_type-for-loose-tagging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Don't: use rdf_type for loose tagging
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dont-use-type-when-you-need-precision" class="md-nav__link">
+    <span class="md-ellipsis">
+      Don't: use type when you need precision
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#semic-endorsement" class="md-nav__link">
+    <span class="md-ellipsis">
+      SEMIC endorsement
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pattern-4-contextual-metadata-plan-and-surrounding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern 4: Contextual metadata (Plan and Surrounding)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pattern 4: Contextual metadata (Plan and Surrounding)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Plan
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#surrounding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Surrounding
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-the-dcat-ap-uml-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary: The DCAT-AP+ UML overview
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-extend/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Extending Rules
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../automatic-generation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Automatic Generation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../elements/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schema
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../versioning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Versioning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dcat-ap-plus-users/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Users
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-dcat-ap-exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why DCAT-AP+ exists
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why DCAT-AP+ exists">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-gap-in-dcat-ap" class="md-nav__link">
+    <span class="md-ellipsis">
+      The gap in DCAT-AP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problems-dcat-ap-addresses" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problems DCAT-AP+ addresses
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#foundational-principle-linkml-elements-as-shacl-shapes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Foundational principle: LinkML elements as SHACL shapes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Foundational principle: LinkML elements as SHACL shapes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-classes-multiple-node-shapes-one-ontology-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      For classes: multiple node shapes, one ontology class
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-slots-property-shapes-with-replaceable-predicates" class="md-nav__link">
+    <span class="md-ellipsis">
+      For slots: property shapes with replaceable predicates
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-this-means-for-extending-dcat-ap" class="md-nav__link">
+    <span class="md-ellipsis">
+      What this means for extending DCAT-AP+
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pattern-1-the-provenance-core-prov-o-alignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern 1: The provenance core (PROV-O alignment)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pattern 1: The provenance core (PROV-O alignment)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#motivation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Motivation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-not-sosa-p-plan-or-provone" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why not SOSA, P-Plan, or ProvONE?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-activity-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Activity pattern
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agenticentity-why-agents-not-entities" class="md-nav__link">
+    <span class="md-ellipsis">
+      AgenticEntity: why agents, not entities
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datageneratingactivity-the-specialization-for-data-production" class="md-nav__link">
+    <span class="md-ellipsis">
+      DataGeneratingActivity: the specialization for data production
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dual-linking-dataset-subject-matter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dual linking: Dataset ↔ subject matter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-dataanalysis-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      The DataAnalysis chain
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pattern-2-generic-attribute-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern 2: Generic attribute description
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pattern 2: Generic attribute description">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#motivation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Motivation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quantitativeattribute" class="md-nav__link">
+    <span class="md-ellipsis">
+      QuantitativeAttribute
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="QuantitativeAttribute">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#design-rationale-why-a-single-node-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design rationale: why a single-node pattern
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#worked-example-describing-a-measurement-temperature" class="md-nav__link">
+    <span class="md-ellipsis">
+      Worked example: describing a measurement temperature
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qualitativeattribute" class="md-nav__link">
+    <span class="md-ellipsis">
+      QualitativeAttribute
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="QualitativeAttribute">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#worked-example-describing-a-spectrometer-setting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Worked example: describing a spectrometer setting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#worked-example-describing-an-assigned-chemical-identifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      Worked example: describing an assigned chemical identifier
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#where-attributes-can-be-attached" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where attributes can be attached
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pattern-3-flexible-classification-classifiermixin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern 3: Flexible classification (ClassifierMixin)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pattern 3: Flexible classification (ClassifierMixin)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-mechanism" class="md-nav__link">
+    <span class="md-ellipsis">
+      The mechanism
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rdf_type-vs-type-when-to-use-which" class="md-nav__link">
+    <span class="md-ellipsis">
+      rdf_type vs. type: when to use which
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="rdf_type vs. type: when to use which">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#do-classify-a-measurement-with-an-ontology-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      Do: classify a measurement with an ontology class
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#do-tag-with-a-skos-concept" class="md-nav__link">
+    <span class="md-ellipsis">
+      Do: tag with a SKOS concept
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dont-use-rdf_type-for-loose-tagging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Don't: use rdf_type for loose tagging
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dont-use-type-when-you-need-precision" class="md-nav__link">
+    <span class="md-ellipsis">
+      Don't: use type when you need precision
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#semic-endorsement" class="md-nav__link">
+    <span class="md-ellipsis">
+      SEMIC endorsement
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pattern-4-contextual-metadata-plan-and-surrounding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern 4: Contextual metadata (Plan and Surrounding)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pattern 4: Contextual metadata (Plan and Surrounding)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Plan
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#surrounding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Surrounding
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-the-dcat-ap-uml-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary: The DCAT-AP+ UML overview
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="design-patterns-decisions-of-dcat-ap">Design Patterns &amp; Decisions of DCAT-AP+</h1>
+<h2 id="why-dcat-ap-exists">Why DCAT-AP+ exists</h2>
+<h3 id="the-gap-in-dcat-ap">The gap in DCAT-AP</h3>
+<p>DCAT-AP provides a robust metadata foundation for describing datasets across European data portals. However, it was designed for <em>discoverability</em>, not for capturing the <em>scientific context</em> of how data was generated or what it is about. Concretely, DCAT-AP offers only three ways to describe a dataset's subject matter:</p>
+<table>
+<thead>
+<tr>
+<th>DCAT-AP property</th>
+<th>Limitation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dcterms:description</code></td>
+<td>Free text — not machine-actionable</td>
+</tr>
+<tr>
+<td><code>dcat:keyword</code></td>
+<td>Free text — not machine-actionable</td>
+</tr>
+<tr>
+<td><code>dcat:theme</code></td>
+<td>Restricted to the <a href="https://op.europa.eu/s/zXIN">EU Dataset Theme Vocabulary</a> — too coarse for domain-specific discovery (e.g. no way to distinguish NMR from IR spectroscopy)</td>
+</tr>
+</tbody>
+</table>
+<p>For describing how a dataset was created, DCAT-AP provides <code>prov:wasGeneratedBy</code> linking to a <code>prov:Activity</code>, but this <code>Activity</code> node shape is classified as a mere "Supportive Entity". It has <strong>no specified properties</strong> and is therefore a structural dead end. You can say a dataset was generated by <em>some activity</em>, but not <em>what kind of activity</em>, not <em>what was evaluated, observed or measured</em>, nor <em>which instruments were used</em> in doing so. This has to be defined in DCAT-AP extensions.</p>
+<p>DCAT-AP+ closes this gap in a domain-agnostic way using patterns that can be reused by any domain for further specialization.</p>
+<h3 id="problems-dcat-ap-addresses">Problems DCAT-AP+ addresses</h3>
+<p>The <a href="https://interoperable-europe.ec.europa.eu/collection/semic-support-centre/application-profiles-what-are-they-and-how-model-and-reuse-them-properly-look-through-dcat-ap">SEMIC blog post on Application Profile modelling</a> identifies six problems with current DCAT-AP extension practices. DCAT-AP+ directly addresses three of them:</p>
+<p><strong>Problem #2 — Inconsistent artefact generation.</strong> Published data specification artefacts (HTML docs, SHACL shapes, RDF vocabulary, JSON Schema) are often generated by different tools or edited manually, leading to inconsistencies between them. DCAT-AP+ uses <strong>LinkML as a single source of truth</strong>: one YAML schema generates SHACL shapes, JSON Schema, Python/Pydantic data classes, and a HTML schema reference documentation. Hence, they are all guaranteed to be coherent.</p>
+<p><strong>Problem #5 — Disadvantages of generalisation.</strong> The recommended approach for semantic adaptation in DCAT-AP extensions is to create subclasses or subproperties. But this can hinder adoption: if every domain creates its own <code>dcat:Dataset</code> subclass, interoperability requires reasoners or explicit multi-typing. DCAT-AP+ avoids subclass proliferation through its <a href="#pattern-3-flexible-classification-classifiermixin"><code>ClassifierMixin</code></a>, which uses <code>rdf:type</code> to classify instances with domain-specific ontology terms <em>without</em> introducing new OWL subclasses. This approach is <a href="https://interoperable-europe.ec.europa.eu/collection/semic-support-centre/application-profiles-what-are-they-and-how-model-and-reuse-them-properly-look-through-dcat-ap">explicitly endorsed by the DCAT-AP developers</a>.</p>
+<p><strong>Problem #6 — No entity profile mechanism.</strong> There is no established way to define multiple usage profiles for the same entity. DCAT-AP+ addresses this through its LinkML based approach, where classes function as SHACL node shapes, each with its own IRI, while referencing the same underlying ontology class.</p>
+<hr />
+<h2 id="foundational-principle-linkml-elements-as-shacl-shapes">Foundational principle: LinkML elements as SHACL shapes</h2>
+<p>This is the single most important concept for understanding and extending DCAT-AP+.</p>
+<p>DCAT-AP+ is an <strong>application profile</strong>, a graph shape specification, not an ontology. Its LinkML classes correspond to <strong>SHACL node shapes</strong> and its slots to <strong>SHACL property shapes</strong>. The ontology terms they constrain are referenced via <code>class_uri</code> (on classes) and <code>slot_uri</code> (on properties), but the LinkML elements themselves are not those ontology terms.</p>
+<p>This separation has a concrete consequence: <strong>multiple LinkML elements can reference the same ontology term</strong>. Each represents a different <em>usage context</em>, a different shape, for that term.</p>
+<p>Accordingly, DCAT-AP+ often names its classes and slots differently from the OWL terms they reference. This serves three purposes: it signals that these are (different) shapes, not the ontology terms themselves; it follows LinkML naming conventions (e.g. snake_case for slots); and it allows more suitable labels where the OWL term label might be ambiguous or opaque for our usage context.</p>
+<h3 id="for-classes-multiple-node-shapes-one-ontology-class">For classes: multiple node shapes, one ontology class</h3>
+<p>Consider these three DCAT-AP+ classes:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">Entity</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prov:Entity</span><span class="w">          </span><span class="c1"># ← all three share</span>
+<span class="w">  </span><span class="c1"># generic: any entity used or produced by an activity</span>
+
+<span class="nt">EvaluatedEntity</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
+<span class="w">  </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prov:Entity</span><span class="w">          </span><span class="c1"># ← the same ontology class</span>
+<span class="w">  </span><span class="c1"># narrower: the specific entity being evaluated</span>
+
+<span class="nt">AnalysisSourceData</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EvaluatedEntity</span>
+<span class="w">  </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prov:Entity</span><span class="w">          </span><span class="c1"># ← still prov:Entity</span>
+<span class="w">  </span><span class="c1"># most specific: data produced by a prior activity, now being analysed</span>
+</code></pre></div>
+<p>All three have <code>class_uri: prov:Entity</code>. In the generated SHACL, they become three distinct node shapes that all target <code>prov:Entity</code>, but each with different property constraints. This is exactly the "entity profile" mechanism that the <a href="https://interoperable-europe.ec.europa.eu/collection/semic-support-centre/application-profiles-what-are-they-and-how-model-and-reuse-them-properly-look-through-dcat-ap">SEMIC blog post on application profile modelling</a> calls for: different profiles of the same entity, each with a unique shape identifier, without minting a new OWL class.</p>
+<h3 id="for-slots-property-shapes-with-replaceable-predicates">For slots: property shapes with replaceable predicates</h3>
+<p>The same logic applies to slots. DCAT-AP+ assigns <code>slot_uri</code> values to its slots. These are the RDF predicates used in the generated triples. When a domain-specific profile creates a sub-slot (via <code>is_a</code>), it inherits the parent's structural role but may assign a different <code>slot_uri</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># In DCAT-AP+:</span>
+<span class="nt">has_quantitative_attribute</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dcterms:relation</span><span class="w">      </span><span class="c1"># ← intentionally generic default</span>
+<span class="w">  </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">QuantitativeAttribute</span>
+
+<span class="c1"># In a domain-specific profile:</span>
+<span class="nt">has_temperature</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_quantitative_attribute</span>
+<span class="w">  </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SIO:000008</span><span class="w">            </span><span class="c1"># ← domain-specific predicate</span>
+<span class="w">  </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Temperature</span><span class="w">              </span><span class="c1"># ← narrower range</span>
+</code></pre></div>
+<p>The sub-slot plays the same role in the graph shape as the parent, but the RDF predicate changes. The DCAT-AP+ default predicates (<code>dcterms:relation</code> for attributes, <code>dcterms:subject</code> for aboutness) are intentionally semantics-thin. They were chosen as the lowest common denominator that avoids conflicting with domain-specific vocabularies, not to carry deep ontological commitments.</p>
+<p>For a worked example of vocabulary replacement including the interoperability considerations, see the <a href="https://nfdi-de.github.io/chem-dcat-ap/ontology-alignment/">ChemDCAT-AP ontology alignment documentation</a>.</p>
+<h3 id="what-this-means-for-extending-dcat-ap">What this means for extending DCAT-AP+</h3>
+<p>When you create a domain profile, you define <strong>new shapes</strong>, not new ontology terms. Your LinkML classes inherit slots from DCAT-AP+ classes via <code>is_a</code> and may:</p>
+<ul>
+<li><strong>Keep the parent's <code>class_uri</code></strong>: if your class is a more constrained usage of the same ontology concept (a narrower shape, not a new type). This preserves discoverability: SPARQL queries for the parent type still find your instances.</li>
+<li><strong>Assign a different <code>class_uri</code></strong>: if your class should map to a domain ontology term. Your instances will then be typed with that domain term, not the parent's PROV-O class. If your ontology is aligned with PROV-O (as BFO-based ontologies are, via the <a href="https://doi.org/10.1038/s41597-025-04580-1">BFO → PROV-O mapping</a>), a reasoner can still infer the PROV-O type. If it is not aligned, consider whether losing PROV-O discoverability is acceptable, or use <code>rdf_type</code> for explicit multi-typing (see <a href="#pattern-3-flexible-classification-classifiermixin">Pattern 3: ClassifierMixin</a>).</li>
+</ul>
+<p>The same applies to <code>slot_uri</code> on sub-slots: keep the parent's predicate for interoperability, or replace it with a semantically richer domain predicate where the generic default is insufficient.</p>
+<div class="admonition warning">
+<p class="admonition-title">Don't confuse LinkML inheritance with OWL subclassing</p>
+<p><code>is_a: EvaluatedEntity</code> in LinkML means "this LinkML class inherits the slots of EvaluatedEntity." It does <strong>not</strong> generate an <code>rdfs:subClassOf</code> axiom. The ontological alignment is controlled solely by <code>class_uri</code>. Likewise, a sub-slot does not generate <code>rdfs:subPropertyOf</code>. It inherits the parent's structural constraints, not its RDF predicate (the same <code>slot_uri</code> value must be set manually for this).</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Blank node duplication when projecting between vocabularies</p>
+<p>If a knowledge graph generates RDF from the same instance data against both the DCAT-AP+ and a domain-specific schema, any inlined node without an <code>id</code> (i.e. a blank node) will be created twice, once per schema, with different predicates connecting it to its subject:</p>
+<div class="highlight"><pre><span></span><code><span class="c"># From DCAT-AP+ schema</span>
+<span class="nn">ex</span><span class="p">:</span><span class="nt">sample-001</span> <span class="nn">dcterms</span><span class="p">:</span><span class="nt">relation</span> <span class="nn">_</span><span class="p">:</span><span class="nt">b1</span> <span class="p">.</span>
+<span class="nn">_</span><span class="p">:</span><span class="nt">b1</span> <span class="nn">prov</span><span class="p">:</span><span class="nt">value</span> <span class="mf">300.0</span> <span class="p">.</span>
+
+<span class="c"># From domain-specific schema (different slot_uri)</span>
+<span class="nn">ex</span><span class="p">:</span><span class="nt">sample-001</span> <span class="nv">&lt;domain:hasAttribute&gt;</span> <span class="nn">_</span><span class="p">:</span><span class="nt">b2</span> <span class="p">.</span>
+<span class="nn">_</span><span class="p">:</span><span class="nt">b2</span> <span class="nn">prov</span><span class="p">:</span><span class="nt">value</span> <span class="mf">300.0</span> <span class="p">.</span>
+</code></pre></div>
+<p><code>_:b1</code> and <code>_:b2</code> are structurally identical but distinct blank nodes. Queries aggregating values will produce wrong results.</p>
+<p>To avoid this: (a) ensure all inlined nodes carry IRIs, or (b) generate RDF from the domain-specific schema only and use SPARQL CONSTRUCT rules to add the DCAT-AP+ predicates to the existing nodes (see <a href="https://nfdi-de.github.io/chem-dcat-ap/ontology-alignment/">ChemDCAT-AP ontology alignment documentation</a>.</p>
+</div>
+<p>For more on how to extend DCAT-AP+ see our <a href="../how-to-extend/">Rules for domain profiles</a>.</p>
+<hr />
+<h2 id="pattern-1-the-provenance-core-prov-o-alignment">Pattern 1: The provenance core (PROV-O alignment)</h2>
+<h3 id="motivation">Motivation</h3>
+<p>DCAT-AP already references PROV-O: <code>Dataset</code> has a <code>prov:wasGeneratedBy</code> property pointing to <code>Activity</code>, which is the node shape for the <code>prov:Activity</code> class. Yet, this node shape is an empty shell: it has no properties, no specified inputs, outputs, or agents. DCAT-AP+ fills this empty shell by reusing the <a href="https://www.w3.org/TR/prov-o/#description-starting-point-terms">Starting Point Terms of PROV-O</a>.</p>
+<p>The choice of PROV-O (rather than alternative provenance or observation models) was deliberate:</p>
+<ol>
+<li><strong>DCAT-AP already commits to PROV-O</strong> — we extend, not replace. Adding a second provenance vocabulary would create redundancy and force users to navigate two parallel models.</li>
+<li><strong>PROV-O's starting point terms are intentionally generic</strong>, matching our goal of domain-agnosticism.</li>
+<li><strong>A formal <a href="https://doi.org/10.1038/s41597-025-04580-1">mapping between PROV-O and the Basic Formal Ontology (BFO)</a> has been published</strong>, which validates alignment with OBO Foundry ontologies used by consortia like NFDI4Chem and NFDI4Cat.</li>
+</ol>
+<h3 id="why-not-sosa-p-plan-or-provone">Why not SOSA, P-Plan, or ProvONE?</h3>
+<p>Several alternative models were considered during the design of DCAT-AP+:</p>
+<ul>
+<li>The <a href="https://www.w3.org/TR/vocab-ssn/">Sensor, Observation, Sample, and Actuator (SOSA)</a> ontology models the <strong>observation pattern</strong>: a <code>Sensor</code> makes an <code>Observation</code> of an <code>ObservedProperty</code> on a <code>FeatureOfInterest</code>, following a <code>Procedure</code>. This is well-suited for sensor networks and hard-science measurements.</li>
+<li><a href="http://vocab.linkeddata.es/p-plan/index.html">P-Plan</a> extends PROV-O with explicit plan/step structures for describing <strong>experimental workflows</strong>: a <code>Plan</code> has <code>Steps</code>, each <code>Step</code> has input/output <code>Variables</code>.</li>
+<li><a href="https://purl.dataone.org/provone-v1-dev">ProvONE</a> extends PROV-O for <strong>computational workflows</strong>, adding <code>Program</code>, <code>Port</code>, and <code>Channel</code> classes for data pipeline provenance.</li>
+</ul>
+<p>All three are more expressive than PROV-O for their respective domains. However, they share a commitment to the <strong>hard-science observation or computational workflow paradigm</strong> that makes them too narrow for DCAT-AP+'s intended scope.</p>
+<p>DCAT-AP+ must accommodate data-generating activities across all research domains, including:</p>
+<ul>
+<li><strong>Natural sciences</strong>: NMR spectroscopy, chemical synthesis, sensor measurements — where SOSA's observation pattern fits well</li>
+<li><strong>Humanities</strong>: literature analysis, corpus annotation, archival research — where there is no "sensor", no "observed property", and the activity does not follow a repeatable "procedure" in the SOSA sense</li>
+<li><strong>Social sciences</strong>: surveys, interviews, ethnographic fieldwork — where data generation involves human participants, not instruments</li>
+<li><strong>Computational science</strong>: simulations, data transformations, model training — where ProvONE's workflow model fits but SOSA's sensor model does not</li>
+</ul>
+<p>A literature analysis that produces a dataset is a <code>prov:Activity</code> that <code>prov:generated</code> a <code>dcat:Dataset</code>. It is not a SOSA <code>Observation</code> of an <code>ObservedProperty</code>. A humanities researcher should not be forced into an observation-centric vocabulary to describe their data provenance.</p>
+<p>PROV-O's generality is a feature in this context: its starting point terms (<code>Activity</code>, <code>Entity</code>, <code>Agent</code>, <code>used</code>, <code>wasGeneratedBy</code>, <code>wasAssociatedWith</code>) are abstract enough to describe any data-producing process without imposing domain-specific assumptions. Domain-specific profiles can then add precision where needed. For example, ChemDCAT-AP adds chemical substances and reaction relevant classes and slots.</p>
+<div class="admonition note">
+<p class="admonition-title">Domain profiles can still reference SOSA or P-Plan</p>
+<p>Nothing prevents a domain profile from adding <code>exact_mappings</code> or <code>close_mappings</code> to SOSA or P-Plan terms on its classes. For example, a sensor-network profile could map <code>DataGeneratingActivity</code> → <code>sosa:Observation</code> and <code>Device</code> → <code>sosa:Sensor</code>. The PROV-O base layer does not preclude this. It simply does not require it.</p>
+</div>
+<h3 id="the-activity-pattern">The Activity pattern</h3>
+<p>DCAT-AP+ extends the <code>Activity</code> class (aligned to <code>prov:Activity</code>) with slots for its inputs, outputs, and agents:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">Activity</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prov:Activity</span>
+<span class="w">  </span><span class="nt">mixins</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClassifierMixin</span><span class="w">            </span><span class="c1"># adds rdf_type + type slots</span>
+<span class="w">  </span><span class="nt">slots</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">id</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">title</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">description</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">had_input_entity</span><span class="w">           </span><span class="c1"># prov:used → Entity</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">had_output_entity</span><span class="w">          </span><span class="c1"># prov:generated → Entity</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">had_input_activity</span><span class="w">         </span><span class="c1"># prov:wasInformedBy → Activity</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">carried_out_by</span><span class="w">             </span><span class="c1"># prov:wasAssociatedWith → AgenticEntity</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_qualitative_attribute</span><span class="w">  </span><span class="c1"># dcterms:relation → QualitativeAttribute</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_quantitative_attribute</span><span class="w"> </span><span class="c1"># dcterms:relation → QuantitativeAttribute</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_part</span><span class="w">                   </span><span class="c1"># dcterms:hasPart → Activity</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">part_of</span><span class="w">                    </span><span class="c1"># dcterms:isPartOf → Activity</span>
+</code></pre></div>
+<p>The slots are aligned to the PROV-O predicates and ranges from the <code>prov:Activity</code> base pattern, as well as to basic DC Terms via <code>slot_uri</code> in the schema (shown as comments).</p>
+<h3 id="agenticentity-why-agents-not-entities">AgenticEntity: why agents, not entities</h3>
+<p>DCAT-AP+ introduces <code>AgenticEntity</code> (aligned to <code>prov:Agent</code>) as the range of <code>carried_out_by</code>. In PROV-O, an <em>agent</em> is something that bears responsibility for an activity. It <em>influences</em> the activity taking place. This fits instruments and software: a spectrometer doesn't just <em>exist</em> during a measurement, it <em>causes</em> the measurement to happen.</p>
+<p><code>AgenticEntity</code> has two concrete subclasses:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">Device</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AgenticEntity</span>
+<span class="w">  </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prov:Agent</span><span class="w">              </span><span class="c1"># SHACL target = prov:Agent</span>
+<span class="w">  </span><span class="c1"># exact_mappings: OBI:0000968, epos:Equipment, NCIT:C62103, SIO:000956, AFE:0000354</span>
+<span class="w">  </span><span class="c1"># A physical instrument (spectrometer, reactor, sensor, ...)</span>
+
+<span class="nt">Software</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AgenticEntity</span>
+<span class="w">  </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prov:SoftwareAgent</span><span class="w">      </span><span class="c1"># SHACL target = prov:SoftwareAgent</span>
+<span class="w">  </span><span class="c1"># exact_mappings: schema:SoftwareApplication</span>
+<span class="w">  </span><span class="c1"># A software tool (analysis script, simulation code, ...)</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Why not <code>foaf:Agent</code>?</p>
+<p>DCAT-AP already uses <code>foaf:Agent</code> for people and organisations responsible for a dataset's <em>publication</em>. <code>AgenticEntity</code> (mapped to <code>prov:Agent</code>) serves a different purpose: it describes what was involved in the dataset's <em>generation</em>. Also, it is part of the core PROV-O <code>Activity</code> pattern and should thus be reused. We renamed it to avoid confusion between these two distinct shapes.</p>
+</div>
+<h3 id="datageneratingactivity-the-specialization-for-data-production">DataGeneratingActivity: the specialization for data production</h3>
+<p>Since DCAT-AP+ specifically concerns how datasets are generated, it introduces <code>DataGeneratingActivity</code> as a subclass of <code>Activity</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">DataGeneratingActivity</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Activity</span>
+<span class="w">  </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prov:Activity</span>
+<span class="w">  </span><span class="nt">slots</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">evaluated_entity</span><span class="w">    </span><span class="c1"># what was measured/observed</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">evaluated_activity</span><span class="w">  </span><span class="c1"># what process was studied</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">realized_plan</span><span class="w">       </span><span class="c1"># what procedure was followed</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">occurred_in</span><span class="w">         </span><span class="c1"># where it took place</span>
+</code></pre></div>
+<p>The key new slots, <code>evaluated_entity</code> and <code>evaluated_activity</code>, are <strong>sub-slots</strong> of the inherited <code>had_input_entity</code> and <code>had_input_activity</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">evaluated_entity</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">had_input_entity</span><span class="w">       </span><span class="c1"># ← LinkML slot inheritance</span>
+<span class="w">  </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prov:used</span><span class="w">          </span><span class="c1"># ← same RDF predicate as parent</span>
+<span class="w">  </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EvaluatedEntity</span><span class="w">       </span><span class="c1"># ← narrower range than parent (Entity)</span>
+</code></pre></div>
+<p>This slot inheritance is how DCAT-AP+ implements the DCAT-AP extension guideline that "properties may be added, but must not duplicate existing ones" because <code>evaluated_entity</code> <em>is</em> <code>had_input_entity</code>, just with a narrower range and a more specific semantic intent.</p>
+<h3 id="dual-linking-dataset-subject-matter">Dual linking: Dataset ↔ subject matter</h3>
+<p>DCAT-AP+ links the subject matter to <em>both</em> the <code>Dataset</code> and the <code>DataGeneratingActivity</code>:</p>
+<p><img alt="dataset_activity_subject_matter_dark.svg" src="../images/dataset_activity_subject_matter_dark.svg#only-dark" />
+<img alt="dataset_activity_subject_matter_light.svg" src="../images/dataset_activity_subject_matter_light.svg#only-light" /></p>
+<p>This intentional redundancy supports two query patterns:</p>
+<ul>
+<li><strong>Dataset-centric</strong>: "Find all datasets about substance X" → query <code>is_about_entity</code></li>
+<li><strong>Process-centric</strong>: "Find all activities that evaluated substance X" → query <code>evaluated_entity</code></li>
+</ul>
+<p>Both <code>is_about_entity</code> and <code>is_about_activity</code> are mapped to <code>dcterms:subject</code> (with <code>exact_mappings</code> to <code>IAO:0000136</code> — "is about" from the Information Artifact Ontology).</p>
+<h3 id="the-dataanalysis-chain">The DataAnalysis chain</h3>
+<p>Research data is often produced in multi-step pipelines: an instrument generates raw data, then software analyses that raw data to produce derived results. DCAT-AP+ models this with three additional classes:</p>
+<p><img alt="analysis_context_light.svg" src="../images/analysis_context_light.svg#only-light" />
+<img alt="analysis_context_dark.svg" src="../images/analysis_context_dark.svg#only-dark" /></p>
+<p>Concrete example: An NMR spectrometer produces a raw FID (Free Induction Decay) dataset. Software then performs a Fourier transform and peak assignment on that raw data, producing a structural assignment dataset. The <code>AnalysisSourceData</code> node links the two, preserving the full provenance chain.</p>
+<p>Note that all three — <code>DataAnalysis</code>, <code>AnalysisDataset</code>, and <code>AnalysisSourceData</code> — share <code>class_uri</code> values with their parents (<code>prov:Activity</code>, <code>dcat:Dataset</code>, <code>prov:Entity</code> respectively). They are different node shapes, not new ontology classes. See <a href="#foundational-principle-linkml-elements-as-shacl-shapes">Foundational Principle</a>.</p>
+<hr />
+<h2 id="pattern-2-generic-attribute-description">Pattern 2: Generic attribute description</h2>
+<h3 id="motivation_1">Motivation</h3>
+<p>Domain-specific metadata often involves quantitative or qualitative properties attached to entities, activities, or instruments, i.e. a temperature, a concentration, a solvent name, a calibration standard. In plain DCAT-AP, the only option is to encode these as free text in <code>dcterms:description</code>. DCAT-AP+ provides a structured alternative.</p>
+<h3 id="quantitativeattribute">QuantitativeAttribute</h3>
+<p>Aligned to <code>qudt:Quantity</code>, this class represents a quantifiable property with a numeric value, a quantity kind, and a unit:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">QuantitativeAttribute</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">qudt:Quantity</span>
+<span class="w">  </span><span class="nt">mixins</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClassifierMixin</span>
+<span class="w">  </span><span class="nt">slots</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">title</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">description</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">value</span><span class="w">                </span><span class="c1"># prov:value, range: float, required</span>
+<span class="w">  </span><span class="nt">attributes</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">has_quantity_type</span><span class="p">:</span><span class="w">      </span><span class="c1"># qudt:hasQuantityKind → DefinedTerm, required</span>
+<span class="w">    </span><span class="nt">unit</span><span class="p">:</span><span class="w">                  </span><span class="c1"># qudt:unit → DefinedTerm, recommended</span>
+</code></pre></div>
+<p>The <code>has_quantity_type</code> and <code>unit</code> attributes use <a href="https://linkml.io/linkml/schemas/enums.html">LinkML enum bindings</a> to constrain their values to QUDT's <a href="http://qudt.org/vocab/quantitykind/">QuantityKind</a> and <a href="http://qudt.org/vocab/unit/">Unit</a> vocabularies respectively.</p>
+<div class="admonition warning">
+<p class="admonition-title">Experimental feature</p>
+<p>LinkML's enum binding feature is declared in the schema but may not yet be fully supported by the <code>linkml-runtime</code> validation tooling. The bindings express the <em>intent</em> that values should come from QUDT vocabularies and will be enforced once the feature matures. In the meantime, validation of these constraints may require additional checks outside of <code>linkml-validate</code>.</p>
+</div>
+<h4 id="design-rationale-why-a-single-node-pattern">Design rationale: why a single-node pattern</h4>
+<p><code>QuantitativeAttribute</code> represents a <strong>recorded value</strong>. It is the number a researcher writes down or a software tool exports. It is not an ontological model of the physical property itself. This is a deliberate choice. More expressive models exist (notably in the OBO Foundry stack, which separates physical qualities from information entities <em>about</em> those qualities through multiple intermediate nodes). These models offer stronger reasoning support but require data producers to understand and instantiate multi-hop structures that are not intuitive outside the ontology engineering community.</p>
+<p>DCAT-AP+'s single-node pattern, <code>value</code> + <code>quantity kind</code> + <code>unit</code>, matches <a href="https://www.qudt.org/">QUDT</a>'s <code>Quantity</code> model, which is an established standard for quantity representation in engineering, industrial, and web-of-data contexts. It is immediately understandable, directly queryable (one hop from entity to value), and sufficient for the structured discovery that DCAT-AP+ enables over plain DCAT-AP's free-text descriptions.</p>
+<p>The classification slots from the <a href="#pattern-3-flexible-classification-classifiermixin">ClassifierMixin</a> provide an extension point: domain-specific profiles can use <code>rdf_type</code> to classify an attribute more precisely (e.g. as a measured value vs. a specified parameter) without changing the structural pattern.</p>
+<div class="admonition note">
+<p class="admonition-title">Alignment with richer measurement models</p>
+<p>Domain profiles that need the full expressivity of ontological measurement models (e.g. for reasoning over quality–datum–value chains) can subclass <code>QuantitativeAttribute</code> to add the necessary structure. The base pattern is intentionally minimal to remain accessible across research domains, from chemistry to digital humanities, where data producers have widely varying familiarity with formal ontology.</p>
+</div>
+<h4 id="worked-example-describing-a-measurement-temperature">Worked example: describing a measurement temperature</h4>
+<p>Suppose an NMR measurement was performed at 298.0 K. In DCAT-AP+ instance data:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Inside a DataGeneratingActivity or EvaluatedEntity:</span>
+<span class="nt">has_quantitative_attribute</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;sample</span><span class="nv"> </span><span class="s">temperature</span><span class="nv"> </span><span class="s">setting&quot;</span>
+<span class="w">    </span><span class="nt">rdf_type</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NMR:1400262</span>
+<span class="w">      </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;sample</span><span class="nv"> </span><span class="s">temperature</span><span class="nv"> </span><span class="s">information&quot;</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">298.0</span>
+<span class="w">    </span><span class="nt">has_quantity_type</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://qudt.org/vocab/quantitykind/Temperature</span>
+<span class="w">      </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Temperature&quot;</span>
+<span class="w">    </span><span class="nt">unit</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://qudt.org/vocab/unit/K</span>
+<span class="w">      </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Kelvin&quot;</span>
+</code></pre></div>
+<p>Compare this to what you would write in plain DCAT-AP:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># DCAT-AP: free text only</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Measurement</span><span class="nv"> </span><span class="s">performed</span><span class="nv"> </span><span class="s">at</span><span class="nv"> </span><span class="s">298</span><span class="nv"> </span><span class="s">K&quot;</span>
+</code></pre></div>
+<p>The DCAT-AP version is not easily queryable, validatable, nor really interoperable. The DCAT-AP+ version enables SPARQL queries like "find all datasets where the measurement temperature was between 290 and 310 K".</p>
+<h3 id="qualitativeattribute">QualitativeAttribute</h3>
+<p>Aligned to <code>prov:Entity</code>, this class represents a <strong>recorded non-numeric characterization</strong> of an entity, activity, or agent. Like <code>QuantitativeAttribute</code>, it captures what a researcher noted down, not the inherent property itself. The <code>value</code> slot carries the string representation; the <code>ClassifierMixin</code> provides ontology-grounded classification or vocabulary bound categorization of what that string describes:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">QualitativeAttribute</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prov:Entity</span>
+<span class="w">  </span><span class="nt">mixins</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClassifierMixin</span>
+<span class="w">  </span><span class="nt">slots</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">title</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">description</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">value</span><span class="w">                </span><span class="c1"># prov:value, range: string, required</span>
+</code></pre></div>
+<h4 id="worked-example-describing-a-spectrometer-setting">Worked example: describing a spectrometer setting</h4>
+<p>An NMR spectrometer uses a specific pulse program. Recording this setting as a qualitative attribute makes it discoverable and classifiable via an ontology term:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Inside a Device (e.g. an NMR spectrometer) or DataGeneratingActivity:</span>
+<span class="nt">has_qualitative_attribute</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">zgpg30</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">used pulse program setting</span>
+<span class="w">    </span><span class="nt">rdf_type</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NMR:1400037</span>
+<span class="w">      </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NMR pulse sequence</span>
+</code></pre></div>
+<p>The <code>value</code> slot represents a specific pulse program code of a Bruker NMR spectrometer; <code>rdf_type</code> provides the machine-actionable classification via the NMR ontology, and the <code>title</code> slots act as human-readable labels for this attribute.</p>
+<h4 id="worked-example-describing-an-assigned-chemical-identifier">Worked example: describing an assigned chemical identifier</h4>
+<p>When an NMR spectrum is analysed and a chemical structure is assigned, the resulting InChIKey is a qualitative attribute of the evaluated substance sample:</p>
+<p><div class="highlight"><pre><span></span><code><span class="c1"># Inside an EvaluatedEntity (e.g. a SubstanceSample in ChemDCAT-AP):</span>
+<span class="nt">has_qualitative_attribute</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KVOIVNBYNQXCNY-BOCHJOTCSA-N</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">assigned InChiKey</span>
+<span class="w">    </span><span class="nt">rdf_type</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CHEMINF:000059</span>
+<span class="w">      </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">InChiKey</span>
+</code></pre></div>
+This pattern lets you record <em>any</em> non-numeric characterization on <em>any</em> DCAT-AP+ entity without modifying the schema. You only need the right ontology term for classification via <code>rdf_type</code>, or the right controlled vocabulary term for tagging via <code>type</code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">When to use QualitativeAttribute vs. a domain profile sub-property</p>
+<p><code>QualitativeAttribute</code> is the <strong>generic fallback</strong>. If your domain profile (e.g. ChemDCAT-AP) defines a dedicated property like <code>smiles</code> or <code>inchikey</code>, use that instead. It is more explicit, easier to validate, and produces more concise instance data. Use <code>QualitativeAttribute</code> when no dedicated property exists.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Domain profiles may override <code>slot_uri</code> on attribute sub-slots</p>
+<p>When a domain profile creates a sub-slot of <code>has_quantitative_attribute</code> or <code>has_qualitative_attribute</code> (e.g. ChemDCAT-AP's <code>inchikey</code> or <code>has_temperature</code>), it may assign a more specific <code>slot_uri</code> than the parent's <code>dcterms:relation</code>. For example, ChemDCAT-AP uses <code>SIO:000008</code> (has attribute) for its chemistry-specific attribute sub-slots. This is a valid specialization. The sub-slot inherits the structural pattern but maps to a semantically richer predicate in the generated RDF. See <a href="#slot_uri-replacement-in-sub-slots"><code>slot_uri</code> replacement in sub-slots</a>
+for the interoperability implications.</p>
+</div>
+<h3 id="where-attributes-can-be-attached">Where attributes can be attached</h3>
+<p>Both <code>has_quantitative_attribute</code> and <code>has_qualitative_attribute</code> (mapped to <code>dcterms:relation</code>) are available on:</p>
+<ul>
+<li><code>Entity</code> (and all subclasses: <code>EvaluatedEntity</code>, <code>AnalysisSourceData</code>)</li>
+<li><code>Activity</code> (and all subclasses: <code>DataGeneratingActivity</code>, <code>EvaluatedActivity</code>, <code>DataAnalysis</code>)</li>
+<li><code>AgenticEntity</code> (and all subclasses: <code>Device</code>, <code>Software</code>)</li>
+</ul>
+<p>This means you can describe properties of the thing being measured, the measurement process itself, or the instrument — all with the same pattern.</p>
+<hr />
+<h2 id="pattern-3-flexible-classification-classifiermixin">Pattern 3: Flexible classification (ClassifierMixin)</h2>
+<h3 id="the-mechanism">The mechanism</h3>
+<p><code>ClassifierMixin</code> is an abstract mixin that injects two classification slots into every DCAT-AP+ core class:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">ClassifierMixin</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">abstract</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">mixin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">slots</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">type</span><span class="w">       </span><span class="c1"># dcterms:type → DefinedTerm</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rdf_type</span><span class="w">   </span><span class="c1"># rdf:type → DefinedTerm</span>
+</code></pre></div>
+<p>Because it is a mixin, it does not generate its own node shape. Its slots are "mixed into" every class that declares <code>mixins: [ClassifierMixin]</code>: <code>Activity</code>, <code>Entity</code>, <code>AgenticEntity</code>, <code>Plan</code>, <code>Surrounding</code>, <code>QualitativeAttribute</code>, <code>QuantitativeAttribute</code>, and all their subclasses.</p>
+<h3 id="rdf_type-vs-type-when-to-use-which"><code>rdf_type</code> vs. <code>type</code>: when to use which</h3>
+<p>These two slots serve fundamentally different purposes:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><code>rdf_type</code></th>
+<th><code>type</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Mapped to</strong></td>
+<td><code>rdf:type</code></td>
+<td><code>dcterms:type</code></td>
+</tr>
+<tr>
+<td><strong>Semantic commitment</strong></td>
+<td><strong>Ontological assertion</strong> — the instance <em>is</em> an instance of the referenced class</td>
+<td><strong>Cataloging assertion</strong> — the instance <em>is categorized as</em> the referenced concept</td>
+</tr>
+<tr>
+<td><strong>Range expectation</strong></td>
+<td>An OWL/RDFS class from a formal ontology</td>
+<td>A SKOS concept or term from a controlled vocabulary</td>
+</tr>
+<tr>
+<td><strong>Reasoner behaviour</strong></td>
+<td>OWL reasoners will infer class membership and apply class axioms</td>
+<td>No inference; treated as a simple annotation</td>
+</tr>
+<tr>
+<td><strong>Use when</strong></td>
+<td>You want the full semantic weight of formal ontology typing (e.g., classifying a <code>DataGeneratingActivity</code> as <code>CHMO:0000595</code> so that reasoners know it is an NMR measurement)</td>
+<td>You want lightweight tagging without committing to an ontology's full logical structure (e.g., tagging a dataset with a SKOS concept from a local taxonomy)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="do-classify-a-measurement-with-an-ontology-class">Do: classify a measurement with an ontology class</h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># DataGeneratingActivity instance</span>
+<span class="nt">rdf_type</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CHMO:0000595</span><span class="w">                  </span><span class="c1"># from the Chemical Methods Ontology</span>
+<span class="w">  </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;carbon-13</span><span class="nv"> </span><span class="s">nuclear</span><span class="nv"> </span><span class="s">magnetic</span><span class="nv"> </span><span class="s">resonance</span><span class="nv"> </span><span class="s">spectroscopy&quot;</span>
+</code></pre></div>
+<p>This asserts that the activity instance is <em>of type</em> <code>CHMO:0000595</code>. A SPARQL query for <code>?x a CHMO:0000595</code> will find it. An OWL reasoner can infer that it is also a <code>CHMO:0000293</code> (NMR spectroscopy) via the ontology's class hierarchy.</p>
+<h4 id="do-tag-with-a-skos-concept">Do: tag with a SKOS concept</h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># DataGeneratingActivity instance</span>
+<span class="nt">type</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://example.org/vocab/spectroscopy</span>
+<span class="w">  </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Spectroscopy&quot;</span>
+<span class="w">  </span><span class="nt">from_CV</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://example.org/vocab/method-types</span>
+</code></pre></div>
+<p>This says the activity <em>is categorized as</em> "Spectroscopy" in a local vocabulary. No ontological inference follows.</p>
+<h4 id="dont-use-rdf_type-for-loose-tagging">Don't: use <code>rdf_type</code> for loose tagging</h4>
+<p>If you don't intend the full ontological implications, use <code>type</code>. Misusing <code>rdf_type</code> with SKOS concepts can produce unintended reasoning results when the data is combined with ontology axioms.</p>
+<h4 id="dont-use-type-when-you-need-precision">Don't: use <code>type</code> when you need precision</h4>
+<p>If downstream consumers need to query by specific ontology classes (e.g. "find all ¹³C NMR measurements"), <code>type</code> with a vague label won't help. Use <code>rdf_type</code> with the precise ontology term.</p>
+<h3 id="semic-endorsement">SEMIC endorsement</h3>
+<p>This approach — allowing instances to carry additional <code>rdf:type</code> assertions pointing to domain ontology classes — is explicitly discussed and endorsed in the <a href="https://interoperable-europe.ec.europa.eu/collection/semic-support-centre/application-profiles-what-are-they-and-how-model-and-reuse-them-properly-look-through-dcat-ap">SEMIC Application Profiles blog post</a>, which presents the dual assertion of multiple <code>rdf:type</code> values as a pragmatic alternative to subclass proliferation.</p>
+<hr />
+<h2 id="pattern-4-contextual-metadata-plan-and-surrounding">Pattern 4: Contextual metadata (Plan and Surrounding)</h2>
+<p>DCAT-AP+ provides two sparsely specified classes for optional context:</p>
+<h3 id="plan">Plan</h3>
+<p>Aligned to <code>prov:Plan</code> (aliases: Plan Specification, Method, Procedure). Represents the directive information that prescribes how an activity should be carried out — a protocol, a standard operating procedure, a measurement method.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">Plan</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prov:Plan</span>
+<span class="w">  </span><span class="nt">mixins</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClassifierMixin</span><span class="w">      </span><span class="c1"># → rdf_type can point to e.g. a specific SOP type</span>
+<span class="w">  </span><span class="nt">slots</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">title</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">description</span>
+</code></pre></div>
+<p>Linked from <code>DataGeneratingActivity</code> via <code>realized_plan</code> (mapped to <code>prov:used</code>).</p>
+<p><code>Plan</code> is intentionally minimal in DCAT-AP+. Domain profiles can extend it with specific properties (e.g. protocol version, parameters). At the DCAT-AP+ level, <code>title</code> and <code>description</code> carry the human-readable information, while <code>rdf_type</code> or <code>type</code> provide machine-actionable classification.</p>
+<h3 id="surrounding">Surrounding</h3>
+<p>Aligned to <code>prov:Location</code>. Represents the spatial context of an activity — a laboratory, a field site, a clean room, a computational cluster.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">Surrounding</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prov:Location</span>
+<span class="w">  </span><span class="nt">mixins</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClassifierMixin</span>
+<span class="w">  </span><span class="nt">slots</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">title</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">description</span>
+</code></pre></div>
+<p>Linked from <code>DataGeneratingActivity</code> via <code>occurred_in</code> (mapped to <code>prov:atLocation</code>).</p>
+<div class="admonition note">
+<p class="admonition-title">Surrounding vs. DCAT-AP's <code>dcterms:spatial</code></p>
+<p>DCAT-AP's <code>geographical_coverage</code> (mapped to <code>dcterms:spatial</code>) describes <em>where the dataset applies</em> (e.g. geographic extent of a climate dataset). <code>Surrounding</code> describes <em>where the data generation took place</em>. These are different questions and can coexist on the same dataset.</p>
+</div>
+<hr />
+<h2 id="summary-the-dcat-ap-uml-overview">Summary: The DCAT-AP+ UML overview</h2>
+<p>The following UML class diagram shows the complete DCAT-AP+ extension layer (red highlighting). The classes and slots represent the LinkML schema elements, corresponding to SHACL node and property shapes. For brevity, slots inside the UML classes are referenced via their <code>sh:path</code> value rather than their LinkML slot name.</p>
+<p><img alt="DCAT-AP-PLUS UML-diagram" src="../images/DCAT-AP-PLUS_UML_only_dark.svg#only-dark" />
+<img alt="DCAT-AP-PLUS UML-diagram" src="../images/DCAT-AP-PLUS_UML_only_light.svg#only-light" /></p>
+<p>Reading guide:</p>
+<ul>
+<li><strong>Dataset</strong> (top left) is the entry point. It <em>must</em> link to a <code>DataGeneratingActivity</code> via <code>prov:wasGeneratedBy</code> and <em>should</em> link to <code>EvaluatedEntity</code> / <code>EvaluatedActivity</code> via <code>dcterms:subject</code>.</li>
+<li><strong>DataGeneratingActivity</strong> (centre) links to its inputs (<code>evaluated_entity</code>, <code>evaluated_activity</code>), its agents (<code>carried_out_by</code> → <code>AgenticEntity</code>), an optional <code>Plan</code>, and an optional <code>Surrounding</code>.</li>
+<li><strong>QuantitativeAttribute</strong> and <strong>QualitativeAttribute</strong> (right) can be attached to entities, activities, and agents via <code>dcterms:relation</code>.</li>
+<li><strong>All green classes</strong> include <code>rdf_type</code> (<code>rdf:type</code>) and <code>type</code> (<code>dcterms:type</code>) from the <code>ClassifierMixin</code>.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link", "search.highlight", "navigation.expand", "navigation.instant", "navigation.instant.progress", "navigation.tracking"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "default": ["stable"], "provider": "mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>
