@@ -29,6 +29,7 @@ dev = [
     "mknotebooks>= 0.8.0",
     "pytest>=8.3.5",
     "coverage>=7.8.0",
+    "just>=0.8.165",
 ]
 
 # See https://hatch.pypa.io/latest/config/build/#file-selection for how to
