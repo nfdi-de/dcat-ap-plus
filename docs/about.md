@@ -8,8 +8,7 @@ The solution they came up with, a provenance layer built on [PROV-O Starting Poi
 
 ## Publication
 
-The design, implementation, and evaluation of DCAT-AP+ and ChemDCAT-AP were presented at the [19th International Conference on Metadata and Semantics Research (MTSR 2025)](https://www.mtsr-conf.org/home), Thessaloniki, Greece, 15–19 December 2025. Until the proceedings are published you can cite the preprint: https://doi.org/10.48550/arXiv.2602.01822.
-
+The design, implementation, and evaluation of DCAT-AP+ and ChemDCAT-AP were presented at the [19th International Conference on Metadata and Semantics Research (MTSR 2025)](https://www.mtsr-conf.org/home), Thessaloniki, Greece, 15–19 December 2025. Until the proceedings are published you can cite the preprint: [doi:10.48550/arXiv.2602.01822](https://doi.org/10.48550/arXiv.2602.01822).
 
 ## Funding
 
@@ -19,7 +18,6 @@ This work is funded by the German Research Foundation (DFG) as part of the Natio
 |---|---|---|
 | **NFDI4Cat** — NFDI for Catalysis-Related Sciences | [441926934](https://gepris.dfg.de/gepris/projekt/441926934) | [nfdi4cat.org](https://nfdi4cat.org/) |
 | **NFDI4Chem** — NFDI for Chemistry | [441958208](https://gepris.dfg.de/gepris/projekt/441958208) | [nfdi4chem.de](https://nfdi4chem.de) |
-
 
 ## License
 
