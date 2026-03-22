@@ -1,18 +1,18 @@
 [![DOI](https://zenodo.org/badge/1080296103.svg)](https://doi.org/10.5281/zenodo.17702369)
 [![PyPI - Version](https://img.shields.io/pypi/v/dcat-ap-plus)](https://pypi.org/project/dcat-ap-plus)
 [![Build and test](https://github.com/nfdi-de/dcat-ap-plus/actions/workflows/main.yaml/badge.svg)](https://github.com/nfdi-de/dcat-ap-plus/actions/workflows/main.yaml)
-[![Copier Badge](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/copier-org/copier/master/img/badge/badge-grayscale-inverted-border-teal.json)](https://github.com/linkml/linkml-project-copier) 
+[![Copier Badge](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/copier-org/copier/master/img/badge/badge-grayscale-inverted-border-teal.json)](https://github.com/linkml/linkml-project-copier)
 
 # DCAT Application Profile for Providing Links to Use-case Specific Context (DCAT-AP+)
 
 The LinkML schema provided in this repository is an extension of the [DCAT Application Profile](https://semiceu.github.io/DCAT-AP/releases/3.0.0/), which allows to provide additional metadata for a `dcat:Dataset` in a very generic manner, such as:
-* which kind(s) of entity(s) or activity(s) were evaluated, 
-* which kind of activity generated the `dcat:Dataset`, 
-* which kind of instruments were used in the dataset generating activity, 
-* in which surrounding (e.g. a laboratory) and according to which plan the dataset generating activity took place, 
+* which kind(s) of entity(s) or activity(s) were evaluated,
+* which kind of activity generated the `dcat:Dataset`,
+* which kind of instruments were used in the dataset generating activity,
+* in which surrounding (e.g. a laboratory) and according to which plan the dataset generating activity took place,
 * as well as which kind(s) of qualitative and quantitative characteristic(s) were attributed to the evaluated entity or evaluated activity and to the used instruments.
 
-This extension is mainly based on the [Starting Point Terms of the Provenance Ontology (PROV-O)](https://www.w3.org/TR/prov-o/#description-starting-point-terms), 
+This extension is mainly based on the [Starting Point Terms of the Provenance Ontology (PROV-O)](https://www.w3.org/TR/prov-o/#description-starting-point-terms),
 in that it makes the `prov:wasGeneratedBy` property of the `Dataset` class mandatory and specifies necessary properties for its expected range, the `prov:Activity` class.
 
 The choice to use LinkML for extending DCAT-AP was based on the need to have different layers that cater to different domain-specific use cases. DCAT-AP+ serves as the basic layer for such extensions and is thus kept very generic. Being the basis of the [ChemDCAT-AP](
@@ -20,7 +20,7 @@ nfdi-de.github.io/chem-dcat-ap), one can see how it can be applied to further ex
 
 DCAT-AP+ is developed within close collaboration between [NFDI4Chem](https://nfdi4chem.de) & [NFDI4Cat](https://nfdi4cat.org/) and is intended to be further improved, extended and adapted by the whole NFDI community.
 
-A more elaborate documentation is provided here: [https://nfdi-de.github.io/dcat-ap-plus](hhttps://nfdi-de.github.io/dcat-ap-plus/latest/about/).
+A more elaborate documentation is provided here: [https://nfdi-de.github.io/dcat-ap-plus](https://nfdi-de.github.io/dcat-ap-plus/latest/about/).
 
 ## DCAT-AP to LinkML: Automatic Translation and Extension
 
@@ -55,7 +55,7 @@ See also the documentation of the template: https://github.com/linkml/linkml-pro
     Note: Environments with private PyPi repository may need extra configuration (example):
 
       export UV_DEFAULT_INDEX=https://nexus.example.com/repository/pypi-all/simple
-* 
+*
 
     Copier
 
@@ -80,7 +80,7 @@ To regenerate the DCAT-AP LinkML representation as well as the PLUS extension ru
 
     uv run python src/dcat_ap_shacl_2_linkml.py
 
-### Test data validation and convertion
+### Test data validation and conversion
 
 Validate and test all: `just test`
 
@@ -106,15 +106,15 @@ To convert the test datasets of each DCAT-AP profile into a TTL graph run:
     ````
 
 ### Build GitHub pages docs locally
-    
+
     uv run mkdocs serve
-    
+
     rm -rf docs/elements/*.md && uv run gen-doc -d docs/elements src/dcat_ap_plus/schema/dcat_ap_plus.yaml
 
 ## Funding
 
-This work was funded by the German Research Foundation (DFG) through the projects: 
-* "[NFDI4Cat](https://nfdi4cat.org/) - NFDI for Catalysis-Related Sciences" (DFG project no. [441926934](https://gepris.dfg.de/gepris/projekt/441926934)) and 
+This work was funded by the German Research Foundation (DFG) through the projects:
+* "[NFDI4Cat](https://nfdi4cat.org/) - NFDI for Catalysis-Related Sciences" (DFG project no. [441926934](https://gepris.dfg.de/gepris/projekt/441926934)) and
 * "[NFDI4Chem](https://nfdi4chem.de) - NFDI for Chemistry" (DFG project no. [441958208](https://gepris.dfg.de/gepris/projekt/441958208))"
 
 within the National Research Data Infrastructure (NFDI) programme of the Joint Science Conference (GWK).
