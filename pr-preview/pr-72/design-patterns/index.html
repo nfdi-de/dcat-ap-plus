@@ -1320,7 +1320,7 @@
 <span class="w">  </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Temperature</span><span class="w">              </span><span class="c1"># ← narrower range</span>
 </code></pre></div>
 <p>The sub-slot plays the same role in the graph shape as the parent, but the RDF predicate changes. The DCAT-AP+ default predicates (<code>dcterms:relation</code> for attributes, <code>dcterms:subject</code> for aboutness) are intentionally semantics-thin. They were chosen as the lowest common denominator that avoids conflicting with domain-specific vocabularies, not to carry deep ontological commitments.</p>
-<p>For a worked example of vocabulary replacement including the interoperability considerations, see the <a href="https://nfdi-de.github.io/chem-dcat-ap/ontology-alignment/">ChemDCAT-AP ontology alignment documentation</a>.</p>
+<p>For a worked example of vocabulary replacement including the interoperability considerations, see the <a href="https://nfdi-de.github.io/chem-dcat-ap/latest/ontology-alignment/">ChemDCAT-AP ontology alignment documentation</a>.</p>
 <h3 id="what-this-means-for-extending-dcat-ap">What this means for extending DCAT-AP+</h3>
 <p>When you create a domain profile, you define <strong>new shapes</strong>, not new ontology terms. Your LinkML classes inherit slots from DCAT-AP+ classes via <code>is_a</code> and may:</p>
 <ul>
@@ -1344,7 +1344,7 @@
 <span class="nn">_</span><span class="p">:</span><span class="nt">b2</span> <span class="nn">prov</span><span class="p">:</span><span class="nt">value</span> <span class="mf">300.0</span> <span class="p">.</span>
 </code></pre></div>
 <p><code>_:b1</code> and <code>_:b2</code> are structurally identical but distinct blank nodes. Queries aggregating values will produce wrong results.</p>
-<p>To avoid this: (a) ensure all inlined nodes carry IRIs, or (b) generate RDF from the domain-specific schema only and use SPARQL CONSTRUCT rules to add the DCAT-AP+ predicates to the existing nodes (see <a href="https://nfdi-de.github.io/chem-dcat-ap/ontology-alignment/">ChemDCAT-AP ontology alignment documentation</a>.</p>
+<p>To avoid this: (a) ensure all inlined nodes carry IRIs, or (b) generate RDF from the domain-specific schema only and use SPARQL CONSTRUCT rules to add the DCAT-AP+ predicates to the existing nodes (see <a href="https://nfdi-de.github.io/chem-dcat-ap/latest/ontology-alignment/">ChemDCAT-AP ontology alignment documentation</a>.</p>
 </div>
 <p>For more on how to extend DCAT-AP+ see our <a href="../how-to-extend/">Rules for domain profiles</a>.</p>
 <hr />
