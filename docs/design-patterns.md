@@ -415,7 +415,7 @@ These two slots serve fundamentally different purposes:
 | **Reasoner behaviour** | OWL reasoners will infer class membership and apply class axioms | No inference; treated as a simple annotation |
 | **Use when** | You want the full semantic weight of formal ontology typing (e.g., classifying a `DataGeneratingActivity` as `CHMO:0000595` so that reasoners know it is an NMR measurement) | You want lightweight tagging without committing to an ontology's full logical structure (e.g., tagging a dataset with a SKOS concept from a local taxonomy) |
 
-#### Do: classify a measurement with an ontology class
+#### Example: classify a measurement with an ontology class
 
 ```yaml
 # DataGeneratingActivity instance
@@ -426,25 +426,17 @@ rdf_type:
 
 This asserts that the activity instance is *of type* `CHMO:0000595`. A SPARQL query for `?x a CHMO:0000595` will find it. An OWL reasoner can infer that it is also a `CHMO:0000293` (NMR spectroscopy) via the ontology's class hierarchy.
 
-#### Do: tag with a SKOS concept
+#### Example: tag with a SKOS concept
 
 ```yaml
 # DataGeneratingActivity instance
 type:
-  id: http://example.org/vocab/spectroscopy
-  title: "Spectroscopy"
-  from_CV: http://example.org/vocab/method-types
+  id: https://w3id.org/nfdi4cat/voc4cat_0000265
+  title: "surface analysis"
+  from_CV: https://w3id.org/nfdi4cat/voc4cat
 ```
 
-This says the activity *is categorized as* "Spectroscopy" in a local vocabulary. No ontological inference follows.
-
-#### Don't: use `rdf_type` for loose tagging
-
-If you don't intend the full ontological implications, use `type`. Misusing `rdf_type` with SKOS concepts can produce unintended reasoning results when the data is combined with ontology axioms.
-
-#### Don't: use `type` when you need precision
-
-If downstream consumers need to query by specific ontology classes (e.g. "find all ¹³C NMR measurements"), `type` with a vague label won't help. Use `rdf_type` with the precise ontology term.
+This says the activity *is categorized as* "surface analysis" as defined in the SKOS vocabulary [voc4cat](https://w3id.org/nfdi4cat/voc4cat). No ontological inference follows.
 
 ### SEMIC endorsement
 
