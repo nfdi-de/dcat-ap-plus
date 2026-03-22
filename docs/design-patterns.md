@@ -79,7 +79,7 @@ has_temperature:
 
 The sub-slot plays the same role in the graph shape as the parent, but the RDF predicate changes. The DCAT-AP+ default predicates (`dcterms:relation` for attributes, `dcterms:subject` for aboutness) are intentionally semantics-thin. They were chosen as the lowest common denominator that avoids conflicting with domain-specific vocabularies, not to carry deep ontological commitments.
 
-For a worked example of vocabulary replacement including the interoperability considerations, see the [ChemDCAT-AP ontology alignment documentation](https://nfdi-de.github.io/chem-dcat-ap/ontology-alignment/).
+For a worked example of vocabulary replacement including the interoperability considerations, see the [ChemDCAT-AP ontology alignment documentation](https://nfdi-de.github.io/chem-dcat-ap/latest/ontology-alignment/).
 
 ### What this means for extending DCAT-AP+
 
@@ -108,7 +108,7 @@ The same applies to `slot_uri` on sub-slots: keep the parent's predicate for int
 
     `_:b1` and `_:b2` are structurally identical but distinct blank nodes. Queries aggregating values will produce wrong results.
 
-    To avoid this: (a) ensure all inlined nodes carry IRIs, or (b) generate RDF from the domain-specific schema only and use SPARQL CONSTRUCT rules to add the DCAT-AP+ predicates to the existing nodes (see [ChemDCAT-AP ontology alignment documentation](https://nfdi-de.github.io/chem-dcat-ap/ontology-alignment/).
+    To avoid this: (a) ensure all inlined nodes carry IRIs, or (b) generate RDF from the domain-specific schema only and use SPARQL CONSTRUCT rules to add the DCAT-AP+ predicates to the existing nodes (see [ChemDCAT-AP ontology alignment documentation](https://nfdi-de.github.io/chem-dcat-ap/latest/ontology-alignment/).
 
 For more on how to extend DCAT-AP+ see our [Rules for domain profiles](how-to-extend.md).
 
