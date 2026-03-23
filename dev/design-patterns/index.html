@@ -627,36 +627,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#do-classify-a-measurement-with-an-ontology-class" class="md-nav__link">
+  <a href="#example-classify-a-measurement-with-an-ontology-class" class="md-nav__link">
     <span class="md-ellipsis">
-      Do: classify a measurement with an ontology class
+      Example: classify a measurement with an ontology class
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#do-tag-with-a-skos-concept" class="md-nav__link">
+  <a href="#example-tag-with-a-skos-concept" class="md-nav__link">
     <span class="md-ellipsis">
-      Do: tag with a SKOS concept
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dont-use-rdf_type-for-loose-tagging" class="md-nav__link">
-    <span class="md-ellipsis">
-      Don't: use rdf_type for loose tagging
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dont-use-type-when-you-need-precision" class="md-nav__link">
-    <span class="md-ellipsis">
-      Don't: use type when you need precision
+      Example: tag with a SKOS concept
     </span>
   </a>
   
@@ -1171,36 +1153,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#do-classify-a-measurement-with-an-ontology-class" class="md-nav__link">
+  <a href="#example-classify-a-measurement-with-an-ontology-class" class="md-nav__link">
     <span class="md-ellipsis">
-      Do: classify a measurement with an ontology class
+      Example: classify a measurement with an ontology class
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#do-tag-with-a-skos-concept" class="md-nav__link">
+  <a href="#example-tag-with-a-skos-concept" class="md-nav__link">
     <span class="md-ellipsis">
-      Do: tag with a SKOS concept
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dont-use-rdf_type-for-loose-tagging" class="md-nav__link">
-    <span class="md-ellipsis">
-      Don't: use rdf_type for loose tagging
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dont-use-type-when-you-need-precision" class="md-nav__link">
-    <span class="md-ellipsis">
-      Don't: use type when you need precision
+      Example: tag with a SKOS concept
     </span>
   </a>
   
@@ -1356,7 +1320,7 @@
 <span class="w">  </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Temperature</span><span class="w">              </span><span class="c1"># ← narrower range</span>
 </code></pre></div>
 <p>The sub-slot plays the same role in the graph shape as the parent, but the RDF predicate changes. The DCAT-AP+ default predicates (<code>dcterms:relation</code> for attributes, <code>dcterms:subject</code> for aboutness) are intentionally semantics-thin. They were chosen as the lowest common denominator that avoids conflicting with domain-specific vocabularies, not to carry deep ontological commitments.</p>
-<p>For a worked example of vocabulary replacement including the interoperability considerations, see the <a href="https://nfdi-de.github.io/chem-dcat-ap/ontology-alignment/">ChemDCAT-AP ontology alignment documentation</a>.</p>
+<p>For a worked example of vocabulary replacement including the interoperability considerations, see the <a href="https://nfdi-de.github.io/chem-dcat-ap/latest/ontology-alignment/">ChemDCAT-AP ontology alignment documentation</a>.</p>
 <h3 id="what-this-means-for-extending-dcat-ap">What this means for extending DCAT-AP+</h3>
 <p>When you create a domain profile, you define <strong>new shapes</strong>, not new ontology terms. Your LinkML classes inherit slots from DCAT-AP+ classes via <code>is_a</code> and may:</p>
 <ul>
@@ -1380,7 +1344,7 @@
 <span class="nn">_</span><span class="p">:</span><span class="nt">b2</span> <span class="nn">prov</span><span class="p">:</span><span class="nt">value</span> <span class="mf">300.0</span> <span class="p">.</span>
 </code></pre></div>
 <p><code>_:b1</code> and <code>_:b2</code> are structurally identical but distinct blank nodes. Queries aggregating values will produce wrong results.</p>
-<p>To avoid this: (a) ensure all inlined nodes carry IRIs, or (b) generate RDF from the domain-specific schema only and use SPARQL CONSTRUCT rules to add the DCAT-AP+ predicates to the existing nodes (see <a href="https://nfdi-de.github.io/chem-dcat-ap/ontology-alignment/">ChemDCAT-AP ontology alignment documentation</a>.</p>
+<p>To avoid this: (a) ensure all inlined nodes carry IRIs, or (b) generate RDF from the domain-specific schema only and use SPARQL CONSTRUCT rules to add the DCAT-AP+ predicates to the existing nodes (see <a href="https://nfdi-de.github.io/chem-dcat-ap/latest/ontology-alignment/">ChemDCAT-AP ontology alignment documentation</a>.</p>
 </div>
 <p>For more on how to extend DCAT-AP+ see our <a href="../how-to-extend/">Rules for domain profiles</a>.</p>
 <hr />
@@ -1639,25 +1603,21 @@ for the interoperability implications.</p>
 </tr>
 </tbody>
 </table>
-<h4 id="do-classify-a-measurement-with-an-ontology-class">Do: classify a measurement with an ontology class</h4>
+<h4 id="example-classify-a-measurement-with-an-ontology-class">Example: classify a measurement with an ontology class</h4>
 <div class="highlight"><pre><span></span><code><span class="c1"># DataGeneratingActivity instance</span>
 <span class="nt">rdf_type</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CHMO:0000595</span><span class="w">                  </span><span class="c1"># from the Chemical Methods Ontology</span>
 <span class="w">  </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;carbon-13</span><span class="nv"> </span><span class="s">nuclear</span><span class="nv"> </span><span class="s">magnetic</span><span class="nv"> </span><span class="s">resonance</span><span class="nv"> </span><span class="s">spectroscopy&quot;</span>
 </code></pre></div>
 <p>This asserts that the activity instance is <em>of type</em> <code>CHMO:0000595</code>. A SPARQL query for <code>?x a CHMO:0000595</code> will find it. An OWL reasoner can infer that it is also a <code>CHMO:0000293</code> (NMR spectroscopy) via the ontology's class hierarchy.</p>
-<h4 id="do-tag-with-a-skos-concept">Do: tag with a SKOS concept</h4>
+<h4 id="example-tag-with-a-skos-concept">Example: tag with a SKOS concept</h4>
 <div class="highlight"><pre><span></span><code><span class="c1"># DataGeneratingActivity instance</span>
 <span class="nt">type</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://example.org/vocab/spectroscopy</span>
-<span class="w">  </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Spectroscopy&quot;</span>
-<span class="w">  </span><span class="nt">from_CV</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://example.org/vocab/method-types</span>
+<span class="w">  </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/nfdi4cat/voc4cat_0000265</span>
+<span class="w">  </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;surface</span><span class="nv"> </span><span class="s">analysis&quot;</span>
+<span class="w">  </span><span class="nt">from_CV</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/nfdi4cat/voc4cat</span>
 </code></pre></div>
-<p>This says the activity <em>is categorized as</em> "Spectroscopy" in a local vocabulary. No ontological inference follows.</p>
-<h4 id="dont-use-rdf_type-for-loose-tagging">Don't: use <code>rdf_type</code> for loose tagging</h4>
-<p>If you don't intend the full ontological implications, use <code>type</code>. Misusing <code>rdf_type</code> with SKOS concepts can produce unintended reasoning results when the data is combined with ontology axioms.</p>
-<h4 id="dont-use-type-when-you-need-precision">Don't: use <code>type</code> when you need precision</h4>
-<p>If downstream consumers need to query by specific ontology classes (e.g. "find all ¹³C NMR measurements"), <code>type</code> with a vague label won't help. Use <code>rdf_type</code> with the precise ontology term.</p>
+<p>This says the activity <em>is categorized as</em> "surface analysis" as defined in the SKOS vocabulary <a href="https://w3id.org/nfdi4cat/voc4cat">voc4cat</a>. No ontological inference follows.</p>
 <h3 id="semic-endorsement">SEMIC endorsement</h3>
 <p>This approach — allowing instances to carry additional <code>rdf:type</code> assertions pointing to domain ontology classes — is explicitly discussed and endorsed in the <a href="https://interoperable-europe.ec.europa.eu/collection/semic-support-centre/application-profiles-what-are-they-and-how-model-and-reuse-them-properly-look-through-dcat-ap">SEMIC Application Profiles blog post</a>, which presents the dual assertion of multiple <code>rdf:type</code> values as a pragmatic alternative to subclass proliferation.</p>
 <hr />
