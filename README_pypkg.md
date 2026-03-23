@@ -1,10 +1,10 @@
 # dcat_ap_plus
 
 An extension of the [DCAT Application Profile](https://semiceu.github.io/DCAT-AP/releases/3.0.0/), which allows to provide additional metadata for a `dcat:Dataset` in a very generic manner, such as:
-* which kind(s) of entity(s) or activity(s) were evaluated, 
-* which kind of activity generated the `dcat:Dataset`, 
-* which kind of instruments were used in the dataset generating activity, 
-* in which surrounding (e.g. a laboratory) and according to which plan the dataset generating activity took place, 
+* which kind(s) of entity(s) or activity(s) were evaluated,
+* which kind of activity generated the `dcat:Dataset`,
+* which kind of instruments were used in the dataset generating activity,
+* in which surrounding (e.g. a laboratory) and according to which plan the dataset generating activity took place,
 * as well as which kind(s) of qualitative and quantitative characteristic(s) were attributed to the evaluated entity or evaluated activity and to the used instruments.
 
 This package ships the LinkML-generated Python datamodel for the schema.
