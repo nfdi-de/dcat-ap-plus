@@ -4,8 +4,13 @@ import glob
 import pytest
 from pathlib import Path
 
+from bioregistry.validate.utils import validate_linkml, format_messages
 from dcat_ap_plus.datamodel import dcat_ap_plus
 from linkml_runtime.loaders import yaml_loader
+
+HERE = Path(__file__).parent.resolve()
+ROOT = HERE.parent.resolve()
+SCHEMA_DIRECTORY = ROOT.joinpath("src", "dcat_ap_plus", "schema")
 
 DATA_DIR_VALID = Path(__file__).parent / "data" / "valid"
 DATA_DIR_INVALID = Path(__file__).parent / "data" / "invalid"
@@ -24,3 +29,15 @@ def test_valid_data_files(filepath):
     )
     obj = yaml_loader.load(filepath, target_class=tgt_class)
     assert obj
+
+
+def test_dcat_ap_linkml_prefixes() -> None:
+    """Test that prefixes used in the definition are semantic farm-valid."""
+    messages = validate_linkml(SCHEMA_DIRECTORY.joinpath("dcat_ap_linkml.yaml"))
+    assert len(messages) == 0, format_messages(messages)
+
+
+def test_dcat_ap_plus_prefixes() -> None:
+    """Test that prefixes used in the definition are semantic farm-valid."""
+    messages = validate_linkml(SCHEMA_DIRECTORY.joinpath("dcat_ap_plus.yaml.yaml"))
+    assert len(messages) == 0, format_messages(messages)
