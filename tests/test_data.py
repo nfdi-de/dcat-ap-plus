@@ -34,10 +34,10 @@ def test_valid_data_files(filepath):
 def test_dcat_ap_linkml_prefixes() -> None:
     """Test that prefixes used in the definition are semantic farm-valid."""
     messages = validate_linkml(SCHEMA_DIRECTORY.joinpath("dcat_ap_linkml.yaml"), use_preferred=True)
-    assert len(messages) == 0, tabulate_messages(messages)
+    assert len(messages) == 0, "\n\n" + tabulate_messages(messages)
 
 
 def test_dcat_ap_plus_prefixes() -> None:
     """Test that prefixes used in the definition are semantic farm-valid."""
     messages = validate_linkml(SCHEMA_DIRECTORY.joinpath("dcat_ap_plus.yaml"), use_preferred=True)
-    assert len(messages) == 0, tabulate_messages(messages)
+    assert len(messages) == 0, "\n\n" + tabulate_messages(messages)
