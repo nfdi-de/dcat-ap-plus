@@ -12,7 +12,7 @@ authors = [
 license = "MIT"
 license-files = ["LICENSE"]
 readme = "README_pypkg.md"
-requires-python = ">=3.9,<4.0"
+requires-python = ">=3.10,<4.0"
 dynamic = ["version"]
 
 dependencies = [
@@ -30,6 +30,7 @@ dev = [
     "pytest>=8.3.5",
     "coverage>=7.8.0",
     "bioregistry>=0.13.29",
+    "tabulate",
 ]
 
 # See https://hatch.pypa.io/latest/config/build/#file-selection for how to

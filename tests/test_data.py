@@ -4,7 +4,7 @@ import glob
 import pytest
 from pathlib import Path
 
-from bioregistry.validate.utils import validate_linkml, format_messages
+from bioregistry.validate.utils import validate_linkml, tabulate_messages
 from dcat_ap_plus.datamodel import dcat_ap_plus
 from linkml_runtime.loaders import yaml_loader
 
@@ -33,11 +33,11 @@ def test_valid_data_files(filepath):
 
 def test_dcat_ap_linkml_prefixes() -> None:
     """Test that prefixes used in the definition are semantic farm-valid."""
-    messages = validate_linkml(SCHEMA_DIRECTORY.joinpath("dcat_ap_linkml.yaml"))
-    assert len(messages) == 0, format_messages(messages)
+    messages = validate_linkml(SCHEMA_DIRECTORY.joinpath("dcat_ap_linkml.yaml"), use_preferred=True)
+    assert len(messages) == 0, tabulate_messages(messages)
 
 
 def test_dcat_ap_plus_prefixes() -> None:
     """Test that prefixes used in the definition are semantic farm-valid."""
-    messages = validate_linkml(SCHEMA_DIRECTORY.joinpath("dcat_ap_plus.yaml.yaml"))
-    assert len(messages) == 0, format_messages(messages)
+    messages = validate_linkml(SCHEMA_DIRECTORY.joinpath("dcat_ap_plus.yaml"), use_preferred=True)
+    assert len(messages) == 0, tabulate_messages(messages)
