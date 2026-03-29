@@ -1,0 +1,29 @@
+# Example Dataset with a categorical attribute on the evaluated entity
+---
+id: https://example.org/dataset/mineral-hardness-001
+title:
+  - "Hardness classification of quartz sample QZ-42"
+description:
+  - "Scratch test classification of a quartz sample on the Mohs scale"
+was_generated_by:
+  - id: https://example.org/activity/scratch-test-001
+    title:
+      - "Mohs scratch test"
+    rdf_type:
+      id: http://www.wikidata.org/entity/Q1357956
+      title: "scratch test"
+    evaluated_entity:
+      - id: https://example.org/entity/sample-QZ-42
+        title: "Quartz sample QZ-42"
+        rdf_type:
+          id: http://www.wikidata.org/entity/Q43010
+          title: "quartz"
+        has_categorical_attribute:
+          - title: "Mohs hardness classification"
+            rdf_type:
+              id: http://www.wikidata.org/entity/Q41472
+              title: "Mohs scale of mineral hardness"
+            value:
+              id: http://www.wikidata.org/entity/Q43010
+              title: "Quartz"
+              from_CV: http://www.wikidata.org/entity/Q41472
