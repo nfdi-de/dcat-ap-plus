@@ -1,6 +1,6 @@
 ---
 id: https://w3id.org/nfdi-de/dcat-ap-plus/
-version: "0.1.0rc3.post21.dev0+913fb36"  # Managed by dynamic-versioning. Don't change this line!
+version: "0.1.0rc4.post6.dev0+938bc67"  # Managed by dynamic-versioning. Don't change this line!
 name: dcat-ap-plus
 description: >-
   This metadata schema is an Extension of the DCAT Application Profile
@@ -475,6 +475,17 @@ slots:
     recommended: true
     multivalued: true
     inlined_as_list: true
+  has_categorical_attribute:
+    name: has_categorical_attribute
+    description: The slot to relate a categorical attribute to an EvaluatedEntity,
+      EvaluatedActivity or AgenticEntity
+    in_subset:
+    - domain_agnostic_core
+    slot_uri: dcterms:relation
+    range: CategoricalAttribute
+    recommended: true
+    multivalued: true
+    inlined_as_list: true
   has_quantitative_attribute:
     name: has_quantitative_attribute
     description: The slot to relate a quantitative attribute to an EvaluatedEntity,
@@ -802,6 +813,7 @@ classes:
     - had_output_entity
     - had_input_activity
     - carried_out_by
+    - has_categorical_attribute
     - has_qualitative_attribute
     - has_quantitative_attribute
     - part_of
@@ -837,6 +849,9 @@ classes:
         description: The slot to provide a secondary identifier of the Activity.
         multivalued: true
         inlined_as_list: true
+        notes:
+        - not in DCAT-AP
+      has_categorical_attribute:
         notes:
         - not in DCAT-AP
       has_qualitative_attribute:
@@ -895,6 +910,7 @@ classes:
     - title
     - description
     - other_identifier
+    - has_categorical_attribute
     - has_qualitative_attribute
     - has_quantitative_attribute
     - has_part
@@ -2300,6 +2316,7 @@ classes:
     - description
     - id
     - other_identifier
+    - has_categorical_attribute
     - has_qualitative_attribute
     - has_quantitative_attribute
     - has_part
@@ -2607,6 +2624,27 @@ classes:
         description: The slot to provide the literal value of the QualitativeAttribute.
         required: true
     class_uri: prov:Entity
+  CategoricalAttribute:
+    name: CategoricalAttribute
+    description: A piece of categorical information that is attributed to an Entity,
+      Activity or AgenticEntity. The value is a term from a controlled vocabulary.
+    in_subset:
+    - domain_agnostic_core
+    mixins:
+    - ClassifierMixin
+    slots:
+    - title
+    - description
+    - value
+    slot_usage:
+      value:
+        name: value
+        description: The slot to provide the value of the CategoricalAttribute
+          as a term from a controlled vocabulary.
+        range: DefinedTerm
+        required: true
+        inlined: true
+    class_uri: qudt:EnumeratedValue
   QuantitativeAttribute:
     name: QuantitativeAttribute
     description: A quantifiable piece of information that is attributed to an Entity,
