@@ -12,7 +12,7 @@
     "https://gitlab.com/opensourcelab/scientificdata/scidats/-/blob/feature/linkml-schemata/schemata/metadata_model_scidats_dcat_ap.yaml?ref_type=heads"
   ],
   "id": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-  "version": "0.1.0rc1.post21.dev0+3faed58",
+  "version": "0.1.0rc4.post6.dev0+938bc67",
   "imports": [
     "linkml:types"
   ],
@@ -111,7 +111,7 @@
       "prefix_reference": "http://schema.org/"
     },
     {
-      "prefix_prefix": "dcatap_plus",
+      "prefix_prefix": "dcatapplus",
       "prefix_reference": "https://w3id.org/nfdi-de/dcat-ap-plus/"
     },
     {
@@ -151,7 +151,7 @@
       "prefix_reference": "http://example.org/"
     }
   ],
-  "default_prefix": "dcatap_plus",
+  "default_prefix": "dcatapplus",
   "default_range": "string",
   "subsets": [
     {
@@ -1049,6 +1049,7 @@
         "Attribution",
         "Catalogue",
         "CatalogueRecord",
+        "CategoricalAttribute",
         "ChecksumAlgorithm",
         "Concept",
         "ConceptScheme",
@@ -1453,6 +1454,31 @@
         "Entity"
       ],
       "range": "QualitativeAttribute",
+      "recommended": true,
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "has_categorical_attribute",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/has_categorical_attribute",
+      "description": "The slot to relate a categorical attribute to an EvaluatedEntity, EvaluatedActivity or AgenticEntity",
+      "in_subset": [
+        "domain_agnostic_core"
+      ],
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
+      "mappings": [
+        "http://purl.org/dc/terms/relation"
+      ],
+      "slot_uri": "http://purl.org/dc/terms/relation",
+      "owner": "Entity",
+      "domain_of": [
+        "Activity",
+        "AgenticEntity",
+        "Entity"
+      ],
+      "range": "CategoricalAttribute",
       "recommended": true,
       "multivalued": true,
       "inlined": true,
@@ -2328,6 +2354,7 @@
         "Attribution",
         "Catalogue",
         "CatalogueRecord",
+        "CategoricalAttribute",
         "ChecksumAlgorithm",
         "Concept",
         "ConceptScheme",
@@ -2396,6 +2423,7 @@
       "slot_uri": "http://www.w3.org/ns/prov#value",
       "owner": "QuantitativeAttribute",
       "domain_of": [
+        "CategoricalAttribute",
         "QualitativeAttribute",
         "QuantitativeAttribute"
       ],
@@ -2657,6 +2685,37 @@
       "is_usage_slot": true,
       "usage_slot_name": "other_identifier",
       "range": "Identifier",
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Activity_has_categorical_attribute",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/has_categorical_attribute",
+      "description": "The slot to relate a categorical attribute to an EvaluatedEntity, EvaluatedActivity or AgenticEntity",
+      "notes": [
+        "not in DCAT-AP"
+      ],
+      "in_subset": [
+        "domain_agnostic_core"
+      ],
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
+      "mappings": [
+        "http://purl.org/dc/terms/relation"
+      ],
+      "is_a": "has_categorical_attribute",
+      "domain": "Activity",
+      "slot_uri": "http://purl.org/dc/terms/relation",
+      "alias": "has_categorical_attribute",
+      "owner": "Activity",
+      "domain_of": [
+        "Activity"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "has_categorical_attribute",
+      "range": "CategoricalAttribute",
+      "recommended": true,
       "multivalued": true,
       "inlined": true,
       "inlined_as_list": true,
@@ -3699,6 +3758,32 @@
       "range": "string",
       "multivalued": true,
       "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CategoricalAttribute_value",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/value",
+      "description": "The slot to provide the value of the CategoricalAttribute as a term from a controlled vocabulary.",
+      "in_subset": [
+        "domain_agnostic_core"
+      ],
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
+      "mappings": [
+        "http://www.w3.org/ns/prov#value"
+      ],
+      "is_a": "value",
+      "domain": "CategoricalAttribute",
+      "slot_uri": "http://www.w3.org/ns/prov#value",
+      "alias": "value",
+      "owner": "CategoricalAttribute",
+      "domain_of": [
+        "CategoricalAttribute"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "value",
+      "range": "DefinedTerm",
+      "required": true,
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -6549,6 +6634,7 @@
         "Activity_had_output_entity",
         "Activity_had_input_activity",
         "Activity_carried_out_by",
+        "Activity_has_categorical_attribute",
         "Activity_has_qualitative_attribute",
         "Activity_has_quantitative_attribute",
         "Activity_part_of",
@@ -6594,6 +6680,7 @@
         "title",
         "description",
         "AgenticEntity_other_identifier",
+        "has_categorical_attribute",
         "has_qualitative_attribute",
         "has_quantitative_attribute",
         "AgenticEntity_has_part",
@@ -6676,6 +6763,7 @@
       "is_a": "EvaluatedEntity",
       "slots": [
         "id",
+        "has_categorical_attribute",
         "has_qualitative_attribute",
         "has_quantitative_attribute",
         "Entity_has_part",
@@ -6778,6 +6866,31 @@
       ],
       "slot_usage": {},
       "class_uri": "http://www.w3.org/ns/dcat#CatalogRecord",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "CategoricalAttribute",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/CategoricalAttribute",
+      "description": "A piece of categorical information that is attributed to an Entity, Activity or AgenticEntity. The value is a term from a controlled vocabulary.",
+      "in_subset": [
+        "domain_agnostic_core"
+      ],
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
+      "mappings": [
+        "qudt:EnumeratedValue"
+      ],
+      "mixins": [
+        "ClassifierMixin"
+      ],
+      "slots": [
+        "title",
+        "description",
+        "CategoricalAttribute_value",
+        "ClassifierMixin_type",
+        "rdf_type"
+      ],
+      "slot_usage": {},
+      "class_uri": "http://qudt.org/schema/qudt/EnumeratedValue",
       "@type": "ClassDefinition"
     },
     {
@@ -6894,6 +7007,7 @@
         "Activity_had_output_entity",
         "Activity_had_input_activity",
         "Activity_carried_out_by",
+        "Activity_has_categorical_attribute",
         "Activity_has_qualitative_attribute",
         "Activity_has_quantitative_attribute",
         "Activity_part_of",
@@ -6930,6 +7044,7 @@
         "Activity_had_output_entity",
         "Activity_had_input_activity",
         "Activity_carried_out_by",
+        "Activity_has_categorical_attribute",
         "Activity_has_qualitative_attribute",
         "Activity_has_quantitative_attribute",
         "Activity_part_of",
@@ -7109,6 +7224,7 @@
         "id",
         "title",
         "description",
+        "has_categorical_attribute",
         "has_qualitative_attribute",
         "has_quantitative_attribute",
         "AgenticEntity_part_of",
@@ -7196,6 +7312,7 @@
         "Entity_description",
         "id",
         "Entity_other_identifier",
+        "has_categorical_attribute",
         "has_qualitative_attribute",
         "has_quantitative_attribute",
         "Entity_has_part",
@@ -7228,6 +7345,7 @@
         "Activity_had_output_entity",
         "Activity_had_input_activity",
         "Activity_carried_out_by",
+        "Activity_has_categorical_attribute",
         "Activity_has_qualitative_attribute",
         "Activity_has_quantitative_attribute",
         "Activity_part_of",
@@ -7253,6 +7371,7 @@
       "is_a": "Entity",
       "slots": [
         "id",
+        "has_categorical_attribute",
         "has_qualitative_attribute",
         "has_quantitative_attribute",
         "Entity_has_part",
@@ -7709,6 +7828,7 @@
         "id",
         "title",
         "description",
+        "has_categorical_attribute",
         "has_qualitative_attribute",
         "has_quantitative_attribute",
         "AgenticEntity_part_of",
@@ -7795,9 +7915,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "dcat_ap_plus.yaml",
-  "source_file_date": "2025-11-24T16:42:12",
-  "source_file_size": 90872,
-  "generation_date": "2025-11-24T16:42:41",
+  "source_file_date": "2026-03-29T13:18:03",
+  "source_file_size": 92078,
+  "generation_date": "2026-03-29T13:18:17",
   "@type": "SchemaDefinition",
   "@context": [
     "project\\jsonld/dcat_ap_plus.context.jsonld",
