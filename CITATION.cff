@@ -1,0 +1,48 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "ChemDCAT-AP: Enabling Semantic Interoperability with a Contextual Extension of DCAT-AP"
+type: conference-paper
+authors:
+  - family-names: Strömert
+    given-names: Philip
+    affiliation: "TIB - Leibniz Information Centre for Science and Technology, Germany"
+    email: philip.stroemert@tib.eu
+  - family-names: Borgelt
+    given-names: Hendrik
+    affiliation: "TU Dortmund University, Germany"
+  - family-names: Linke
+    given-names: David
+    affiliation: "Leibniz Institute for Catalysis"
+  - family-names: Doerr
+    given-names: Mark
+    affiliation: "University of Greifswald"
+  - family-names: Katabathuni
+    given-names: Bhavin
+    affiliation: "TIB - Leibniz Information Centre for Science and Technology, Germany"
+  - family-names: Koepler
+    given-names: Oliver
+    affiliation: "TIB - Leibniz Information Centre for Science and Technology, Germany"
+  - family-names: Kockmann
+    given-names: Norbert
+    affiliation: "TU Dortmund University, Germany"
+date-released: "2026-02-02"
+year: 2025
+collection-title: "Metadata and Semantic Research"
+publisher: "Springer Nature Switzerland"
+conference:
+  name: "19th International Conference on Metadata and Semantic Research (MTSR 2025)"
+identifiers:
+  - type: url
+    value: "https://arxiv.org/abs/2602.01822"
+    description: "ArXiv preprint"
+keywords:
+  - DCAT-AP
+  - ChemDCAT-AP
+  - DCAT-AP+
+  - LinkML
+  - semantic interoperability
+  - research data management
+  - FAIR data
+  - chemistry
+  - catalysis
+  - metadata
