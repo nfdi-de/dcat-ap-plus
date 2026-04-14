@@ -7,8 +7,6 @@ docs/elements/**/*.md
 docs/schema/*
 !docs/schema/README.md
 
-# linkml-run-examples output (not useful to have in git in its current form)
-examples/output/
 
 # Derived schemas, generated from the schema.yaml
 tmp/
