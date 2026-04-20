@@ -107,7 +107,7 @@
       "prefix_reference": "http://schema.org/"
     },
     {
-      "prefix_prefix": "dcatapplus",
+      "prefix_prefix": "dcat_ap_plus",
       "prefix_reference": "https://w3id.org/nfdi-de/dcat-ap-plus/"
     },
     {
@@ -143,7 +143,7 @@
       "prefix_reference": "http://qudt.org/schema/qudt/"
     }
   ],
-  "default_prefix": "dcatapplus",
+  "default_prefix": "dcat_ap_plus",
   "default_range": "string",
   "subsets": [
     {
@@ -7787,9 +7787,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "dcat_ap_plus.yaml",
-  "source_file_date": "2026-04-20T14:45:43",
-  "source_file_size": 90848,
-  "generation_date": "2026-04-20T14:46:02",
+  "source_file_date": "2026-04-20T14:48:40",
+  "source_file_size": 90852,
+  "generation_date": "2026-04-20T14:48:48",
   "@type": "SchemaDefinition",
   "@context": [
     "project\\jsonld/dcat_ap_plus.context.jsonld",

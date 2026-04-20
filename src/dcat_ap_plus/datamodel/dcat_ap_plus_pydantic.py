@@ -61,7 +61,7 @@ class LinkMLMeta(RootModel):
         return key in self.root
 
 
-linkml_meta = LinkMLMeta({'default_prefix': 'dcatapplus',
+linkml_meta = LinkMLMeta({'default_prefix': 'dcat_ap_plus',
      'default_range': 'string',
      'description': 'This metadata schema is an Extension of the DCAT Application '
                     'Profile for Providing Links to Use-case Specific Context. It '
@@ -95,10 +95,10 @@ linkml_meta = LinkMLMeta({'default_prefix': 'dcatapplus',
                                           'prefix_reference': 'http://purl.allotrope.org/ontologies/equipment#AFE_'},
                   'dcat': {'prefix_prefix': 'dcat',
                            'prefix_reference': 'http://www.w3.org/ns/dcat#'},
+                  'dcat_ap_plus': {'prefix_prefix': 'dcat_ap_plus',
+                                   'prefix_reference': 'https://w3id.org/nfdi-de/dcat-ap-plus/'},
                   'dcatap': {'prefix_prefix': 'dcatap',
                              'prefix_reference': 'http://data.europa.eu/r5r/'},
-                  'dcatapplus': {'prefix_prefix': 'dcatapplus',
-                                 'prefix_reference': 'https://w3id.org/nfdi-de/dcat-ap-plus/'},
                   'dcterms': {'prefix_prefix': 'dcterms',
                               'prefix_reference': 'http://purl.org/dc/terms/'},
                   'eli': {'prefix_prefix': 'eli',
