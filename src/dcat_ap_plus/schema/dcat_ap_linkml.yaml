@@ -52,8 +52,7 @@ prefixes:
   rdfs: http://www.w3.org/2000/01/rdf-schema#
   sh: http://www.w3.org/ns/shacl#
   skos: http://www.w3.org/2004/02/skos/core#
-  vl: https://purl.eu/ns/shacl#
-  iana: https://www.iana.org/assignments/
+  iana.mediatype: https://www.iana.org/assignments/media-types/
   epos: https://www.epos-eu.org/epos-dcat-ap#
   schema: https://schema.org/
   dcatap_linkml: https://w3id.org/nfdi-de/dcat-ap-linkml/

@@ -49,8 +49,7 @@ prefixes:
   rdfs: http://www.w3.org/2000/01/rdf-schema#
   sh: http://www.w3.org/ns/shacl#
   skos: http://www.w3.org/2004/02/skos/core#
-  vl: https://purl.eu/ns/shacl#
-  iana: https://www.iana.org/assignments/
+  iana.mediatype: https://www.iana.org/assignments/media-types/
   epos: https://www.epos-eu.org/epos-dcat-ap#
   schema: http://schema.org/
   dcatapplus: https://w3id.org/nfdi-de/dcat-ap-plus/
@@ -59,10 +58,9 @@ prefixes:
   IAO: http://purl.obolibrary.org/obo/IAO_
   SIO: http://semanticscience.org/resource/SIO_
   NCIT: http://purl.obolibrary.org/obo/NCIT_
-  SOSA: http://www.w3.org/ns/sosa/
-  AFE: http://purl.allotrope.org/ontologies/equipment#AFE_
+  sosa: http://www.w3.org/ns/sosa/
+  allotrope.equipment: http://purl.allotrope.org/ontologies/equipment#AFE_
   qudt: http://qudt.org/schema/qudt/
-  ex: http://example.org/
 default_prefix: dcatapplus
 default_range: string
 subsets:
