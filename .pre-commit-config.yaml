@@ -15,6 +15,7 @@ repos:
     hooks:
       - id: yamllint
         args: [-c=.yamllint.yaml]
+        exclude: ^examples/output/                            # new
 
   - repo: https://github.com/codespell-project/codespell
     rev: v2.4.1
@@ -22,11 +23,13 @@ repos:
       - id: codespell
         additional_dependencies:
           - tomli
+        exclude: ^examples/output/                            #new
 
   - repo: https://github.com/crate-ci/typos
     rev: v1.39.2
     hooks:
       - id: typos
+        exclude: ^examples/output/                            # new
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
     # Ruff version.
@@ -35,6 +38,7 @@ repos:
       # Run the linter.
       - id: ruff
         args: [--fix, --exit-non-zero-on-fix]
+        exclude: ^src/dcat_ap_plus/datamodel/                 # new
       # Run the formatter.
       - id: ruff-format
 

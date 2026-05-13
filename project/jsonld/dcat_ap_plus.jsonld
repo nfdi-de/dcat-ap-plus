@@ -7783,7 +7783,7 @@
   "source_file": "dcat_ap_plus.yaml",
   "source_file_date": "2026-05-13T09:26:21",
   "source_file_size": 90870,
-  "generation_date": "2026-05-13T09:47:33",
+  "generation_date": "2026-05-13T09:50:47",
   "@type": "SchemaDefinition",
   "@context": [
     "project\\jsonld/dcat_ap_plus.context.jsonld",
