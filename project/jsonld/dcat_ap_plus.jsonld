@@ -12,7 +12,7 @@
     "https://gitlab.com/opensourcelab/scientificdata/scidats/-/blob/feature/linkml-schemata/schemata/metadata_model_scidats_dcat_ap.yaml?ref_type=heads"
   ],
   "id": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-  "version": "0.1.0rc1.post21.dev0+3faed58",
+  "version": "0.1.0rc3.post21.dev0+913fb36",
   "imports": [
     "linkml:types"
   ],
@@ -111,7 +111,7 @@
       "prefix_reference": "http://schema.org/"
     },
     {
-      "prefix_prefix": "dcatap_plus",
+      "prefix_prefix": "dcatapplus",
       "prefix_reference": "https://w3id.org/nfdi-de/dcat-ap-plus/"
     },
     {
@@ -151,7 +151,7 @@
       "prefix_reference": "http://example.org/"
     }
   ],
-  "default_prefix": "dcatap_plus",
+  "default_prefix": "dcatapplus",
   "default_range": "string",
   "subsets": [
     {
@@ -1831,6 +1831,7 @@
       ],
       "range": "Surrounding",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2028,6 +2029,7 @@
       ],
       "range": "Plan",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -7795,9 +7797,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "dcat_ap_plus.yaml",
-  "source_file_date": "2025-11-24T16:42:12",
-  "source_file_size": 90872,
-  "generation_date": "2025-11-24T16:42:41",
+  "source_file_date": "2026-03-04T00:50:32",
+  "source_file_size": 88107,
+  "generation_date": "2026-03-04T00:58:55",
   "@type": "SchemaDefinition",
   "@context": [
     "project\\jsonld/dcat_ap_plus.context.jsonld",

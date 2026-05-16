@@ -40,18 +40,22 @@ theme:
 
   features:
     - content.tabs.link
-    - search.highlight
-    - navigation.expand
-    - navigation.instant
+    - header.autohide      # maximum screen space during scrolling
+
+    - navigation.expand    # optimize user experience
+    - navigation.instant   # optimize user experience
     - navigation.instant.progress
     - navigation.tracking
+    - search.highlight
+    - search.suggest       # suggest good completions
+    - content.code.copy    # enable copy to clipboard
 
   favicon: 'images/DCAT-AP-PLUS-Logo.svg'
 
-# for adding extra css/js see https://www.mkdocs.org/user-guide/customizing-your-theme/
+# extra css/js see https://www.mkdocs.org/user-guide/customizing-your-theme/
 extra_css:
   - stylesheets/extra.css
-
+extra_javascript: []
 
 plugins:
   - search
@@ -71,6 +75,25 @@ plugins:
   # - gen-files:
   #     scripts:
   #       - gen_pages.py  # or any other name or path
+
+
+markdown_extensions:
+  - admonition
+  - footnotes
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.superfences:
+      # https://mkdocs-mermaid2.readthedocs.io/en/latest/superfences
+      # custom code highlighting rules
+      custom_fences:
+        - name: mermaid
+          # disable code highlighting to display diagrams
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid_custom
+  - pymdownx.tasklist:
+      custom_checkbox: true
 
 watch:
   - src/dcat_ap_plus/schema
@@ -93,21 +116,6 @@ extra:
     default:
       - stable
 
-markdown_extensions:
-  - admonition
-  - footnotes
-  - pymdownx.details
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
-  - pymdownx.superfences:
-      # make exceptions to highlighting of code:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:mermaid2.fence_mermaid_custom
-  - pymdownx.tasklist:
-      custom_checkbox: true
 exclude_docs: |
   /templates-linkml/
 

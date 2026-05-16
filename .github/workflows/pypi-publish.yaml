@@ -25,6 +25,10 @@ jobs:
     name: Build Python 🐍 distributions 📦 for publishing
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        pyversion: ["3.13"]
+
     steps:
       # https://github.com/actions/checkout
       - name: Check out repository
@@ -36,14 +40,14 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v8.1.0
         with:
-          python-version: 3.13
+          python-version: ${{ matrix.pyversion }}
           enable-cache: true
 
       # https://github.com/actions/setup-python
       - name: Set up Python
         uses: actions/setup-python@v6.2.0
         with:
-          python-version: 3.13
+          python-version: ${{ matrix.pyversion }}
 
       - name: Install just
         run: |

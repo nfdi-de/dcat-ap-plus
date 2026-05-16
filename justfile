@@ -263,7 +263,7 @@ set allow-duplicate-recipes
 
 # Overriding recipes from the root justfile by adding a recipe with the same
 # name in an imported file is not possible until a known issue in just is fixed,
-# https://github.com/casey/just/issues/2540
+# https://github.com/casey/just/issues/2540 - So we need to override them here.
 
 # Custom recipe for dcat-ap-plus to add project-specific artifacts to the distribution schema path
 _add-artifacts:

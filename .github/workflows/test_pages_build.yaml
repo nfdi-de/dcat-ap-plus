@@ -16,7 +16,7 @@ permissions: {}
 
 jobs:
   run:
-    # Don't run for PRs from forks
+    # Don't run for PRs from forks which fails due to lack of permissions.
     if: github.event.pull_request.head.repo.full_name == github.repository
     # Grant GITHUB_TOKEN the permissions required to make a gh-pages deployment
     permissions:
@@ -25,6 +25,11 @@ jobs:
       id-token: write  # allow to generate an OpenID Connect (OIDC) token
       pull-requests: write  # add comment on the PR with the preview URL
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        pyversion: ["3.13"]
+
     steps:
       # https://github.com/actions/checkout
       - name: Checkout
@@ -33,16 +38,16 @@ jobs:
           fetch-depth: 0
 
       # https://github.com/actions/setup-python
-      - name: Set up Python 3
+      - name: Set up Python
         uses: actions/setup-python@v6.2.0
         with:
-          python-version: 3.13
+          python-version: ${{ matrix.pyversion }}
 
       # https://github.com/astral-sh/setup-uv
       - name: Install uv
         uses: astral-sh/setup-uv@v8.1.0
         with:
-          python-version: 3.13
+          python-version: ${{ matrix.pyversion }}
           enable-cache: true
           cache-dependency-glob: "uv.lock"
 
