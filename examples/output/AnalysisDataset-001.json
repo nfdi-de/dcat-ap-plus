@@ -1,5 +1,5 @@
 {
-  "id": "https://dx.doi.org/10.14272/UGRXAOUDHZOHPF-UHFFFAOYSA-N/CHMO0000595.1",
+  "id": "doi:10.14272/UGRXAOUDHZOHPF-UHFFFAOYSA-N/CHMO0000595.1",
   "description": [
     "Dataset for 13C nuclear magnetic resonance spectroscopy (13C NMR)"
   ],
@@ -8,7 +8,7 @@
   ],
   "was_generated_by": [
     {
-      "id": "https://dx.doi.org/10.14272/UGRXAOUDHZOHPF-UHFFFAOYSA-N/CHMO0000595.1#NMRSpectralAnalysis",
+      "id": "doi:10.14272/UGRXAOUDHZOHPF-UHFFFAOYSA-N/CHMO0000595.1#NMRSpectralAnalysis",
       "description": [
         "Analysis of NMR spectra."
       ],
@@ -18,16 +18,16 @@
       },
       "evaluated_entity": [
         {
-          "id": "https://dx.doi.org/10.14272/UGRXAOUDHZOHPF-UHFFFAOYSA-N/CHMO0000595.1#CDCl3_13C_NMR_Spectrum",
+          "id": "doi:10.14272/UGRXAOUDHZOHPF-UHFFFAOYSA-N/CHMO0000595.1#CDCl3_13C_NMR_Spectrum",
           "was_generated_by": [
             {
-              "id": "https://dx.doi.org/10.14272/UGRXAOUDHZOHPF-UHFFFAOYSA-N/CHMO0000595.1#CDCl3_13C_NMR",
+              "id": "doi:10.14272/UGRXAOUDHZOHPF-UHFFFAOYSA-N/CHMO0000595.1#CDCl3_13C_NMR",
               "title": [
                 "CDCl3_13C_NMR"
               ],
               "carried_out_by": [
                 {
-                  "id": "https://dx.doi.org/10.14272/UGRXAOUDHZOHPF-UHFFFAOYSA-N/CHMO0000595.1#CDCl3_13C_NMR_Spectrometer",
+                  "id": "doi:10.14272/UGRXAOUDHZOHPF-UHFFFAOYSA-N/CHMO0000595.1#CDCl3_13C_NMR_Spectrometer",
                   "title": "Bruker 400 MHz",
                   "description": "The NMR spectrometer used.",
                   "rdf_type": {
@@ -36,7 +36,7 @@
                   }
                 },
                 {
-                  "id": "https://dx.doi.org/10.14272/UGRXAOUDHZOHPF-UHFFFAOYSA-N/CHMO0000595.1#CDCl3_13C_NMR_Solvent",
+                  "id": "doi:10.14272/UGRXAOUDHZOHPF-UHFFFAOYSA-N/CHMO0000595.1#CDCl3_13C_NMR_Solvent",
                   "description": "used solvent",
                   "has_part": [
                     {
@@ -120,7 +120,7 @@
               },
               "evaluated_entity": [
                 {
-                  "id": "https://dx.doi.org/10.14272/UGRXAOUDHZOHPF-UHFFFAOYSA-N.2",
+                  "id": "doi:10.14272/UGRXAOUDHZOHPF-UHFFFAOYSA-N.2",
                   "title": "CRS-50440"
                 }
               ]
@@ -128,16 +128,16 @@
           ]
         },
         {
-          "id": "https://dx.doi.org/10.14272/UGRXAOUDHZOHPF-UHFFFAOYSA-N/CHMO0000595.1#DMSO_13C_NMR_Spectrum",
+          "id": "doi:10.14272/UGRXAOUDHZOHPF-UHFFFAOYSA-N/CHMO0000595.1#DMSO_13C_NMR_Spectrum",
           "was_generated_by": [
             {
-              "id": "https://dx.doi.org/10.14272/UGRXAOUDHZOHPF-UHFFFAOYSA-N/CHMO0000595.1#DMSO_13C_NMR",
+              "id": "doi:10.14272/UGRXAOUDHZOHPF-UHFFFAOYSA-N/CHMO0000595.1#DMSO_13C_NMR",
               "title": [
                 "DMSO_13C_NMR"
               ],
               "carried_out_by": [
                 {
-                  "id": "https://dx.doi.org/10.14272/UGRXAOUDHZOHPF-UHFFFAOYSA-N/CHMO0000595.1#DMSO_13C_NMR_Spectrometer",
+                  "id": "doi:10.14272/UGRXAOUDHZOHPF-UHFFFAOYSA-N/CHMO0000595.1#DMSO_13C_NMR_Spectrometer",
                   "title": "Bruker 400 MHz",
                   "description": "used spectrometer",
                   "rdf_type": {
@@ -146,7 +146,7 @@
                   }
                 },
                 {
-                  "id": "https://dx.doi.org/10.14272/UGRXAOUDHZOHPF-UHFFFAOYSA-N/CHMO0000595.1#DMSO_13C_NMR_Solvent",
+                  "id": "doi:10.14272/UGRXAOUDHZOHPF-UHFFFAOYSA-N/CHMO0000595.1#DMSO_13C_NMR_Solvent",
                   "description": "used solvent",
                   "has_part": [
                     {
@@ -230,7 +230,7 @@
               },
               "evaluated_entity": [
                 {
-                  "id": "https://dx.doi.org/10.14272/UGRXAOUDHZOHPF-UHFFFAOYSA-N.2",
+                  "id": "doi:10.14272/UGRXAOUDHZOHPF-UHFFFAOYSA-N.2",
                   "title": "CRS-50440"
                 }
               ]
@@ -254,13 +254,13 @@
   ],
   "is_about_entity": [
     {
-      "id": "https://dx.doi.org/10.14272/UGRXAOUDHZOHPF-UHFFFAOYSA-N.2",
+      "id": "doi:10.14272/UGRXAOUDHZOHPF-UHFFFAOYSA-N.2",
       "title": "CRS-50440",
       "description": "The analysed chemical substance sample CRS-50440.",
       "has_part": [
         {
-          "id": "https://dx.doi.org/10.14272/UGRXAOUDHZOHPF-UHFFFAOYSA-N.2#EvaluatedCompound",
-          "description": "compound assigned to https://dx.doi.org/10.14272/UGRXAOUDHZOHPF-UHFFFAOYSA-N.2",
+          "id": "doi:10.14272/UGRXAOUDHZOHPF-UHFFFAOYSA-N.2#EvaluatedCompound",
+          "description": "compound assigned to doi:10.14272/UGRXAOUDHZOHPF-UHFFFAOYSA-N.2",
           "other_identifier": [
             {
               "notation": "https://pubchem.ncbi.nlm.nih.gov/compound/26248854"
