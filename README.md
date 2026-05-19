@@ -55,9 +55,7 @@ See also the documentation of the template: https://github.com/linkml/linkml-pro
     Note: Environments with private PyPi repository may need extra configuration (example):
 
       export UV_DEFAULT_INDEX=https://nexus.example.com/repository/pypi-all/simple
-*
-
-    Copier
+* Copier
 
     Copier is a tool for generating projects based on a template (like this one!). It also allows re-configuring the projects and to keep them updated when the original template changes. To insert dates into the template, copier requires [jinja2_time](https://github.com/hackebrot/jinja2-time) in the copier environment. Install both with uv by running:
 
@@ -71,8 +69,33 @@ See also the documentation of the template: https://github.com/linkml/linkml-pro
 
   To generate project artefacts run:
           `just gen-project`: generates all other representations
+          `just site`: Builds all artefacts but does not deploy the gh-pages
           `just deploy`: deploys site
+          `just test`: runs all tests
           `just testdoc`: locally builds docs and runs test server
+
+### Code Quality with pre-commit
+
+The project provides a [pre-commit](https://pre-commit.com/) configuration with several code quality tools:
+
+- [yamllint](https://github.com/adrienverge/yamllint) — consistent formatting of schema YAML files
+- [ruff](https://docs.astral.sh/ruff/) — formatting and linting of Python code
+- [codespell](https://github.com/codespell-project/codespell) and [typos](https://github.com/crate-ci/typos) — spell checkers
+
+To use pre-commit, install it and activate it at the root of the repository:
+
+```shell
+uv tool install pre-commit --with pre-commit-uv
+pre-commit install
+```
+
+Once installed, pre-commit will run checks automatically on every commit and reject commits that contain errors; it will also auto-correct several types of errors. The use of [pre-commit-uv](https://pypi.org/project/pre-commit-uv/) is optional but recommended as it accelerates the initial setup.
+
+You can also run all checks manually at any time:
+
+```shell
+pre-commit run -a
+```
 
 ### Regenerate schema files from DCAT-AP SHACL shapes
 
