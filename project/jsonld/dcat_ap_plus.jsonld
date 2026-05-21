@@ -12,7 +12,7 @@
     "https://gitlab.com/opensourcelab/scientificdata/scidats/-/blob/feature/linkml-schemata/schemata/metadata_model_scidats_dcat_ap.yaml?ref_type=heads"
   ],
   "id": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-  "version": "0.1.0rc1.post21.dev0+3faed58",
+  "version": "0.1.0rc3.post21.dev0+913fb36",
   "imports": [
     "linkml:types"
   ],
@@ -95,12 +95,8 @@
       "prefix_reference": "http://www.w3.org/2004/02/skos/core#"
     },
     {
-      "prefix_prefix": "vl",
-      "prefix_reference": "https://purl.eu/ns/shacl#"
-    },
-    {
-      "prefix_prefix": "iana",
-      "prefix_reference": "https://www.iana.org/assignments/"
+      "prefix_prefix": "iana.mediatype",
+      "prefix_reference": "https://www.iana.org/assignments/media-types/"
     },
     {
       "prefix_prefix": "epos",
@@ -111,7 +107,7 @@
       "prefix_reference": "http://schema.org/"
     },
     {
-      "prefix_prefix": "dcatap_plus",
+      "prefix_prefix": "dcat_ap_plus",
       "prefix_reference": "https://w3id.org/nfdi-de/dcat-ap-plus/"
     },
     {
@@ -135,23 +131,19 @@
       "prefix_reference": "http://purl.obolibrary.org/obo/NCIT_"
     },
     {
-      "prefix_prefix": "SOSA",
+      "prefix_prefix": "sosa",
       "prefix_reference": "http://www.w3.org/ns/sosa/"
     },
     {
-      "prefix_prefix": "AFE",
+      "prefix_prefix": "allotrope.equipment",
       "prefix_reference": "http://purl.allotrope.org/ontologies/equipment#AFE_"
     },
     {
       "prefix_prefix": "qudt",
       "prefix_reference": "http://qudt.org/schema/qudt/"
-    },
-    {
-      "prefix_prefix": "ex",
-      "prefix_reference": "http://example.org/"
     }
   ],
-  "default_prefix": "dcatap_plus",
+  "default_prefix": "dcat_ap_plus",
   "default_range": "string",
   "subsets": [
     {
@@ -7795,9 +7787,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "dcat_ap_plus.yaml",
-  "source_file_date": "2025-11-24T16:42:12",
-  "source_file_size": 90872,
-  "generation_date": "2025-11-24T16:42:41",
+  "source_file_date": "2026-04-20T14:48:40",
+  "source_file_size": 90852,
+  "generation_date": "2026-04-20T14:48:48",
   "@type": "SchemaDefinition",
   "@context": [
     "project\\jsonld/dcat_ap_plus.context.jsonld",
