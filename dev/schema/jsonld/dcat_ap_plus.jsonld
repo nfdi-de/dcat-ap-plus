@@ -12,7 +12,7 @@
     "https://gitlab.com/opensourcelab/scientificdata/scidats/-/blob/feature/linkml-schemata/schemata/metadata_model_scidats_dcat_ap.yaml?ref_type=heads"
   ],
   "id": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-  "version": "0.1.0rc1.post21.dev0+3faed58",
+  "version": "0.1.0rc4.post16.dev0+9e8f726c",
   "imports": [
     "linkml:types"
   ],
@@ -111,7 +111,7 @@
       "prefix_reference": "http://schema.org/"
     },
     {
-      "prefix_prefix": "dcatap_plus",
+      "prefix_prefix": "dcatapplus",
       "prefix_reference": "https://w3id.org/nfdi-de/dcat-ap-plus/"
     },
     {
@@ -151,7 +151,7 @@
       "prefix_reference": "http://example.org/"
     }
   ],
-  "default_prefix": "dcatap_plus",
+  "default_prefix": "dcatapplus",
   "default_range": "string",
   "subsets": [
     {
@@ -201,7 +201,7 @@
       "definition_uri": "https://w3id.org/linkml/String",
       "description": "A character string",
       "notes": [
-        "In RDF serializations, a slot with range of string is treated as a literal or type xsd:string.   If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"string\"."
+        "In RDF serializations, a slot with range of string is treated as a literal or type xsd:string. If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"string\"."
       ],
       "from_schema": "https://w3id.org/linkml/types",
       "imported_from": "linkml:types",
@@ -1831,6 +1831,7 @@
       ],
       "range": "Surrounding",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2028,6 +2029,7 @@
       ],
       "range": "Plan",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2484,11 +2486,7 @@
       "bindings": [
         {
           "range": "QUDTQuantityKindEnum",
-          "obligation_level": {
-            "text": "RECOMMENDED",
-            "description": "The metadata element is recommended to be present in the model",
-            "@type": "PermissibleValue"
-          },
+          "obligation_level": "RECOMMENDED",
           "binds_value_of": "id",
           "description": "Binds the type of a quantifiable attribute to a QUDT Quantity Kind instance from the QUDT Quantity Kind vocabulary.",
           "@type": "EnumBinding"
@@ -2513,11 +2511,7 @@
       "bindings": [
         {
           "range": "QUDTUnitEnum",
-          "obligation_level": {
-            "text": "RECOMMENDED",
-            "description": "The metadata element is recommended to be present in the model",
-            "@type": "PermissibleValue"
-          },
+          "obligation_level": "RECOMMENDED",
           "binds_value_of": "id",
           "description": "Restricts the allowable defined terms to the QUDT Unit vocabulary.",
           "@type": "EnumBinding"
@@ -7585,11 +7579,7 @@
           "bindings": [
             {
               "range": "QUDTQuantityKindEnum",
-              "obligation_level": {
-                "text": "RECOMMENDED",
-                "description": "The metadata element is recommended to be present in the model",
-                "@type": "PermissibleValue"
-              },
+              "obligation_level": "RECOMMENDED",
               "binds_value_of": "id",
               "description": "Binds the type of a quantifiable attribute to a QUDT Quantity Kind instance from the QUDT Quantity Kind vocabulary.",
               "@type": "EnumBinding"
@@ -7605,11 +7595,7 @@
           "bindings": [
             {
               "range": "QUDTUnitEnum",
-              "obligation_level": {
-                "text": "RECOMMENDED",
-                "description": "The metadata element is recommended to be present in the model",
-                "@type": "PermissibleValue"
-              },
+              "obligation_level": "RECOMMENDED",
               "binds_value_of": "id",
               "description": "Restricts the allowable defined terms to the QUDT Unit vocabulary.",
               "@type": "EnumBinding"
@@ -7793,11 +7779,11 @@
       "@type": "ClassDefinition"
     }
   ],
-  "metamodel_version": "1.7.0",
+  "metamodel_version": "1.11.0",
   "source_file": "dcat_ap_plus.yaml",
-  "source_file_date": "2025-11-24T16:42:12",
-  "source_file_size": 90872,
-  "generation_date": "2025-11-24T16:42:41",
+  "source_file_date": "2026-05-21T10:11:27",
+  "source_file_size": 90871,
+  "generation_date": "2026-05-21T10:11:33",
   "@type": "SchemaDefinition",
   "@context": [
     "project\\jsonld/dcat_ap_plus.context.jsonld",

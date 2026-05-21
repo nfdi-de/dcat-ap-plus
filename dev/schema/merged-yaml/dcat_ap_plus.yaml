@@ -21,7 +21,7 @@ see_also:
 - https://github.com/HendrikBorgelt/DCAT-ap_as_LinkML_template/blob/main/src/dcatlinkml/schema/dcatlinkml.yaml
 - https://gitlab.com/opensourcelab/scientificdata/scidats/-/blob/feature/linkml-schemata/schemata/metadata_model_scidats_dcat_ap.yaml?ref_type=heads
 id: https://w3id.org/nfdi-de/dcat-ap-plus/
-version: 0.1.0rc4.post17.dev0+15c389d
+version: 0.1.0rc4.post21.dev0+6f0efe9
 imports:
 - linkml:types
 license: CC-BY 4.0
@@ -168,8 +168,8 @@ types:
     description: A character string
     notes:
     - In RDF serializations, a slot with range of string is treated as a literal or
-      type xsd:string.   If you are authoring schemas in LinkML YAML, the type is
-      referenced with the lower case "string".
+      type xsd:string. If you are authoring schemas in LinkML YAML, the type is referenced
+      with the lower case "string".
     from_schema: https://w3id.org/linkml/types
     imported_from: linkml:types
     exact_mappings:
@@ -1518,6 +1518,7 @@ slots:
     - DataGeneratingActivity
     range: Surrounding
     inlined: true
+    inlined_as_list: true
   other_identifier:
     name: other_identifier
     definition_uri: https://w3id.org/nfdi-de/dcat-ap-plus/other_identifier
@@ -1663,6 +1664,7 @@ slots:
     range: DefinedTerm
     recommended: true
     inlined: true
+    inlined_as_list: false
   realized_plan:
     name: realized_plan
     definition_uri: https://w3id.org/nfdi-de/dcat-ap-plus/realized_plan
@@ -1679,6 +1681,7 @@ slots:
     - DataGeneratingActivity
     range: Plan
     inlined: true
+    inlined_as_list: true
   record:
     name: record
     definition_uri: https://w3id.org/nfdi-de/dcat-ap-plus/record
@@ -2055,9 +2058,7 @@ slots:
     range: DefinedTerm
     bindings:
     - range: QUDTQuantityKindEnum
-      obligation_level:
-        text: RECOMMENDED
-        description: The metadata element is recommended to be present in the model
+      obligation_level: &id001 RECOMMENDED
       binds_value_of: id
       description: Binds the type of a quantifiable attribute to a QUDT Quantity Kind
         instance from the QUDT Quantity Kind vocabulary.
@@ -2075,9 +2076,7 @@ slots:
     range: DefinedTerm
     bindings:
     - range: QUDTUnitEnum
-      obligation_level:
-        text: RECOMMENDED
-        description: The metadata element is recommended to be present in the model
+      obligation_level: &id002 RECOMMENDED
       binds_value_of: id
       description: Restricts the allowable defined terms to the QUDT Unit vocabulary.
     recommended: true
@@ -3162,6 +3161,7 @@ slots:
     usage_slot_name: type
     range: DefinedTerm
     inlined: true
+    inlined_as_list: false
   Concept_preferred_label:
     name: Concept_preferred_label
     definition_uri: https://w3id.org/nfdi-de/dcat-ap-plus/preferred_label
@@ -7782,10 +7782,7 @@ classes:
         range: DefinedTerm
         bindings:
         - range: QUDTQuantityKindEnum
-          obligation_level:
-            text: RECOMMENDED
-            description: The metadata element is recommended to be present in the
-              model
+          obligation_level: *id001
           binds_value_of: id
           description: Binds the type of a quantifiable attribute to a QUDT Quantity
             Kind instance from the QUDT Quantity Kind vocabulary.
@@ -7796,10 +7793,7 @@ classes:
         range: DefinedTerm
         bindings:
         - range: QUDTUnitEnum
-          obligation_level:
-            text: RECOMMENDED
-            description: The metadata element is recommended to be present in the
-              model
+          obligation_level: *id002
           binds_value_of: id
           description: Restricts the allowable defined terms to the QUDT Unit vocabulary.
         recommended: true
@@ -7963,9 +7957,9 @@ classes:
     - title
     - description
     class_uri: time:Instant
-metamodel_version: 1.7.0
+metamodel_version: 1.11.0
 source_file: dcat_ap_plus.yaml
-source_file_date: '2026-05-19T14:08:05'
+source_file_date: '2026-05-21T11:26:58'
 source_file_size: 88107
-generation_date: '2026-05-19T14:08:14'
+generation_date: '2026-05-21T11:27:08'
 

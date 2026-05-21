@@ -459,74 +459,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#applicable-classes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Applicable Classes
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#properties" class="md-nav__link">
-    <span class="md-ellipsis">
-      Properties
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#identifier-and-mapping-information" class="md-nav__link">
-    <span class="md-ellipsis">
-      Identifier and Mapping Information
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Identifier and Mapping Information">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#schema-source" class="md-nav__link">
-    <span class="md-ellipsis">
-      Schema Source
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#mappings" class="md-nav__link">
-    <span class="md-ellipsis">
-      Mappings
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#linkml-source" class="md-nav__link">
-    <span class="md-ellipsis">
-      LinkML Source
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -546,271 +478,121 @@
 
 <h1 id="slot-description">Slot: description</h1>
 <p><em>This slot is described in more detail within the class in which it is used.</em></p>
-<p>URI: <a href="http://purl.org/dc/terms/description">dcterms:description</a>
-Alias: description</p>
+<div data-search-exclude markdown="1">
+
+
+
+URI: [dcterms:description](http://purl.org/dc/terms/description)
 <!-- no inheritance hierarchy -->
 
-<h2 id="applicable-classes">Applicable Classes</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Modifies Slot</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="../../classes/SupportiveEntity/">SupportiveEntity</a></td>
-<td>The supportive entities are supporting the main entities in the Application Profile. They are included in the Application Profile because they form the range of properties.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/DataAnalysis/">DataAnalysis</a></td>
-<td>An Activity that evaluates the data produced by another Activity.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/Software/">Software</a></td>
-<td>An instrument composed of a series of instructions that can be interpreted by or directly executed by a computer.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/DataGeneratingActivity/">DataGeneratingActivity</a></td>
-<td>An Activity (process) that has the objective to produce information (in form of a dataset) about another Activity or Entity.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/Plan/">Plan</a></td>
-<td>A piece of information that specifies how an activity has to be carried out by its agents including what kind of steps have to be taken and what kind of parameters have to be met/set.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/ConceptScheme/">ConceptScheme</a></td>
-<td>See <a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#ConceptScheme">DCAT-AP specs:ConceptScheme</a></td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/PeriodOfTime/">PeriodOfTime</a></td>
-<td>See <a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#PeriodOfTime">DCAT-AP specs:PeriodOfTime</a></td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/EvaluatedActivity/">EvaluatedActivity</a></td>
-<td>An activity or process that is being evaluated in a DataGeneratingActivity.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/Activity/">Activity</a></td>
-<td>See <a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Activity">DCAT-AP specs:Activity</a></td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../../classes/QualitativeAttribute/">QualitativeAttribute</a></td>
-<td>A piece of information that is attributed to an Entity, Activity or AgenticEntity.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/Distribution/">Distribution</a></td>
-<td>See <a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Distribution">DCAT-AP specs:Distribution</a></td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../../classes/MediaType/">MediaType</a></td>
-<td>See <a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#MediaType">DCAT-AP specs:MediaType</a></td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/DataService/">DataService</a></td>
-<td>See <a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#DataService">DCAT-AP specs:DataService</a></td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../../classes/Identifier/">Identifier</a></td>
-<td>See <a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Identifier">DCAT-AP specs:Identifier</a></td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/ProvenanceStatement/">ProvenanceStatement</a></td>
-<td>See <a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#ProvenanceStatement">DCAT-AP specs:ProvenanceStatement</a></td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/Catalogue/">Catalogue</a></td>
-<td>See <a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Catalogue">DCAT-AP specs:Catalogue</a></td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../../classes/Frequency/">Frequency</a></td>
-<td>See <a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Frequency">DCAT-AP specs:Frequency</a></td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/ChecksumAlgorithm/">ChecksumAlgorithm</a></td>
-<td>See <a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#ChecksumAlgorithm">DCAT-AP specs:ChecksumAlgorithm</a></td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/Entity/">Entity</a></td>
-<td>A physical, digital, conceptual, or other kind of thing with some fixed aspects; entities may be real or imaginary.</td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../../classes/Standard/">Standard</a></td>
-<td>See <a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Standard">DCAT-AP specs:Standard</a></td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/Device/">Device</a></td>
-<td>A material instrument that is designed to perform a function primarily by means of its mechanical or electrical nature.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/Resource/">Resource</a></td>
-<td>See <a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Resource">DCAT-AP specs:Resource</a></td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/CatalogueRecord/">CatalogueRecord</a></td>
-<td>See <a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#CatalogueRecord">DCAT-AP specs:CatalogueRecord</a></td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../../classes/Dataset/">Dataset</a></td>
-<td>A collection of data, published or curated by a single agent, and available for access or download in one or more representations.</td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../../classes/LegalResource/">LegalResource</a></td>
-<td>See <a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#LegalResource">DCAT-AP specs:LegalResource</a></td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/DatasetSeries/">DatasetSeries</a></td>
-<td>See <a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#DatasetSeries">DCAT-AP specs:DatasetSeries</a></td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../../classes/Document/">Document</a></td>
-<td>See <a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Document">DCAT-AP specs:Document</a></td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/AnalysisDataset/">AnalysisDataset</a></td>
-<td>A Dataset that was generated by an analysis of some previously generated data. For example, a dataset that contains the data of an assignment of a chemical structure to a sample based on the spectral data obtained from the sample is an AnalyticalDataset.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/Surrounding/">Surrounding</a></td>
-<td>The surrounding in which the dataset creating activity took place (e.g. a lab).</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/QuantitativeAttribute/">QuantitativeAttribute</a></td>
-<td>A quantifiable piece of information that is attributed to an Entity, Activity or AgenticEntity.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/AgenticEntity/">AgenticEntity</a></td>
-<td>An entity that is somehow responsible for an Activity to take place.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/Policy/">Policy</a></td>
-<td>See <a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Policy">DCAT-AP specs:Policy</a></td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/EvaluatedEntity/">EvaluatedEntity</a></td>
-<td>An Entity that is being evaluated in a DataGeneratingActivity.</td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../../classes/Attribution/">Attribution</a></td>
-<td>See <a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Attribution">DCAT-AP specs:Attribution</a></td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/Role/">Role</a></td>
-<td>See <a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Role">DCAT-AP specs:Role</a></td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/RightsStatement/">RightsStatement</a></td>
-<td>See <a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#RightsStatement">DCAT-AP specs:RightsStatement</a></td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/Concept/">Concept</a></td>
-<td>See <a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Concept">DCAT-AP specs:Concept</a></td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/Any/">Any</a></td>
-<td>This abstract class is needed to create the union of Dataset, DatasetSeries, Catalogue and DataService for the range of the slot <a href="https://nfdi-de.github.io/chem-dcat-ap/elements/primary_topic/">primary_topic</a>.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/TimeInstant/">TimeInstant</a></td>
-<td>See <a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#TimeInstant">DCAT-AP specs:TimeInstant</a></td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/LinguisticSystem/">LinguisticSystem</a></td>
-<td>See <a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#LinguisticSystem">DCAT-AP specs:LinguisticSystem</a></td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/AnalysisSourceData/">AnalysisSourceData</a></td>
-<td>Information that was evaluated within a DataAnalysis.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/Geometry/">Geometry</a></td>
-<td>See <a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Geometry">DCAT-AP specs:Geometry</a></td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/MediaTypeOrExtent/">MediaTypeOrExtent</a></td>
-<td>See <a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#MediaTypeOrExtent">DCAT-AP specs:MediaTypeOrExtent</a></td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../../classes/LicenseDocument/">LicenseDocument</a></td>
-<td>See <a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#LicenseDocument">DCAT-AP specs:LicenseDocument</a></td>
-<td>no</td>
-</tr>
-</tbody>
-</table>
-<h2 id="properties">Properties</h2>
-<ul>
-<li>Range: <a href="../../types/String/">String</a></li>
-</ul>
-<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
-<h3 id="schema-source">Schema Source</h3>
-<ul>
-<li>from schema: https://w3id.org/nfdi-de/dcat-ap-plus/</li>
-</ul>
-<h2 id="mappings">Mappings</h2>
-<table>
-<thead>
-<tr>
-<th>Mapping Type</th>
-<th>Mapped Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>self</td>
-<td>dcterms:description</td>
-</tr>
-<tr>
-<td>native</td>
-<td>dcatapplus:description</td>
-</tr>
-</tbody>
-</table>
-<h2 id="linkml-source">LinkML Source</h2>
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Activity](../classes/Activity.md) | See [DCAT-AP specs:Activity](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Activity) |  yes  |
+| [AgenticEntity](../classes/AgenticEntity.md) | An entity that is somehow responsible for an Activity to take place. |  no  |
+| [Any](../classes/Any.md) | This abstract class is needed to create the union of Dataset, DatasetSeries, Catalogue and DataService for the range of the slot [primary_topic](https://nfdi-de.github.io/chem-dcat-ap/elements/primary_topic/). |  no  |
+| [Attribution](../classes/Attribution.md) | See [DCAT-AP specs:Attribution](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Attribution) |  no  |
+| [Catalogue](../classes/Catalogue.md) | See [DCAT-AP specs:Catalogue](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Catalogue) |  yes  |
+| [CatalogueRecord](../classes/CatalogueRecord.md) | See [DCAT-AP specs:CatalogueRecord](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#CatalogueRecord) |  yes  |
+| [ChecksumAlgorithm](../classes/ChecksumAlgorithm.md) | See [DCAT-AP specs:ChecksumAlgorithm](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#ChecksumAlgorithm) |  no  |
+| [Concept](../classes/Concept.md) | See [DCAT-AP specs:Concept](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Concept) |  no  |
+| [ConceptScheme](../classes/ConceptScheme.md) | See [DCAT-AP specs:ConceptScheme](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#ConceptScheme) |  no  |
+| [DataService](../classes/DataService.md) | See [DCAT-AP specs:DataService](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#DataService) |  yes  |
+| [Dataset](../classes/Dataset.md) | A collection of data, published or curated by a single agent, and available for access or download in one or more representations. |  yes  |
+| [DatasetSeries](../classes/DatasetSeries.md) | See [DCAT-AP specs:DatasetSeries](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#DatasetSeries) |  yes  |
+| [Distribution](../classes/Distribution.md) | See [DCAT-AP specs:Distribution](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Distribution) |  yes  |
+| [Document](../classes/Document.md) | See [DCAT-AP specs:Document](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Document) |  no  |
+| [Entity](../classes/Entity.md) | A physical, digital, conceptual, or other kind of thing with some fixed aspects; entities may be real or imaginary. |  yes  |
+| [Frequency](../classes/Frequency.md) | See [DCAT-AP specs:Frequency](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Frequency) |  no  |
+| [Geometry](../classes/Geometry.md) | See [DCAT-AP specs:Geometry](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Geometry) |  no  |
+| [Identifier](../classes/Identifier.md) | See [DCAT-AP specs:Identifier](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Identifier) |  no  |
+| [LegalResource](../classes/LegalResource.md) | See [DCAT-AP specs:LegalResource](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#LegalResource) |  no  |
+| [LicenseDocument](../classes/LicenseDocument.md) | See [DCAT-AP specs:LicenseDocument](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#LicenseDocument) |  no  |
+| [LinguisticSystem](../classes/LinguisticSystem.md) | See [DCAT-AP specs:LinguisticSystem](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#LinguisticSystem) |  no  |
+| [MediaType](../classes/MediaType.md) | See [DCAT-AP specs:MediaType](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#MediaType) |  no  |
+| [MediaTypeOrExtent](../classes/MediaTypeOrExtent.md) | See [DCAT-AP specs:MediaTypeOrExtent](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#MediaTypeOrExtent) |  no  |
+| [PeriodOfTime](../classes/PeriodOfTime.md) | See [DCAT-AP specs:PeriodOfTime](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#PeriodOfTime) |  no  |
+| [Plan](../classes/Plan.md) | A piece of information that specifies how an activity has to be carried out by its agents including what kind of steps have to be taken and what kind of parameters have to be met/set. |  no  |
+| [Policy](../classes/Policy.md) | See [DCAT-AP specs:Policy](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Policy) |  no  |
+| [ProvenanceStatement](../classes/ProvenanceStatement.md) | See [DCAT-AP specs:ProvenanceStatement](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#ProvenanceStatement) |  no  |
+| [QualitativeAttribute](../classes/QualitativeAttribute.md) | A piece of information that is attributed to an Entity, Activity or AgenticEntity. |  no  |
+| [QuantitativeAttribute](../classes/QuantitativeAttribute.md) | A quantifiable piece of information that is attributed to an Entity, Activity or AgenticEntity. |  no  |
+| [Resource](../classes/Resource.md) | See [DCAT-AP specs:Resource](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Resource) |  no  |
+| [RightsStatement](../classes/RightsStatement.md) | See [DCAT-AP specs:RightsStatement](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#RightsStatement) |  no  |
+| [Role](../classes/Role.md) | See [DCAT-AP specs:Role](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Role) |  no  |
+| [Standard](../classes/Standard.md) | See [DCAT-AP specs:Standard](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Standard) |  no  |
+| [SupportiveEntity](../classes/SupportiveEntity.md) | The supportive entities are supporting the main entities in the Application Profile. They are included in the Application Profile because they form the range of properties. |  no  |
+| [Surrounding](../classes/Surrounding.md) | The surrounding in which the dataset creating activity took place (e.g. a lab). |  no  |
+| [TimeInstant](../classes/TimeInstant.md) | See [DCAT-AP specs:TimeInstant](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#TimeInstant) |  no  |
+| [AnalysisDataset](../classes/AnalysisDataset.md) | A Dataset that was generated by an analysis of some previously generated data. For example, a dataset that contains the data of an assignment of a chemical structure to a sample based on the spectral data obtained from the sample is an AnalyticalDataset. |  no  |
+| [AnalysisSourceData](../classes/AnalysisSourceData.md) | Information that was evaluated within a DataAnalysis. |  no  |
+| [DataAnalysis](../classes/DataAnalysis.md) | An Activity that evaluates the data produced by another Activity. |  no  |
+| [DataGeneratingActivity](../classes/DataGeneratingActivity.md) | An Activity (process) that has the objective to produce information (in form of a dataset) about another Activity or Entity. |  no  |
+| [Device](../classes/Device.md) | A material instrument that is designed to perform a function primarily by means of its mechanical or electrical nature. |  no  |
+| [EvaluatedActivity](../classes/EvaluatedActivity.md) | An activity or process that is being evaluated in a DataGeneratingActivity. |  no  |
+| [EvaluatedEntity](../classes/EvaluatedEntity.md) | An Entity that is being evaluated in a DataGeneratingActivity. |  yes  |
+| [Software](../classes/Software.md) | An instrument composed of a series of instructions that can be interpreted by or directly executed by a computer. |  no  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](../types/String.md) |
+| Domain Of | [Activity](../classes/Activity.md), [AgenticEntity](../classes/AgenticEntity.md), [Any](../classes/Any.md), [Attribution](../classes/Attribution.md), [Catalogue](../classes/Catalogue.md), [CatalogueRecord](../classes/CatalogueRecord.md), [ChecksumAlgorithm](../classes/ChecksumAlgorithm.md), [Concept](../classes/Concept.md), [ConceptScheme](../classes/ConceptScheme.md), [DataService](../classes/DataService.md), [Dataset](../classes/Dataset.md), [DatasetSeries](../classes/DatasetSeries.md), [Distribution](../classes/Distribution.md), [Document](../classes/Document.md), [Entity](../classes/Entity.md), [Frequency](../classes/Frequency.md), [Geometry](../classes/Geometry.md), [Identifier](../classes/Identifier.md), [LegalResource](../classes/LegalResource.md), [LicenseDocument](../classes/LicenseDocument.md), [LinguisticSystem](../classes/LinguisticSystem.md), [MediaType](../classes/MediaType.md), [MediaTypeOrExtent](../classes/MediaTypeOrExtent.md), [PeriodOfTime](../classes/PeriodOfTime.md), [Plan](../classes/Plan.md), [Policy](../classes/Policy.md), [ProvenanceStatement](../classes/ProvenanceStatement.md), [QualitativeAttribute](../classes/QualitativeAttribute.md), [QuantitativeAttribute](../classes/QuantitativeAttribute.md), [Resource](../classes/Resource.md), [RightsStatement](../classes/RightsStatement.md), [Role](../classes/Role.md), [Standard](../classes/Standard.md), [SupportiveEntity](../classes/SupportiveEntity.md), [Surrounding](../classes/Surrounding.md), [TimeInstant](../classes/TimeInstant.md) |
+| Slot URI | [dcterms:description](http://purl.org/dc/terms/description) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://w3id.org/nfdi-de/dcat-ap-plus/
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | dcterms:description |
+| native | dcatapplus:description |
+
+
+
+
+## LinkML Source
+
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">description</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">This slot is described in more detail within the class in which it is</span>
@@ -818,7 +600,6 @@ Alias: description</p>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/nfdi-de/dcat-ap-plus/</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dcterms:description</span>
-<span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">description</span>
 <span class="nt">domain_of</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Activity</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AgenticEntity</span>
@@ -858,13 +639,16 @@ Alias: description</p>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TimeInstant</span>
 <span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
 </code></pre></div>
-</details>
+</details></div>
 
 
 
 
 
 
+
+  
+  
 
 
 
