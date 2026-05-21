@@ -168,6 +168,7 @@ Activity:
     - had_output_entity          # prov:generated → Entity
     - had_input_activity         # prov:wasInformedBy → Activity
     - carried_out_by             # prov:wasAssociatedWith → AgenticEntity
+    - has_categorical_attribute   # dcterms:relation → CategoricalAttribute
     - has_qualitative_attribute  # dcterms:relation → QualitativeAttribute
     - has_quantitative_attribute # dcterms:relation → QuantitativeAttribute
     - has_part                   # dcterms:hasPart → Activity
@@ -256,7 +257,7 @@ Note that all three — `DataAnalysis`, `AnalysisDataset`, and `AnalysisSourceDa
 
 ### Motivation
 
-Domain-specific metadata often involves quantitative or qualitative properties attached to entities, activities, or instruments, i.e. a temperature, a concentration, a solvent name, a calibration standard. In plain DCAT-AP, the only option is to encode these as free text in `dcterms:description`. DCAT-AP+ provides a structured alternative.
+Domain-specific metadata often involves quantitative, qualitative, or categorical properties attached to entities, activities, or instruments, i.e. a temperature, a concentration, a solvent name, a calibration standard, or a classification from a controlled vocabulary. In plain DCAT-AP, the only option is to encode these as free text in `dcterms:description`. DCAT-AP+ provides a structured alternative.
 
 ### QuantitativeAttribute
 
@@ -374,9 +375,46 @@ This pattern lets you record *any* non-numeric characterization on *any* DCAT-AP
     When a domain profile creates a sub-slot of `has_quantitative_attribute` or `has_qualitative_attribute` (e.g. ChemDCAT-AP's `inchikey` or `has_temperature`), it may assign a more specific `slot_uri` than the parent's `dcterms:relation`. For example, ChemDCAT-AP uses `SIO:000008` (has attribute) for its chemistry-specific attribute sub-slots. This is a valid specialization. The sub-slot inherits the structural pattern but maps to a semantically richer predicate in the generated RDF. See [`slot_uri` replacement in sub-slots](#slot_uri-replacement-in-sub-slots)
     for the interoperability implications.
 
+### CategoricalAttribute
+
+Aligned to `qudt:EnumeratedValue`, this class represents a **recorded categorical characterization** of an entity, activity, or agent where the value is a term from a controlled vocabulary (an IRI). Unlike `QualitativeAttribute` (free-text string value) or `QuantitativeAttribute` (numeric value), `CategoricalAttribute` constrains the value to a `DefinedTerm` — an entry from a controlled vocabulary or ontology. This makes the value inherently machine-actionable and covers both nominal (unordered categories) and ordinal (ordered categories like scales) use cases:
+
+```yaml
+CategoricalAttribute:
+  class_uri: qudt:EnumeratedValue
+  mixins:
+    - ClassifierMixin
+  slots:
+    - title
+    - description
+    - value                # prov:value, range: DefinedTerm, required
+```
+
+#### Worked example: describing a Mohs hardness category
+
+Suppose a mineral sample has been classified as hardness 7 (Quartz) on the [Mohs scale](https://en.wikipedia.org/wiki/Mohs_scale). The Mohs scale is ordinal — the values are defined categories, not continuous measurements. Recording this as a categorical attribute:
+
+```yaml
+# Inside an EvaluatedEntity (e.g. a mineral sample):
+has_categorical_attribute:
+  - title: "Mohs hardness classification"
+    rdf_type:
+      id: http://www.wikidata.org/entity/Q41472
+      title: "Mohs scale of mineral hardness"
+    value:
+      id: http://www.wikidata.org/entity/Q43010
+      title: "Quartz"
+      from_CV: http://www.wikidata.org/entity/Q41472
+```
+
+Compare this to encoding the same information as a `QuantitativeAttribute` with `value: 7.0` — that would lose the categorical semantics and suggest the value is a continuous measurement. A `QualitativeAttribute` with `value: "7 (Quartz)"` would lose machine-actionability. The `CategoricalAttribute` preserves both the link to the controlled vocabulary and the IRI identity of the value.
+
+!!! tip "When to use CategoricalAttribute vs. QualitativeAttribute"
+    Use `CategoricalAttribute` when the value is a term from a controlled vocabulary or ontology with a stable IRI. Use `QualitativeAttribute` when the value is free text or a string without a vocabulary IRI.
+
 ### Where attributes can be attached
 
-Both `has_quantitative_attribute` and `has_qualitative_attribute` (mapped to `dcterms:relation`) are available on:
+All three attribute slots — `has_categorical_attribute`, `has_qualitative_attribute`, and `has_quantitative_attribute` (mapped to `dcterms:relation`) — are available on:
 
 - `Entity` (and all subclasses: `EvaluatedEntity`, `AnalysisSourceData`)
 - `Activity` (and all subclasses: `DataGeneratingActivity`, `EvaluatedActivity`, `DataAnalysis`)
@@ -498,5 +536,5 @@ Reading guide:
 
 - **Dataset** (top left) is the entry point. It *must* link to a `DataGeneratingActivity` via `prov:wasGeneratedBy` and *should* link to `EvaluatedEntity` / `EvaluatedActivity` via `dcterms:subject`.
 - **DataGeneratingActivity** (centre) links to its inputs (`evaluated_entity`, `evaluated_activity`), its agents (`carried_out_by` → `AgenticEntity`), an optional `Plan`, and an optional `Surrounding`.
-- **QuantitativeAttribute** and **QualitativeAttribute** (right) can be attached to entities, activities, and agents via `dcterms:relation`.
+- **QuantitativeAttribute**, **QualitativeAttribute**, and **CategoricalAttribute** (right) can be attached to entities, activities, and agents via `dcterms:relation`.
 - **All green classes** include `rdf_type` (`rdf:type`) and `type` (`dcterms:type`) from the `ClassifierMixin`.

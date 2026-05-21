@@ -54,6 +54,16 @@
                         "null"
                     ]
                 },
+                "has_categorical_attribute": {
+                    "description": "The slot to relate a categorical attribute to an EvaluatedEntity, EvaluatedActivity or AgenticEntity",
+                    "items": {
+                        "$ref": "#/$defs/CategoricalAttribute"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "has_part": {
                     "description": "The slot to provide an Activity that is part of the Activity.",
                     "items": {
@@ -187,6 +197,16 @@
                     "description": "This slot is described in more detail within the class in which it is used.",
                     "type": [
                         "string",
+                        "null"
+                    ]
+                },
+                "has_categorical_attribute": {
+                    "description": "The slot to relate a categorical attribute to an EvaluatedEntity, EvaluatedActivity or AgenticEntity",
+                    "items": {
+                        "$ref": "#/$defs/CategoricalAttribute"
+                    },
+                    "type": [
+                        "array",
                         "null"
                     ]
                 },
@@ -671,6 +691,16 @@
                         "null"
                     ]
                 },
+                "has_categorical_attribute": {
+                    "description": "The slot to relate a categorical attribute to an EvaluatedEntity, EvaluatedActivity or AgenticEntity",
+                    "items": {
+                        "$ref": "#/$defs/CategoricalAttribute"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "has_part": {
                     "description": "A slot to provide a part of the Entity.",
                     "items": {
@@ -1117,6 +1147,57 @@
             "title": "CatalogueRecord",
             "type": "object"
         },
+        "CategoricalAttribute": {
+            "additionalProperties": false,
+            "description": "A piece of categorical information that is attributed to an Entity, Activity or AgenticEntity. The value is a term from a controlled vocabulary.",
+            "properties": {
+                "description": {
+                    "description": "This slot is described in more detail within the class in which it is used.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "rdf_type": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/DefinedTerm"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The slot to specify the ontology class that is instantiated by an entity."
+                },
+                "title": {
+                    "description": "This slot is described in more detail within the class in which it is used.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/DefinedTerm"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "This slot is described in more detail within the class in which it is used."
+                },
+                "value": {
+                    "$ref": "#/$defs/DefinedTerm",
+                    "description": "The slot to provide the value of the CategoricalAttribute as a term from a controlled vocabulary."
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "title": "CategoricalAttribute",
+            "type": "object"
+        },
         "Checksum": {
             "additionalProperties": false,
             "description": "See [DCAT-AP specs:Checksum](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Checksum)",
@@ -1285,6 +1366,16 @@
                     "description": "The slot to specify the Entity that was generated as an output of an Activity.",
                     "items": {
                         "$ref": "#/$defs/Entity"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "has_categorical_attribute": {
+                    "description": "The slot to relate a categorical attribute to an EvaluatedEntity, EvaluatedActivity or AgenticEntity",
+                    "items": {
+                        "$ref": "#/$defs/CategoricalAttribute"
                     },
                     "type": [
                         "array",
@@ -1474,6 +1565,16 @@
                     "description": "The slot to specify the Entity that was generated as an output of an Activity.",
                     "items": {
                         "$ref": "#/$defs/Entity"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "has_categorical_attribute": {
+                    "description": "The slot to relate a categorical attribute to an EvaluatedEntity, EvaluatedActivity or AgenticEntity",
+                    "items": {
+                        "$ref": "#/$defs/CategoricalAttribute"
                     },
                     "type": [
                         "array",
@@ -2309,6 +2410,16 @@
                         "null"
                     ]
                 },
+                "has_categorical_attribute": {
+                    "description": "The slot to relate a categorical attribute to an EvaluatedEntity, EvaluatedActivity or AgenticEntity",
+                    "items": {
+                        "$ref": "#/$defs/CategoricalAttribute"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "has_part": {
                     "description": "The slot to specify parts of a Device that are themselves Devices.",
                     "items": {
@@ -2686,6 +2797,16 @@
                         "null"
                     ]
                 },
+                "has_categorical_attribute": {
+                    "description": "The slot to relate a categorical attribute to an EvaluatedEntity, EvaluatedActivity or AgenticEntity",
+                    "items": {
+                        "$ref": "#/$defs/CategoricalAttribute"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "has_part": {
                     "description": "A slot to provide a part of the Entity.",
                     "items": {
@@ -2830,6 +2951,16 @@
                         "null"
                     ]
                 },
+                "has_categorical_attribute": {
+                    "description": "The slot to relate a categorical attribute to an EvaluatedEntity, EvaluatedActivity or AgenticEntity",
+                    "items": {
+                        "$ref": "#/$defs/CategoricalAttribute"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "has_part": {
                     "description": "The slot to provide an Activity that is part of the Activity.",
                     "items": {
@@ -2931,6 +3062,16 @@
                     "description": "The slot to provide a description for the EvaluatedEntity.",
                     "type": [
                         "string",
+                        "null"
+                    ]
+                },
+                "has_categorical_attribute": {
+                    "description": "The slot to relate a categorical attribute to an EvaluatedEntity, EvaluatedActivity or AgenticEntity",
+                    "items": {
+                        "$ref": "#/$defs/CategoricalAttribute"
+                    },
+                    "type": [
+                        "array",
                         "null"
                     ]
                 },
@@ -3661,6 +3802,16 @@
                         "null"
                     ]
                 },
+                "has_categorical_attribute": {
+                    "description": "The slot to relate a categorical attribute to an EvaluatedEntity, EvaluatedActivity or AgenticEntity",
+                    "items": {
+                        "$ref": "#/$defs/CategoricalAttribute"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "has_part": {
                     "description": "The slot to specify parts of a Software that are themselves Software.",
                     "items": {
@@ -3886,5 +4037,5 @@
     "metamodel_version": "1.7.0",
     "title": "dcat-ap-plus",
     "type": "object",
-    "version": "0.1.0rc1.post21.dev0+3faed58"
+    "version": "0.1.0rc4.post6.dev0+938bc67"
 }
