@@ -86,10 +86,7 @@
                 },
                 "id": {
                     "description": "A slot to provide an URI for an entity within this schema.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "other_identifier": {
                     "description": "The slot to provide a secondary identifier of the Activity.",
@@ -1158,6 +1155,36 @@
                 }
             },
             "title": "ChecksumAlgorithm",
+            "type": "object"
+        },
+        "ClassifierMixin": {
+            "additionalProperties": false,
+            "description": "A mixin with which an entity of this schema can be classified via an additional rdf:type or dcterms:type assertion.",
+            "properties": {
+                "rdf_type": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/DefinedTerm"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The slot to specify the ontology class that is instantiated by an entity."
+                },
+                "type": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/DefinedTerm"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "This slot is described in more detail within the class in which it is used."
+                }
+            },
+            "title": "ClassifierMixin",
             "type": "object"
         },
         "Concept": {
@@ -3883,8 +3910,8 @@
     "$id": "https://w3id.org/nfdi-de/dcat-ap-plus/",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
-    "metamodel_version": "1.7.0",
+    "metamodel_version": "1.11.0",
     "title": "dcat-ap-plus",
     "type": "object",
-    "version": "0.1.0rc1.post21.dev0+3faed58"
+    "version": "0.1.0rc4.post16.dev0+9e8f726c"
 }
