@@ -9,7 +9,7 @@ from pydantic import BaseModel, ConfigDict, Field, RootModel
 
 
 metamodel_version = "1.11.0"
-version = "0.1.0rc4.post15.dev0+d5a45296"
+version = "0.1.0rc4.post16.dev0+9e8f726c"
 
 
 class ConfiguredBaseModel(BaseModel):

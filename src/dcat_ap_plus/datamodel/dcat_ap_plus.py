@@ -1,5 +1,5 @@
 # Auto generated from dcat_ap_plus.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-05-18T11:34:26
+# Generation date: 2026-05-21T10:42:14
 # Schema: dcat-ap-plus
 #
 # id: https://w3id.org/nfdi-de/dcat-ap-plus/
@@ -22,7 +22,7 @@ from linkml_runtime.linkml_model.types import Decimal
 from linkml_runtime.utils.metamodelcore import Decimal, URIorCURIE, XSDDate
 
 metamodel_version = "1.11.0"
-version = "0.1.0rc4.post15.dev0+d5a45296"
+version = "0.1.0rc4.post16.dev0+9e8f726c"
 
 # Namespaces
 AFE = CurieNamespace("AFE", "http://purl.allotrope.org/ontologies/equipment#AFE_")

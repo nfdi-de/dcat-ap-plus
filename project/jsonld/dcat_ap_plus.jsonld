@@ -12,7 +12,7 @@
     "https://gitlab.com/opensourcelab/scientificdata/scidats/-/blob/feature/linkml-schemata/schemata/metadata_model_scidats_dcat_ap.yaml?ref_type=heads"
   ],
   "id": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-  "version": "0.1.0rc4.post15.dev0+d5a45296",
+  "version": "0.1.0rc4.post16.dev0+9e8f726c",
   "imports": [
     "linkml:types"
   ],
@@ -6527,7 +6527,7 @@
         "domain_agnostic_core"
       ],
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "prov:Activity"
       ],
       "mixins": [
@@ -6550,6 +6550,7 @@
         "rdf_type"
       ],
       "slot_usage": {},
+      "class_uri": "http://www.w3.org/ns/prov#Activity",
       "@type": "ClassDefinition"
     },
     {
@@ -6557,7 +6558,7 @@
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Agent",
       "description": "See [DCAT-AP specs:Agent](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Agent)",
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "foaf:Agent"
       ],
       "slots": [
@@ -6565,6 +6566,7 @@
         "Agent_type"
       ],
       "slot_usage": {},
+      "class_uri": "http://xmlns.com/foaf/0.1/Agent",
       "@type": "ClassDefinition"
     },
     {
@@ -6575,7 +6577,7 @@
         "domain_agnostic_core"
       ],
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "prov:Agent"
       ],
       "mixins": [
@@ -6594,6 +6596,7 @@
         "rdf_type"
       ],
       "slot_usage": {},
+      "class_uri": "http://www.w3.org/ns/prov#Agent",
       "@type": "ClassDefinition"
     },
     {
@@ -6604,7 +6607,7 @@
         "domain_agnostic_core"
       ],
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "dcat:Dataset"
       ],
       "is_a": "Dataset",
@@ -6650,6 +6653,7 @@
         "AnalysisDataset_was_generated_by"
       ],
       "slot_usage": {},
+      "class_uri": "http://www.w3.org/ns/dcat#Dataset",
       "@type": "ClassDefinition"
     },
     {
@@ -6660,7 +6664,7 @@
         "domain_agnostic_core"
       ],
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "prov:Entity"
       ],
       "is_a": "EvaluatedEntity",
@@ -6678,6 +6682,7 @@
         "AnalysisSourceData_was_generated_by"
       ],
       "slot_usage": {},
+      "class_uri": "http://www.w3.org/ns/prov#Entity",
       "@type": "ClassDefinition"
     },
     {
@@ -6685,7 +6690,7 @@
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Any",
       "description": "This abstract class is needed to create the union of Dataset, DatasetSeries, Catalogue and DataService for the range of the slot [primary_topic](https://nfdi-de.github.io/chem-dcat-ap/elements/primary_topic/).",
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "linkml:Any"
       ],
       "slots": [
@@ -6693,6 +6698,7 @@
         "description"
       ],
       "slot_usage": {},
+      "class_uri": "https://w3id.org/linkml/Any",
       "@type": "ClassDefinition"
     },
     {
@@ -6700,7 +6706,7 @@
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Attribution",
       "description": "See [DCAT-AP specs:Attribution](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Attribution)",
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "prov:Attribution"
       ],
       "is_a": "SupportiveEntity",
@@ -6709,6 +6715,7 @@
         "description"
       ],
       "slot_usage": {},
+      "class_uri": "http://www.w3.org/ns/prov#Attribution",
       "@type": "ClassDefinition"
     },
     {
@@ -6716,7 +6723,7 @@
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Catalogue",
       "description": "See [DCAT-AP specs:Catalogue](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Catalogue)",
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "dcat:Catalog"
       ],
       "slots": [
@@ -6741,6 +6748,7 @@
         "Catalogue_title"
       ],
       "slot_usage": {},
+      "class_uri": "http://www.w3.org/ns/dcat#Catalog",
       "@type": "ClassDefinition"
     },
     {
@@ -6748,7 +6756,7 @@
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/CatalogueRecord",
       "description": "See [DCAT-AP specs:CatalogueRecord](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#CatalogueRecord)",
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "dcat:CatalogRecord"
       ],
       "slots": [
@@ -6763,6 +6771,7 @@
         "CatalogueRecord_title"
       ],
       "slot_usage": {},
+      "class_uri": "http://www.w3.org/ns/dcat#CatalogRecord",
       "@type": "ClassDefinition"
     },
     {
@@ -6770,7 +6779,7 @@
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Checksum",
       "description": "See [DCAT-AP specs:Checksum](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Checksum)",
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "spdx:Checksum"
       ],
       "slots": [
@@ -6778,6 +6787,7 @@
         "Checksum_checksum_value"
       ],
       "slot_usage": {},
+      "class_uri": "http://spdx.org/rdf/terms#Checksum",
       "@type": "ClassDefinition"
     },
     {
@@ -6785,7 +6795,7 @@
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/ChecksumAlgorithm",
       "description": "See [DCAT-AP specs:ChecksumAlgorithm](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#ChecksumAlgorithm)",
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "spdx:ChecksumAlgorithm"
       ],
       "is_a": "SupportiveEntity",
@@ -6794,6 +6804,7 @@
         "description"
       ],
       "slot_usage": {},
+      "class_uri": "http://spdx.org/rdf/terms#ChecksumAlgorithm",
       "@type": "ClassDefinition"
     },
     {
@@ -6804,9 +6815,6 @@
         "domain_agnostic_core"
       ],
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
-        "dcatapplus:ClassifierMixin"
-      ],
       "abstract": true,
       "mixin": true,
       "slots": [
@@ -6814,6 +6822,7 @@
         "rdf_type"
       ],
       "slot_usage": {},
+      "class_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/ClassifierMixin",
       "@type": "ClassDefinition"
     },
     {
@@ -6821,7 +6830,7 @@
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Concept",
       "description": "See [DCAT-AP specs:Concept](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Concept)",
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "skos:Concept"
       ],
       "is_a": "SupportiveEntity",
@@ -6831,6 +6840,7 @@
         "description"
       ],
       "slot_usage": {},
+      "class_uri": "http://www.w3.org/2004/02/skos/core#Concept",
       "@type": "ClassDefinition"
     },
     {
@@ -6838,7 +6848,7 @@
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/ConceptScheme",
       "description": "See [DCAT-AP specs:ConceptScheme](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#ConceptScheme)",
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "skos:ConceptScheme"
       ],
       "is_a": "SupportiveEntity",
@@ -6847,6 +6857,7 @@
         "description"
       ],
       "slot_usage": {},
+      "class_uri": "http://www.w3.org/2004/02/skos/core#ConceptScheme",
       "@type": "ClassDefinition"
     },
     {
@@ -6857,8 +6868,10 @@
         "domain_agnostic_core"
       ],
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
+      "mappings": [
+        "prov:Activity"
+      ],
       "exact_mappings": [
-        "prov:Activity",
         "OBI:0200000"
       ],
       "close_mappings": [
@@ -6886,6 +6899,7 @@
         "DataAnalysis_evaluated_entity"
       ],
       "slot_usage": {},
+      "class_uri": "http://www.w3.org/ns/prov#Activity",
       "@type": "ClassDefinition"
     },
     {
@@ -6896,7 +6910,7 @@
         "domain_agnostic_core"
       ],
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "prov:Activity"
       ],
       "is_a": "Activity",
@@ -6921,6 +6935,7 @@
         "occurred_in"
       ],
       "slot_usage": {},
+      "class_uri": "http://www.w3.org/ns/prov#Activity",
       "@type": "ClassDefinition"
     },
     {
@@ -6928,7 +6943,7 @@
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/DataService",
       "description": "See [DCAT-AP specs:DataService](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#DataService)",
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "dcat:DataService"
       ],
       "slots": [
@@ -6950,6 +6965,7 @@
         "DataService_title"
       ],
       "slot_usage": {},
+      "class_uri": "http://www.w3.org/ns/dcat#DataService",
       "@type": "ClassDefinition"
     },
     {
@@ -6960,7 +6976,7 @@
         "domain_agnostic_core"
       ],
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "dcat:Dataset"
       ],
       "slots": [
@@ -7005,6 +7021,7 @@
         "is_about_activity"
       ],
       "slot_usage": {},
+      "class_uri": "http://www.w3.org/ns/dcat#Dataset",
       "@type": "ClassDefinition"
     },
     {
@@ -7012,7 +7029,7 @@
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/DatasetSeries",
       "description": "See [DCAT-AP specs:DatasetSeries](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#DatasetSeries)",
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "dcat:DatasetSeries"
       ],
       "slots": [
@@ -7028,6 +7045,7 @@
         "DatasetSeries_title"
       ],
       "slot_usage": {},
+      "class_uri": "http://www.w3.org/ns/dcat#DatasetSeries",
       "@type": "ClassDefinition"
     },
     {
@@ -7038,7 +7056,7 @@
         "domain_agnostic_core"
       ],
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "schema:DefinedTerm"
       ],
       "slots": [
@@ -7056,6 +7074,7 @@
           "@type": "SlotDefinition"
         }
       ],
+      "class_uri": "http://schema.org/DefinedTerm",
       "@type": "ClassDefinition"
     },
     {
@@ -7069,8 +7088,10 @@
       "aliases": [
         "hardware instrument"
       ],
+      "mappings": [
+        "prov:Agent"
+      ],
       "exact_mappings": [
-        "prov:Agent",
         "epos:Equipment",
         "OBI:0000968",
         "http://purl.obolibrary.org/obo/NCIT_C62103",
@@ -7091,6 +7112,7 @@
         "Device_other_identifier"
       ],
       "slot_usage": {},
+      "class_uri": "http://www.w3.org/ns/prov#Agent",
       "@type": "ClassDefinition"
     },
     {
@@ -7098,7 +7120,7 @@
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Distribution",
       "description": "See [DCAT-AP specs:Distribution](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Distribution)",
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "dcat:Distribution"
       ],
       "slots": [
@@ -7128,6 +7150,7 @@
         "Distribution_title"
       ],
       "slot_usage": {},
+      "class_uri": "http://www.w3.org/ns/dcat#Distribution",
       "@type": "ClassDefinition"
     },
     {
@@ -7135,7 +7158,7 @@
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Document",
       "description": "See [DCAT-AP specs:Document](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Document)",
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "foaf:Document"
       ],
       "is_a": "SupportiveEntity",
@@ -7145,6 +7168,7 @@
         "description"
       ],
       "slot_usage": {},
+      "class_uri": "http://xmlns.com/foaf/0.1/Document",
       "@type": "ClassDefinition"
     },
     {
@@ -7155,7 +7179,7 @@
         "domain_agnostic_core"
       ],
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "prov:Entity"
       ],
       "mixins": [
@@ -7174,6 +7198,7 @@
         "rdf_type"
       ],
       "slot_usage": {},
+      "class_uri": "http://www.w3.org/ns/prov#Entity",
       "@type": "ClassDefinition"
     },
     {
@@ -7184,7 +7209,7 @@
         "domain_agnostic_core"
       ],
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "prov:Activity"
       ],
       "is_a": "Activity",
@@ -7205,6 +7230,7 @@
         "EvaluatedActivity_other_identifier"
       ],
       "slot_usage": {},
+      "class_uri": "http://www.w3.org/ns/prov#Activity",
       "@type": "ClassDefinition"
     },
     {
@@ -7215,7 +7241,7 @@
         "domain_agnostic_core"
       ],
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "prov:Entity"
       ],
       "is_a": "Entity",
@@ -7233,6 +7259,7 @@
         "EvaluatedEntity_other_identifier"
       ],
       "slot_usage": {},
+      "class_uri": "http://www.w3.org/ns/prov#Entity",
       "@type": "ClassDefinition"
     },
     {
@@ -7240,7 +7267,7 @@
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Frequency",
       "description": "See [DCAT-AP specs:Frequency](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Frequency)",
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "dcterms:Frequency"
       ],
       "is_a": "SupportiveEntity",
@@ -7249,6 +7276,7 @@
         "description"
       ],
       "slot_usage": {},
+      "class_uri": "http://purl.org/dc/terms/Frequency",
       "@type": "ClassDefinition"
     },
     {
@@ -7256,7 +7284,7 @@
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Geometry",
       "description": "See [DCAT-AP specs:Geometry](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Geometry)",
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "locn:Geometry"
       ],
       "is_a": "SupportiveEntity",
@@ -7265,6 +7293,7 @@
         "description"
       ],
       "slot_usage": {},
+      "class_uri": "http://www.w3.org/ns/locn#Geometry",
       "@type": "ClassDefinition"
     },
     {
@@ -7272,7 +7301,7 @@
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Identifier",
       "description": "See [DCAT-AP specs:Identifier](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Identifier)",
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "adms:Identifier"
       ],
       "is_a": "SupportiveEntity",
@@ -7282,6 +7311,7 @@
         "description"
       ],
       "slot_usage": {},
+      "class_uri": "http://www.w3.org/ns/adms#Identifier",
       "@type": "ClassDefinition"
     },
     {
@@ -7289,10 +7319,11 @@
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Kind",
       "description": "See [DCAT-AP specs:Kind](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Kind)",
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "vcard:Kind"
       ],
       "slot_usage": {},
+      "class_uri": "http://www.w3.org/2006/vcard/ns#Kind",
       "@type": "ClassDefinition"
     },
     {
@@ -7300,7 +7331,7 @@
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/LegalResource",
       "description": "See [DCAT-AP specs:LegalResource](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#LegalResource)",
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "eli:LegalResource"
       ],
       "is_a": "SupportiveEntity",
@@ -7310,6 +7341,7 @@
         "description"
       ],
       "slot_usage": {},
+      "class_uri": "http://data.europa.eu/eli/ontology#LegalResource",
       "@type": "ClassDefinition"
     },
     {
@@ -7317,7 +7349,7 @@
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/LicenseDocument",
       "description": "See [DCAT-AP specs:LicenseDocument](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#LicenseDocument)",
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "dcterms:LicenseDocument"
       ],
       "is_a": "SupportiveEntity",
@@ -7328,6 +7360,7 @@
         "description"
       ],
       "slot_usage": {},
+      "class_uri": "http://purl.org/dc/terms/LicenseDocument",
       "@type": "ClassDefinition"
     },
     {
@@ -7335,7 +7368,7 @@
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/LinguisticSystem",
       "description": "See [DCAT-AP specs:LinguisticSystem](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#LinguisticSystem)",
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "dcterms:LinguisticSystem"
       ],
       "is_a": "SupportiveEntity",
@@ -7344,6 +7377,7 @@
         "description"
       ],
       "slot_usage": {},
+      "class_uri": "http://purl.org/dc/terms/LinguisticSystem",
       "@type": "ClassDefinition"
     },
     {
@@ -7351,7 +7385,7 @@
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Location",
       "description": "See [DCAT-AP specs:Location](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Location)",
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "dcterms:Location"
       ],
       "slots": [
@@ -7360,6 +7394,7 @@
         "Location_geometry"
       ],
       "slot_usage": {},
+      "class_uri": "http://purl.org/dc/terms/Location",
       "@type": "ClassDefinition"
     },
     {
@@ -7367,7 +7402,7 @@
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/MediaType",
       "description": "See [DCAT-AP specs:MediaType](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#MediaType)",
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "dcterms:MediaType"
       ],
       "is_a": "SupportiveEntity",
@@ -7376,6 +7411,7 @@
         "description"
       ],
       "slot_usage": {},
+      "class_uri": "http://purl.org/dc/terms/MediaType",
       "@type": "ClassDefinition"
     },
     {
@@ -7383,7 +7419,7 @@
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/MediaTypeOrExtent",
       "description": "See [DCAT-AP specs:MediaTypeOrExtent](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#MediaTypeOrExtent)",
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "dcterms:MediaTypeOrExtent"
       ],
       "is_a": "SupportiveEntity",
@@ -7392,6 +7428,7 @@
         "description"
       ],
       "slot_usage": {},
+      "class_uri": "http://purl.org/dc/terms/MediaTypeOrExtent",
       "@type": "ClassDefinition"
     },
     {
@@ -7399,7 +7436,7 @@
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/PeriodOfTime",
       "description": "See [DCAT-AP specs:PeriodOfTime](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#PeriodOfTime)",
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "dcterms:PeriodOfTime"
       ],
       "is_a": "SupportiveEntity",
@@ -7412,6 +7449,7 @@
         "description"
       ],
       "slot_usage": {},
+      "class_uri": "http://purl.org/dc/terms/PeriodOfTime",
       "@type": "ClassDefinition"
     },
     {
@@ -7433,7 +7471,7 @@
         "Method",
         "Procedure"
       ],
-      "exact_mappings": [
+      "mappings": [
         "prov:Plan"
       ],
       "mixins": [
@@ -7446,6 +7484,7 @@
         "rdf_type"
       ],
       "slot_usage": {},
+      "class_uri": "http://www.w3.org/ns/prov#Plan",
       "@type": "ClassDefinition"
     },
     {
@@ -7453,7 +7492,7 @@
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Policy",
       "description": "See [DCAT-AP specs:Policy](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Policy)",
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "odrl:Policy"
       ],
       "is_a": "SupportiveEntity",
@@ -7462,6 +7501,7 @@
         "description"
       ],
       "slot_usage": {},
+      "class_uri": "http://www.w3.org/ns/odrl/2/Policy",
       "@type": "ClassDefinition"
     },
     {
@@ -7469,7 +7509,7 @@
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/ProvenanceStatement",
       "description": "See [DCAT-AP specs:ProvenanceStatement](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#ProvenanceStatement)",
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "dcterms:ProvenanceStatement"
       ],
       "is_a": "SupportiveEntity",
@@ -7478,6 +7518,7 @@
         "description"
       ],
       "slot_usage": {},
+      "class_uri": "http://purl.org/dc/terms/ProvenanceStatement",
       "@type": "ClassDefinition"
     },
     {
@@ -7488,7 +7529,7 @@
         "domain_agnostic_core"
       ],
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "prov:Entity"
       ],
       "mixins": [
@@ -7502,6 +7543,7 @@
         "rdf_type"
       ],
       "slot_usage": {},
+      "class_uri": "http://www.w3.org/ns/prov#Entity",
       "@type": "ClassDefinition"
     },
     {
@@ -7512,7 +7554,7 @@
         "domain_agnostic_core"
       ],
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "qudt:Quantity"
       ],
       "mixins": [
@@ -7563,6 +7605,7 @@
           "@type": "SlotDefinition"
         }
       ],
+      "class_uri": "http://qudt.org/schema/qudt/Quantity",
       "@type": "ClassDefinition"
     },
     {
@@ -7570,7 +7613,7 @@
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Relationship",
       "description": "See [DCAT-AP specs:Relationship](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Relationship)",
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "dcat:Relationship"
       ],
       "slots": [
@@ -7578,6 +7621,7 @@
         "Relationship_relation"
       ],
       "slot_usage": {},
+      "class_uri": "http://www.w3.org/ns/dcat#Relationship",
       "@type": "ClassDefinition"
     },
     {
@@ -7585,7 +7629,7 @@
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Resource",
       "description": "See [DCAT-AP specs:Resource](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Resource)",
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "rdfs:Resource"
       ],
       "is_a": "SupportiveEntity",
@@ -7595,6 +7639,7 @@
         "description"
       ],
       "slot_usage": {},
+      "class_uri": "http://www.w3.org/2000/01/rdf-schema#Resource",
       "@type": "ClassDefinition"
     },
     {
@@ -7602,7 +7647,7 @@
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/RightsStatement",
       "description": "See [DCAT-AP specs:RightsStatement](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#RightsStatement)",
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "dcterms:RightsStatement"
       ],
       "is_a": "SupportiveEntity",
@@ -7611,6 +7656,7 @@
         "description"
       ],
       "slot_usage": {},
+      "class_uri": "http://purl.org/dc/terms/RightsStatement",
       "@type": "ClassDefinition"
     },
     {
@@ -7618,7 +7664,7 @@
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Role",
       "description": "See [DCAT-AP specs:Role](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Role)",
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "dcat:Role"
       ],
       "is_a": "SupportiveEntity",
@@ -7627,6 +7673,7 @@
         "description"
       ],
       "slot_usage": {},
+      "class_uri": "http://www.w3.org/ns/dcat#Role",
       "@type": "ClassDefinition"
     },
     {
@@ -7637,8 +7684,10 @@
         "domain_agnostic_core"
       ],
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
+      "mappings": [
+        "prov:SoftwareAgent"
+      ],
       "exact_mappings": [
-        "prov:SoftwareAgent",
         "schema:SoftwareApplication"
       ],
       "is_a": "AgenticEntity",
@@ -7655,6 +7704,7 @@
         "Software_other_identifier"
       ],
       "slot_usage": {},
+      "class_uri": "http://www.w3.org/ns/prov#SoftwareAgent",
       "@type": "ClassDefinition"
     },
     {
@@ -7662,7 +7712,7 @@
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Standard",
       "description": "See [DCAT-AP specs:Standard](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Standard)",
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "dcterms:Standard"
       ],
       "is_a": "SupportiveEntity",
@@ -7671,6 +7721,7 @@
         "description"
       ],
       "slot_usage": {},
+      "class_uri": "http://purl.org/dc/terms/Standard",
       "@type": "ClassDefinition"
     },
     {
@@ -7678,14 +7729,12 @@
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/SupportiveEntity",
       "description": "The supportive entities are supporting the main entities in the Application Profile. They are included in the Application Profile because they form the range of properties.",
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
-        "dcatapplus:SupportiveEntity"
-      ],
       "slots": [
         "title",
         "description"
       ],
       "slot_usage": {},
+      "class_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/SupportiveEntity",
       "@type": "ClassDefinition"
     },
     {
@@ -7696,7 +7745,7 @@
         "domain_agnostic_core"
       ],
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "prov:Location"
       ],
       "mixins": [
@@ -7709,6 +7758,7 @@
         "rdf_type"
       ],
       "slot_usage": {},
+      "class_uri": "http://www.w3.org/ns/prov#Location",
       "@type": "ClassDefinition"
     },
     {
@@ -7716,7 +7766,7 @@
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/TimeInstant",
       "description": "See [DCAT-AP specs:TimeInstant](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#TimeInstant)",
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus/",
-      "exact_mappings": [
+      "mappings": [
         "time:Instant"
       ],
       "is_a": "SupportiveEntity",
@@ -7725,14 +7775,15 @@
         "description"
       ],
       "slot_usage": {},
+      "class_uri": "http://www.w3.org/2006/time#Instant",
       "@type": "ClassDefinition"
     }
   ],
   "metamodel_version": "1.11.0",
   "source_file": "dcat_ap_plus.yaml",
-  "source_file_date": "2026-05-18T11:33:47",
+  "source_file_date": "2026-05-21T10:11:27",
   "source_file_size": 90871,
-  "generation_date": "2026-05-18T11:33:52",
+  "generation_date": "2026-05-21T10:11:33",
   "@type": "SchemaDefinition",
   "@context": [
     "project\\jsonld/dcat_ap_plus.context.jsonld",
