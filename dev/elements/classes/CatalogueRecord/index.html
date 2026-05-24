@@ -213,6 +213,83 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#class-properties">
+<span class="md-ellipsis">
+      Class Properties
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#slots">
+<span class="md-ellipsis">
+      Slots
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#usages">
+<span class="md-ellipsis">
+      Usages
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#identifier-and-mapping-information">
+<span class="md-ellipsis">
+      Identifier and Mapping Information
+    </span>
+</a>
+<nav aria-label="Identifier and Mapping Information" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#schema-source">
+<span class="md-ellipsis">
+      Schema Source
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mappings">
+<span class="md-ellipsis">
+      Mappings
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#linkml-source">
+<span class="md-ellipsis">
+      LinkML Source
+    </span>
+</a>
+<nav aria-label="LinkML Source" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#direct">
+<span class="md-ellipsis">
+      Direct
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#induced">
+<span class="md-ellipsis">
+      Induced
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
 </nav>
 </div>
 </div>
@@ -221,16 +298,8 @@
 <article class="md-content__inner md-typeset">
 <h1 id="class-cataloguerecord">Class: CatalogueRecord</h1>
 <p><em>See <a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#CatalogueRecord">DCAT-AP specs:CatalogueRecord</a></em></p>
-<div data-search-exclude="" markdown="1">
-
-
-
-URI: [dcat:CatalogRecord](http://www.w3.org/ns/dcat#CatalogRecord)
-
-
-
-
-
+<div>
+<p>URI: <a href="http://www.w3.org/ns/dcat#CatalogRecord">dcat:CatalogRecord</a></p>
 <pre class="mermaid"><code> classDiagram
     class CatalogueRecord
     click CatalogueRecord href "../../classes/CatalogueRecord/"
@@ -297,85 +366,142 @@ URI: [dcat:CatalogRecord](http://www.w3.org/ns/dcat#CatalogRecord)
 
       CatalogueRecord : title
 
-
 </code></pre>
 <!-- no inheritance hierarchy -->
-
-## Class Properties
-
-| Property | Value |
-| --- | --- |
-| Class URI | [dcat:CatalogRecord](http://www.w3.org/ns/dcat#CatalogRecord) |
-
-
-## Slots
-
-| Name | Cardinality and Range | Description | Inheritance |
-| ---  | --- | --- | --- |
-| [application_profile](../slots/application_profile.md) | * _recommended_ <br/> [Standard](../classes/Standard.md) | An Application Profile that the Catalogued Resource's metadata conforms to. | direct |
-| [change_type](../slots/change_type.md) | 0..1 _recommended_ <br/> [Concept](../classes/Concept.md) | The status of the catalogue record in the context of editorial flow of the dataset and data service descriptions. | direct |
-| [description](../slots/description.md) | * <br/> [String](../types/String.md) | A free-text account of the record. This property can be repeated for parallel language versions of the description. | direct |
-| [language](../slots/language.md) | * <br/> [LinguisticSystem](../classes/LinguisticSystem.md) | A language used in the textual metadata describing titles, descriptions, etc. of the Catalogued Resource. | direct |
-| [listing_date](../slots/listing_date.md) | 0..1 _recommended_ <br/> [Date](../types/Date.md) | The date on which the description of the Resource was included in the Catalogue. | direct |
-| [modification_date](../slots/modification_date.md) | 1 <br/> [Date](../types/Date.md) | The most recent date on which the Catalogue entry was changed or modified. | direct |
-| [primary_topic](../slots/primary_topic.md) | 1 <br/> [Any](../classes/Any.md) or <br/>[Catalogue](../classes/Catalogue.md) or <br/>[Dataset](../classes/Dataset.md) or <br/>[DatasetSeries](../classes/DatasetSeries.md) or <br/>[DataService](../classes/DataService.md) | A link to the Dataset, Data service or Catalog described in the record. | direct |
-| [source_metadata](../slots/source_metadata.md) | 0..1 <br/> [CatalogueRecord](../classes/CatalogueRecord.md) | The original metadata that was used in creating metadata for the Dataset, Data Service or Dataset Series. | direct |
-| [title](../slots/title.md) | * <br/> [String](../types/String.md) | A name given to the Catalogue Record. | direct |
-
-
-
-
-
-## Usages
-
-| used by | used in | type | used |
-| ---  | --- | --- | --- |
-| [Catalogue](../classes/Catalogue.md) | [record](../slots/record.md) | range | [CatalogueRecord](../classes/CatalogueRecord.md) |
-| [CatalogueRecord](../classes/CatalogueRecord.md) | [source_metadata](../slots/source_metadata.md) | range | [CatalogueRecord](../classes/CatalogueRecord.md) |
-
-
-
-
-
-
-
-
-
-
-
-
-## Identifier and Mapping Information
-
-
-
-
-
-### Schema Source
-
-
-* from schema: https://w3id.org/nfdi-de/dcat-ap-plus/
-
-
-
-
-## Mappings
-
-| Mapping Type | Mapped Value |
-| ---  | ---  |
-| self | dcat:CatalogRecord |
-| native | dcatapplus:CatalogueRecord |
-
-
-
-
-
-
-## LinkML Source
-
+<h2 id="class-properties">Class Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Class URI</td>
+<td><a href="http://www.w3.org/ns/dcat#CatalogRecord">dcat:CatalogRecord</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Cardinality and Range</th>
+<th>Description</th>
+<th>Inheritance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../../slots/application_profile/">application_profile</a></td>
+<td>* <em>recommended</em> <br/> <a href="../Standard/">Standard</a></td>
+<td>An Application Profile that the Catalogued Resource's metadata conforms to.</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../../slots/change_type/">change_type</a></td>
+<td>0..1 <em>recommended</em> <br/> <a href="../Concept/">Concept</a></td>
+<td>The status of the catalogue record in the context of editorial flow of the dataset and data service descriptions.</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../../slots/description/">description</a></td>
+<td>* <br/> <a href="../../types/String/">String</a></td>
+<td>A free-text account of the record. This property can be repeated for parallel language versions of the description.</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../../slots/language/">language</a></td>
+<td>* <br/> <a href="../LinguisticSystem/">LinguisticSystem</a></td>
+<td>A language used in the textual metadata describing titles, descriptions, etc. of the Catalogued Resource.</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../../slots/listing_date/">listing_date</a></td>
+<td>0..1 <em>recommended</em> <br/> <a href="../../types/Date/">Date</a></td>
+<td>The date on which the description of the Resource was included in the Catalogue.</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../../slots/modification_date/">modification_date</a></td>
+<td>1 <br/> <a href="../../types/Date/">Date</a></td>
+<td>The most recent date on which the Catalogue entry was changed or modified.</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../../slots/primary_topic/">primary_topic</a></td>
+<td>1 <br/> <a href="../Any/">Any</a> or <br/><a href="../Catalogue/">Catalogue</a> or <br/><a href="../Dataset/">Dataset</a> or <br/><a href="../DatasetSeries/">DatasetSeries</a> or <br/><a href="../DataService/">DataService</a></td>
+<td>A link to the Dataset, Data service or Catalog described in the record.</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../../slots/source_metadata/">source_metadata</a></td>
+<td>0..1 <br/> <a href="./">CatalogueRecord</a></td>
+<td>The original metadata that was used in creating metadata for the Dataset, Data Service or Dataset Series.</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../../slots/title/">title</a></td>
+<td>* <br/> <a href="../../types/String/">String</a></td>
+<td>A name given to the Catalogue Record.</td>
+<td>direct</td>
+</tr>
+</tbody>
+</table>
+<h2 id="usages">Usages</h2>
+<table>
+<thead>
+<tr>
+<th>used by</th>
+<th>used in</th>
+<th>type</th>
+<th>used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../Catalogue/">Catalogue</a></td>
+<td><a href="../../slots/record/">record</a></td>
+<td>range</td>
+<td><a href="./">CatalogueRecord</a></td>
+</tr>
+<tr>
+<td><a href="./">CatalogueRecord</a></td>
+<td><a href="../../slots/source_metadata/">source_metadata</a></td>
+<td>range</td>
+<td><a href="./">CatalogueRecord</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: <a href="https://w3id.org/nfdi-de/dcat-ap-plus/">https://w3id.org/nfdi-de/dcat-ap-plus/</a></li>
+</ul>
+<h2 id="mappings">Mappings</h2>
+<table>
+<thead>
+<tr>
+<th>Mapping Type</th>
+<th>Mapped Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>dcat:CatalogRecord</td>
+</tr>
+<tr>
+<td>native</td>
+<td>dcatapplus:CatalogueRecord</td>
+</tr>
+</tbody>
+</table>
+<h2 id="linkml-source">LinkML Source</h2>
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
-
-### Direct
-
+<h3 id="direct">Direct</h3>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CatalogueRecord</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">See [DCAT-AP specs:CatalogueRecord](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#CatalogueRecord)</span>
@@ -481,9 +607,7 @@ URI: [dcat:CatalogRecord](http://www.w3.org/ns/dcat#CatalogRecord)
 <span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dcat:CatalogRecord</span>
 </code></pre></div>
 </details>
-
-### Induced
-
+<h3 id="induced">Induced</h3>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CatalogueRecord</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">See [DCAT-AP specs:CatalogueRecord](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#CatalogueRecord)</span>
@@ -796,7 +920,8 @@ URI: [dcat:CatalogRecord](http://www.w3.org/ns/dcat#CatalogRecord)
 <span class="w">    </span><span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dcat:CatalogRecord</span>
 </code></pre></div>
-</details></div>
+</details>
+</div>
 </article>
 </div>
 <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
@@ -824,8 +949,5 @@ URI: [dcat:CatalogRecord](http://www.w3.org/ns/dcat#CatalogRecord)
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
 <script id="__config" type="application/json">{"base": "../../..", "features": ["content.tabs.link", "search.highlight", "navigation.expand", "navigation.instant", "navigation.instant.progress", "navigation.tracking"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "default": ["stable"], "provider": "mike"}}</script>
 <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script type="module">import mermaid from "https://unpkg.com/mermaid@11.4.1/dist/mermaid.esm.min.mjs";
-window.mermaidConfig = {default: {
-    startOnLoad: false
-}};</script></body>
+</body>
 </html>

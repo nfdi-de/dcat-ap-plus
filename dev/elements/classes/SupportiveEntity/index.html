@@ -213,6 +213,76 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#inheritance">
+<span class="md-ellipsis">
+      Inheritance
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#slots">
+<span class="md-ellipsis">
+      Slots
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#identifier-and-mapping-information">
+<span class="md-ellipsis">
+      Identifier and Mapping Information
+    </span>
+</a>
+<nav aria-label="Identifier and Mapping Information" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#schema-source">
+<span class="md-ellipsis">
+      Schema Source
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mappings">
+<span class="md-ellipsis">
+      Mappings
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#linkml-source">
+<span class="md-ellipsis">
+      LinkML Source
+    </span>
+</a>
+<nav aria-label="LinkML Source" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#direct">
+<span class="md-ellipsis">
+      Direct
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#induced">
+<span class="md-ellipsis">
+      Induced
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
 </nav>
 </div>
 </div>
@@ -221,16 +291,8 @@
 <article class="md-content__inner md-typeset">
 <h1 id="class-supportiveentity">Class: SupportiveEntity</h1>
 <p><em>The supportive entities are supporting the main entities in the Application Profile. They are included in the Application Profile because they form the range of properties.</em></p>
-<div data-search-exclude="" markdown="1">
-
-
-
-URI: [dcatapplus:class/SupportiveEntity](https://w3id.org/nfdi-de/dcat-ap-plus/class/SupportiveEntity)
-
-
-
-
-
+<div>
+<p>URI: <a href="https://w3id.org/nfdi-de/dcat-ap-plus/class/SupportiveEntity">dcatapplus:class/SupportiveEntity</a></p>
 <pre class="mermaid"><code> classDiagram
     class SupportiveEntity
     click SupportiveEntity href "../../classes/SupportiveEntity/"
@@ -281,91 +343,86 @@ URI: [dcatapplus:class/SupportiveEntity](https://w3id.org/nfdi-de/dcat-ap-plus/c
 
       SupportiveEntity : title
 
-
 </code></pre>
-
-
-
-
-
-## Inheritance
-* **SupportiveEntity**
-    * [Attribution](../classes/Attribution.md)
-    * [ChecksumAlgorithm](../classes/ChecksumAlgorithm.md)
-    * [Concept](../classes/Concept.md)
-    * [ConceptScheme](../classes/ConceptScheme.md)
-    * [Document](../classes/Document.md)
-    * [Frequency](../classes/Frequency.md)
-    * [Geometry](../classes/Geometry.md)
-    * [Identifier](../classes/Identifier.md)
-    * [LegalResource](../classes/LegalResource.md)
-    * [LicenseDocument](../classes/LicenseDocument.md)
-    * [LinguisticSystem](../classes/LinguisticSystem.md)
-    * [MediaType](../classes/MediaType.md)
-    * [MediaTypeOrExtent](../classes/MediaTypeOrExtent.md)
-    * [PeriodOfTime](../classes/PeriodOfTime.md)
-    * [Policy](../classes/Policy.md)
-    * [ProvenanceStatement](../classes/ProvenanceStatement.md)
-    * [Resource](../classes/Resource.md)
-    * [RightsStatement](../classes/RightsStatement.md)
-    * [Role](../classes/Role.md)
-    * [Standard](../classes/Standard.md)
-    * [TimeInstant](../classes/TimeInstant.md)
-
-
-## Slots
-
-| Name | Cardinality and Range | Description | Inheritance |
-| ---  | --- | --- | --- |
-| [title](../slots/title.md) | 0..1 <br/> [String](../types/String.md) | This slot is described in more detail within the class in which it is used. | direct |
-| [description](../slots/description.md) | 0..1 <br/> [String](../types/String.md) | This slot is described in more detail within the class in which it is used. | direct |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Identifier and Mapping Information
-
-
-
-
-
-### Schema Source
-
-
-* from schema: https://w3id.org/nfdi-de/dcat-ap-plus/
-
-
-
-
-## Mappings
-
-| Mapping Type | Mapped Value |
-| ---  | ---  |
-| self | dcatapplus:SupportiveEntity |
-| native | dcatapplus:SupportiveEntity |
-
-
-
-
-
-
-## LinkML Source
-
+<h2 id="inheritance">Inheritance</h2>
+<ul>
+<li><strong>SupportiveEntity</strong><ul>
+<li><a href="../Attribution/">Attribution</a></li>
+<li><a href="../ChecksumAlgorithm/">ChecksumAlgorithm</a></li>
+<li><a href="../Concept/">Concept</a></li>
+<li><a href="../ConceptScheme/">ConceptScheme</a></li>
+<li><a href="../Document/">Document</a></li>
+<li><a href="../Frequency/">Frequency</a></li>
+<li><a href="../Geometry/">Geometry</a></li>
+<li><a href="../Identifier/">Identifier</a></li>
+<li><a href="../LegalResource/">LegalResource</a></li>
+<li><a href="../LicenseDocument/">LicenseDocument</a></li>
+<li><a href="../LinguisticSystem/">LinguisticSystem</a></li>
+<li><a href="../MediaType/">MediaType</a></li>
+<li><a href="../MediaTypeOrExtent/">MediaTypeOrExtent</a></li>
+<li><a href="../PeriodOfTime/">PeriodOfTime</a></li>
+<li><a href="../Policy/">Policy</a></li>
+<li><a href="../ProvenanceStatement/">ProvenanceStatement</a></li>
+<li><a href="../Resource/">Resource</a></li>
+<li><a href="../RightsStatement/">RightsStatement</a></li>
+<li><a href="../Role/">Role</a></li>
+<li><a href="../Standard/">Standard</a></li>
+<li><a href="../TimeInstant/">TimeInstant</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Cardinality and Range</th>
+<th>Description</th>
+<th>Inheritance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../../slots/title/">title</a></td>
+<td>0..1 <br/> <a href="../../types/String/">String</a></td>
+<td>This slot is described in more detail within the class in which it is used.</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../../slots/description/">description</a></td>
+<td>0..1 <br/> <a href="../../types/String/">String</a></td>
+<td>This slot is described in more detail within the class in which it is used.</td>
+<td>direct</td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: <a href="https://w3id.org/nfdi-de/dcat-ap-plus/">https://w3id.org/nfdi-de/dcat-ap-plus/</a></li>
+</ul>
+<h2 id="mappings">Mappings</h2>
+<table>
+<thead>
+<tr>
+<th>Mapping Type</th>
+<th>Mapped Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>dcatapplus:SupportiveEntity</td>
+</tr>
+<tr>
+<td>native</td>
+<td>dcatapplus:SupportiveEntity</td>
+</tr>
+</tbody>
+</table>
+<h2 id="linkml-source">LinkML Source</h2>
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
-
-### Direct
-
+<h3 id="direct">Direct</h3>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SupportiveEntity</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The supportive entities are supporting the main entities in the Application</span>
@@ -377,9 +434,7 @@ URI: [dcatapplus:class/SupportiveEntity](https://w3id.org/nfdi-de/dcat-ap-plus/c
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">description</span>
 </code></pre></div>
 </details>
-
-### Induced
-
+<h3 id="induced">Induced</h3>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SupportiveEntity</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The supportive entities are supporting the main entities in the Application</span>
@@ -481,7 +536,8 @@ URI: [dcatapplus:class/SupportiveEntity](https://w3id.org/nfdi-de/dcat-ap-plus/c
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TimeInstant</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
 </code></pre></div>
-</details></div>
+</details>
+</div>
 </article>
 </div>
 <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
@@ -509,8 +565,5 @@ URI: [dcatapplus:class/SupportiveEntity](https://w3id.org/nfdi-de/dcat-ap-plus/c
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
 <script id="__config" type="application/json">{"base": "../../..", "features": ["content.tabs.link", "search.highlight", "navigation.expand", "navigation.instant", "navigation.instant.progress", "navigation.tracking"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "default": ["stable"], "provider": "mike"}}</script>
 <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script type="module">import mermaid from "https://unpkg.com/mermaid@11.4.1/dist/mermaid.esm.min.mjs";
-window.mermaidConfig = {default: {
-    startOnLoad: false
-}};</script></body>
+</body>
 </html>

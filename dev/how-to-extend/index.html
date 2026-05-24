@@ -646,14 +646,14 @@
 <li><strong>Don't duplicate existing DCAT-AP classes or properties.</strong> Add new ones or specialize existing ones.</li>
 </ul>
 <h2 id="conformance-checklist-for-your-domain-profile">Conformance checklist for your domain profile</h2>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Schema imports <code>dcat-ap-plus</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> All DCAT-AP mandatory properties remain <code>required: true</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> New classes use <code>is_a</code> to extend DCAT-AP+ classes</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> New slots use <code>is_a</code> to extend DCAT-AP+ slots where a generic counterpart exists</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>class_uri</code> and <code>slot_uri</code> on new elements point to established ontology terms</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Example instance data validates with <code>linkml-validate</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> CI pipeline runs schema and data validation on every PR</li>
+<ul>
+<li>[x] Schema imports <code>dcat-ap-plus</code></li>
+<li>[x] All DCAT-AP mandatory properties remain <code>required: true</code></li>
+<li>[x] New classes use <code>is_a</code> to extend DCAT-AP+ classes</li>
+<li>[x] New slots use <code>is_a</code> to extend DCAT-AP+ slots where a generic counterpart exists</li>
+<li>[x] <code>class_uri</code> and <code>slot_uri</code> on new elements point to established ontology terms</li>
+<li>[x] Example instance data validates with <code>linkml-validate</code></li>
+<li>[x] CI pipeline runs schema and data validation on every PR</li>
 </ul>
 
 
