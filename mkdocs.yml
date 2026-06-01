@@ -80,6 +80,7 @@ nav:
   - Design Patterns: design-patterns.md
   - Extending Rules: how-to-extend.md
   - Automatic Generation: automatic-generation.md
+  - Working with Data: working-with-data.md
   - Schema: elements/overview.md
   - Versioning: versioning.md
   - Users: dcat-ap-plus-users.md
