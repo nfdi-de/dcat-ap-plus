@@ -1,7 +1,7 @@
 name: dcat-ap-linkml
 description: 'This LinkML schema representation of DCAT-AP 3.0.0 was automatically
   created from these [JSON-LD SHACL shapes](https://github.com/SEMICeu/DCAT-AP/blob/master/releases/3.0.0/shacl/dcat-ap-SHACL.jsonld)
-  using this Python script: https://github.com/StroemPhi/dcat-4C-ap/tree/main/src/dcat-ap_shacl_2_linkml.py.
+  using a Python script (https://github.com/nfdi-de/dcat-ap-plus/blob/main/src/dcat_ap_shacl_2_linkml.py).
 
   NOTE:The JSON-LD SHACL constraints published with the [July 3.0.0 GitHub release](https://github.com/SEMICeu/DCAT-AP/releases/tag/3.0.0)
   and in the [3.0.0. release branch](https://github.com/SEMICeu/DCAT-AP/tree/3.0.0)
