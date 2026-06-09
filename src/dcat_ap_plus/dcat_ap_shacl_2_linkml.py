@@ -3,9 +3,13 @@
 
 import json
 import os
+import re
+import subprocess
+from pathlib import Path
 from linkml_runtime.utils.schema_builder import SchemaBuilder
 from linkml_runtime.dumpers import YAMLDumper
 from linkml_runtime.linkml_model import SlotDefinition, TypeDefinition, ClassDefinition, EnumDefinition
+import importlib.metadata
 
 # Constants
 DESCRIPTION1 = """
@@ -90,6 +94,41 @@ RECOMMENDED_SLOTS = [{'Agent': ['type']},
                      {'Catalogue': ['homepage', 'themes', 'release_date', 'language', 'modification_date']},
                      {'DataService': ['contact_point', 'endpoint_description', 'keyword', 'theme', 'conforms_to']},
                      ]
+
+
+def ensure_synced():
+    """
+    Runs 'uv sync' to ensure the installed package metadata matches the current Git HEAD.
+    This is crucial for dynamic versioning to work correctly when generating schemas.
+    """
+    print("INFO: Ensuring environment is synced with current Git state...")
+    try:
+        # Determine project root
+        root_dir = Path(__file__).resolve().parent.parent.parent
+
+        subprocess.run(
+            ["uv", "sync"],
+            check=True,
+            cwd=root_dir,
+            stdout=subprocess.DEVNULL,  # Hide standard output to keep logs clean
+            stderr=subprocess.STDOUT  # Show errors if they happen
+        )
+        print("INFO: Environment synced successfully.")
+    except subprocess.CalledProcessError as e:
+        print(f"WARNING: 'uv sync' failed. Version metadata might be stale. Error: {e}")
+    except FileNotFoundError:
+        print("WARNING: 'uv' command not found. Please ensure uv is installed and in PATH.")
+
+
+def get_current_version():
+    try:
+        # This fetches the version calculated by uv-dynamic-versioning
+        # from the installed package metadata.
+        return importlib.metadata.version("dcat_ap_plus")
+    except importlib.metadata.PackageNotFoundError:
+        # Fallback if the user hasn't run 'uv sync' yet
+        return "0.0.0-dev"
+
 
 def get_curie(term_uri, prefixes=None):
     """
@@ -1019,16 +1058,48 @@ def build_dcatap_plus():
 
 
 def dump_schema(schema, filename=None):
+    """
+    Function to dump the schema as YAML file.
+    It inserts the version of the schema based on the dynamic version uv plugin.
+    """
     if filename:
         filepath = os.path.join('src', 'dcat_ap_plus', 'schema', filename)
-        YAMLDumper().dump(schema, filepath)
+
+        # 1. Get the live version
+        current_version = get_current_version()
+
+        # 2. Dump the schema to a string first
+        temp_yaml = YAMLDumper().dumps(schema)
+        lines = temp_yaml.splitlines()
+
+        # 3. Filter out ONLY the top-level 'version:' line.
+        # This ensures we don't have duplicates, no matter where the dumper puts it.
+        filtered_lines = []
+        for line in lines:
+            # Only remove if the line starts with 'version:' at column 0 (no indentation)
+            if re.match(r'^version:', line):
+                continue  # Skip this line (it's the top-level version we are replacing)
+            filtered_lines.append(line)
+
+        # 4. Write the file manually
+        with open(filepath, 'w') as f:
+            # Write the version line manually at the top with the comment
+            f.write(f'version: "{current_version}"  # Managed by dynamic-versioning. Don\'t change this line!\n')
+
+            # Write the rest of the schema
+            if filtered_lines:
+                f.write('\n'.join(filtered_lines))
+                f.write('\n')  # Ensure trailing newline
+
         print(f'INFO: {filename} was saved to {filepath}')
 
 
 def main():
-    # build and dump LinkML representation of DCAT-AP
+    # 1. Ensure the environment is up-to-date with Git tags/commits
+    ensure_synced()
+    # 2. Build and dump LinkML representation of DCAT-AP
     dump_schema(build_dcatap_linkml(),filename='dcat_ap_linkml.yaml')
-    # build and dump DCAT-AP-PLUS
+    # 3. Build and dump DCAT-AP-PLUS
     dump_schema(build_dcatap_plus(),filename='dcat_ap_plus.yaml')
 
 if __name__ == '__main__':
