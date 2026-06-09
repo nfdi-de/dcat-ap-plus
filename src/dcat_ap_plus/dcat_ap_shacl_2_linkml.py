@@ -142,6 +142,9 @@ def parse_dcat_ap_shacl_shapes(builder):
                                       class_uri='linkml:Any',
                                       description='This abstract class is needed to create the union of Dataset, '
                                                   'DatasetSeries, Catalogue and DataService for the range of the slot [primary_topic](https://nfdi-de.github.io/chem-dcat-ap/elements/primary_topic/).'))
+    # Add SupportiveEntity class
+    builder.add_class(ClassDefinition(name='SupportiveEntity',
+                                      description='The supportive entities are supporting the main entities in the Application Profile. They are included in the Application Profile because they form the range of properties.'))
     # Iterate through each SHACL node shape within the loaded JSON-LD to derive the LinkML classes or types from them.
     for node_shape in dcat_ap_shapes['shapes']:
         node_curie = get_curie(node_shape['sh:targetClass'])
@@ -164,8 +167,6 @@ def parse_dcat_ap_shacl_shapes(builder):
             # Add DCAT-AP Supportive Entity classes, this is done only to have an easier to read documentation.
             # 'Activity' is considered a main entity here, since we use it to extend DCAT-AP.
             if node_name not in MAIN_NODES:
-                builder.add_class(ClassDefinition(name='SupportiveEntity',
-                                                  description='The supportive entities are supporting the main entities in the Application Profile. They are included in the Application Profile because they form the range of properties.'))
                 builder.add_class(ClassDefinition(name=node_name,
                                                   class_uri=node_curie,
                                                   is_a='SupportiveEntity',
