@@ -3,7 +3,7 @@
 
 import json
 import os
-from linkml.utils.schema_builder import SchemaBuilder
+from linkml_runtime.utils.schema_builder import SchemaBuilder
 from linkml_runtime.dumpers import YAMLDumper
 from linkml_runtime.linkml_model import SlotDefinition, TypeDefinition, ClassDefinition, EnumDefinition
 
