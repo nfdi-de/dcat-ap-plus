@@ -10,18 +10,20 @@ from linkml_runtime.utils.schema_builder import SchemaBuilder
 from linkml_runtime.dumpers import YAMLDumper
 from linkml_runtime.linkml_model import SlotDefinition, TypeDefinition, ClassDefinition, EnumDefinition
 import importlib.metadata
+from ruamel.yaml import YAML
+from ruamel.yaml.scalarstring import FoldedScalarString
+from io import StringIO
 
 # Constants
 DESCRIPTION1 = """
 This LinkML schema representation of DCAT-AP 3.0.0 was automatically created from these [JSON-LD SHACL shapes](https://github.com/SEMICeu/DCAT-AP/blob/master/releases/3.0.0/shacl/dcat-ap-SHACL.jsonld) using a Python script (https://github.com/nfdi-de/dcat-ap-plus/blob/main/src/dcat_ap_shacl_2_linkml.py).
-""".replace('\n', '')
+"""
 
 NOTE = """
 The JSON-LD SHACL constraints published with the [July 3.0.0 GitHub release](https://github.com/SEMICeu/DCAT-AP/releases/tag/3.0.0) and in the [3.0.0. release branch](https://github.com/SEMICeu/DCAT-AP/tree/3.0.0) are different from the ones in https://github.com/SEMICeu/DCAT-AP/tree/master/releases/3.0.0. Also the TTL shapes provided in the latter in the HTML folder differ from the ones in the SHACL folder, in that they declare "dcat:ResourceShape/DcatResource_Shape" and "TemporalLiteralShape/DateOrDateTimeDataType_Shape"(shacl/html folder) as unions of the dcat:Dataset, dcat:Catalog, dcat:DataService and dcat:DatasetSeries respectively the datatypes xsd:date, xsd:dateTime, xsd:gYear & xsd:gYearMonth. We currently address this in the conversion script by only allowing xsd:date as a [Temporal Literal](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#TemporalLiteral), which means that this LinkML representation of DCAT-AP is stricter and values in xsd:dateTime format will automatically be typecast to xsd:date. Regarding the 'dcat:ResourceShape/DcatResource_Shape' we use the LinkML [union as ranges](https://linkml.io/linkml/schemas/advanced.html#unions-as-ranges) approach to provide the expected union of dcat:Resource subclasses. However, this is not fully implemented in LinkML yet, so that any kind of object/class could be used, until https://github.com/linkml/linkml/issues/1813 is fixed.
-""".replace('\n', '')
+"""
 
-DESCRIPTION2 = """
-This metadata schema is an axtension of the DCAT Application Profile for Providing Links to Use-case Specific Context. It allows to provide additional metadata regarding: which kind(s) of entity(s) or activity(s) were evaluated (a dcat:Dataset is about), which kind of activity generated a dcat:Dataset, which kind of instruments were used in the dataset generating activity, in which surrounding (e.g. a laboratory) and according to which plan the dataset generating activity took place, as well as regarding which kind(s) of qualitative and quantitative characteristic were attributed to the evaluated entity or evaluated activity and to the used instruments.""".replace('\n', '')
+DESCRIPTION2 = "This metadata schema is an extension of the DCAT Application Profile for Providing Links to Use-case Specific Context. It allows to provide additional metadata regarding: which kind(s) of entity(s) or activity(s) were evaluated (a dcat:Dataset is about), which kind of activity generated a dcat:Dataset, which kind of instruments were used in the dataset generating activity, in which surrounding (e.g. a laboratory) and according to which plan the dataset generating activity took place, as well as regarding which kind(s) of qualitative and quantitative characteristic were attributed to the evaluated entity or evaluated activity and to the used instruments."
 
 PREFIX_MAP = {
     'linkml': 'https://w3id.org/linkml/',
@@ -426,7 +428,7 @@ def build_dcatap_linkml():
 
     builder = SchemaBuilder(name="dcat-ap-linkml")
     builder.schema.id = 'https://w3id.org/nfdi-de/dcat-ap-linkml'
-    builder.schema.description = DESCRIPTION1 + '\nNOTE:' + NOTE
+    builder.schema.description = DESCRIPTION1 + '\nNOTE: ' + NOTE
     builder.schema.default_prefix = 'dcatap_linkml'
     builder.schema.prefixes = PREFIX_MAP
     builder.schema.prefixes['dcatap_linkml']='https://w3id.org/nfdi-de/dcat-ap-linkml/'
@@ -1059,31 +1061,54 @@ def build_dcatap_plus():
 
 def dump_schema(schema, filename=None):
     """
-    Function to dump the schema as YAML file.
-    It inserts the version of the schema based on the dynamic version uv plugin.
+    Function to dump the schema as YAML file with formatted description.
     """
     if filename:
         filepath = os.path.join('src', 'dcat_ap_plus', 'schema', filename)
-
-        # 1. Get the live version
         current_version = get_current_version()
 
-        # 2. Dump the schema to a string first
-        temp_yaml = YAMLDumper().dumps(schema)
-        lines = temp_yaml.splitlines()
+        # ==========================================================
+        # BLOCK 1: CONTENT GENERATION & FORMATTING
+        # Dump schema, apply ruamel formatting, and serialize to string
+        # ==========================================================
 
-        # 3. Filter out ONLY the top-level 'version:' line.
-        # This ensures we don't have duplicates, no matter where the dumper puts it.
+        # 1. Dump the schema to a string using standard LinkML dumper
+        temp_yaml = YAMLDumper().dumps(schema)
+
+        # 2. Load into ruamel.yaml to manipulate specific fields
+        yaml = YAML()
+        yaml.preserve_quotes = True
+        yaml.default_flow_style = False
+        yaml.width = 4096  # Prevent unwanted hard line breaks
+
+        data = yaml.load(temp_yaml)
+
+        # 3. Force 'description' to use FoldedScalarString (renders as >-)
+        if 'description' in data and isinstance(data['description'], str):
+            data['description'] = FoldedScalarString(data['description'])
+
+        # 4. Serialize back to a single string variable
+        output_stream = StringIO()
+        yaml.dump(data, output_stream)
+        final_yaml_content = output_stream.getvalue()
+
+        # ==========================================================
+        # BLOCK 2: FILE MANAGEMENT & VERSION INJECTION
+        # Filter lines and write to disk
+        # ==========================================================
+
+        # 5. Split lines and filter out the existing top-level 'version:' line
+        lines = final_yaml_content.splitlines()
         filtered_lines = []
         for line in lines:
-            # Only remove if the line starts with 'version:' at column 0 (no indentation)
+            # Only remove if the line starts with 'version:' at column 0
             if re.match(r'^version:', line):
-                continue  # Skip this line (it's the top-level version we are replacing)
+                continue
             filtered_lines.append(line)
 
-        # 4. Write the file manually
+        # 6. Write the file manually
         with open(filepath, 'w') as f:
-            # Write the version line manually at the top with the comment
+            # Write the custom version line first
             f.write(f'version: "{current_version}"  # Managed by dynamic-versioning. Don\'t change this line!\n')
 
             # Write the rest of the schema
