@@ -1,4 +1,3 @@
-id: https://w3id.org/nfdi-de/dcat-ap-linkml
 name: dcat-ap-linkml
 description: 'This LinkML schema representation of DCAT-AP 3.0.0 was automatically
   created from these [JSON-LD SHACL shapes](https://github.com/SEMICeu/DCAT-AP/blob/master/releases/3.0.0/shacl/dcat-ap-SHACL.jsonld)
@@ -29,6 +28,7 @@ todos:
 - Check if https://github.com/linkml/linkml/issues/1813 is closed and range unions
   are validatable
 source: https://semiceu.github.io/DCAT-AP/releases/3.0.0
+id: https://w3id.org/nfdi-de/dcat-ap-linkml
 imports:
 - linkml:types
 license: CC-BY 4.0
