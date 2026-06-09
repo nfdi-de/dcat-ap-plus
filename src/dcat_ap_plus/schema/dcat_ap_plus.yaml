@@ -1,5 +1,3 @@
----
-id: https://w3id.org/nfdi-de/dcat-ap-plus/
 version: "0.1.0rc4.post16.dev0+9e8f726c"  # Managed by dynamic-versioning. Don't change this line!
 name: dcat-ap-plus
 description: >-
@@ -24,11 +22,10 @@ see_also:
 - https://github.com/StroemPhi/dcat-4C-ap
 - https://github.com/HendrikBorgelt/DCAT-ap_as_LinkML_template/blob/main/src/dcatlinkml/schema/dcatlinkml.yaml
 - https://gitlab.com/opensourcelab/scientificdata/scidats/-/blob/feature/linkml-schemata/schemata/metadata_model_scidats_dcat_ap.yaml?ref_type=heads
-license: CC-BY 4.0
-
+id: https://w3id.org/nfdi-de/dcat-ap-plus
 imports:
 - linkml:types
-
+license: CC-BY 4.0
 prefixes:
   linkml: https://w3id.org/linkml/
   foaf: http://xmlns.com/foaf/0.1/
