@@ -3907,11 +3907,11 @@
             "type": "string"
         }
     },
-    "$id": "https://w3id.org/nfdi-de/dcat-ap-plus/",
+    "$id": "https://w3id.org/nfdi-de/dcat-ap-plus",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
     "metamodel_version": "1.11.0",
     "title": "dcat-ap-plus",
     "type": "object",
-    "version": "0.1.0rc4.post16.dev0+9e8f726c"
+    "version": "0.1.0rc4.post27.dev0+f56904e7"
 }

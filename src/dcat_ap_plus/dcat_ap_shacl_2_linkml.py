@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # Author: https://orcid.org/0000-0002-1595-3213 | Date: 2025-04-09
+version: "0.1.0rc4.post27.dev0+f56904e7"  # Managed by dynamic-versioning. Don't change this line!
 
 import json
 import os
