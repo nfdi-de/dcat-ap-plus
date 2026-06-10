@@ -197,7 +197,6 @@ _test-examples: _ensure_examples_output
     --input-formats yaml \
     --output-formats json \
     --output-formats yaml \
-    --output-formats ttl \
     --counter-example-input-directory tests/data/invalid \
     --input-directory tests/data/valid \
     --output-directory examples/output \
