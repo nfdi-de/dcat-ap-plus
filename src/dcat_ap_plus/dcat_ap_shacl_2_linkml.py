@@ -105,7 +105,7 @@ def ensure_synced():
         root_dir = Path(__file__).resolve().parent.parent.parent
 
         subprocess.run(
-            ["uv", "sync"],
+            ["uv", "sync", "--reinstall-package", "dcat_ap_plus"],
             check=True,
             cwd=root_dir,
             stdout=subprocess.DEVNULL,  # Hide standard output to keep logs clean
