@@ -1,19 +1,14 @@
-version: "0.1.0rc4.post37.dev0+20d3406"  # Managed by dynamic-versioning. Don't change this line!
+id: https://w3id.org/nfdi-de/dcat-ap-plus
 name: dcat-ap-plus
+title: DCAT-AP-PLUS
+version: "0.1.0rc4.post38.dev0+b32af7ec"  # Managed by dynamic-versioning. Don't change this line!
 description: >-
   This metadata schema is an extension of the DCAT Application Profile for Providing Links to Use-case Specific Context. It allows to provide additional metadata regarding: which kind(s) of entity(s) or activity(s) were evaluated (a dcat:Dataset is about), which kind of activity generated a dcat:Dataset, which kind of instruments were used in the dataset generating activity, in which surrounding (e.g. a laboratory) and according to which plan the dataset generating activity took place, as well as regarding which kind(s) of qualitative and quantitative characteristic were attributed to the evaluated entity or evaluated activity and to the used instruments.
-title: DCAT-AP-PLUS
-todos:
-- Think about how to add all the other enums and their permissible values to constrain the allowed instances of classes such as "Concept", "MediaType", etc. as defined in https://semiceu.github.io/DCAT-AP/releases/3.0.0/#controlled-vocs. Using EnumBindings (https://linkml.io/linkml-model/latest/docs/bindings/) seems best, but does not yet work.
-- Check if https://github.com/linkml/linkml/issues/1813 is closed and range unions are validatable
+license: CC-BY 4.0
 see_also:
 - https://github.com/StroemPhi/dcat-4C-ap
 - https://github.com/HendrikBorgelt/DCAT-ap_as_LinkML_template/blob/main/src/dcatlinkml/schema/dcatlinkml.yaml
 - https://gitlab.com/opensourcelab/scientificdata/scidats/-/blob/feature/linkml-schemata/schemata/metadata_model_scidats_dcat_ap.yaml?ref_type=heads
-id: https://w3id.org/nfdi-de/dcat-ap-plus
-imports:
-- linkml:types
-license: CC-BY 4.0
 prefixes:
   linkml: https://w3id.org/linkml/
   foaf: http://xmlns.com/foaf/0.1/
@@ -50,9 +45,14 @@ prefixes:
   ex: http://example.org/
 default_prefix: dcatap_plus
 default_range: string
+imports:
+- linkml:types
 subsets:
   domain_agnostic_core:
     description: The elements of this subset are considered the core layer of our DCAT-AP extension.
+todos:
+- Think about how to add all the other enums and their permissible values to constrain the allowed instances of classes such as "Concept", "MediaType", etc. as defined in https://semiceu.github.io/DCAT-AP/releases/3.0.0/#controlled-vocs. Using EnumBindings (https://linkml.io/linkml-model/latest/docs/bindings/) seems best, but does not yet work.
+- Check if https://github.com/linkml/linkml/issues/1813 is closed and range unions are validatable
 types:
   duration:
     name: duration

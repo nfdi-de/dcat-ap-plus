@@ -1,18 +1,13 @@
-version: "0.1.0rc4.post34.dev0+20e64d58"  # Managed by dynamic-versioning. Don't change this line!
+id: https://w3id.org/nfdi-de/dcat-ap-linkml
 name: dcat-ap-linkml
+title: LinkML schema representation of DCAT-AP 3.0.0
+version: "0.1.0rc4.post36.dev0+b5e290db"  # Managed by dynamic-versioning. Don't change this line!
 description: >-
   This LinkML schema representation of DCAT-AP 3.0.0 was automatically created from these [JSON-LD SHACL shapes](https://github.com/SEMICeu/DCAT-AP/blob/master/releases/3.0.0/shacl/dcat-ap-SHACL.jsonld) using a Python script (https://github.com/nfdi-de/dcat-ap-plus/blob/main/src/dcat_ap_shacl_2_linkml.py).
 
   NOTE: The JSON-LD SHACL constraints published with the [July 3.0.0 GitHub release](https://github.com/SEMICeu/DCAT-AP/releases/tag/3.0.0) and in the [3.0.0. release branch](https://github.com/SEMICeu/DCAT-AP/tree/3.0.0) are different from the ones in https://github.com/SEMICeu/DCAT-AP/tree/master/releases/3.0.0. Also the TTL shapes provided in the latter in the HTML folder differ from the ones in the SHACL folder, in that they declare 'dcat:ResourceShape/DcatResource_Shape' and 'TemporalLiteralShape/DateOrDateTimeDataType_Shape'(shacl/html folder) as unions of the dcat:Dataset, dcat:Catalog, dcat:DataService and dcat:DatasetSeries respectively the datatypes xsd:date, xsd:dateTime, xsd:gYear & xsd:gYearMonth. We currently address this in the conversion script by only allowing xsd:date as a [Temporal Literal](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#TemporalLiteral), which means that this LinkML representation of DCAT-AP is stricter and values in xsd:dateTime format will automatically be typecast to xsd:date. Regarding the 'dcat:ResourceShape/DcatResource_Shape' we use the LinkML [union as ranges](https://linkml.io/linkml/schemas/advanced.html#unions-as-ranges) approach to provide the expected union of dcat:Resource subclasses. However, this is not fully implemented in LinkML yet, so that any kind of object/class could be used, until https://github.com/linkml/linkml/issues/1813 is fixed.
-title: LinkML schema representation of DCAT-AP 3.0.0
-todos:
-- Think about how to add all the other enums and their permissible values to constrain the allowed instances of classes such as "Concept", "MediaType", etc. as defined in https://semiceu.github.io/DCAT-AP/releases/3.0.0/#controlled-vocs. Using EnumBindings (https://linkml.io/linkml-model/latest/docs/bindings/) seems best, but does not yet work.
-- Check if https://github.com/linkml/linkml/issues/1813 is closed and range unions are validatable
-source: https://semiceu.github.io/DCAT-AP/releases/3.0.0
-id: https://w3id.org/nfdi-de/dcat-ap-linkml
-imports:
-- linkml:types
 license: CC-BY 4.0
+source: https://semiceu.github.io/DCAT-AP/releases/3.0.0
 prefixes:
   linkml: https://w3id.org/linkml/
   foaf: http://xmlns.com/foaf/0.1/
@@ -40,6 +35,11 @@ prefixes:
   dcatap_linkml: https://w3id.org/nfdi-de/dcat-ap-linkml/
 default_prefix: dcatap_linkml
 default_range: string
+imports:
+- linkml:types
+todos:
+- Think about how to add all the other enums and their permissible values to constrain the allowed instances of classes such as "Concept", "MediaType", etc. as defined in https://semiceu.github.io/DCAT-AP/releases/3.0.0/#controlled-vocs. Using EnumBindings (https://linkml.io/linkml-model/latest/docs/bindings/) seems best, but does not yet work.
+- Check if https://github.com/linkml/linkml/issues/1813 is closed and range unions are validatable
 types:
   duration:
     name: duration
