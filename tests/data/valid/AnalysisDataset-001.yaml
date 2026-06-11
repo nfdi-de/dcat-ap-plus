@@ -108,7 +108,7 @@ was_generated_by: # a DataAnalysis
             carried_out_by:
               - id: https://doi.org/10.14272/UGRXAOUDHZOHPF-UHFFFAOYSA-N/CHMO0000595.1#CDCl3_13C_NMR_Spectrometer
                 rdf_type:
-                  id: OBI:0000566
+                  id: http://purl.obolibrary.org/obo/OBI_0000566
                   title: "NMR instrument"
                 title: "Bruker 400 MHz"
                 description: 'The NMR spectrometer used.'
@@ -177,7 +177,7 @@ was_generated_by: # a DataAnalysis
             carried_out_by:
               - id: https://doi.org/10.14272/UGRXAOUDHZOHPF-UHFFFAOYSA-N/CHMO0000595.1#DMSO_13C_NMR_Spectrometer
                 rdf_type:
-                  id: OBI:0000566
+                  id: http://purl.obolibrary.org/obo/OBI_0000566
                   title: "NMR instrument"
                 title: "Bruker 400 MHz"
                 description: "used spectrometer"

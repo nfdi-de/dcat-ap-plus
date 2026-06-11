@@ -31,7 +31,7 @@
                   "title": "Bruker 400 MHz",
                   "description": "The NMR spectrometer used.",
                   "rdf_type": {
-                    "id": "OBI:0000566",
+                    "id": "http://purl.obolibrary.org/obo/OBI_0000566",
                     "title": "NMR instrument"
                   }
                 },
@@ -141,7 +141,7 @@
                   "title": "Bruker 400 MHz",
                   "description": "used spectrometer",
                   "rdf_type": {
-                    "id": "OBI:0000566",
+                    "id": "http://purl.obolibrary.org/obo/OBI_0000566",
                     "title": "NMR instrument"
                   }
                 },

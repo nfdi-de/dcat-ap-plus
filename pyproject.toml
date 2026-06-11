@@ -17,6 +17,7 @@ dynamic = ["version"]
 
 dependencies = [
   "linkml-runtime >=1.11.1",
+  "ruamel-yaml>=0.19.1",
 ]
 
 [dependency-groups]
