@@ -85,7 +85,7 @@ When referencing ontology terms — for example in `rdf_type` — you should use
 
 DCAT-AP+ is designed to be compatible with DCAT-AP 3.0, but there is a current limitation in LinkML that prevents a fully correct mapping.
 
-DCAT-AP is working completly with the RDF **open-world** Assumption in mind, meaning that while the Application Profile check whether the relations, domains, ranges and cardinalities defined by the shapes must be valid, additional relations are allowed. As such, espacially the [Supportive Entities](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#supportive-entities) are open ended classes, where DCAT-AP does not define how e.g. an `Resource` must be defined. 
+DCAT-AP is working completely with the RDF **open-world** Assumption in mind, meaning that while the Application Profile check whether the relations, domains, ranges and cardinalities defined by the shapes must be valid, additional relations are allowed. As such, especially the [Supportive Entities](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#supportive-entities) are open ended classes, where DCAT-AP does not define how e.g. an `Resource` must be defined.
 
 LinklML on the other hand is mostly a closed world validation tool, which means that relations and entries not defined in the schema are not allowed in the dataset. An exeption is SHACL, where we can and have set the schema to be open, thus complying more closely with the original DCAT-AP.
 
@@ -99,7 +99,8 @@ This is a known upstream issue in LinkML. Progress is tracked in [issue #85](htt
 
 !!! warning "For experts: prefix resolution during conversion"
 
-    When `linkml-convert` encounters a CURIE, it resolves it against the prefix map embedded in the schema (`src/dcat_ap_plus/schema/dcat_ap_plus.yaml`, under `prefixes:`). The prefix map is generated from the [Bioregistry](https://bioregistry.io/) and covers ~2,000 common prefixes.
+    When `linkml-convert` encounters a CURIE, it resolves it against the prefix map embedded in the schema (`src/dcat_ap_plus/schema/dcat_ap_plus.yaml`, under `prefixes:`). The prefix map is
+    just contains the prefixes from the main schema, so some CURIEs can be resolved, while most will fail.
 
     If you need to use a CURIE from a prefix that is not in the map, you can pass additional prefix declarations on the command line:
 
