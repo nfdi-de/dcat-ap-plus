@@ -3,21 +3,22 @@
 
 import json
 import os
-from linkml.utils.schema_builder import SchemaBuilder
+import subprocess
+from pathlib import Path
+from linkml_runtime.utils.schema_builder import SchemaBuilder
 from linkml_runtime.dumpers import YAMLDumper
 from linkml_runtime.linkml_model import SlotDefinition, TypeDefinition, ClassDefinition, EnumDefinition
+import importlib.metadata
+from ruamel.yaml import YAML
+from ruamel.yaml.scalarstring import FoldedScalarString, DoubleQuotedScalarString
+from ruamel.yaml.comments import CommentedMap
 
 # Constants
-DESCRIPTION1 = """
-This LinkML schema representation of DCAT-AP 3.0.0 was automatically created from these [JSON-LD SHACL shapes](https://github.com/SEMICeu/DCAT-AP/blob/master/releases/3.0.0/shacl/dcat-ap-SHACL.jsonld) using a Python script (https://github.com/nfdi-de/dcat-ap-plus/blob/main/src/dcat_ap_shacl_2_linkml.py).
-""".replace('\n', '')
+DESCRIPTION1 = "This LinkML schema representation of DCAT-AP 3.0.0 was automatically created from these [JSON-LD SHACL shapes](https://github.com/SEMICeu/DCAT-AP/blob/master/releases/3.0.0/shacl/dcat-ap-SHACL.jsonld) using a Python script (https://github.com/nfdi-de/dcat-ap-plus/blob/main/src/dcat_ap_shacl_2_linkml.py)."
 
-NOTE = """
-The JSON-LD SHACL constraints published with the [July 3.0.0 GitHub release](https://github.com/SEMICeu/DCAT-AP/releases/tag/3.0.0) and in the [3.0.0. release branch](https://github.com/SEMICeu/DCAT-AP/tree/3.0.0) are different from the ones in https://github.com/SEMICeu/DCAT-AP/tree/master/releases/3.0.0. Also the TTL shapes provided in the latter in the HTML folder differ from the ones in the SHACL folder, in that they declare "dcat:ResourceShape/DcatResource_Shape" and "TemporalLiteralShape/DateOrDateTimeDataType_Shape"(shacl/html folder) as unions of the dcat:Dataset, dcat:Catalog, dcat:DataService and dcat:DatasetSeries respectively the datatypes xsd:date, xsd:dateTime, xsd:gYear & xsd:gYearMonth. We currently address this in the conversion script by only allowing xsd:date as a [Temporal Literal](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#TemporalLiteral), which means that this LinkML representation of DCAT-AP is stricter and values in xsd:dateTime format will automatically be typecast to xsd:date. Regarding the 'dcat:ResourceShape/DcatResource_Shape' we use the LinkML [union as ranges](https://linkml.io/linkml/schemas/advanced.html#unions-as-ranges) approach to provide the expected union of dcat:Resource subclasses. However, this is not fully implemented in LinkML yet, so that any kind of object/class could be used, until https://github.com/linkml/linkml/issues/1813 is fixed.
-""".replace('\n', '')
+NOTE = "The JSON-LD SHACL constraints published with the [July 3.0.0 GitHub release](https://github.com/SEMICeu/DCAT-AP/releases/tag/3.0.0) and in the [3.0.0. release branch](https://github.com/SEMICeu/DCAT-AP/tree/3.0.0) are different from the ones in https://github.com/SEMICeu/DCAT-AP/tree/master/releases/3.0.0. Also the TTL shapes provided in the latter in the HTML folder differ from the ones in the SHACL folder, in that they declare 'dcat:ResourceShape/DcatResource_Shape' and 'TemporalLiteralShape/DateOrDateTimeDataType_Shape'(shacl/html folder) as unions of the dcat:Dataset, dcat:Catalog, dcat:DataService and dcat:DatasetSeries respectively the datatypes xsd:date, xsd:dateTime, xsd:gYear & xsd:gYearMonth. We currently address this in the conversion script by only allowing xsd:date as a [Temporal Literal](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#TemporalLiteral), which means that this LinkML representation of DCAT-AP is stricter and values in xsd:dateTime format will automatically be typecast to xsd:date. Regarding the \'dcat:ResourceShape/DcatResource_Shape\' we use the LinkML [union as ranges](https://linkml.io/linkml/schemas/advanced.html#unions-as-ranges) approach to provide the expected union of dcat:Resource subclasses. However, this is not fully implemented in LinkML yet, so that any kind of object/class could be used, until https://github.com/linkml/linkml/issues/1813 is fixed."
 
-DESCRIPTION2 = """
-This metadata schema is an axtension of the DCAT Application Profile for Providing Links to Use-case Specific Context. It allows to provide additional metadata regarding: which kind(s) of entity(s) or activity(s) were evaluated (a dcat:Dataset is about), which kind of activity generated a dcat:Dataset, which kind of instruments were used in the dataset generating activity, in which surrounding (e.g. a laboratory) and according to which plan the dataset generating activity took place, as well as regarding which kind(s) of qualitative and quantitative characteristic were attributed to the evaluated entity or evaluated activity and to the used instruments.""".replace('\n', '')
+DESCRIPTION2 = "This metadata schema is an extension of the DCAT Application Profile for Providing Links to Use-case Specific Context. It allows to provide additional metadata regarding: which kind(s) of entity(s) or activity(s) were evaluated (a dcat:Dataset is about), which kind of activity generated a dcat:Dataset, which kind of instruments were used in the dataset generating activity, in which surrounding (e.g. a laboratory) and according to which plan the dataset generating activity took place, as well as regarding which kind(s) of qualitative and quantitative characteristic were attributed to the evaluated entity or evaluated activity and to the used instruments."
 
 PREFIX_MAP = {
     'linkml': 'https://w3id.org/linkml/',
@@ -91,6 +92,41 @@ RECOMMENDED_SLOTS = [{'Agent': ['type']},
                      {'DataService': ['contact_point', 'endpoint_description', 'keyword', 'theme', 'conforms_to']},
                      ]
 
+
+def ensure_synced():
+    """
+    Runs 'uv sync' to ensure the installed package metadata matches the current Git HEAD.
+    This is crucial for dynamic versioning to work correctly when generating schemas.
+    """
+    print("INFO: Ensuring environment is synced with current Git state...")
+    try:
+        # Determine project root
+        root_dir = Path(__file__).resolve().parent.parent.parent
+
+        subprocess.run(
+            ["uv", "sync", "--reinstall-package", "dcat_ap_plus"],
+            check=True,
+            cwd=root_dir,
+            stdout=subprocess.DEVNULL,  # Hide standard output to keep logs clean
+            stderr=subprocess.STDOUT  # Show errors if they happen
+        )
+        print("INFO: Environment synced successfully.")
+    except subprocess.CalledProcessError as e:
+        print(f"WARNING: 'uv sync' failed. Version metadata might be stale. Error: {e}")
+    except FileNotFoundError:
+        print("WARNING: 'uv' command not found. Please ensure uv is installed and in PATH.")
+
+
+def get_current_version():
+    try:
+        # This fetches the version calculated by uv-dynamic-versioning
+        # from the installed package metadata.
+        return importlib.metadata.version("dcat_ap_plus")
+    except importlib.metadata.PackageNotFoundError:
+        # Fallback if the user hasn't run 'uv sync' yet
+        return "0.0.0-dev"
+
+
 def get_curie(term_uri, prefixes=None):
     """
     Helper function to convert a term URI into a CURIE based on the known PREFIX_MAP.
@@ -120,7 +156,7 @@ def load_dcat_ap_shacl_shapes(jsonld_file='dcat_ap_shacl.jsonld'):
         - A Python object containing the loaded SHACL shapes
     TODO: Use Requests to download directly from the script, maybe with cache option.
     """
-    filepath = os.path.join('src', 'dcat_ap_plus', jsonld_file)
+    filepath = os.path.join('.', 'src', 'dcat_ap_plus', jsonld_file)
     with open(filepath, 'r') as file:
         print(f'INFO: Loaded the DCAT-AP SHACL shapes from {filepath}.')
         return json.load(file)
@@ -142,6 +178,9 @@ def parse_dcat_ap_shacl_shapes(builder):
                                       class_uri='linkml:Any',
                                       description='This abstract class is needed to create the union of Dataset, '
                                                   'DatasetSeries, Catalogue and DataService for the range of the slot [primary_topic](https://nfdi-de.github.io/chem-dcat-ap/elements/primary_topic/).'))
+    # Add SupportiveEntity class
+    builder.add_class(ClassDefinition(name='SupportiveEntity',
+                                      description='The supportive entities are supporting the main entities in the Application Profile. They are included in the Application Profile because they form the range of properties.'))
     # Iterate through each SHACL node shape within the loaded JSON-LD to derive the LinkML classes or types from them.
     for node_shape in dcat_ap_shapes['shapes']:
         node_curie = get_curie(node_shape['sh:targetClass'])
@@ -164,8 +203,6 @@ def parse_dcat_ap_shacl_shapes(builder):
             # Add DCAT-AP Supportive Entity classes, this is done only to have an easier to read documentation.
             # 'Activity' is considered a main entity here, since we use it to extend DCAT-AP.
             if node_name not in MAIN_NODES:
-                builder.add_class(ClassDefinition(name='SupportiveEntity',
-                                                  description='The supportive entities are supporting the main entities in the Application Profile. They are included in the Application Profile because they form the range of properties.'))
                 builder.add_class(ClassDefinition(name=node_name,
                                                   class_uri=node_curie,
                                                   is_a='SupportiveEntity',
@@ -386,7 +423,7 @@ def build_dcatap_linkml():
 
     builder = SchemaBuilder(name="dcat-ap-linkml")
     builder.schema.id = 'https://w3id.org/nfdi-de/dcat-ap-linkml'
-    builder.schema.description = DESCRIPTION1 + '\nNOTE:' + NOTE
+    builder.schema.description = DESCRIPTION1 + '\nNOTE: ' + NOTE
     builder.schema.default_prefix = 'dcatap_linkml'
     builder.schema.prefixes = PREFIX_MAP
     builder.schema.prefixes['dcatap_linkml']='https://w3id.org/nfdi-de/dcat-ap-linkml/'
@@ -1018,16 +1055,66 @@ def build_dcatap_plus():
 
 
 def dump_schema(schema, filename=None):
+    """
+    Function to dump the schema as YAML file with formatted description.
+    """
     if filename:
         filepath = os.path.join('src', 'dcat_ap_plus', 'schema', filename)
-        YAMLDumper().dump(schema, filepath)
+        current_version = get_current_version()
+
+        # ==========================================================
+        # BLOCK 1: CONTENT GENERATION & FORMATTING
+        # Dump schema, apply ruamel formatting, and serialize to string
+        # ==========================================================
+
+        # 1. Dump the schema to a string using standard LinkML dumper
+        temp_yaml = YAMLDumper().dumps(schema)
+
+        # 2. Load into ruamel.yaml to manipulate specific fields
+        yaml = YAML()
+        yaml.preserve_quotes = True
+        yaml.default_flow_style = False
+        yaml.width = 4096  # Prevent unwanted hard line breaks
+
+        data = yaml.load(temp_yaml)
+
+        # 3. Force 'description' to use FoldedScalarString (renders as >-)
+        if 'description' in data and isinstance(data['description'], str):
+            data['description'] = FoldedScalarString(data['description'])
+
+        # 4. Inject version as a double-quoted string
+        data['version'] = DoubleQuotedScalarString(current_version)
+
+        # 5. Reorder top-level keys to follow the canonical LinkML schema structure
+        key_order = [
+            'id', 'name', 'title', 'version', 'description', 'license',
+            'source', 'see_also', 'prefixes', 'default_prefix', 'default_range',
+            'imports', 'subsets', 'todos', 'types', 'enums', 'slots', 'classes',
+        ]
+        reordered = CommentedMap()
+        for key in key_order:
+            if key in data:
+                reordered[key] = data[key]
+        for key in data:
+            if key not in reordered:
+                reordered[key] = data[key]
+
+        # 6. Attach inline comment to the version line
+        reordered.yaml_add_eol_comment("Managed by dynamic-versioning. Don't change this line!", 'version')
+
+        # 7. Write to file
+        with open(filepath, 'w') as f:
+            yaml.dump(reordered, f)
+
         print(f'INFO: {filename} was saved to {filepath}')
 
 
 def main():
-    # build and dump LinkML representation of DCAT-AP
+    # 1. Ensure the environment is up-to-date with Git tags/commits
+    ensure_synced()
+    # 2. Build and dump LinkML representation of DCAT-AP
     dump_schema(build_dcatap_linkml(),filename='dcat_ap_linkml.yaml')
-    # build and dump DCAT-AP-PLUS
+    # 3. Build and dump DCAT-AP-PLUS
     dump_schema(build_dcatap_plus(),filename='dcat_ap_plus.yaml')
 
 if __name__ == '__main__':

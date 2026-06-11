@@ -99,9 +99,43 @@ pre-commit run -a
 
 ### Regenerate schema files from DCAT-AP SHACL shapes
 
-To regenerate the DCAT-AP LinkML representation as well as the PLUS extension run:
+#### ⚠️ Critical Rule: Never Edit the YAML Files Directly
+The files [`dcat_ap_linkml.yaml`](schema/dcat_ap_linkml.yaml) and [`dcat_ap_plus.yaml`](schema/dcat_ap_plus.yaml) are **build artifacts**, not source code.
 
-    uv run python src/dcat_ap_shacl_2_linkml.py
+_**Do not manually edit these YAML files to add classes, slots, change constraints, or edit its metadata.**_
+
+All schema changes **must** be made by modifying the Python generation script (`dcat_ap_shacl_2_linkml.py`).
+*   To change the **DCAT-AP base**: Update the logic in `parse_dcat_ap_shacl_shapes()` (e.g., to handle new SHACL shapes).
+*   To change the **DCAT-AP+ extension**: Update the logic in `build_dcatap_plus()` (e.g., adding slots to `extend_dataset()`).
+
+#### Correct Workflow for Schema Changes
+
+To ensure your changes are captured correctly and the dynamic versioning updates to the right commit hash, follow this exact sequence:
+
+1.  **Edit the Script:** Make your changes to `src/dcat_ap_plus/dcat_ap_shacl_2_linkml.py`.
+2.  **Commit the Script:**
+    ```bash
+    git add src/dcat_ap_plus/dcat_ap_shacl_2_linkml.py
+    git commit -m "feat: update generation logic for [your change]"
+    ```
+    *(This creates a new commit hash. The versioning system needs this commit to exist before it can calculate the new version.)*
+3.  **Run the Generation Script:**
+    ```bash
+    uv run python src/dcat_ap_plus/dcat_ap_shacl_2_linkml.py
+    ```
+    *   **Note:** The script automatically runs `uv sync` at the start. This ensures the installed package metadata matches your **new** commit hash, allowing the script to inject the correct version (e.g., `...+g<new_commit_hash>`) into the YAML.
+    *   This step generates/overwrites `dcat_ap_linkml.yaml` and `dcat_ap_plus.yaml`.
+4.  **Validate and Regenerate Derived Artifacts:**
+    Update the Python datamodel, documentation, and other artifacts from the newly versioned YAML:
+    ```bash
+    just gen-project _test-python _test-examples
+    # Or specific commands for docs/tests as needed
+    ```
+5.  **Commit the Generated Files:**
+    ```bash
+    git add src/dcat_ap_plus/schema/*.yaml src/dcat_ap_plus/datamodel/ project/ docs/elements/
+    git commit -m "chore: regenerate schema and artifacts with new version"
+    ```
 
 ### Test data validation and conversion
 
