@@ -3,7 +3,6 @@
 
 import json
 import os
-import re
 import subprocess
 from pathlib import Path
 from linkml_runtime.utils.schema_builder import SchemaBuilder
@@ -11,8 +10,8 @@ from linkml_runtime.dumpers import YAMLDumper
 from linkml_runtime.linkml_model import SlotDefinition, TypeDefinition, ClassDefinition, EnumDefinition
 import importlib.metadata
 from ruamel.yaml import YAML
-from ruamel.yaml.scalarstring import FoldedScalarString
-from io import StringIO
+from ruamel.yaml.scalarstring import FoldedScalarString, DoubleQuotedScalarString
+from ruamel.yaml.comments import CommentedMap
 
 # Constants
 DESCRIPTION1 = "This LinkML schema representation of DCAT-AP 3.0.0 was automatically created from these [JSON-LD SHACL shapes](https://github.com/SEMICeu/DCAT-AP/blob/master/releases/3.0.0/shacl/dcat-ap-SHACL.jsonld) using a Python script (https://github.com/nfdi-de/dcat-ap-plus/blob/main/src/dcat_ap_shacl_2_linkml.py)."
@@ -157,7 +156,7 @@ def load_dcat_ap_shacl_shapes(jsonld_file='dcat_ap_shacl.jsonld'):
         - A Python object containing the loaded SHACL shapes
     TODO: Use Requests to download directly from the script, maybe with cache option.
     """
-    filepath = os.path.join('src', 'dcat_ap_plus', jsonld_file)
+    filepath = os.path.join('.', 'src', 'dcat_ap_plus', jsonld_file)
     with open(filepath, 'r') as file:
         print(f'INFO: Loaded the DCAT-AP SHACL shapes from {filepath}.')
         return json.load(file)
@@ -1083,34 +1082,29 @@ def dump_schema(schema, filename=None):
         if 'description' in data and isinstance(data['description'], str):
             data['description'] = FoldedScalarString(data['description'])
 
-        # 4. Serialize back to a single string variable
-        output_stream = StringIO()
-        yaml.dump(data, output_stream)
-        final_yaml_content = output_stream.getvalue()
+        # 4. Inject version as a double-quoted string
+        data['version'] = DoubleQuotedScalarString(current_version)
 
-        # ==========================================================
-        # BLOCK 2: FILE MANAGEMENT & VERSION INJECTION
-        # Filter lines and write to disk
-        # ==========================================================
+        # 5. Reorder top-level keys to follow the canonical LinkML schema structure
+        key_order = [
+            'id', 'name', 'title', 'version', 'description', 'license',
+            'source', 'see_also', 'prefixes', 'default_prefix', 'default_range',
+            'imports', 'subsets', 'todos', 'types', 'enums', 'slots', 'classes',
+        ]
+        reordered = CommentedMap()
+        for key in key_order:
+            if key in data:
+                reordered[key] = data[key]
+        for key in data:
+            if key not in reordered:
+                reordered[key] = data[key]
 
-        # 5. Split lines and filter out the existing top-level 'version:' line
-        lines = final_yaml_content.splitlines()
-        filtered_lines = []
-        for line in lines:
-            # Only remove if the line starts with 'version:' at column 0
-            if re.match(r'^version:', line):
-                continue
-            filtered_lines.append(line)
+        # 6. Attach inline comment to the version line
+        reordered.yaml_add_eol_comment("Managed by dynamic-versioning. Don't change this line!", 'version')
 
-        # 6. Write the file manually
+        # 7. Write to file
         with open(filepath, 'w') as f:
-            # Write the custom version line first
-            f.write(f'version: "{current_version}"  # Managed by dynamic-versioning. Don\'t change this line!\n')
-
-            # Write the rest of the schema
-            if filtered_lines:
-                f.write('\n'.join(filtered_lines))
-                f.write('\n')  # Ensure trailing newline
+            yaml.dump(reordered, f)
 
         print(f'INFO: {filename} was saved to {filepath}')
 
