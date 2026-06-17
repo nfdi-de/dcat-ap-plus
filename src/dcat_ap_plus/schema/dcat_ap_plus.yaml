@@ -808,7 +808,6 @@ classes:
         range: Agent
         required: false
         multivalued: false
-        inlined_as_list: true
       description:
         name: description
         description: A free-text account of the Catalogue.
@@ -849,7 +848,6 @@ classes:
         required: false
         recommended: true
         multivalued: false
-        inlined_as_list: true
       language:
         name: language
         description: A language used in the textual metadata describing titles, descriptions, etc. of the Datasets in the Catalogue.
@@ -866,7 +864,6 @@ classes:
         range: LicenceDocument
         required: false
         multivalued: false
-        inlined_as_list: true
       modification_date:
         name: modification_date
         description: The most recent date on which the Catalogue was modified.
@@ -875,7 +872,6 @@ classes:
         required: false
         recommended: true
         multivalued: false
-        inlined_as_list: false
       publisher:
         name: publisher
         description: An entity (organisation) responsible for making the Catalogue available.
@@ -883,7 +879,6 @@ classes:
         range: Agent
         required: true
         multivalued: false
-        inlined_as_list: true
       record:
         name: record
         description: A Catalogue Record that is part of the Catalogue.
@@ -900,7 +895,6 @@ classes:
         required: false
         recommended: true
         multivalued: false
-        inlined_as_list: false
       rights:
         name: rights
         description: A statement that specifies rights associated with the Catalogue.
@@ -908,7 +902,6 @@ classes:
         range: RightsStatement
         required: false
         multivalued: false
-        inlined_as_list: true
       service:
         name: service
         description: A site or end-point (Data Service) that is listed in the Catalogue.
@@ -974,7 +967,6 @@ classes:
         required: false
         recommended: true
         multivalued: false
-        inlined_as_list: true
       description:
         name: description
         description: A free-text account of the record. This property can be repeated for parallel language versions of the description.
@@ -999,7 +991,6 @@ classes:
         required: false
         recommended: true
         multivalued: false
-        inlined_as_list: true
       modification_date:
         name: modification_date
         description: The most recent date on which the Catalogue entry was changed or modified.
@@ -1007,7 +998,6 @@ classes:
         range: date
         required: true
         multivalued: false
-        inlined_as_list: false
       primary_topic:
         name: primary_topic
         description: A link to the Dataset, Data service or Catalog described in the record.
@@ -1015,7 +1005,6 @@ classes:
         range: Any
         required: true
         multivalued: false
-        inlined_as_list: false
         any_of:
         - range: Catalogue
         - range: Dataset
@@ -1028,7 +1017,6 @@ classes:
         range: CatalogueRecord
         required: false
         multivalued: false
-        inlined_as_list: true
       title:
         name: title
         description: A name given to the Catalogue Record.
@@ -1052,7 +1040,6 @@ classes:
         range: ChecksumAlgorithm
         required: true
         multivalued: false
-        inlined_as_list: true
       checksum_value:
         name: checksum_value
         description: A lower case hexadecimal encoded digest value produced using a specific algorithm.
@@ -1060,7 +1047,6 @@ classes:
         range: hexBinary
         required: true
         multivalued: false
-        inlined_as_list: true
     class_uri: spdx:Checksum
   ChecksumAlgorithm:
     name: ChecksumAlgorithm
@@ -1178,7 +1164,6 @@ classes:
         range: RightsStatement
         required: false
         multivalued: false
-        inlined_as_list: true
       applicable_legislation:
         name: applicable_legislation
         description: The legislation that mandates the creation or management of the Data Service.
@@ -1270,7 +1255,6 @@ classes:
         range: LicenceDocument
         required: false
         multivalued: false
-        inlined_as_list: true
       publisher:
         name: publisher
         description: An entity (organisation) responsible for making the Data Service available.
@@ -1278,7 +1262,6 @@ classes:
         range: Agent
         required: false
         multivalued: false
-        inlined_as_list: true
       serves_dataset:
         name: serves_dataset
         description: This property refers to a collection of data that this data service can distribute.
@@ -1358,7 +1341,6 @@ classes:
         range: RightsStatement
         required: false
         multivalued: false
-        inlined_as_list: true
       applicable_legislation:
         name: applicable_legislation
         description: The legislation that mandates the creation or management of the Dataset.
@@ -1423,7 +1405,6 @@ classes:
         range: Frequency
         required: false
         multivalued: false
-        inlined_as_list: false
       geographical_coverage:
         name: geographical_coverage
         description: A geographic region that is covered by the Dataset.
@@ -1496,7 +1477,6 @@ classes:
         range: date
         required: false
         multivalued: false
-        inlined_as_list: false
       other_identifier:
         name: other_identifier
         description: A secondary identifier of the Dataset
@@ -1520,7 +1500,6 @@ classes:
         range: Agent
         required: false
         multivalued: false
-        inlined_as_list: true
       qualified_attribution:
         name: qualified_attribution
         description: An Agent having some form of responsibility for the resource.
@@ -1552,7 +1531,6 @@ classes:
         range: date
         required: false
         multivalued: false
-        inlined_as_list: false
       sample:
         name: sample
         description: A sample distribution of the dataset.
@@ -1576,7 +1554,6 @@ classes:
         range: decimal
         required: false
         multivalued: false
-        inlined_as_list: false
       temporal_coverage:
         name: temporal_coverage
         description: A temporal period that the Dataset covers.
@@ -1592,7 +1569,6 @@ classes:
         range: duration
         required: false
         multivalued: false
-        inlined_as_list: true
       theme:
         name: theme
         description: A category of the Dataset.
@@ -1625,7 +1601,6 @@ classes:
         range: string
         required: false
         multivalued: false
-        inlined_as_list: true
       version_notes:
         name: version_notes
         description: A description of the differences between this version and a previous version of the Dataset.
@@ -1691,7 +1666,6 @@ classes:
         range: Frequency
         required: false
         multivalued: false
-        inlined_as_list: false
       geographical_coverage:
         name: geographical_coverage
         description: A geographic region that is covered by the Dataset Series.
@@ -1707,7 +1681,6 @@ classes:
         range: date
         required: false
         multivalued: false
-        inlined_as_list: false
       publisher:
         name: publisher
         description: 'An entity (organisation) responsible for ensuring the coherency of the Dataset Series '
@@ -1715,7 +1688,6 @@ classes:
         range: Agent
         required: false
         multivalued: false
-        inlined_as_list: true
       release_date:
         name: release_date
         description: The date of formal issuance (e.g., publication) of the Dataset Series.
@@ -1723,7 +1695,6 @@ classes:
         range: date
         required: false
         multivalued: false
-        inlined_as_list: false
       temporal_coverage:
         name: temporal_coverage
         description: A temporal period that the Dataset Series covers.
@@ -1851,7 +1822,6 @@ classes:
         required: false
         recommended: true
         multivalued: false
-        inlined_as_list: false
       byte_size:
         name: byte_size
         description: The size of a Distribution in bytes.
@@ -1859,7 +1829,6 @@ classes:
         range: nonNegativeInteger
         required: false
         multivalued: false
-        inlined_as_list: false
       checksum:
         name: checksum
         description: A mechanism that can be used to verify that the contents of a distribution have not changed.
@@ -1867,7 +1836,6 @@ classes:
         range: Checksum
         required: false
         multivalued: false
-        inlined_as_list: true
       compression_format:
         name: compression_format
         description: The format of the file in which the data is contained in a compressed form, e.g. to reduce the size of the downloadable file.
@@ -1875,7 +1843,6 @@ classes:
         range: MediaType
         required: false
         multivalued: false
-        inlined_as_list: true
       description:
         name: description
         description: A free-text account of the Distribution.
@@ -1909,7 +1876,6 @@ classes:
         required: false
         recommended: true
         multivalued: false
-        inlined_as_list: true
       has_policy:
         name: has_policy
         description: The policy expressing the rights associated with the distribution if using the [[ODRL]] vocabulary.
@@ -1917,7 +1883,6 @@ classes:
         range: Policy
         required: false
         multivalued: false
-        inlined_as_list: true
       language:
         name: language
         description: A language used in the Distribution.
@@ -1933,7 +1898,6 @@ classes:
         range: LicenceDocument
         required: false
         multivalued: false
-        inlined_as_list: true
       linked_schemas:
         name: linked_schemas
         description: An established schema to which the described Distribution conforms.
@@ -1949,7 +1913,6 @@ classes:
         range: MediaType
         required: false
         multivalued: false
-        inlined_as_list: false
       modification_date:
         name: modification_date
         description: The most recent date on which the Distribution was changed or modified.
@@ -1957,7 +1920,6 @@ classes:
         range: date
         required: false
         multivalued: false
-        inlined_as_list: false
       packaging_format:
         name: packaging_format
         description: The format of the file in which one or more data files are grouped together, e.g. to enable a set of related files to be downloaded together.
@@ -1965,7 +1927,6 @@ classes:
         range: MediaType
         required: false
         multivalued: false
-        inlined_as_list: true
       release_date:
         name: release_date
         description: The date of formal issuance (e.g., publication) of the Distribution.
@@ -1973,7 +1934,6 @@ classes:
         range: date
         required: false
         multivalued: false
-        inlined_as_list: false
       rights:
         name: rights
         description: A statement that specifies rights associated with the Distribution.
@@ -1981,7 +1941,6 @@ classes:
         range: RightsStatement
         required: false
         multivalued: false
-        inlined_as_list: true
       spatial_resolution:
         name: spatial_resolution
         description: The minimum spatial separation resolvable in a dataset distribution, measured in meters.
@@ -1989,7 +1948,6 @@ classes:
         range: decimal
         required: false
         multivalued: false
-        inlined_as_list: false
       status:
         name: status
         description: The status of the distribution in the context of maturity lifecycle.
@@ -1997,7 +1955,6 @@ classes:
         range: Concept
         required: false
         multivalued: false
-        inlined_as_list: true
       temporal_resolution:
         name: temporal_resolution
         description: The minimum time period resolvable in the dataset distribution.
@@ -2005,7 +1962,6 @@ classes:
         range: duration
         required: false
         multivalued: false
-        inlined_as_list: true
       title:
         name: title
         description: A name given to the Distribution.
@@ -2203,7 +2159,6 @@ classes:
         required: false
         recommended: true
         multivalued: false
-        inlined_as_list: false
       centroid:
         name: centroid
         description: The geographic center (centroid) of a resource.
@@ -2212,7 +2167,6 @@ classes:
         required: false
         recommended: true
         multivalued: false
-        inlined_as_list: false
       geometry:
         name: geometry
         description: The corresponding geometry for a resource.
@@ -2220,7 +2174,6 @@ classes:
         range: Geometry
         required: false
         multivalued: false
-        inlined_as_list: false
     class_uri: dcterms:Location
   MediaType:
     name: MediaType
@@ -2257,7 +2210,6 @@ classes:
         range: TimeInstant
         required: false
         multivalued: false
-        inlined_as_list: true
       end:
         name: end
         description: The end of a period or interval.
@@ -2265,7 +2217,6 @@ classes:
         range: TimeInstant
         required: false
         multivalued: false
-        inlined_as_list: true
       end_date:
         name: end_date
         description: The end of the period.
@@ -2274,7 +2225,6 @@ classes:
         required: false
         recommended: true
         multivalued: false
-        inlined_as_list: true
       start_date:
         name: start_date
         description: The start of the period.
@@ -2283,7 +2233,6 @@ classes:
         required: false
         recommended: true
         multivalued: false
-        inlined_as_list: false
     class_uri: dcterms:PeriodOfTime
   Plan:
     name: Plan

@@ -227,9 +227,11 @@ def parse_dcat_ap_shacl_shapes(builder):
                     # Rename 'dataset' slot to 'has_dataset' to avoid clashes with Dataset class
                     slot_name = 'has_dataset' if slot_name == 'dataset' else slot_name
                     # Check cardinality constraints of a slot
-                    required = True if 'sh:minCount' in slot_shape and int(slot_shape['sh:minCount']) == 1 else False
+                    # sh:maxCount is only used in DCAT-AP for 0..1 cardinality so far and left out for 0..n or 1..n
+                    required = True if 'sh:minCount' in slot_shape and int(slot_shape['sh:minCount']) >= 1 else False
                     multivalued = False if 'sh:maxCount' in slot_shape and int(slot_shape['sh:maxCount']) == 1 else True
-                    inlined_as_list = False if not multivalued else True
+                    # Allow list inlining of objects in LinkML for multivalued slots
+                    inlined_as_list = True if multivalued is True else None
                     # Use default slot range 'string' as substitute for 'rdfs:Literal' and 'xsd:date' for
                     # https://semiceu.github.io/DCAT-AP/releases/3.0.0/#TemporalLiteral, except for
                     # https://semiceu.github.io/DCAT-AP/releases/3.0.0/#CataloguedResource, which uses linkml:Any.
@@ -278,11 +280,13 @@ def parse_dcat_ap_shacl_shapes(builder):
                     if slot_name in class_slots.keys():
                         if slot_range != 'string':
                             class_slots[slot_name].range = slot_range
-                        if not class_slots[slot_name].required:
+                        # only update the required slot, if the slot_shape contains 'sh:minCount'
+                        if required:
                             class_slots[slot_name].required = required
-                        if class_slots[slot_name].multivalued:
+                        # only update the required slot, if the slot_shape contains 'sh:maxCount'
+                        if 'sh:maxCount' in slot_shape:
                             class_slots[slot_name].multivalued = multivalued
-                        class_slots[slot_name].inlined_as_list = inlined_as_list
+                            class_slots[slot_name].inlined_as_list = inlined_as_list
 
                     # Add the class slot
                     else:
