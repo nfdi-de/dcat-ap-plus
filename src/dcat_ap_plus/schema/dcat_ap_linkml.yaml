@@ -524,7 +524,7 @@ classes:
         name: licence
         description: A licence under which the Catalogue can be used or reused.
         slot_uri: dcterms:license
-        range: LicenseDocument
+        range: LicenceDocument
         required: false
         multivalued: false
         inlined_as_list: true
@@ -877,7 +877,7 @@ classes:
         name: licence
         description: A licence under which the Data service is made available.
         slot_uri: dcterms:license
-        range: LicenseDocument
+        range: LicenceDocument
         required: false
         multivalued: false
         inlined_as_list: true
@@ -1484,7 +1484,7 @@ classes:
         name: licence
         description: A licence under which the Distribution is made available.
         slot_uri: dcterms:license
-        range: LicenseDocument
+        range: LicenceDocument
         required: false
         multivalued: false
         inlined_as_list: true
@@ -1609,10 +1609,9 @@ classes:
     description: See [DCAT-AP specs:LegalResource](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#LegalResource)
     is_a: SupportiveEntity
     class_uri: eli:LegalResource
-  LicenseDocument:
-    name: LicenseDocument
-    description: See [DCAT-AP specs:LicenseDocument](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#LicenseDocument)
-    is_a: SupportiveEntity
+  LicenceDocument:
+    name: LicenceDocument
+    description: See [DCAT-AP specs:LicenceDocument](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#LicenceDocument)
     slots:
     - type
     slot_usage:

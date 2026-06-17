@@ -74,14 +74,14 @@ MAIN_NODES = ['Agent',
               'DatasetSeries',
               'Distribution',
               'Kind',
-              'Licence Document',
+              'LicenceDocument',
               'Location',
               'Relationship',
               'Activity' ]
 
 # Manually curated dict with recommended slots for each class, as this info cannot be parsed from the used shapes.
 RECOMMENDED_SLOTS = [{'Agent': ['type']},
-                     {'LicenseDocument': ['type']},
+                     {'LicenceDocument': ['type']},
                      {'Location': ['bbox', 'centroid']},
                      {'PeriodOfTime': ['end_date', 'start_date']},
                      {'Dataset': ['contact_point','keyword', 'theme']},
@@ -192,6 +192,8 @@ def parse_dcat_ap_shacl_shapes(builder):
             node_name = 'Catalogue'
         elif node_curie == 'dcat:CatalogRecord':
             node_name = 'CatalogueRecord'
+        elif node_curie == 'dcterms:LicenseDocument':
+            node_name = 'LicenceDocument'
         else:
             node_name = node_shape['@id'].split('#')[-1].split(':')[-1].replace('Shape', '')
 
@@ -253,6 +255,8 @@ def parse_dcat_ap_shacl_shapes(builder):
                             slot_range = 'Catalogue'
                         elif get_curie(slot_shape['sh:class']) == 'time:Instant':
                             slot_range = 'TimeInstant'
+                        elif get_curie(slot_shape['sh:class']) == 'dcterms:LicenseDocument':
+                            slot_range = 'LicenceDocument'
                         else:
                             slot_range = get_curie(slot_shape['sh:class']).split(':')[-1]
                     # Assign slot range datatypes
