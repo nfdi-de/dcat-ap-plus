@@ -76,8 +76,7 @@ MAIN_NODES = ['Agent',
               'Kind',
               'LicenceDocument',
               'Location',
-              'Relationship',
-              'Activity' ]
+              'Relationship']
 
 # Manually curated dict with recommended slots for each class, as this info cannot be parsed from the used shapes.
 RECOMMENDED_SLOTS = [{'Agent': ['type']},
@@ -203,7 +202,6 @@ def parse_dcat_ap_shacl_shapes(builder):
         # Parse node shapes that are considered LinkML classes.
         if node_name not in DATATYPES + IGNORED_NODES:
             # Add DCAT-AP Supportive Entity classes, this is done only to have an easier to read documentation.
-            # 'Activity' is considered a main entity here, since we use it to extend DCAT-AP.
             if node_name not in MAIN_NODES:
                 builder.add_class(ClassDefinition(name=node_name,
                                                   class_uri=node_curie,
@@ -433,6 +431,7 @@ def build_dcatap_plus():
 
 
     def extend_activity():
+        # Add slots needed to extend Activity
         builder.add_slot(SlotDefinition(name='had_input_entity',
                                         slot_uri= 'prov:used',
                                         range= 'Entity',
@@ -470,24 +469,12 @@ def build_dcatap_plus():
                                         multivalued= True,
                                         inlined_as_list= True,
                                         in_subset='domain_agnostic_core'))
-        builder.add_slot(SlotDefinition(name='realized_plan',
-                                        slot_uri= 'prov:used',
-                                        range= 'Plan',
-                                        description= 'The slot to specify the Plan (i.e. directive information or '
-                                                     'procedure) that was realized by an Activity.',
-                                        in_subset='domain_agnostic_core'))
-        builder.add_slot(SlotDefinition(name='occurred_in',
-                                        slot_uri= 'prov:atLocation',
-                                        range= 'Surrounding',
-                                        description= 'The slot to specify the Surrounding in which an Activity '
-                                                     'took place.',
-                                        in_subset='domain_agnostic_core'))
         builder.add_slot(SlotDefinition(name='part_of',
                                         slot_uri='dcterms:isPartOf',
                                         description='A slot to specify a related resource in which the described resource is physically or logically included.',
                                         inverse='has_part',
                                         in_subset='domain_agnostic_core'))
-
+        # Extend the Activity class with these new slots
         activity = builder.schema.classes['Activity']
         activity.slots = ['id',
                           'title',
@@ -542,10 +529,15 @@ def build_dcatap_plus():
                 'notes':['not in DCAT-AP']},
             'carried_out_by':{
                 'notes':['not in DCAT-AP']}}
+        # Lift Activity from a SupportiveEntity to a main one
+        activity.is_a = None
+        # Add ClassifierMixing to allow its inheritance in subclasses of Activity
         activity.mixins = ['ClassifierMixin']
+        # Document our extension in the schema directly
         activity.in_subset=['domain_agnostic_core']
         activity.notes.append('The specified properties (slots) of this class are part of our extension of the DCAT-AP.')
 
+        # Add slots needed for DataGeneratingActivity
         builder.add_slot(SlotDefinition(name='evaluated_entity',
                                         is_a='had_input_entity',
                                         slot_uri= 'prov:used',
@@ -566,6 +558,19 @@ def build_dcatap_plus():
                                         multivalued= True,
                                         inlined_as_list= True,
                                         in_subset='domain_agnostic_core'))
+        builder.add_slot(SlotDefinition(name='realized_plan',
+                                        slot_uri='prov:used',
+                                        range='Plan',
+                                        description='The slot to specify the Plan (i.e. directive information or '
+                                                    'procedure) that was realized by an Activity.',
+                                        in_subset='domain_agnostic_core'))
+        builder.add_slot(SlotDefinition(name='occurred_in',
+                                        slot_uri='prov:atLocation',
+                                        range='Surrounding',
+                                        description='The slot to specify the Surrounding in which an Activity '
+                                                    'took place.',
+                                        in_subset='domain_agnostic_core'))
+        # Add DataGeneratingActivity class
         builder.add_class(ClassDefinition(name='DataGeneratingActivity',
                                           class_uri='prov:Activity',
                                           is_a='Activity',

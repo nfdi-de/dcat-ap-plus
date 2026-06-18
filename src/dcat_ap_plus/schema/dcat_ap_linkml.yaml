@@ -389,6 +389,7 @@ classes:
     description: See [DCAT-AP specs:Activity](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Activity)
     notes:
     - DCAT-AP does not provide any property constraints for this class.
+    is_a: SupportiveEntity
     class_uri: prov:Activity
   Agent:
     name: Agent
