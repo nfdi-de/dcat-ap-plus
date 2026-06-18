@@ -314,6 +314,9 @@ def parse_dcat_ap_shacl_shapes(builder):
                     builder.schema.classes[node_name].slots = sorted(list(class_slots.keys()))
                     builder.schema.classes[node_name].slot_usage = {key: class_slots[key] for key in
                                                                     sorted(class_slots)}
+            else:
+                builder.schema.classes[node_name].notes = [
+                    'DCAT-AP does not provide any property constraints for this class.']
         # Parse and add datatypes
         elif node_name in ['duration', 'hexBinary', 'nonNegativeInteger']:
             pattern, base, description = '', '', ''
@@ -541,7 +544,7 @@ def build_dcatap_plus():
                 'notes':['not in DCAT-AP']}}
         activity.mixins = ['ClassifierMixin']
         activity.in_subset=['domain_agnostic_core']
-        activity.notes = ['The specified properties (slots) of this class are part of our extension of the DCAT-AP.']
+        activity.notes.append('The specified properties (slots) of this class are part of our extension of the DCAT-AP.')
 
         builder.add_slot(SlotDefinition(name='evaluated_entity',
                                         is_a='had_input_entity',

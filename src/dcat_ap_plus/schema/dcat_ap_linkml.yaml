@@ -387,6 +387,8 @@ classes:
   Activity:
     name: Activity
     description: See [DCAT-AP specs:Activity](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Activity)
+    notes:
+    - DCAT-AP does not provide any property constraints for this class.
     class_uri: prov:Activity
   Agent:
     name: Agent
@@ -419,6 +421,8 @@ classes:
   Attribution:
     name: Attribution
     description: See [DCAT-AP specs:Attribution](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Attribution)
+    notes:
+    - DCAT-AP does not provide any property constraints for this class.
     is_a: SupportiveEntity
     class_uri: prov:Attribution
   Catalogue:
@@ -711,6 +715,8 @@ classes:
   ChecksumAlgorithm:
     name: ChecksumAlgorithm
     description: See [DCAT-AP specs:ChecksumAlgorithm](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#ChecksumAlgorithm)
+    notes:
+    - DCAT-AP does not provide any property constraints for this class.
     is_a: SupportiveEntity
     class_uri: spdx:ChecksumAlgorithm
   Concept:
@@ -1527,16 +1533,22 @@ classes:
   Document:
     name: Document
     description: See [DCAT-AP specs:Document](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Document)
+    notes:
+    - DCAT-AP does not provide any property constraints for this class.
     is_a: SupportiveEntity
     class_uri: foaf:Document
   Frequency:
     name: Frequency
     description: See [DCAT-AP specs:Frequency](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Frequency)
+    notes:
+    - DCAT-AP does not provide any property constraints for this class.
     is_a: SupportiveEntity
     class_uri: dcterms:Frequency
   Geometry:
     name: Geometry
     description: See [DCAT-AP specs:Geometry](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Geometry)
+    notes:
+    - DCAT-AP does not provide any property constraints for this class.
     is_a: SupportiveEntity
     class_uri: locn:Geometry
   Identifier:
@@ -1557,10 +1569,14 @@ classes:
   Kind:
     name: Kind
     description: See [DCAT-AP specs:Kind](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Kind)
+    notes:
+    - DCAT-AP does not provide any property constraints for this class.
     class_uri: vcard:Kind
   LegalResource:
     name: LegalResource
     description: See [DCAT-AP specs:LegalResource](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#LegalResource)
+    notes:
+    - DCAT-AP does not provide any property constraints for this class.
     is_a: SupportiveEntity
     class_uri: eli:LegalResource
   LicenceDocument:
@@ -1582,6 +1598,8 @@ classes:
   LinguisticSystem:
     name: LinguisticSystem
     description: See [DCAT-AP specs:LinguisticSystem](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#LinguisticSystem)
+    notes:
+    - DCAT-AP does not provide any property constraints for this class.
     is_a: SupportiveEntity
     class_uri: dcterms:LinguisticSystem
   Location:
@@ -1619,11 +1637,15 @@ classes:
   MediaType:
     name: MediaType
     description: See [DCAT-AP specs:MediaType](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#MediaType)
+    notes:
+    - DCAT-AP does not provide any property constraints for this class.
     is_a: SupportiveEntity
     class_uri: dcterms:MediaType
   MediaTypeOrExtent:
     name: MediaTypeOrExtent
     description: See [DCAT-AP specs:MediaTypeOrExtent](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#MediaTypeOrExtent)
+    notes:
+    - DCAT-AP does not provide any property constraints for this class.
     is_a: SupportiveEntity
     class_uri: dcterms:MediaTypeOrExtent
   PeriodOfTime:
@@ -1670,11 +1692,15 @@ classes:
   Policy:
     name: Policy
     description: See [DCAT-AP specs:Policy](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Policy)
+    notes:
+    - DCAT-AP does not provide any property constraints for this class.
     is_a: SupportiveEntity
     class_uri: odrl:Policy
   ProvenanceStatement:
     name: ProvenanceStatement
     description: See [DCAT-AP specs:ProvenanceStatement](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#ProvenanceStatement)
+    notes:
+    - DCAT-AP does not provide any property constraints for this class.
     is_a: SupportiveEntity
     class_uri: dcterms:ProvenanceStatement
   Relationship:
@@ -1704,21 +1730,29 @@ classes:
   Resource:
     name: Resource
     description: See [DCAT-AP specs:Resource](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Resource)
+    notes:
+    - DCAT-AP does not provide any property constraints for this class.
     is_a: SupportiveEntity
     class_uri: rdfs:Resource
   RightsStatement:
     name: RightsStatement
     description: See [DCAT-AP specs:RightsStatement](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#RightsStatement)
+    notes:
+    - DCAT-AP does not provide any property constraints for this class.
     is_a: SupportiveEntity
     class_uri: dcterms:RightsStatement
   Role:
     name: Role
     description: See [DCAT-AP specs:Role](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Role)
+    notes:
+    - DCAT-AP does not provide any property constraints for this class.
     is_a: SupportiveEntity
     class_uri: dcat:Role
   Standard:
     name: Standard
     description: See [DCAT-AP specs:Standard](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Standard)
+    notes:
+    - DCAT-AP does not provide any property constraints for this class.
     is_a: SupportiveEntity
     class_uri: dcterms:Standard
   SupportiveEntity:
@@ -1727,5 +1761,7 @@ classes:
   TimeInstant:
     name: TimeInstant
     description: See [DCAT-AP specs:TimeInstant](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#TimeInstant)
+    notes:
+    - DCAT-AP does not provide any property constraints for this class.
     is_a: SupportiveEntity
     class_uri: time:Instant

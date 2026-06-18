@@ -583,6 +583,7 @@ classes:
     name: Activity
     description: See [DCAT-AP specs:Activity](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Activity)
     notes:
+    - DCAT-AP does not provide any property constraints for this class.
     - The specified properties (slots) of this class are part of our extension of the DCAT-AP.
     in_subset:
     - domain_agnostic_core
@@ -756,6 +757,8 @@ classes:
   Attribution:
     name: Attribution
     description: See [DCAT-AP specs:Attribution](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Attribution)
+    notes:
+    - DCAT-AP does not provide any property constraints for this class.
     is_a: SupportiveEntity
     slots:
     - title
@@ -1051,6 +1054,8 @@ classes:
   ChecksumAlgorithm:
     name: ChecksumAlgorithm
     description: See [DCAT-AP specs:ChecksumAlgorithm](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#ChecksumAlgorithm)
+    notes:
+    - DCAT-AP does not provide any property constraints for this class.
     is_a: SupportiveEntity
     slots:
     - title
@@ -1974,6 +1979,8 @@ classes:
   Document:
     name: Document
     description: See [DCAT-AP specs:Document](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Document)
+    notes:
+    - DCAT-AP does not provide any property constraints for this class.
     is_a: SupportiveEntity
     slots:
     - id
@@ -2072,6 +2079,8 @@ classes:
   Frequency:
     name: Frequency
     description: See [DCAT-AP specs:Frequency](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Frequency)
+    notes:
+    - DCAT-AP does not provide any property constraints for this class.
     is_a: SupportiveEntity
     slots:
     - title
@@ -2080,6 +2089,8 @@ classes:
   Geometry:
     name: Geometry
     description: See [DCAT-AP specs:Geometry](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Geometry)
+    notes:
+    - DCAT-AP does not provide any property constraints for this class.
     is_a: SupportiveEntity
     slots:
     - title
@@ -2106,10 +2117,14 @@ classes:
   Kind:
     name: Kind
     description: See [DCAT-AP specs:Kind](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Kind)
+    notes:
+    - DCAT-AP does not provide any property constraints for this class.
     class_uri: vcard:Kind
   LegalResource:
     name: LegalResource
     description: See [DCAT-AP specs:LegalResource](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#LegalResource)
+    notes:
+    - DCAT-AP does not provide any property constraints for this class.
     is_a: SupportiveEntity
     slots:
     - id
@@ -2138,6 +2153,8 @@ classes:
   LinguisticSystem:
     name: LinguisticSystem
     description: See [DCAT-AP specs:LinguisticSystem](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#LinguisticSystem)
+    notes:
+    - DCAT-AP does not provide any property constraints for this class.
     is_a: SupportiveEntity
     slots:
     - title
@@ -2178,6 +2195,8 @@ classes:
   MediaType:
     name: MediaType
     description: See [DCAT-AP specs:MediaType](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#MediaType)
+    notes:
+    - DCAT-AP does not provide any property constraints for this class.
     is_a: SupportiveEntity
     slots:
     - title
@@ -2186,6 +2205,8 @@ classes:
   MediaTypeOrExtent:
     name: MediaTypeOrExtent
     description: See [DCAT-AP specs:MediaTypeOrExtent](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#MediaTypeOrExtent)
+    notes:
+    - DCAT-AP does not provide any property constraints for this class.
     is_a: SupportiveEntity
     slots:
     - title
@@ -2254,6 +2275,8 @@ classes:
   Policy:
     name: Policy
     description: See [DCAT-AP specs:Policy](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Policy)
+    notes:
+    - DCAT-AP does not provide any property constraints for this class.
     is_a: SupportiveEntity
     slots:
     - title
@@ -2262,6 +2285,8 @@ classes:
   ProvenanceStatement:
     name: ProvenanceStatement
     description: See [DCAT-AP specs:ProvenanceStatement](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#ProvenanceStatement)
+    notes:
+    - DCAT-AP does not provide any property constraints for this class.
     is_a: SupportiveEntity
     slots:
     - title
@@ -2351,6 +2376,8 @@ classes:
   Resource:
     name: Resource
     description: See [DCAT-AP specs:Resource](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Resource)
+    notes:
+    - DCAT-AP does not provide any property constraints for this class.
     is_a: SupportiveEntity
     slots:
     - id
@@ -2360,6 +2387,8 @@ classes:
   RightsStatement:
     name: RightsStatement
     description: See [DCAT-AP specs:RightsStatement](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#RightsStatement)
+    notes:
+    - DCAT-AP does not provide any property constraints for this class.
     is_a: SupportiveEntity
     slots:
     - title
@@ -2368,6 +2397,8 @@ classes:
   Role:
     name: Role
     description: See [DCAT-AP specs:Role](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Role)
+    notes:
+    - DCAT-AP does not provide any property constraints for this class.
     is_a: SupportiveEntity
     slots:
     - title
@@ -2400,6 +2431,8 @@ classes:
   Standard:
     name: Standard
     description: See [DCAT-AP specs:Standard](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Standard)
+    notes:
+    - DCAT-AP does not provide any property constraints for this class.
     is_a: SupportiveEntity
     slots:
     - title
@@ -2425,6 +2458,8 @@ classes:
   TimeInstant:
     name: TimeInstant
     description: See [DCAT-AP specs:TimeInstant](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#TimeInstant)
+    notes:
+    - DCAT-AP does not provide any property constraints for this class.
     is_a: SupportiveEntity
     slots:
     - title
