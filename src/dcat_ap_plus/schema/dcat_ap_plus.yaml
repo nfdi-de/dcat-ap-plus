@@ -1,7 +1,7 @@
 id: https://w3id.org/nfdi-de/dcat-ap-plus
 name: dcat-ap-plus
 title: DCAT-AP-PLUS
-version: "0.1.0rc4.post36.dev0+b5e290db"  # Managed by dynamic-versioning. Don't change this line!
+version: "0.1.0rc4.post29.dev0+7adacec9"  # Managed by dynamic-versioning. Don't change this line!
 description: >-
   This metadata schema is an extension of the DCAT Application Profile for Providing Links to Use-case Specific Context. It allows to provide additional metadata regarding: which kind(s) of entity(s) or activity(s) were evaluated (a dcat:Dataset is about), which kind of activity generated a dcat:Dataset, which kind of instruments were used in the dataset generating activity, in which surrounding (e.g. a laboratory) and according to which plan the dataset generating activity took place, as well as regarding which kind(s) of qualitative and quantitative characteristic were attributed to the evaluated entity or evaluated activity and to the used instruments.
 license: CC-BY 4.0
@@ -24,6 +24,7 @@ prefixes:
   vcard: http://www.w3.org/2006/vcard/ns#
   adms: http://www.w3.org/ns/adms#
   dcatap: http://data.europa.eu/r5r/
+  locn_new: http://data.europa.eu/m8g/
   qb: http://purl.org/linked-data/cube#
   rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
   rdfs: http://www.w3.org/2000/01/rdf-schema#
@@ -661,7 +662,13 @@ classes:
     slots:
     - name
     - type
+    - rdf_type
+    - identifier
+    - other_identifier
     slot_usage:
+      rdf_type:
+        name: rdf_type
+        description: The slot to provide an additional rdf:type for the Agent. According to DCAT-AP that should be foaf:Person for individuals or, for organizations it should be foaf:Organization or org:Organization.
       name:
         name: name
         description: A name of the agent.
@@ -678,6 +685,18 @@ classes:
         required: false
         recommended: true
         multivalued: false
+      identifier:
+        name: identifier
+        description: The slot to provide the main identifier for an instance of this class.
+        range: uriorcurie
+        recommended: true
+        multivalued: false
+      other_identifier:
+        name: other_identifier
+        description: The slot to provide all known identifiers for an instance of this class.
+        range: Identifier
+        recommended: true
+        multivalued: true
         inlined_as_list: true
     class_uri: foaf:Agent
   AgenticEntity:
@@ -750,19 +769,39 @@ classes:
   Any:
     name: Any
     description: This abstract class is needed to create the union of Dataset, DatasetSeries, Catalogue and DataService for the range of the slot [primary_topic](https://nfdi-de.github.io/chem-dcat-ap/elements/primary_topic/).
-    slots:
-    - title
-    - description
     class_uri: linkml:Any
   Attribution:
     name: Attribution
     description: See [DCAT-AP specs:Attribution](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Attribution)
     notes:
     - DCAT-AP does not provide any property constraints for this class.
+    - 'The specified slots of this class are part of our extension of the DCAT-AP. They are needed to allow what we consider a useful instantiation of these classes in the Python/Pydantic representations of DCAT-AP+. See also: https://github.com/nfdi-de/dcat-ap-plus/issues/40.'
     is_a: SupportiveEntity
     slots:
     - title
     - description
+    slot_usage:
+      title:
+        name: title
+        description: The slot to provide a title for an instance of this class.
+        range: string
+        multivalued: true
+        inlined_as_list: true
+      description:
+        name: description
+        description: The slot to provide a description for an instance of this class.
+        range: string
+        multivalued: true
+        inlined_as_list: true
+    attributes:
+    - name: agent
+      description: The slot to reference an Agent that is having some form of responsibility for a Dataset.
+      notes:
+      - not in DCAT-AP
+      slot_uri: prov:agent
+      range: Agent
+      multivalued: true
+      inlined_as_list: true
     class_uri: prov:Attribution
   Catalogue:
     name: Catalogue
@@ -787,6 +826,9 @@ classes:
     - temporal_coverage
     - themes
     - title
+    - id
+    - identifier
+    - other_identifier
     slot_usage:
       applicable_legislation:
         name: applicable_legislation
@@ -938,6 +980,19 @@ classes:
         required: true
         multivalued: true
         inlined_as_list: true
+      identifier:
+        name: identifier
+        description: The slot to provide the main identifier for an instance of this class.
+        range: uriorcurie
+        recommended: true
+        multivalued: false
+      other_identifier:
+        name: other_identifier
+        description: The slot to provide all known identifiers for an instance of this class.
+        range: Identifier
+        recommended: true
+        multivalued: true
+        inlined_as_list: true
     class_uri: dcat:Catalog
   CatalogueRecord:
     name: CatalogueRecord
@@ -952,6 +1007,9 @@ classes:
     - primary_topic
     - source_metadata
     - title
+    - id
+    - identifier
+    - other_identifier
     slot_usage:
       application_profile:
         name: application_profile
@@ -1028,6 +1086,19 @@ classes:
         required: false
         multivalued: true
         inlined_as_list: true
+      identifier:
+        name: identifier
+        description: The slot to provide the main identifier for an instance of this class.
+        range: uriorcurie
+        recommended: true
+        multivalued: false
+      other_identifier:
+        name: other_identifier
+        description: The slot to provide all known identifiers for an instance of this class.
+        range: Identifier
+        recommended: true
+        multivalued: true
+        inlined_as_list: true
     class_uri: dcat:CatalogRecord
   Checksum:
     name: Checksum
@@ -1056,10 +1127,39 @@ classes:
     description: See [DCAT-AP specs:ChecksumAlgorithm](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#ChecksumAlgorithm)
     notes:
     - DCAT-AP does not provide any property constraints for this class.
+    - 'The specified slots of this class are part of our extension of the DCAT-AP. They are needed to allow what we consider a useful instantiation of these classes in the Python/Pydantic representations of DCAT-AP+. See also: https://github.com/nfdi-de/dcat-ap-plus/issues/40.'
     is_a: SupportiveEntity
     slots:
+    - identifier
+    - other_identifier
     - title
     - description
+    slot_usage:
+      identifier:
+        name: identifier
+        description: The slot to provide the main identifier for an instance of this class.
+        range: uriorcurie
+        recommended: true
+        multivalued: false
+      other_identifier:
+        name: other_identifier
+        description: The slot to provide all known identifiers for an instance of this class.
+        range: Identifier
+        recommended: true
+        multivalued: true
+        inlined_as_list: true
+      title:
+        name: title
+        description: The slot to provide a title for an instance of this class.
+        range: string
+        multivalued: true
+        inlined_as_list: true
+      description:
+        name: description
+        description: The slot to provide a description for an instance of this class.
+        range: string
+        multivalued: true
+        inlined_as_list: true
     class_uri: spdx:ChecksumAlgorithm
   ClassifierMixin:
     name: ClassifierMixin
@@ -1082,6 +1182,8 @@ classes:
     is_a: SupportiveEntity
     slots:
     - preferred_label
+    - identifier
+    - other_identifier
     - title
     - description
     slot_usage:
@@ -1093,6 +1195,31 @@ classes:
         required: true
         multivalued: true
         inlined_as_list: true
+      identifier:
+        name: identifier
+        description: The slot to provide the main identifier for an instance of this class.
+        range: uriorcurie
+        recommended: true
+        multivalued: false
+      other_identifier:
+        name: other_identifier
+        description: The slot to provide all known identifiers for an instance of this class.
+        range: Identifier
+        recommended: true
+        multivalued: true
+        inlined_as_list: true
+      title:
+        name: title
+        description: The slot to provide a title for an instance of this class.
+        range: string
+        multivalued: true
+        inlined_as_list: true
+      description:
+        name: description
+        description: The slot to provide a description for an instance of this class.
+        range: string
+        multivalued: true
+        inlined_as_list: true
     class_uri: skos:Concept
   ConceptScheme:
     name: ConceptScheme
@@ -1101,6 +1228,8 @@ classes:
     slots:
     - title
     - description
+    - identifier
+    - other_identifier
     slot_usage:
       title:
         name: title
@@ -1108,6 +1237,25 @@ classes:
         slot_uri: dcterms:title
         range: string
         required: true
+        multivalued: true
+        inlined_as_list: true
+      description:
+        name: description
+        description: The slot to provide a description for an instance of this class.
+        range: string
+        multivalued: true
+        inlined_as_list: true
+      identifier:
+        name: identifier
+        description: The slot to provide the main identifier for an instance of this class.
+        range: uriorcurie
+        recommended: true
+        multivalued: false
+      other_identifier:
+        name: other_identifier
+        description: The slot to provide all known identifiers for an instance of this class.
+        range: Identifier
+        recommended: true
         multivalued: true
         inlined_as_list: true
     class_uri: skos:ConceptScheme
@@ -1161,6 +1309,9 @@ classes:
     - serves_dataset
     - theme
     - title
+    - id
+    - identifier
+    - other_identifier
     slot_usage:
       access_rights:
         name: access_rights
@@ -1290,6 +1441,19 @@ classes:
         slot_uri: dcterms:title
         range: string
         required: true
+        multivalued: true
+        inlined_as_list: true
+      identifier:
+        name: identifier
+        description: The slot to provide the main identifier for an instance of this class.
+        range: uriorcurie
+        recommended: true
+        multivalued: false
+      other_identifier:
+        name: other_identifier
+        description: The slot to provide all known identifiers for an instance of this class.
+        range: Identifier
+        recommended: true
         multivalued: true
         inlined_as_list: true
     class_uri: dcat:DataService
@@ -1639,6 +1803,9 @@ classes:
     - release_date
     - temporal_coverage
     - title
+    - id
+    - identifier
+    - other_identifier
     slot_usage:
       applicable_legislation:
         name: applicable_legislation
@@ -1714,6 +1881,19 @@ classes:
         slot_uri: dcterms:title
         range: string
         required: true
+        multivalued: true
+        inlined_as_list: true
+      identifier:
+        name: identifier
+        description: The slot to provide the main identifier for an instance of this class.
+        range: uriorcurie
+        recommended: true
+        multivalued: false
+      other_identifier:
+        name: other_identifier
+        description: The slot to provide all known identifiers for an instance of this class.
+        range: Identifier
+        recommended: true
         multivalued: true
         inlined_as_list: true
     class_uri: dcat:DatasetSeries
@@ -1794,6 +1974,9 @@ classes:
     - status
     - temporal_resolution
     - title
+    - id
+    - identifier
+    - other_identifier
     slot_usage:
       access_URL:
         name: access_URL
@@ -1975,17 +2158,58 @@ classes:
         required: false
         multivalued: true
         inlined_as_list: true
+      identifier:
+        name: identifier
+        description: The slot to provide the main identifier for an instance of this class.
+        range: uriorcurie
+        recommended: true
+        multivalued: false
+      other_identifier:
+        name: other_identifier
+        description: The slot to provide all known identifiers for an instance of this class.
+        range: Identifier
+        recommended: true
+        multivalued: true
+        inlined_as_list: true
     class_uri: dcat:Distribution
   Document:
     name: Document
     description: See [DCAT-AP specs:Document](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Document)
     notes:
     - DCAT-AP does not provide any property constraints for this class.
+    - 'The specified slots of this class are part of our extension of the DCAT-AP. They are needed to allow what we consider a useful instantiation of these classes in the Python/Pydantic representations of DCAT-AP+. See also: https://github.com/nfdi-de/dcat-ap-plus/issues/40.'
     is_a: SupportiveEntity
     slots:
-    - id
+    - identifier
+    - other_identifier
     - title
     - description
+    slot_usage:
+      identifier:
+        name: identifier
+        description: The slot to provide the main identifier for an instance of this class.
+        range: uriorcurie
+        recommended: true
+        multivalued: false
+      other_identifier:
+        name: other_identifier
+        description: The slot to provide all known identifiers for an instance of this class.
+        range: Identifier
+        recommended: true
+        multivalued: true
+        inlined_as_list: true
+      title:
+        name: title
+        description: The slot to provide a title for an instance of this class.
+        range: string
+        multivalued: true
+        inlined_as_list: true
+      description:
+        name: description
+        description: The slot to provide a description for an instance of this class.
+        range: string
+        multivalued: true
+        inlined_as_list: true
     class_uri: foaf:Document
   Entity:
     name: Entity
@@ -2081,20 +2305,72 @@ classes:
     description: See [DCAT-AP specs:Frequency](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Frequency)
     notes:
     - DCAT-AP does not provide any property constraints for this class.
+    - 'The specified slots of this class are part of our extension of the DCAT-AP. They are needed to allow what we consider a useful instantiation of these classes in the Python/Pydantic representations of DCAT-AP+. See also: https://github.com/nfdi-de/dcat-ap-plus/issues/40.'
     is_a: SupportiveEntity
     slots:
+    - identifier
+    - other_identifier
     - title
     - description
+    slot_usage:
+      identifier:
+        name: identifier
+        description: The slot to provide the main identifier for an instance of this class.
+        range: uriorcurie
+        recommended: true
+        multivalued: false
+      other_identifier:
+        name: other_identifier
+        description: The slot to provide all known identifiers for an instance of this class.
+        range: Identifier
+        recommended: true
+        multivalued: true
+        inlined_as_list: true
+      title:
+        name: title
+        description: The slot to provide a title for an instance of this class.
+        range: string
+        multivalued: true
+        inlined_as_list: true
+      description:
+        name: description
+        description: The slot to provide a description for an instance of this class.
+        range: string
+        multivalued: true
+        inlined_as_list: true
     class_uri: dcterms:Frequency
   Geometry:
     name: Geometry
     description: See [DCAT-AP specs:Geometry](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Geometry)
     notes:
     - DCAT-AP does not provide any property constraints for this class.
+    - 'The specified slots of this class are part of our extension of the DCAT-AP. They are needed to allow what we consider a useful instantiation of these classes in the Python/Pydantic representations of DCAT-AP+. See also: https://github.com/nfdi-de/dcat-ap-plus/issues/40.'
     is_a: SupportiveEntity
-    slots:
-    - title
-    - description
+    attributes:
+      longitude:
+        slot_uri: locn_new:longitude
+        description: The geographic coordinate that specifies the east / west position of the Geometry on the Earth's surface.
+        range: string
+      latitude:
+        slot_uri: locn_new:latitude
+        description: The geographic coordinate that specifies the north / south position of the geometry on the Earth's surface.
+        range: string
+      wkt:
+        slot_uri: locn_new:wkt
+        description: An expression of the Geometry in WKT, the Well-Known Text markup language.
+        range: string
+      gml:
+        slot_uri: locn_new:gml
+        description: The expression of the Geometry in Geography Markup Language.
+        range: string
+      crs:
+        slot_uri: locn_new:crs
+        description: An identifier for the coordinate reference system.
+        range: uriorcurie
+      coordinates:
+        slot_uri: locn_new:coordinates
+        description: A list of geographic coordinates that define the extent of the Geometry.
+        range: string
     class_uri: locn:Geometry
   Identifier:
     name: Identifier
@@ -2112,31 +2388,100 @@ classes:
         range: string
         required: true
         multivalued: false
-        inlined_as_list: false
+      title:
+        name: title
+        description: The slot to provide a title for an instance of this class.
+        range: string
+        multivalued: true
+        inlined_as_list: true
+      description:
+        name: description
+        description: The slot to provide a description for an instance of this class.
+        range: string
+        multivalued: true
+        inlined_as_list: true
     class_uri: adms:Identifier
   Kind:
     name: Kind
     description: See [DCAT-AP specs:Kind](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Kind)
     notes:
     - DCAT-AP does not provide any property constraints for this class.
+    - 'The specified slots of this class are part of our extension of the DCAT-AP. They are needed to allow what we consider a useful instantiation of these classes in the Python/Pydantic representations of DCAT-AP+. See also: https://github.com/nfdi-de/dcat-ap-plus/issues/40.'
+    attributes:
+    - name: formatted_name
+      description: The slot to provide a the name of the contact point as a string.
+      notes:
+      - not in DCAT-AP
+      slot_uri: vcard:fn
+      range: string
+      required: true
+      multivalued: true
+      inlined_as_list: true
+    - name: has_email
+      description: The slot to specify the email address of the contact point as a literal string
+      notes:
+      - not in DCAT-AP
+      slot_uri: vcard:hasEmail
+      range: string
+      multivalued: true
+      inlined_as_list: true
+      pattern: ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$
+    - name: has_telephone
+      description: The slot to specify the telephone number of the contact point as a literal string.
+      notes:
+      - not in DCAT-AP
+      slot_uri: vcard:hasTelephone
+      range: string
+      multivalued: true
+      inlined_as_list: true
+      pattern: ^\+?[0-9\s\-\(\)\.]{6,20}$
     class_uri: vcard:Kind
   LegalResource:
     name: LegalResource
     description: See [DCAT-AP specs:LegalResource](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#LegalResource)
     notes:
     - DCAT-AP does not provide any property constraints for this class.
+    - 'The specified slots of this class are part of our extension of the DCAT-AP. They are needed to allow what we consider a useful instantiation of these classes in the Python/Pydantic representations of DCAT-AP+. See also: https://github.com/nfdi-de/dcat-ap-plus/issues/40.'
     is_a: SupportiveEntity
     slots:
-    - id
+    - identifier
+    - other_identifier
     - title
     - description
+    slot_usage:
+      identifier:
+        name: identifier
+        description: The slot to provide the main identifier for an instance of this class.
+        range: uriorcurie
+        recommended: true
+        multivalued: false
+      other_identifier:
+        name: other_identifier
+        description: The slot to provide all known identifiers for an instance of this class.
+        range: Identifier
+        recommended: true
+        multivalued: true
+        inlined_as_list: true
+      title:
+        name: title
+        description: The slot to provide a title for an instance of this class.
+        range: string
+        multivalued: true
+        inlined_as_list: true
+      description:
+        name: description
+        description: The slot to provide a description for an instance of this class.
+        range: string
+        multivalued: true
+        inlined_as_list: true
     class_uri: eli:LegalResource
   LicenceDocument:
     name: LicenceDocument
     description: See [DCAT-AP specs:LicenceDocument](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#LicenceDocument)
     slots:
     - type
-    - id
+    - identifier
+    - other_identifier
     - title
     - description
     slot_usage:
@@ -2149,16 +2494,70 @@ classes:
         recommended: true
         multivalued: true
         inlined_as_list: true
+      identifier:
+        name: identifier
+        description: The slot to provide the main identifier for an instance of this class.
+        range: uriorcurie
+        recommended: true
+        multivalued: false
+      other_identifier:
+        name: other_identifier
+        description: The slot to provide all known identifiers for an instance of this class.
+        range: Identifier
+        recommended: true
+        multivalued: true
+        inlined_as_list: true
+      title:
+        name: title
+        description: The slot to provide a title for an instance of this class.
+        range: string
+        multivalued: true
+        inlined_as_list: true
+      description:
+        name: description
+        description: The slot to provide a description for an instance of this class.
+        range: string
+        multivalued: true
+        inlined_as_list: true
     class_uri: dcterms:LicenseDocument
   LinguisticSystem:
     name: LinguisticSystem
     description: See [DCAT-AP specs:LinguisticSystem](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#LinguisticSystem)
     notes:
     - DCAT-AP does not provide any property constraints for this class.
+    - 'The specified slots of this class are part of our extension of the DCAT-AP. They are needed to allow what we consider a useful instantiation of these classes in the Python/Pydantic representations of DCAT-AP+. See also: https://github.com/nfdi-de/dcat-ap-plus/issues/40.'
     is_a: SupportiveEntity
     slots:
+    - identifier
+    - other_identifier
     - title
     - description
+    slot_usage:
+      identifier:
+        name: identifier
+        description: The slot to provide the main identifier for an instance of this class.
+        range: uriorcurie
+        recommended: true
+        multivalued: false
+      other_identifier:
+        name: other_identifier
+        description: The slot to provide all known identifiers for an instance of this class.
+        range: Identifier
+        recommended: true
+        multivalued: true
+        inlined_as_list: true
+      title:
+        name: title
+        description: The slot to provide a title for an instance of this class.
+        range: string
+        multivalued: true
+        inlined_as_list: true
+      description:
+        name: description
+        description: The slot to provide a description for an instance of this class.
+        range: string
+        multivalued: true
+        inlined_as_list: true
     class_uri: dcterms:LinguisticSystem
   Location:
     name: Location
@@ -2167,6 +2566,10 @@ classes:
     - bbox
     - centroid
     - geometry
+    - identifier
+    - other_identifier
+    - title
+    - description
     slot_usage:
       bbox:
         name: bbox
@@ -2191,26 +2594,109 @@ classes:
         range: Geometry
         required: false
         multivalued: false
+      identifier:
+        name: identifier
+        description: The slot to provide the main identifier for an instance of this class.
+        range: uriorcurie
+        recommended: true
+        multivalued: false
+      other_identifier:
+        name: other_identifier
+        description: The slot to provide all known identifiers for an instance of this class.
+        range: Identifier
+        recommended: true
+        multivalued: true
+        inlined_as_list: true
+      title:
+        name: title
+        description: The slot to provide a title for an instance of this class.
+        range: string
+        multivalued: true
+        inlined_as_list: true
+      description:
+        name: description
+        description: The slot to provide a description for an instance of this class.
+        range: string
+        multivalued: true
+        inlined_as_list: true
     class_uri: dcterms:Location
   MediaType:
     name: MediaType
     description: See [DCAT-AP specs:MediaType](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#MediaType)
     notes:
     - DCAT-AP does not provide any property constraints for this class.
+    - 'The specified slots of this class are part of our extension of the DCAT-AP. They are needed to allow what we consider a useful instantiation of these classes in the Python/Pydantic representations of DCAT-AP+. See also: https://github.com/nfdi-de/dcat-ap-plus/issues/40.'
     is_a: SupportiveEntity
     slots:
+    - identifier
+    - other_identifier
     - title
     - description
+    slot_usage:
+      identifier:
+        name: identifier
+        description: The slot to provide the main identifier for an instance of this class.
+        range: uriorcurie
+        recommended: true
+        multivalued: false
+      other_identifier:
+        name: other_identifier
+        description: The slot to provide all known identifiers for an instance of this class.
+        range: Identifier
+        recommended: true
+        multivalued: true
+        inlined_as_list: true
+      title:
+        name: title
+        description: The slot to provide a title for an instance of this class.
+        range: string
+        multivalued: true
+        inlined_as_list: true
+      description:
+        name: description
+        description: The slot to provide a description for an instance of this class.
+        range: string
+        multivalued: true
+        inlined_as_list: true
     class_uri: dcterms:MediaType
   MediaTypeOrExtent:
     name: MediaTypeOrExtent
     description: See [DCAT-AP specs:MediaTypeOrExtent](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#MediaTypeOrExtent)
     notes:
     - DCAT-AP does not provide any property constraints for this class.
+    - 'The specified slots of this class are part of our extension of the DCAT-AP. They are needed to allow what we consider a useful instantiation of these classes in the Python/Pydantic representations of DCAT-AP+. See also: https://github.com/nfdi-de/dcat-ap-plus/issues/40.'
     is_a: SupportiveEntity
     slots:
+    - identifier
+    - other_identifier
     - title
     - description
+    slot_usage:
+      identifier:
+        name: identifier
+        description: The slot to provide the main identifier for an instance of this class.
+        range: uriorcurie
+        recommended: true
+        multivalued: false
+      other_identifier:
+        name: other_identifier
+        description: The slot to provide all known identifiers for an instance of this class.
+        range: Identifier
+        recommended: true
+        multivalued: true
+        inlined_as_list: true
+      title:
+        name: title
+        description: The slot to provide a title for an instance of this class.
+        range: string
+        multivalued: true
+        inlined_as_list: true
+      description:
+        name: description
+        description: The slot to provide a description for an instance of this class.
+        range: string
+        multivalued: true
+        inlined_as_list: true
     class_uri: dcterms:MediaTypeOrExtent
   PeriodOfTime:
     name: PeriodOfTime
@@ -2221,8 +2707,6 @@ classes:
     - end
     - end_date
     - start_date
-    - title
-    - description
     slot_usage:
       beginning:
         name: beginning
@@ -2277,20 +2761,78 @@ classes:
     description: See [DCAT-AP specs:Policy](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Policy)
     notes:
     - DCAT-AP does not provide any property constraints for this class.
+    - 'The specified slots of this class are part of our extension of the DCAT-AP. They are needed to allow what we consider a useful instantiation of these classes in the Python/Pydantic representations of DCAT-AP+. See also: https://github.com/nfdi-de/dcat-ap-plus/issues/40.'
     is_a: SupportiveEntity
     slots:
+    - identifier
+    - other_identifier
     - title
     - description
+    slot_usage:
+      identifier:
+        name: identifier
+        description: The slot to provide the main identifier for an instance of this class.
+        range: uriorcurie
+        recommended: true
+        multivalued: false
+      other_identifier:
+        name: other_identifier
+        description: The slot to provide all known identifiers for an instance of this class.
+        range: Identifier
+        recommended: true
+        multivalued: true
+        inlined_as_list: true
+      title:
+        name: title
+        description: The slot to provide a title for an instance of this class.
+        range: string
+        multivalued: true
+        inlined_as_list: true
+      description:
+        name: description
+        description: The slot to provide a description for an instance of this class.
+        range: string
+        multivalued: true
+        inlined_as_list: true
     class_uri: odrl:Policy
   ProvenanceStatement:
     name: ProvenanceStatement
     description: See [DCAT-AP specs:ProvenanceStatement](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#ProvenanceStatement)
     notes:
     - DCAT-AP does not provide any property constraints for this class.
+    - 'The specified slots of this class are part of our extension of the DCAT-AP. They are needed to allow what we consider a useful instantiation of these classes in the Python/Pydantic representations of DCAT-AP+. See also: https://github.com/nfdi-de/dcat-ap-plus/issues/40.'
     is_a: SupportiveEntity
     slots:
+    - identifier
+    - other_identifier
     - title
     - description
+    slot_usage:
+      identifier:
+        name: identifier
+        description: The slot to provide the main identifier for an instance of this class.
+        range: uriorcurie
+        recommended: true
+        multivalued: false
+      other_identifier:
+        name: other_identifier
+        description: The slot to provide all known identifiers for an instance of this class.
+        range: Identifier
+        recommended: true
+        multivalued: true
+        inlined_as_list: true
+      title:
+        name: title
+        description: The slot to provide a title for an instance of this class.
+        range: string
+        multivalued: true
+        inlined_as_list: true
+      description:
+        name: description
+        description: The slot to provide a description for an instance of this class.
+        range: string
+        multivalued: true
+        inlined_as_list: true
     class_uri: dcterms:ProvenanceStatement
   QualitativeAttribute:
     name: QualitativeAttribute
@@ -2355,6 +2897,8 @@ classes:
     slots:
     - had_role
     - relation
+    - title
+    - description
     slot_usage:
       had_role:
         name: had_role
@@ -2372,37 +2916,121 @@ classes:
         required: true
         multivalued: true
         inlined_as_list: true
+      title:
+        name: title
+        description: The slot to provide a title for an instance of this class.
+        range: string
+        multivalued: true
+        inlined_as_list: true
+      description:
+        name: description
+        description: The slot to provide a description for an instance of this class.
+        range: string
+        multivalued: true
+        inlined_as_list: true
     class_uri: dcat:Relationship
   Resource:
     name: Resource
     description: See [DCAT-AP specs:Resource](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Resource)
     notes:
     - DCAT-AP does not provide any property constraints for this class.
+    - 'The specified slots of this class are part of our extension of the DCAT-AP. They are needed to allow what we consider a useful instantiation of these classes in the Python/Pydantic representations of DCAT-AP+. See also: https://github.com/nfdi-de/dcat-ap-plus/issues/40.'
     is_a: SupportiveEntity
     slots:
     - id
+    - identifier
+    - other_identifier
     - title
     - description
+    slot_usage:
+      identifier:
+        name: identifier
+        description: The slot to provide the main identifier for an instance of this class.
+        range: uriorcurie
+        recommended: true
+        multivalued: false
+      other_identifier:
+        name: other_identifier
+        description: The slot to provide all known identifiers for an instance of this class.
+        range: Identifier
+        recommended: true
+        multivalued: true
+        inlined_as_list: true
+      title:
+        name: title
+        description: The slot to provide a title for an instance of this class.
+        range: string
+        multivalued: true
+        inlined_as_list: true
+      description:
+        name: description
+        description: The slot to provide a description for an instance of this class.
+        range: string
+        multivalued: true
+        inlined_as_list: true
     class_uri: rdfs:Resource
   RightsStatement:
     name: RightsStatement
     description: See [DCAT-AP specs:RightsStatement](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#RightsStatement)
     notes:
     - DCAT-AP does not provide any property constraints for this class.
+    - 'The specified slots of this class are part of our extension of the DCAT-AP. They are needed to allow what we consider a useful instantiation of these classes in the Python/Pydantic representations of DCAT-AP+. See also: https://github.com/nfdi-de/dcat-ap-plus/issues/40.'
     is_a: SupportiveEntity
     slots:
+    - identifier
+    - other_identifier
     - title
     - description
+    slot_usage:
+      identifier:
+        name: identifier
+        description: The slot to provide the main identifier for an instance of this class.
+        range: uriorcurie
+        recommended: true
+        multivalued: false
+      other_identifier:
+        name: other_identifier
+        description: The slot to provide all known identifiers for an instance of this class.
+        range: Identifier
+        recommended: true
+        multivalued: true
+        inlined_as_list: true
+      title:
+        name: title
+        description: The slot to provide a title for an instance of this class.
+        range: string
+        multivalued: true
+        inlined_as_list: true
+      description:
+        name: description
+        description: The slot to provide a description for an instance of this class.
+        range: string
+        multivalued: true
+        inlined_as_list: true
     class_uri: dcterms:RightsStatement
   Role:
     name: Role
     description: See [DCAT-AP specs:Role](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Role)
     notes:
     - DCAT-AP does not provide any property constraints for this class.
+    - 'The specified slots of this class are part of our extension of the DCAT-AP. They are needed to allow what we consider a useful instantiation of these classes in the Python/Pydantic representations of DCAT-AP+. See also: https://github.com/nfdi-de/dcat-ap-plus/issues/40.'
     is_a: SupportiveEntity
     slots:
     - title
     - description
+    slot_usage:
+      title:
+        name: title
+        description: The slot to provide a title for an instance of this class.
+        range: string
+        multivalued: true
+        inlined_as_list: true
+      description:
+        name: description
+        description: The slot to provide a description for an instance of this class.
+        range: string
+        multivalued: true
+        inlined_as_list: true
     class_uri: dcat:Role
   Software:
     name: Software
@@ -2433,17 +3061,43 @@ classes:
     description: See [DCAT-AP specs:Standard](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Standard)
     notes:
     - DCAT-AP does not provide any property constraints for this class.
+    - 'The specified slots of this class are part of our extension of the DCAT-AP. They are needed to allow what we consider a useful instantiation of these classes in the Python/Pydantic representations of DCAT-AP+. See also: https://github.com/nfdi-de/dcat-ap-plus/issues/40.'
     is_a: SupportiveEntity
     slots:
+    - identifier
+    - other_identifier
     - title
     - description
+    slot_usage:
+      identifier:
+        name: identifier
+        description: The slot to provide the main identifier for an instance of this class.
+        range: uriorcurie
+        recommended: true
+        multivalued: false
+      other_identifier:
+        name: other_identifier
+        description: The slot to provide all known identifiers for an instance of this class.
+        range: Identifier
+        recommended: true
+        multivalued: true
+        inlined_as_list: true
+      title:
+        name: title
+        description: The slot to provide a title for an instance of this class.
+        range: string
+        multivalued: true
+        inlined_as_list: true
+      description:
+        name: description
+        description: The slot to provide a description for an instance of this class.
+        range: string
+        multivalued: true
+        inlined_as_list: true
     class_uri: dcterms:Standard
   SupportiveEntity:
     name: SupportiveEntity
     description: The supportive entities are supporting the main entities in the Application Profile. They are included in the Application Profile because they form the range of properties.
-    slots:
-    - title
-    - description
   Surrounding:
     name: Surrounding
     description: The surrounding in which the dataset creating activity took place (e.g. a lab).
@@ -2460,8 +3114,13 @@ classes:
     description: See [DCAT-AP specs:TimeInstant](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#TimeInstant)
     notes:
     - DCAT-AP does not provide any property constraints for this class.
+    - 'The specified slots of this class are part of our extension of the DCAT-AP. They are needed to allow what we consider a useful instantiation of these classes in the Python/Pydantic representations of DCAT-AP+. See also: https://github.com/nfdi-de/dcat-ap-plus/issues/40.'
     is_a: SupportiveEntity
-    slots:
-    - title
-    - description
+    attributes:
+    - name: datetime
+      description: The slot to provide a the datetime of a TimeInstant.
+      notes:
+      - not in DCAT-AP
+      slot_uri: xsd:dateTime
+      range: datetime
     class_uri: time:Instant

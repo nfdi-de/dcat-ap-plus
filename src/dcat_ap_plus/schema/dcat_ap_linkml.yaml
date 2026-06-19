@@ -1,7 +1,7 @@
 id: https://w3id.org/nfdi-de/dcat-ap-linkml
 name: dcat-ap-linkml
 title: LinkML schema representation of DCAT-AP 3.0.0
-version: "0.1.0rc4.post36.dev0+b5e290db"  # Managed by dynamic-versioning. Don't change this line!
+version: "0.1.0rc4.post29.dev0+7adacec9"  # Managed by dynamic-versioning. Don't change this line!
 description: >-
   This LinkML schema representation of DCAT-AP 3.0.0 was automatically created from these [JSON-LD SHACL shapes](https://github.com/SEMICeu/DCAT-AP/blob/master/releases/3.0.0/shacl/dcat-ap-SHACL.jsonld) using a Python script (https://github.com/nfdi-de/dcat-ap-plus/blob/main/src/dcat_ap_shacl_2_linkml.py).
 
@@ -23,6 +23,7 @@ prefixes:
   vcard: http://www.w3.org/2006/vcard/ns#
   adms: http://www.w3.org/ns/adms#
   dcatap: http://data.europa.eu/r5r/
+  locn_new: http://data.europa.eu/m8g/
   qb: http://purl.org/linked-data/cube#
   rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
   rdfs: http://www.w3.org/2000/01/rdf-schema#

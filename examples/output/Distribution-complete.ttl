@@ -1,0 +1,176 @@
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcatap: <http://data.europa.eu/r5r/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix eli: <http://data.europa.eu/eli/ontology#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix spdx: <http://spdx.org/rdf/terms#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/data/dist-001> a dcat:Distribution ;
+    dcatap:applicableLegislation [ a eli:LegalResource ;
+            dcterms:description "You are free to: ... " ;
+            dcterms:identifier <https://creativecommons.org/licenses/by/4.0> ;
+            dcterms:title "Attribution 4.0 International",
+                "CC-BY 4.0" ;
+            adms:identifier [ a adms:Identifier ;
+                    dcterms:description "The id to be used to explicitly refer to the RDF representation of the CC-BY 4.0 licence." ;
+                    dcterms:title "RDF ID" ;
+                    skos:notation "https://creativecommons.org/licenses/by/4.0/rdf" ],
+                [ a adms:Identifier ;
+                    dcterms:description "The canonical idenfier used for the CC-BY 4.0 license" ;
+                    dcterms:title "CC-BY 4.0 id" ;
+                    skos:notation "https://creativecommons.org/licenses/by/4.0/" ] ],
+        [ a eli:LegalResource ;
+            dcterms:description "EU regulation on data protection and privacy." ;
+            dcterms:identifier <https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng> ;
+            dcterms:title "General Data Protection Regulation (GDPR)" ;
+            adms:identifier [ a adms:Identifier ;
+                    skos:notation "https://gdpr-info.eu/" ],
+                [ a adms:Identifier ;
+                    skos:notation "https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng" ] ] ;
+    dcatap:availability [ a skos:Concept ;
+            dcterms:identifier <http://publications.europa.eu/resource/authority/planned-availability/STABLE> ;
+            skos:prefLabel "STABLE" ;
+            adms:identifier [ a adms:Identifier ;
+                    dcterms:description "The Availability ID from the Distribution availability vocabulary as mandated by the DCAT-AP specs." ;
+                    dcterms:title "DCAT-AP Availability ID" ;
+                    skos:notation "http://publications.europa.eu/resource/authority/planned-availability/STABLE" ] ] ;
+    dcterms:conformsTo [ a dcterms:Standard ;
+            dcterms:description "CSV on the Web W3C Recommendation" ;
+            dcterms:identifier <http://www.w3.org/ns/csvw> ;
+            dcterms:title "CSVW" ;
+            adms:identifier [ a adms:Identifier ;
+                    skos:notation "https://www.w3.org/ns/csvw" ] ] ;
+    dcterms:description "Diese Distribution enthält den vollständigen Datensatz im CSV-Format, komprimiert mit Gzip.",
+        "This distribution contains the full dataset in CSV format, compressed via Gzip." ;
+    dcterms:format [ a dcterms:MediaTypeOrExtent ;
+            dcterms:description "Comma Separated Values" ;
+            dcterms:identifier <http://publications.europa.eu/resource/authority/file-type/CSV> ;
+            dcterms:title "CSV" ;
+            adms:identifier [ a adms:Identifier ;
+                    dcterms:description "The MediaTypeOrExtent ID from the EU Vocabularies File Type Named Authority List as mandated by the DCAT-AP specs." ;
+                    dcterms:title "DCAT-AP mandated MediaTypeOrExtent ID" ;
+                    skos:notation "http://publications.europa.eu/resource/authority/file-type/CSV" ] ] ;
+    dcterms:issued "2026-06-15"^^xsd:date ;
+    dcterms:language [ a dcterms:LinguisticSystem ;
+            dcterms:description "The english language." ;
+            dcterms:identifier <http://publications.europa.eu/resource/authority/language/ENG> ;
+            dcterms:title "English" ;
+            adms:identifier [ a adms:Identifier ;
+                    dcterms:description "The LinguisticSystem ID from the EU Vocabularies Languages Named Authority List as mandated by the DCAT-AP specs." ;
+                    dcterms:title "DCAT-AP mandated LinguisticSystem ID" ;
+                    skos:notation "http://publications.europa.eu/resource/authority/language/ENG" ] ] ;
+    dcterms:license [ a dcterms:LicenseDocument ;
+            dcterms:description "Creative Commons Attribution 4.0 International" ;
+            dcterms:identifier <http://creativecommons.org/licenses/by/4.0/> ;
+            dcterms:title "CC BY 4.0" ;
+            adms:identifier [ a adms:Identifier ;
+                    skos:notation "http://creativecommons.org/licenses/by/4.0/" ] ] ;
+    dcterms:modified "2026-06-18"^^xsd:date ;
+    dcterms:rights [ a dcterms:RightsStatement ;
+            dcterms:description "This dataset is public." ;
+            dcterms:identifier <http://publications.europa.eu/resource/authority/access-right/PUBLIC> ;
+            dcterms:title "The RightsStatement for this dataset" ;
+            adms:identifier [ a adms:Identifier ;
+                    dcterms:description "The RightsStatement ID from the Access Rights Named Authority List as mandated by the DCAT-AP specs." ;
+                    dcterms:title "DCAT-AP mandated RightsStatement ID" ;
+                    skos:notation "http://publications.europa.eu/resource/authority/access-right/PUBLIC" ] ] ;
+    dcterms:title "Comprehensive Example Distribution 001",
+        "Umfassende Beispiel-Distribution 001" ;
+    spdx:checksum [ a spdx:Checksum ;
+            spdx:algorithm [ a spdx:ChecksumAlgorithm ;
+                    dcterms:description "Secure Hash Algorithm 1" ;
+                    dcterms:identifier spdx:checksumAlgorithm_sha1 ;
+                    dcterms:title "SHA1" ;
+                    adms:identifier [ a adms:Identifier ;
+                            dcterms:description "The ChecksumAlgorithm ID from the SPDX® language as mandated by the DCAT-AP specs." ;
+                            dcterms:title "DCAT-AP mandated ChecksumAlgorithm ID" ;
+                            skos:notation "http://spdx.org/rdf/terms#checksumAlgorithm_sha1" ] ] ;
+            spdx:checksumValue "da39a3ee5e6b4b0d3255bfef95601890afd80709"^^xsd:hexBinary ] ;
+    adms:status [ a skos:Concept ;
+            dcterms:description "The distribution is complete and stable." ;
+            dcterms:identifier <http://publications.europa.eu/resource/authority/distribution-status/COMPLETED> ;
+            skos:prefLabel "COMPLETED" ;
+            adms:identifier [ a adms:Identifier ;
+                    dcterms:description "The status code ID from the EU Vocabularies Distribution Status as mandated by the DCAT-AP specs." ;
+                    dcterms:title "DCAT-AP mandated status code ID" ;
+                    skos:notation "http://publications.europa.eu/resource/authority/distribution-status/COMPLETED" ] ] ;
+    dcat:accessService <https://example.org/> ;
+    dcat:accessURL <https://example.org/data/dist-001.csv>,
+        <https://mirror.example.org/data/dist-001.csv> ;
+    dcat:byteSize "1048576"^^xsd:nonNegativeInteger ;
+    dcat:compressFormat [ a dcterms:MediaType ;
+            dcterms:description "GNU Zip compression format" ;
+            dcterms:identifier <http://www.iana.org/assignments/media-types/application/gzip> ;
+            dcterms:title "Gzip" ;
+            adms:identifier [ a adms:Identifier ;
+                    dcterms:description "The MediaType ID from the IANA Media Types as mandated by the DCAT-AP specs." ;
+                    dcterms:title "DCAT-AP mandated MediaType ID" ;
+                    skos:notation "http://www.iana.org/assignments/media-types/application/gzip" ] ] ;
+    dcat:downloadURL <https://example.org/download/dist-001.csv.gz>,
+        <https://mirror.example.org/download/dist-001.csv.gz> ;
+    dcat:mediaType [ a dcterms:MediaType ;
+            dcterms:description "IANA media type for CSV" ;
+            dcterms:identifier <http://www.iana.org/assignments/media-types/text/csv> ;
+            dcterms:title "text/csv" ;
+            adms:identifier [ a adms:Identifier ;
+                    dcterms:description "The MediaType ID from the IANA Media Types as mandated by the DCAT-AP specs." ;
+                    dcterms:title "DCAT-AP mandated MediaType ID" ;
+                    skos:notation "http://www.iana.org/assignments/media-types/text/csv" ] ] ;
+    dcat:packageFormat [ a dcterms:MediaType ;
+            dcterms:description "GNU Zip compression format" ;
+            dcterms:identifier <http://www.iana.org/assignments/media-types/application/gzip> ;
+            dcterms:title "Gzip" ;
+            adms:identifier [ a adms:Identifier ;
+                    dcterms:description "The MediaType ID from the IANA Media Types as mandated by the DCAT-AP specs." ;
+                    dcterms:title "DCAT-AP mandated MediaType ID" ;
+                    skos:notation "http://www.iana.org/assignments/media-types/application/gzip" ] ] ;
+    dcat:spatialResolutionInMeters 0.5 ;
+    dcat:temporalResolution "P1D"^^xsd:duration ;
+    odrl:hasPolicy [ a odrl:Policy ;
+            dcterms:description "Policy governing the reuse of this distribution." ;
+            dcterms:identifier <https://example.org/policy/open-data-policy-01> ;
+            dcterms:title "Open Data Policy v1" ;
+            adms:identifier [ a adms:Identifier ;
+                    skos:notation "https://example.org/policy/open-data-policy-01" ] ] ;
+    foaf:page [ a foaf:Document ;
+            dcterms:description "Technical documentation for the CSV structure." ;
+            dcterms:identifier <https://example.org/docs/dist-001-readme.txt> ;
+            dcterms:title "Readme for Distribution 001" ;
+            adms:identifier [ a adms:Identifier ;
+                    skos:notation "https://example.org/docs/dist-001-readme.txt" ] ] .
+
+<https://api.example.org/sparql> a rdfs:Resource ;
+    dcterms:title "SPARQL Endpoint" .
+
+<https://example.org/> a dcat:DataService ;
+    dcterms:description "The service providing access to this distribution." ;
+    dcterms:title "Example Data Service" ;
+    dcat:endpointURL <https://api.example.org/sparql> .
+
+<https://example.org/download/dist-001.csv.gz> a rdfs:Resource ;
+    dcterms:title "Direct Download Link" .
+
+<https://mirror.example.org/download/dist-001.csv.gz> a rdfs:Resource ;
+    dcterms:title "Direct Download Mirror Link" .
+
+<https://example.org/data/dist-001.csv> a rdfs:Resource ;
+    dcterms:description "Direct access URL for the CSV distribution." ;
+    dcterms:identifier <https://example.org/data/dist-001.csv> ;
+    dcterms:title "CSV Access Point" ;
+    adms:identifier [ a adms:Identifier ;
+            dcterms:title "canonical access URL" ;
+            skos:notation "https://example.org/data/dist-001.csv" ] .
+
+<https://mirror.example.org/data/dist-001.csv> a rdfs:Resource ;
+    dcterms:description "Direct access URL for the CSV distribution on the mirror server." ;
+    dcterms:identifier <https://mirror.example.org/data/dist-001.csv> ;
+    dcterms:title "CSV Access Point Mirror" ;
+    adms:identifier [ a adms:Identifier ;
+            dcterms:title "Mirror access URL" ;
+            skos:notation "https://mirror.example.org/data/dist-001.csv" ] .
+

@@ -1,0 +1,93 @@
+{
+  "id": "https://example.org/dataset/air-quality-series-001",
+  "description": [
+    "A series of datasets containing annual air quality measurements from 2020 to present.",
+    "Eine Reihe von Datensätzen mit jährlichen Luftqualitätsmessungen von 2020 bis heute."
+  ],
+  "title": [
+    "Annual Air Quality Measurements Series",
+    "Jahresreihe der Luftqualitätsmessungen"
+  ],
+  "applicable_legislation": [
+    {
+      "identifier": "https://eur-lex.europa.eu/eli/dir/2008/50/oj",
+      "title": [
+        "Ambient Air Quality Directive"
+      ],
+      "description": [
+        "EU Directive on ambient air quality."
+      ]
+    }
+  ],
+  "contact_point": [
+    {
+      "formatted_name": [
+        "Air Quality Data Manager"
+      ],
+      "has_email": [
+        "airquality@example.org"
+      ],
+      "has_telephone": [
+        "+49-9876-54321"
+      ]
+    }
+  ],
+  "frequency": {
+    "identifier": "http://publications.europa.eu/resource/authority/frequency/ANNUAL",
+    "other_identifier": [
+      {
+        "notation": "http://publications.europa.eu/resource/authority/frequency/ANNUAL",
+        "title": [
+          "DCAT-AP mandated identifier"
+        ],
+        "description": [
+          "This identifier from the http://publications.europa.eu/resource/authority/frequency vocabulary should be used according to the DCAT-AP specs to indicate an annual update frequency of a dataset."
+        ]
+      }
+    ],
+    "title": [
+      "Update Frequency"
+    ],
+    "description": [
+      "The frequency with which this DatasetSeries is being updated."
+    ]
+  },
+  "geographical_coverage": [
+    {
+      "identifier": "http://publications.europa.eu/resource/authority/country/DEU",
+      "title": [
+        "Germany"
+      ],
+      "description": [
+        "Coverage limited to Germany."
+      ]
+    }
+  ],
+  "modification_date": "2026-06-15",
+  "publisher": {
+    "name": [
+      "Federal Environment Agency"
+    ],
+    "type": {
+      "preferred_label": [
+        "Government Agency"
+      ],
+      "identifier": "http://purl.org/adms/publishertype/GovernmentAgency"
+    },
+    "identifier": "http://publications.europa.eu/resource/authority/corporate-body/UBA_DE"
+  },
+  "release_date": "2020-01-15",
+  "temporal_coverage": [
+    {
+      "beginning": {
+        "datetime": "2019-01-12T21:32:52+00:00"
+      },
+      "end": {
+        "datetime": "2020-01-12T21:00:00+00:00"
+      },
+      "end_date": "2020-01-12",
+      "start_date": "2019-01-12"
+    }
+  ],
+  "@type": "DatasetSeries"
+}

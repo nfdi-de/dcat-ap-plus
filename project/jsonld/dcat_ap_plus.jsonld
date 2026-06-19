@@ -12,7 +12,7 @@
     "https://gitlab.com/opensourcelab/scientificdata/scidats/-/blob/feature/linkml-schemata/schemata/metadata_model_scidats_dcat_ap.yaml?ref_type=heads"
   ],
   "id": "https://w3id.org/nfdi-de/dcat-ap-plus",
-  "version": "0.1.0rc4.post34.dev0+20e64d58",
+  "version": "0.1.0rc4.post29.dev0+7adacec9",
   "imports": [
     "linkml:types"
   ],
@@ -73,6 +73,10 @@
     {
       "prefix_prefix": "dcatap",
       "prefix_reference": "http://data.europa.eu/r5r/"
+    },
+    {
+      "prefix_prefix": "locn_new",
+      "prefix_reference": "http://data.europa.eu/m8g/"
     },
     {
       "prefix_prefix": "qb",
@@ -507,128 +511,6 @@
   ],
   "enums": [
     {
-      "name": "DatasetThemes",
-      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/DatasetThemes",
-      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
-      "see_also": [
-        "https://op.europa.eu/s/zXIN"
-      ],
-      "enum_uri": "http://publications.europa.eu/resource/authority/data-theme",
-      "permissible_values": [
-        {
-          "text": "AGRI",
-          "description": "Agriculture, fisheries, forestry and food",
-          "meaning": "http://publications.europa.eu/resource/authority/data-theme/AGRI"
-        },
-        {
-          "text": "ECON",
-          "description": "Economy and finance",
-          "meaning": "http://publications.europa.eu/resource/authority/data-theme/ECON"
-        },
-        {
-          "text": "EDUC",
-          "description": "Education, culture and sport",
-          "meaning": "http://publications.europa.eu/resource/authority/data-theme/EDUC"
-        },
-        {
-          "text": "ENER",
-          "description": "Energy",
-          "meaning": "http://publications.europa.eu/resource/authority/data-theme/ENER"
-        },
-        {
-          "text": "ENVI",
-          "description": "Environment",
-          "meaning": "http://publications.europa.eu/resource/authority/data-theme/ENVI"
-        },
-        {
-          "text": "GOVE",
-          "description": "Government and public sector",
-          "meaning": "http://publications.europa.eu/resource/authority/data-theme/GOVE"
-        },
-        {
-          "text": "HEAL",
-          "description": "Health",
-          "meaning": "http://publications.europa.eu/resource/authority/data-theme/HEAL"
-        },
-        {
-          "text": "INTR",
-          "description": "International issues",
-          "meaning": "http://publications.europa.eu/resource/authority/data-theme/INTR"
-        },
-        {
-          "text": "JUST",
-          "description": "Justice, legal system and public safety",
-          "meaning": "http://publications.europa.eu/resource/authority/data-theme/JUST"
-        },
-        {
-          "text": "OP_DATPRO",
-          "description": "Provisional data",
-          "meaning": "http://publications.europa.eu/resource/authority/data-theme/OP_DATPRO"
-        },
-        {
-          "text": "REGI",
-          "description": "Regions and cities",
-          "meaning": "http://publications.europa.eu/resource/authority/data-theme/REGI"
-        },
-        {
-          "text": "SOCI",
-          "description": "Population and society",
-          "meaning": "http://publications.europa.eu/resource/authority/data-theme/SOCI"
-        },
-        {
-          "text": "TECH",
-          "description": "Science and technology",
-          "meaning": "http://publications.europa.eu/resource/authority/data-theme/TECH"
-        },
-        {
-          "text": "TRAN",
-          "description": "Transport",
-          "meaning": "http://publications.europa.eu/resource/authority/data-theme/TRAN"
-        }
-      ]
-    },
-    {
-      "name": "TopLevelMediaTypes",
-      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/TopLevelMediaTypes",
-      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
-      "enum_uri": "iana:top-level-media-types",
-      "permissible_values": [
-        {
-          "text": "application"
-        },
-        {
-          "text": "audio"
-        },
-        {
-          "text": "example"
-        },
-        {
-          "text": "font"
-        },
-        {
-          "text": "haptics"
-        },
-        {
-          "text": "image"
-        },
-        {
-          "text": "message"
-        },
-        {
-          "text": "model"
-        },
-        {
-          "text": "multipart"
-        },
-        {
-          "text": "text"
-        },
-        {
-          "text": "video"
-        }
-      ]
-    },
-    {
       "name": "QUDTQuantityKindEnum",
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/QUDTQuantityKindEnum",
       "implements": [
@@ -1041,11 +923,10 @@
         "http://purl.org/dc/terms/description"
       ],
       "slot_uri": "http://purl.org/dc/terms/description",
-      "owner": "TimeInstant",
+      "owner": "Surrounding",
       "domain_of": [
         "Activity",
         "AgenticEntity",
-        "Any",
         "Attribution",
         "Catalogue",
         "CatalogueRecord",
@@ -1059,26 +940,24 @@
         "Document",
         "Entity",
         "Frequency",
-        "Geometry",
         "Identifier",
         "LegalResource",
-        "LicenseDocument",
+        "LicenceDocument",
         "LinguisticSystem",
+        "Location",
         "MediaType",
         "MediaTypeOrExtent",
-        "PeriodOfTime",
         "Plan",
         "Policy",
         "ProvenanceStatement",
         "QualitativeAttribute",
         "QuantitativeAttribute",
+        "Relationship",
         "Resource",
         "RightsStatement",
         "Role",
         "Standard",
-        "SupportiveEntity",
-        "Surrounding",
-        "TimeInstant"
+        "Surrounding"
       ],
       "range": "string",
       "@type": "SlotDefinition"
@@ -1530,12 +1409,14 @@
       "domain_of": [
         "Activity",
         "AgenticEntity",
+        "Catalogue",
+        "CatalogueRecord",
+        "DataService",
         "Dataset",
+        "DatasetSeries",
         "DefinedTerm",
-        "Document",
+        "Distribution",
         "Entity",
-        "LegalResource",
-        "LicenseDocument",
         "Resource"
       ],
       "range": "uriorcurie",
@@ -1551,9 +1432,31 @@
         "http://purl.org/dc/terms/identifier"
       ],
       "slot_uri": "http://purl.org/dc/terms/identifier",
-      "owner": "Dataset",
+      "owner": "Standard",
       "domain_of": [
-        "Dataset"
+        "Agent",
+        "Catalogue",
+        "CatalogueRecord",
+        "ChecksumAlgorithm",
+        "Concept",
+        "ConceptScheme",
+        "DataService",
+        "Dataset",
+        "DatasetSeries",
+        "Distribution",
+        "Document",
+        "Frequency",
+        "LegalResource",
+        "LicenceDocument",
+        "LinguisticSystem",
+        "Location",
+        "MediaType",
+        "MediaTypeOrExtent",
+        "Policy",
+        "ProvenanceStatement",
+        "Resource",
+        "RightsStatement",
+        "Standard"
       ],
       "range": "string",
       "@type": "SlotDefinition"
@@ -1843,12 +1746,34 @@
         "http://www.w3.org/ns/adms#identifier"
       ],
       "slot_uri": "http://www.w3.org/ns/adms#identifier",
-      "owner": "Entity",
+      "owner": "Standard",
       "domain_of": [
         "Activity",
+        "Agent",
         "AgenticEntity",
+        "Catalogue",
+        "CatalogueRecord",
+        "ChecksumAlgorithm",
+        "Concept",
+        "ConceptScheme",
+        "DataService",
         "Dataset",
-        "Entity"
+        "DatasetSeries",
+        "Distribution",
+        "Document",
+        "Entity",
+        "Frequency",
+        "LegalResource",
+        "LicenceDocument",
+        "LinguisticSystem",
+        "Location",
+        "MediaType",
+        "MediaTypeOrExtent",
+        "Policy",
+        "ProvenanceStatement",
+        "Resource",
+        "RightsStatement",
+        "Standard"
       ],
       "range": "string",
       "@type": "SlotDefinition"
@@ -2004,6 +1929,7 @@
       "slot_uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
       "owner": "ClassifierMixin",
       "domain_of": [
+        "Agent",
         "ClassifierMixin"
       ],
       "range": "DefinedTerm",
@@ -2322,11 +2248,10 @@
         "http://purl.org/dc/terms/title"
       ],
       "slot_uri": "http://purl.org/dc/terms/title",
-      "owner": "TimeInstant",
+      "owner": "Surrounding",
       "domain_of": [
         "Activity",
         "AgenticEntity",
-        "Any",
         "Attribution",
         "Catalogue",
         "CatalogueRecord",
@@ -2341,26 +2266,24 @@
         "Document",
         "Entity",
         "Frequency",
-        "Geometry",
         "Identifier",
         "LegalResource",
-        "LicenseDocument",
+        "LicenceDocument",
         "LinguisticSystem",
+        "Location",
         "MediaType",
         "MediaTypeOrExtent",
-        "PeriodOfTime",
         "Plan",
         "Policy",
         "ProvenanceStatement",
         "QualitativeAttribute",
         "QuantitativeAttribute",
+        "Relationship",
         "Resource",
         "RightsStatement",
         "Role",
         "Standard",
-        "SupportiveEntity",
-        "Surrounding",
-        "TimeInstant"
+        "Surrounding"
       ],
       "range": "string",
       "@type": "SlotDefinition"
@@ -2374,12 +2297,12 @@
         "http://purl.org/dc/terms/type"
       ],
       "slot_uri": "http://purl.org/dc/terms/type",
-      "owner": "LicenseDocument",
+      "owner": "LicenceDocument",
       "domain_of": [
         "Agent",
         "ClassifierMixin",
         "Dataset",
-        "LicenseDocument"
+        "LicenceDocument"
       ],
       "range": "string",
       "@type": "SlotDefinition"
@@ -2454,6 +2377,28 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "attribution__agent",
+      "description": "The slot to reference an Agent that is having some form of responsibility for a Dataset.",
+      "notes": [
+        "not in DCAT-AP"
+      ],
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://www.w3.org/ns/prov#agent"
+      ],
+      "slot_uri": "http://www.w3.org/ns/prov#agent",
+      "alias": "agent",
+      "owner": "Attribution",
+      "domain_of": [
+        "Attribution"
+      ],
+      "range": "Agent",
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "definedTerm__from_CV",
       "description": "The URL of the controlled vocabulary.",
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
@@ -2467,6 +2412,168 @@
         "DefinedTerm"
       ],
       "range": "uriorcurie",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "geometry__longitude",
+      "description": "The geographic coordinate that specifies the east / west position of the Geometry on the Earth's surface.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://data.europa.eu/m8g/longitude"
+      ],
+      "slot_uri": "http://data.europa.eu/m8g/longitude",
+      "alias": "longitude",
+      "owner": "Geometry",
+      "domain_of": [
+        "Geometry"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "geometry__latitude",
+      "description": "The geographic coordinate that specifies the north / south position of the geometry on the Earth's surface.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://data.europa.eu/m8g/latitude"
+      ],
+      "slot_uri": "http://data.europa.eu/m8g/latitude",
+      "alias": "latitude",
+      "owner": "Geometry",
+      "domain_of": [
+        "Geometry"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "geometry__wkt",
+      "description": "An expression of the Geometry in WKT, the Well-Known Text markup language.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://data.europa.eu/m8g/wkt"
+      ],
+      "slot_uri": "http://data.europa.eu/m8g/wkt",
+      "alias": "wkt",
+      "owner": "Geometry",
+      "domain_of": [
+        "Geometry"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "geometry__gml",
+      "description": "The expression of the Geometry in Geography Markup Language.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://data.europa.eu/m8g/gml"
+      ],
+      "slot_uri": "http://data.europa.eu/m8g/gml",
+      "alias": "gml",
+      "owner": "Geometry",
+      "domain_of": [
+        "Geometry"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "geometry__crs",
+      "description": "An identifier for the coordinate reference system.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://data.europa.eu/m8g/crs"
+      ],
+      "slot_uri": "http://data.europa.eu/m8g/crs",
+      "alias": "crs",
+      "owner": "Geometry",
+      "domain_of": [
+        "Geometry"
+      ],
+      "range": "uriorcurie",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "geometry__coordinates",
+      "description": "A list of geographic coordinates that define the extent of the Geometry.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://data.europa.eu/m8g/coordinates"
+      ],
+      "slot_uri": "http://data.europa.eu/m8g/coordinates",
+      "alias": "coordinates",
+      "owner": "Geometry",
+      "domain_of": [
+        "Geometry"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "kind__formatted_name",
+      "description": "The slot to provide a the name of the contact point as a string.",
+      "notes": [
+        "not in DCAT-AP"
+      ],
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://www.w3.org/2006/vcard/ns#fn"
+      ],
+      "slot_uri": "http://www.w3.org/2006/vcard/ns#fn",
+      "alias": "formatted_name",
+      "owner": "Kind",
+      "domain_of": [
+        "Kind"
+      ],
+      "range": "string",
+      "required": true,
+      "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "kind__has_email",
+      "description": "The slot to specify the email address of the contact point as a literal string",
+      "notes": [
+        "not in DCAT-AP"
+      ],
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://www.w3.org/2006/vcard/ns#hasEmail"
+      ],
+      "slot_uri": "http://www.w3.org/2006/vcard/ns#hasEmail",
+      "alias": "has_email",
+      "owner": "Kind",
+      "domain_of": [
+        "Kind"
+      ],
+      "range": "string",
+      "multivalued": true,
+      "inlined_as_list": true,
+      "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "kind__has_telephone",
+      "description": "The slot to specify the telephone number of the contact point as a literal string.",
+      "notes": [
+        "not in DCAT-AP"
+      ],
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://www.w3.org/2006/vcard/ns#hasTelephone"
+      ],
+      "slot_uri": "http://www.w3.org/2006/vcard/ns#hasTelephone",
+      "alias": "has_telephone",
+      "owner": "Kind",
+      "domain_of": [
+        "Kind"
+      ],
+      "range": "string",
+      "multivalued": true,
+      "inlined_as_list": true,
+      "pattern": "^\\+?[0-9\\s\\-\\(\\)\\.]{6,20}$",
       "@type": "SlotDefinition"
     },
     {
@@ -2518,6 +2625,25 @@
         }
       ],
       "recommended": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "timeInstant__datetime",
+      "description": "The slot to provide a the datetime of a TimeInstant.",
+      "notes": [
+        "not in DCAT-AP"
+      ],
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://www.w3.org/2001/XMLSchema#dateTime"
+      ],
+      "slot_uri": "http://www.w3.org/2001/XMLSchema#dateTime",
+      "alias": "datetime",
+      "owner": "TimeInstant",
+      "domain_of": [
+        "TimeInstant"
+      ],
+      "range": "datetime",
       "@type": "SlotDefinition"
     },
     {
@@ -2843,6 +2969,32 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "Agent_rdf_type",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/rdf_type",
+      "description": "The slot to provide an additional rdf:type for the Agent. According to DCAT-AP that should be foaf:Person for individuals or, for organizations it should be foaf:Organization or org:Organization.",
+      "in_subset": [
+        "domain_agnostic_core"
+      ],
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+      ],
+      "is_a": "rdf_type",
+      "domain": "Agent",
+      "slot_uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "alias": "rdf_type",
+      "owner": "Agent",
+      "domain_of": [
+        "Agent"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "rdf_type",
+      "range": "DefinedTerm",
+      "recommended": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "Agent_name",
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/name",
       "description": "A name of the agent.",
@@ -2886,6 +3038,53 @@
       "usage_slot_name": "type",
       "range": "Concept",
       "recommended": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Agent_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/identifier",
+      "description": "The slot to provide the main identifier for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/identifier"
+      ],
+      "is_a": "identifier",
+      "domain": "Agent",
+      "slot_uri": "http://purl.org/dc/terms/identifier",
+      "alias": "identifier",
+      "owner": "Agent",
+      "domain_of": [
+        "Agent"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "identifier",
+      "range": "uriorcurie",
+      "recommended": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Agent_other_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/other_identifier",
+      "description": "The slot to provide all known identifiers for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://www.w3.org/ns/adms#identifier"
+      ],
+      "is_a": "other_identifier",
+      "domain": "Agent",
+      "slot_uri": "http://www.w3.org/ns/adms#identifier",
+      "alias": "other_identifier",
+      "owner": "Agent",
+      "domain_of": [
+        "Agent"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "other_identifier",
+      "range": "Identifier",
+      "recommended": true,
+      "multivalued": true,
       "inlined": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
@@ -3013,6 +3212,52 @@
       "range": "DataGeneratingActivity",
       "multivalued": true,
       "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Attribution_title",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/title",
+      "description": "The slot to provide a title for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/title"
+      ],
+      "is_a": "title",
+      "domain": "Attribution",
+      "slot_uri": "http://purl.org/dc/terms/title",
+      "alias": "title",
+      "owner": "Attribution",
+      "domain_of": [
+        "Attribution"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "title",
+      "range": "string",
+      "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Attribution_description",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/description",
+      "description": "The slot to provide a description for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/description"
+      ],
+      "is_a": "description",
+      "domain": "Attribution",
+      "slot_uri": "http://purl.org/dc/terms/description",
+      "alias": "description",
+      "owner": "Attribution",
+      "domain_of": [
+        "Attribution"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "description",
+      "range": "string",
+      "multivalued": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
@@ -3250,7 +3495,7 @@
       ],
       "is_usage_slot": true,
       "usage_slot_name": "licence",
-      "range": "LicenseDocument",
+      "range": "LicenceDocument",
       "inlined": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
@@ -3468,6 +3713,53 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "Catalogue_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/identifier",
+      "description": "The slot to provide the main identifier for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/identifier"
+      ],
+      "is_a": "identifier",
+      "domain": "Catalogue",
+      "slot_uri": "http://purl.org/dc/terms/identifier",
+      "alias": "identifier",
+      "owner": "Catalogue",
+      "domain_of": [
+        "Catalogue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "identifier",
+      "range": "uriorcurie",
+      "recommended": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Catalogue_other_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/other_identifier",
+      "description": "The slot to provide all known identifiers for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://www.w3.org/ns/adms#identifier"
+      ],
+      "is_a": "other_identifier",
+      "domain": "Catalogue",
+      "slot_uri": "http://www.w3.org/ns/adms#identifier",
+      "alias": "other_identifier",
+      "owner": "Catalogue",
+      "domain_of": [
+        "Catalogue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "other_identifier",
+      "range": "Identifier",
+      "recommended": true,
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "CatalogueRecord_application_profile",
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/application_profile",
       "description": "An Application Profile that the Catalogued Resource&#39;s metadata conforms to.",
@@ -3583,7 +3875,6 @@
       "usage_slot_name": "listing_date",
       "range": "date",
       "recommended": true,
-      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3629,6 +3920,7 @@
       "range": "Any",
       "required": true,
       "inlined": true,
+      "inlined_as_list": true,
       "any_of": [
         {
           "range": "Catalogue",
@@ -3668,8 +3960,6 @@
       "is_usage_slot": true,
       "usage_slot_name": "source_metadata",
       "range": "CatalogueRecord",
-      "inlined": true,
-      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3692,6 +3982,53 @@
       "usage_slot_name": "title",
       "range": "string",
       "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CatalogueRecord_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/identifier",
+      "description": "The slot to provide the main identifier for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/identifier"
+      ],
+      "is_a": "identifier",
+      "domain": "CatalogueRecord",
+      "slot_uri": "http://purl.org/dc/terms/identifier",
+      "alias": "identifier",
+      "owner": "CatalogueRecord",
+      "domain_of": [
+        "CatalogueRecord"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "identifier",
+      "range": "uriorcurie",
+      "recommended": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CatalogueRecord_other_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/other_identifier",
+      "description": "The slot to provide all known identifiers for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://www.w3.org/ns/adms#identifier"
+      ],
+      "is_a": "other_identifier",
+      "domain": "CatalogueRecord",
+      "slot_uri": "http://www.w3.org/ns/adms#identifier",
+      "alias": "other_identifier",
+      "owner": "CatalogueRecord",
+      "domain_of": [
+        "CatalogueRecord"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "other_identifier",
+      "range": "Identifier",
+      "recommended": true,
+      "multivalued": true,
+      "inlined": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
@@ -3739,6 +4076,98 @@
       "usage_slot_name": "checksum_value",
       "range": "hexBinary",
       "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ChecksumAlgorithm_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/identifier",
+      "description": "The slot to provide the main identifier for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/identifier"
+      ],
+      "is_a": "identifier",
+      "domain": "ChecksumAlgorithm",
+      "slot_uri": "http://purl.org/dc/terms/identifier",
+      "alias": "identifier",
+      "owner": "ChecksumAlgorithm",
+      "domain_of": [
+        "ChecksumAlgorithm"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "identifier",
+      "range": "uriorcurie",
+      "recommended": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ChecksumAlgorithm_other_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/other_identifier",
+      "description": "The slot to provide all known identifiers for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://www.w3.org/ns/adms#identifier"
+      ],
+      "is_a": "other_identifier",
+      "domain": "ChecksumAlgorithm",
+      "slot_uri": "http://www.w3.org/ns/adms#identifier",
+      "alias": "other_identifier",
+      "owner": "ChecksumAlgorithm",
+      "domain_of": [
+        "ChecksumAlgorithm"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "other_identifier",
+      "range": "Identifier",
+      "recommended": true,
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ChecksumAlgorithm_title",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/title",
+      "description": "The slot to provide a title for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/title"
+      ],
+      "is_a": "title",
+      "domain": "ChecksumAlgorithm",
+      "slot_uri": "http://purl.org/dc/terms/title",
+      "alias": "title",
+      "owner": "ChecksumAlgorithm",
+      "domain_of": [
+        "ChecksumAlgorithm"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "title",
+      "range": "string",
+      "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ChecksumAlgorithm_description",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/description",
+      "description": "The slot to provide a description for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/description"
+      ],
+      "is_a": "description",
+      "domain": "ChecksumAlgorithm",
+      "slot_uri": "http://purl.org/dc/terms/description",
+      "alias": "description",
+      "owner": "ChecksumAlgorithm",
+      "domain_of": [
+        "ChecksumAlgorithm"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "description",
+      "range": "string",
+      "multivalued": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
@@ -3789,6 +4218,99 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "Concept_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/identifier",
+      "description": "The slot to provide the main identifier for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/identifier"
+      ],
+      "is_a": "identifier",
+      "domain": "Concept",
+      "slot_uri": "http://purl.org/dc/terms/identifier",
+      "alias": "identifier",
+      "owner": "Concept",
+      "domain_of": [
+        "Concept"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "identifier",
+      "range": "uriorcurie",
+      "recommended": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Concept_other_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/other_identifier",
+      "description": "The slot to provide all known identifiers for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://www.w3.org/ns/adms#identifier"
+      ],
+      "is_a": "other_identifier",
+      "domain": "Concept",
+      "slot_uri": "http://www.w3.org/ns/adms#identifier",
+      "alias": "other_identifier",
+      "owner": "Concept",
+      "domain_of": [
+        "Concept"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "other_identifier",
+      "range": "Identifier",
+      "recommended": true,
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Concept_title",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/title",
+      "description": "The slot to provide a title for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/title"
+      ],
+      "is_a": "title",
+      "domain": "Concept",
+      "slot_uri": "http://purl.org/dc/terms/title",
+      "alias": "title",
+      "owner": "Concept",
+      "domain_of": [
+        "Concept"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "title",
+      "range": "string",
+      "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Concept_description",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/description",
+      "description": "The slot to provide a description for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/description"
+      ],
+      "is_a": "description",
+      "domain": "Concept",
+      "slot_uri": "http://purl.org/dc/terms/description",
+      "alias": "description",
+      "owner": "Concept",
+      "domain_of": [
+        "Concept"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "description",
+      "range": "string",
+      "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "ConceptScheme_title",
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/title",
       "description": "A name of the concept scheme.",
@@ -3809,6 +4331,76 @@
       "range": "string",
       "required": true,
       "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ConceptScheme_description",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/description",
+      "description": "The slot to provide a description for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/description"
+      ],
+      "is_a": "description",
+      "domain": "ConceptScheme",
+      "slot_uri": "http://purl.org/dc/terms/description",
+      "alias": "description",
+      "owner": "ConceptScheme",
+      "domain_of": [
+        "ConceptScheme"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "description",
+      "range": "string",
+      "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ConceptScheme_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/identifier",
+      "description": "The slot to provide the main identifier for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/identifier"
+      ],
+      "is_a": "identifier",
+      "domain": "ConceptScheme",
+      "slot_uri": "http://purl.org/dc/terms/identifier",
+      "alias": "identifier",
+      "owner": "ConceptScheme",
+      "domain_of": [
+        "ConceptScheme"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "identifier",
+      "range": "uriorcurie",
+      "recommended": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ConceptScheme_other_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/other_identifier",
+      "description": "The slot to provide all known identifiers for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://www.w3.org/ns/adms#identifier"
+      ],
+      "is_a": "other_identifier",
+      "domain": "ConceptScheme",
+      "slot_uri": "http://www.w3.org/ns/adms#identifier",
+      "alias": "other_identifier",
+      "owner": "ConceptScheme",
+      "domain_of": [
+        "ConceptScheme"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "other_identifier",
+      "range": "Identifier",
+      "recommended": true,
+      "multivalued": true,
+      "inlined": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
@@ -4124,7 +4716,7 @@
       ],
       "is_usage_slot": true,
       "usage_slot_name": "licence",
-      "range": "LicenseDocument",
+      "range": "LicenceDocument",
       "inlined": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
@@ -4222,6 +4814,53 @@
       "range": "string",
       "required": true,
       "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DataService_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/identifier",
+      "description": "The slot to provide the main identifier for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/identifier"
+      ],
+      "is_a": "identifier",
+      "domain": "DataService",
+      "slot_uri": "http://purl.org/dc/terms/identifier",
+      "alias": "identifier",
+      "owner": "DataService",
+      "domain_of": [
+        "DataService"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "identifier",
+      "range": "uriorcurie",
+      "recommended": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DataService_other_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/other_identifier",
+      "description": "The slot to provide all known identifiers for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://www.w3.org/ns/adms#identifier"
+      ],
+      "is_a": "other_identifier",
+      "domain": "DataService",
+      "slot_uri": "http://www.w3.org/ns/adms#identifier",
+      "alias": "other_identifier",
+      "owner": "DataService",
+      "domain_of": [
+        "DataService"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "other_identifier",
+      "range": "Identifier",
+      "recommended": true,
+      "multivalued": true,
+      "inlined": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
@@ -4437,6 +5076,7 @@
       "usage_slot_name": "frequency",
       "range": "Frequency",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4927,7 +5567,6 @@
       "is_usage_slot": true,
       "usage_slot_name": "temporal_resolution",
       "range": "duration",
-      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -5022,7 +5661,6 @@
       "is_usage_slot": true,
       "usage_slot_name": "version",
       "range": "string",
-      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -5168,6 +5806,7 @@
       "usage_slot_name": "frequency",
       "range": "Frequency",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -5304,6 +5943,53 @@
       "range": "string",
       "required": true,
       "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DatasetSeries_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/identifier",
+      "description": "The slot to provide the main identifier for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/identifier"
+      ],
+      "is_a": "identifier",
+      "domain": "DatasetSeries",
+      "slot_uri": "http://purl.org/dc/terms/identifier",
+      "alias": "identifier",
+      "owner": "DatasetSeries",
+      "domain_of": [
+        "DatasetSeries"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "identifier",
+      "range": "uriorcurie",
+      "recommended": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DatasetSeries_other_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/other_identifier",
+      "description": "The slot to provide all known identifiers for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://www.w3.org/ns/adms#identifier"
+      ],
+      "is_a": "other_identifier",
+      "domain": "DatasetSeries",
+      "slot_uri": "http://www.w3.org/ns/adms#identifier",
+      "alias": "other_identifier",
+      "owner": "DatasetSeries",
+      "domain_of": [
+        "DatasetSeries"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "other_identifier",
+      "range": "Identifier",
+      "recommended": true,
+      "multivalued": true,
+      "inlined": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
@@ -5470,6 +6156,7 @@
       "range": "Concept",
       "recommended": true,
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -5700,7 +6387,7 @@
       ],
       "is_usage_slot": true,
       "usage_slot_name": "licence",
-      "range": "LicenseDocument",
+      "range": "LicenceDocument",
       "inlined": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
@@ -5749,6 +6436,7 @@
       "usage_slot_name": "media_type",
       "range": "MediaType",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -5902,7 +6590,6 @@
       "is_usage_slot": true,
       "usage_slot_name": "temporal_resolution",
       "range": "duration",
-      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -5923,6 +6610,146 @@
       ],
       "is_usage_slot": true,
       "usage_slot_name": "title",
+      "range": "string",
+      "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Distribution_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/identifier",
+      "description": "The slot to provide the main identifier for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/identifier"
+      ],
+      "is_a": "identifier",
+      "domain": "Distribution",
+      "slot_uri": "http://purl.org/dc/terms/identifier",
+      "alias": "identifier",
+      "owner": "Distribution",
+      "domain_of": [
+        "Distribution"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "identifier",
+      "range": "uriorcurie",
+      "recommended": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Distribution_other_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/other_identifier",
+      "description": "The slot to provide all known identifiers for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://www.w3.org/ns/adms#identifier"
+      ],
+      "is_a": "other_identifier",
+      "domain": "Distribution",
+      "slot_uri": "http://www.w3.org/ns/adms#identifier",
+      "alias": "other_identifier",
+      "owner": "Distribution",
+      "domain_of": [
+        "Distribution"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "other_identifier",
+      "range": "Identifier",
+      "recommended": true,
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Document_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/identifier",
+      "description": "The slot to provide the main identifier for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/identifier"
+      ],
+      "is_a": "identifier",
+      "domain": "Document",
+      "slot_uri": "http://purl.org/dc/terms/identifier",
+      "alias": "identifier",
+      "owner": "Document",
+      "domain_of": [
+        "Document"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "identifier",
+      "range": "uriorcurie",
+      "recommended": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Document_other_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/other_identifier",
+      "description": "The slot to provide all known identifiers for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://www.w3.org/ns/adms#identifier"
+      ],
+      "is_a": "other_identifier",
+      "domain": "Document",
+      "slot_uri": "http://www.w3.org/ns/adms#identifier",
+      "alias": "other_identifier",
+      "owner": "Document",
+      "domain_of": [
+        "Document"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "other_identifier",
+      "range": "Identifier",
+      "recommended": true,
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Document_title",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/title",
+      "description": "The slot to provide a title for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/title"
+      ],
+      "is_a": "title",
+      "domain": "Document",
+      "slot_uri": "http://purl.org/dc/terms/title",
+      "alias": "title",
+      "owner": "Document",
+      "domain_of": [
+        "Document"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "title",
+      "range": "string",
+      "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Document_description",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/description",
+      "description": "The slot to provide a description for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/description"
+      ],
+      "is_a": "description",
+      "domain": "Document",
+      "slot_uri": "http://purl.org/dc/terms/description",
+      "alias": "description",
+      "owner": "Document",
+      "domain_of": [
+        "Document"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "description",
       "range": "string",
       "multivalued": true,
       "inlined_as_list": true,
@@ -6163,6 +6990,99 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "Frequency_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/identifier",
+      "description": "The slot to provide the main identifier for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/identifier"
+      ],
+      "is_a": "identifier",
+      "domain": "Frequency",
+      "slot_uri": "http://purl.org/dc/terms/identifier",
+      "alias": "identifier",
+      "owner": "Frequency",
+      "domain_of": [
+        "Frequency"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "identifier",
+      "range": "uriorcurie",
+      "recommended": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Frequency_other_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/other_identifier",
+      "description": "The slot to provide all known identifiers for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://www.w3.org/ns/adms#identifier"
+      ],
+      "is_a": "other_identifier",
+      "domain": "Frequency",
+      "slot_uri": "http://www.w3.org/ns/adms#identifier",
+      "alias": "other_identifier",
+      "owner": "Frequency",
+      "domain_of": [
+        "Frequency"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "other_identifier",
+      "range": "Identifier",
+      "recommended": true,
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Frequency_title",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/title",
+      "description": "The slot to provide a title for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/title"
+      ],
+      "is_a": "title",
+      "domain": "Frequency",
+      "slot_uri": "http://purl.org/dc/terms/title",
+      "alias": "title",
+      "owner": "Frequency",
+      "domain_of": [
+        "Frequency"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "title",
+      "range": "string",
+      "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Frequency_description",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/description",
+      "description": "The slot to provide a description for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/description"
+      ],
+      "is_a": "description",
+      "domain": "Frequency",
+      "slot_uri": "http://purl.org/dc/terms/description",
+      "alias": "description",
+      "owner": "Frequency",
+      "domain_of": [
+        "Frequency"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "description",
+      "range": "string",
+      "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "Identifier_notation",
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/notation",
       "description": "A string that is an identifier in the context of the identifier scheme referenced by its datatype.",
@@ -6185,7 +7105,146 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "LicenseDocument_type",
+      "name": "Identifier_title",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/title",
+      "description": "The slot to provide a title for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/title"
+      ],
+      "is_a": "title",
+      "domain": "Identifier",
+      "slot_uri": "http://purl.org/dc/terms/title",
+      "alias": "title",
+      "owner": "Identifier",
+      "domain_of": [
+        "Identifier"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "title",
+      "range": "string",
+      "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Identifier_description",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/description",
+      "description": "The slot to provide a description for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/description"
+      ],
+      "is_a": "description",
+      "domain": "Identifier",
+      "slot_uri": "http://purl.org/dc/terms/description",
+      "alias": "description",
+      "owner": "Identifier",
+      "domain_of": [
+        "Identifier"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "description",
+      "range": "string",
+      "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "LegalResource_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/identifier",
+      "description": "The slot to provide the main identifier for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/identifier"
+      ],
+      "is_a": "identifier",
+      "domain": "LegalResource",
+      "slot_uri": "http://purl.org/dc/terms/identifier",
+      "alias": "identifier",
+      "owner": "LegalResource",
+      "domain_of": [
+        "LegalResource"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "identifier",
+      "range": "uriorcurie",
+      "recommended": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "LegalResource_other_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/other_identifier",
+      "description": "The slot to provide all known identifiers for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://www.w3.org/ns/adms#identifier"
+      ],
+      "is_a": "other_identifier",
+      "domain": "LegalResource",
+      "slot_uri": "http://www.w3.org/ns/adms#identifier",
+      "alias": "other_identifier",
+      "owner": "LegalResource",
+      "domain_of": [
+        "LegalResource"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "other_identifier",
+      "range": "Identifier",
+      "recommended": true,
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "LegalResource_title",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/title",
+      "description": "The slot to provide a title for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/title"
+      ],
+      "is_a": "title",
+      "domain": "LegalResource",
+      "slot_uri": "http://purl.org/dc/terms/title",
+      "alias": "title",
+      "owner": "LegalResource",
+      "domain_of": [
+        "LegalResource"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "title",
+      "range": "string",
+      "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "LegalResource_description",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/description",
+      "description": "The slot to provide a description for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/description"
+      ],
+      "is_a": "description",
+      "domain": "LegalResource",
+      "slot_uri": "http://purl.org/dc/terms/description",
+      "alias": "description",
+      "owner": "LegalResource",
+      "domain_of": [
+        "LegalResource"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "description",
+      "range": "string",
+      "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "LicenceDocument_type",
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/type",
       "description": "A type of licence, e.g. indicating 'public domain' or 'royalties required'.",
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
@@ -6193,12 +7252,12 @@
         "http://purl.org/dc/terms/type"
       ],
       "is_a": "type",
-      "domain": "LicenseDocument",
+      "domain": "LicenceDocument",
       "slot_uri": "http://purl.org/dc/terms/type",
       "alias": "type",
-      "owner": "LicenseDocument",
+      "owner": "LicenceDocument",
       "domain_of": [
-        "LicenseDocument"
+        "LicenceDocument"
       ],
       "is_usage_slot": true,
       "usage_slot_name": "type",
@@ -6206,6 +7265,192 @@
       "recommended": true,
       "multivalued": true,
       "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "LicenceDocument_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/identifier",
+      "description": "The slot to provide the main identifier for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/identifier"
+      ],
+      "is_a": "identifier",
+      "domain": "LicenceDocument",
+      "slot_uri": "http://purl.org/dc/terms/identifier",
+      "alias": "identifier",
+      "owner": "LicenceDocument",
+      "domain_of": [
+        "LicenceDocument"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "identifier",
+      "range": "uriorcurie",
+      "recommended": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "LicenceDocument_other_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/other_identifier",
+      "description": "The slot to provide all known identifiers for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://www.w3.org/ns/adms#identifier"
+      ],
+      "is_a": "other_identifier",
+      "domain": "LicenceDocument",
+      "slot_uri": "http://www.w3.org/ns/adms#identifier",
+      "alias": "other_identifier",
+      "owner": "LicenceDocument",
+      "domain_of": [
+        "LicenceDocument"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "other_identifier",
+      "range": "Identifier",
+      "recommended": true,
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "LicenceDocument_title",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/title",
+      "description": "The slot to provide a title for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/title"
+      ],
+      "is_a": "title",
+      "domain": "LicenceDocument",
+      "slot_uri": "http://purl.org/dc/terms/title",
+      "alias": "title",
+      "owner": "LicenceDocument",
+      "domain_of": [
+        "LicenceDocument"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "title",
+      "range": "string",
+      "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "LicenceDocument_description",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/description",
+      "description": "The slot to provide a description for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/description"
+      ],
+      "is_a": "description",
+      "domain": "LicenceDocument",
+      "slot_uri": "http://purl.org/dc/terms/description",
+      "alias": "description",
+      "owner": "LicenceDocument",
+      "domain_of": [
+        "LicenceDocument"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "description",
+      "range": "string",
+      "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "LinguisticSystem_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/identifier",
+      "description": "The slot to provide the main identifier for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/identifier"
+      ],
+      "is_a": "identifier",
+      "domain": "LinguisticSystem",
+      "slot_uri": "http://purl.org/dc/terms/identifier",
+      "alias": "identifier",
+      "owner": "LinguisticSystem",
+      "domain_of": [
+        "LinguisticSystem"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "identifier",
+      "range": "uriorcurie",
+      "recommended": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "LinguisticSystem_other_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/other_identifier",
+      "description": "The slot to provide all known identifiers for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://www.w3.org/ns/adms#identifier"
+      ],
+      "is_a": "other_identifier",
+      "domain": "LinguisticSystem",
+      "slot_uri": "http://www.w3.org/ns/adms#identifier",
+      "alias": "other_identifier",
+      "owner": "LinguisticSystem",
+      "domain_of": [
+        "LinguisticSystem"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "other_identifier",
+      "range": "Identifier",
+      "recommended": true,
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "LinguisticSystem_title",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/title",
+      "description": "The slot to provide a title for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/title"
+      ],
+      "is_a": "title",
+      "domain": "LinguisticSystem",
+      "slot_uri": "http://purl.org/dc/terms/title",
+      "alias": "title",
+      "owner": "LinguisticSystem",
+      "domain_of": [
+        "LinguisticSystem"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "title",
+      "range": "string",
+      "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "LinguisticSystem_description",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/description",
+      "description": "The slot to provide a description for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/description"
+      ],
+      "is_a": "description",
+      "domain": "LinguisticSystem",
+      "slot_uri": "http://purl.org/dc/terms/description",
+      "alias": "description",
+      "owner": "LinguisticSystem",
+      "domain_of": [
+        "LinguisticSystem"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "description",
+      "range": "string",
+      "multivalued": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
@@ -6273,6 +7518,286 @@
       "usage_slot_name": "geometry",
       "range": "Geometry",
       "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Location_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/identifier",
+      "description": "The slot to provide the main identifier for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/identifier"
+      ],
+      "is_a": "identifier",
+      "domain": "Location",
+      "slot_uri": "http://purl.org/dc/terms/identifier",
+      "alias": "identifier",
+      "owner": "Location",
+      "domain_of": [
+        "Location"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "identifier",
+      "range": "uriorcurie",
+      "recommended": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Location_other_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/other_identifier",
+      "description": "The slot to provide all known identifiers for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://www.w3.org/ns/adms#identifier"
+      ],
+      "is_a": "other_identifier",
+      "domain": "Location",
+      "slot_uri": "http://www.w3.org/ns/adms#identifier",
+      "alias": "other_identifier",
+      "owner": "Location",
+      "domain_of": [
+        "Location"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "other_identifier",
+      "range": "Identifier",
+      "recommended": true,
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Location_title",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/title",
+      "description": "The slot to provide a title for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/title"
+      ],
+      "is_a": "title",
+      "domain": "Location",
+      "slot_uri": "http://purl.org/dc/terms/title",
+      "alias": "title",
+      "owner": "Location",
+      "domain_of": [
+        "Location"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "title",
+      "range": "string",
+      "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Location_description",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/description",
+      "description": "The slot to provide a description for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/description"
+      ],
+      "is_a": "description",
+      "domain": "Location",
+      "slot_uri": "http://purl.org/dc/terms/description",
+      "alias": "description",
+      "owner": "Location",
+      "domain_of": [
+        "Location"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "description",
+      "range": "string",
+      "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "MediaType_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/identifier",
+      "description": "The slot to provide the main identifier for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/identifier"
+      ],
+      "is_a": "identifier",
+      "domain": "MediaType",
+      "slot_uri": "http://purl.org/dc/terms/identifier",
+      "alias": "identifier",
+      "owner": "MediaType",
+      "domain_of": [
+        "MediaType"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "identifier",
+      "range": "uriorcurie",
+      "recommended": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "MediaType_other_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/other_identifier",
+      "description": "The slot to provide all known identifiers for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://www.w3.org/ns/adms#identifier"
+      ],
+      "is_a": "other_identifier",
+      "domain": "MediaType",
+      "slot_uri": "http://www.w3.org/ns/adms#identifier",
+      "alias": "other_identifier",
+      "owner": "MediaType",
+      "domain_of": [
+        "MediaType"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "other_identifier",
+      "range": "Identifier",
+      "recommended": true,
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "MediaType_title",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/title",
+      "description": "The slot to provide a title for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/title"
+      ],
+      "is_a": "title",
+      "domain": "MediaType",
+      "slot_uri": "http://purl.org/dc/terms/title",
+      "alias": "title",
+      "owner": "MediaType",
+      "domain_of": [
+        "MediaType"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "title",
+      "range": "string",
+      "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "MediaType_description",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/description",
+      "description": "The slot to provide a description for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/description"
+      ],
+      "is_a": "description",
+      "domain": "MediaType",
+      "slot_uri": "http://purl.org/dc/terms/description",
+      "alias": "description",
+      "owner": "MediaType",
+      "domain_of": [
+        "MediaType"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "description",
+      "range": "string",
+      "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "MediaTypeOrExtent_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/identifier",
+      "description": "The slot to provide the main identifier for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/identifier"
+      ],
+      "is_a": "identifier",
+      "domain": "MediaTypeOrExtent",
+      "slot_uri": "http://purl.org/dc/terms/identifier",
+      "alias": "identifier",
+      "owner": "MediaTypeOrExtent",
+      "domain_of": [
+        "MediaTypeOrExtent"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "identifier",
+      "range": "uriorcurie",
+      "recommended": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "MediaTypeOrExtent_other_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/other_identifier",
+      "description": "The slot to provide all known identifiers for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://www.w3.org/ns/adms#identifier"
+      ],
+      "is_a": "other_identifier",
+      "domain": "MediaTypeOrExtent",
+      "slot_uri": "http://www.w3.org/ns/adms#identifier",
+      "alias": "other_identifier",
+      "owner": "MediaTypeOrExtent",
+      "domain_of": [
+        "MediaTypeOrExtent"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "other_identifier",
+      "range": "Identifier",
+      "recommended": true,
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "MediaTypeOrExtent_title",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/title",
+      "description": "The slot to provide a title for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/title"
+      ],
+      "is_a": "title",
+      "domain": "MediaTypeOrExtent",
+      "slot_uri": "http://purl.org/dc/terms/title",
+      "alias": "title",
+      "owner": "MediaTypeOrExtent",
+      "domain_of": [
+        "MediaTypeOrExtent"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "title",
+      "range": "string",
+      "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "MediaTypeOrExtent_description",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/description",
+      "description": "The slot to provide a description for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/description"
+      ],
+      "is_a": "description",
+      "domain": "MediaTypeOrExtent",
+      "slot_uri": "http://purl.org/dc/terms/description",
+      "alias": "description",
+      "owner": "MediaTypeOrExtent",
+      "domain_of": [
+        "MediaTypeOrExtent"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "description",
+      "range": "string",
+      "multivalued": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -6341,7 +7866,6 @@
       "usage_slot_name": "end_date",
       "range": "date",
       "recommended": true,
-      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -6364,6 +7888,192 @@
       "usage_slot_name": "start_date",
       "range": "date",
       "recommended": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Policy_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/identifier",
+      "description": "The slot to provide the main identifier for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/identifier"
+      ],
+      "is_a": "identifier",
+      "domain": "Policy",
+      "slot_uri": "http://purl.org/dc/terms/identifier",
+      "alias": "identifier",
+      "owner": "Policy",
+      "domain_of": [
+        "Policy"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "identifier",
+      "range": "uriorcurie",
+      "recommended": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Policy_other_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/other_identifier",
+      "description": "The slot to provide all known identifiers for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://www.w3.org/ns/adms#identifier"
+      ],
+      "is_a": "other_identifier",
+      "domain": "Policy",
+      "slot_uri": "http://www.w3.org/ns/adms#identifier",
+      "alias": "other_identifier",
+      "owner": "Policy",
+      "domain_of": [
+        "Policy"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "other_identifier",
+      "range": "Identifier",
+      "recommended": true,
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Policy_title",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/title",
+      "description": "The slot to provide a title for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/title"
+      ],
+      "is_a": "title",
+      "domain": "Policy",
+      "slot_uri": "http://purl.org/dc/terms/title",
+      "alias": "title",
+      "owner": "Policy",
+      "domain_of": [
+        "Policy"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "title",
+      "range": "string",
+      "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Policy_description",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/description",
+      "description": "The slot to provide a description for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/description"
+      ],
+      "is_a": "description",
+      "domain": "Policy",
+      "slot_uri": "http://purl.org/dc/terms/description",
+      "alias": "description",
+      "owner": "Policy",
+      "domain_of": [
+        "Policy"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "description",
+      "range": "string",
+      "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ProvenanceStatement_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/identifier",
+      "description": "The slot to provide the main identifier for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/identifier"
+      ],
+      "is_a": "identifier",
+      "domain": "ProvenanceStatement",
+      "slot_uri": "http://purl.org/dc/terms/identifier",
+      "alias": "identifier",
+      "owner": "ProvenanceStatement",
+      "domain_of": [
+        "ProvenanceStatement"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "identifier",
+      "range": "uriorcurie",
+      "recommended": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ProvenanceStatement_other_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/other_identifier",
+      "description": "The slot to provide all known identifiers for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://www.w3.org/ns/adms#identifier"
+      ],
+      "is_a": "other_identifier",
+      "domain": "ProvenanceStatement",
+      "slot_uri": "http://www.w3.org/ns/adms#identifier",
+      "alias": "other_identifier",
+      "owner": "ProvenanceStatement",
+      "domain_of": [
+        "ProvenanceStatement"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "other_identifier",
+      "range": "Identifier",
+      "recommended": true,
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ProvenanceStatement_title",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/title",
+      "description": "The slot to provide a title for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/title"
+      ],
+      "is_a": "title",
+      "domain": "ProvenanceStatement",
+      "slot_uri": "http://purl.org/dc/terms/title",
+      "alias": "title",
+      "owner": "ProvenanceStatement",
+      "domain_of": [
+        "ProvenanceStatement"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "title",
+      "range": "string",
+      "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ProvenanceStatement_description",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/description",
+      "description": "The slot to provide a description for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/description"
+      ],
+      "is_a": "description",
+      "domain": "ProvenanceStatement",
+      "slot_uri": "http://purl.org/dc/terms/description",
+      "alias": "description",
+      "owner": "ProvenanceStatement",
+      "domain_of": [
+        "ProvenanceStatement"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "description",
+      "range": "string",
+      "multivalued": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -6467,6 +8177,284 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "Relationship_title",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/title",
+      "description": "The slot to provide a title for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/title"
+      ],
+      "is_a": "title",
+      "domain": "Relationship",
+      "slot_uri": "http://purl.org/dc/terms/title",
+      "alias": "title",
+      "owner": "Relationship",
+      "domain_of": [
+        "Relationship"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "title",
+      "range": "string",
+      "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Relationship_description",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/description",
+      "description": "The slot to provide a description for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/description"
+      ],
+      "is_a": "description",
+      "domain": "Relationship",
+      "slot_uri": "http://purl.org/dc/terms/description",
+      "alias": "description",
+      "owner": "Relationship",
+      "domain_of": [
+        "Relationship"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "description",
+      "range": "string",
+      "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Resource_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/identifier",
+      "description": "The slot to provide the main identifier for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/identifier"
+      ],
+      "is_a": "identifier",
+      "domain": "Resource",
+      "slot_uri": "http://purl.org/dc/terms/identifier",
+      "alias": "identifier",
+      "owner": "Resource",
+      "domain_of": [
+        "Resource"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "identifier",
+      "range": "uriorcurie",
+      "recommended": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Resource_other_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/other_identifier",
+      "description": "The slot to provide all known identifiers for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://www.w3.org/ns/adms#identifier"
+      ],
+      "is_a": "other_identifier",
+      "domain": "Resource",
+      "slot_uri": "http://www.w3.org/ns/adms#identifier",
+      "alias": "other_identifier",
+      "owner": "Resource",
+      "domain_of": [
+        "Resource"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "other_identifier",
+      "range": "Identifier",
+      "recommended": true,
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Resource_title",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/title",
+      "description": "The slot to provide a title for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/title"
+      ],
+      "is_a": "title",
+      "domain": "Resource",
+      "slot_uri": "http://purl.org/dc/terms/title",
+      "alias": "title",
+      "owner": "Resource",
+      "domain_of": [
+        "Resource"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "title",
+      "range": "string",
+      "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Resource_description",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/description",
+      "description": "The slot to provide a description for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/description"
+      ],
+      "is_a": "description",
+      "domain": "Resource",
+      "slot_uri": "http://purl.org/dc/terms/description",
+      "alias": "description",
+      "owner": "Resource",
+      "domain_of": [
+        "Resource"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "description",
+      "range": "string",
+      "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "RightsStatement_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/identifier",
+      "description": "The slot to provide the main identifier for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/identifier"
+      ],
+      "is_a": "identifier",
+      "domain": "RightsStatement",
+      "slot_uri": "http://purl.org/dc/terms/identifier",
+      "alias": "identifier",
+      "owner": "RightsStatement",
+      "domain_of": [
+        "RightsStatement"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "identifier",
+      "range": "uriorcurie",
+      "recommended": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "RightsStatement_other_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/other_identifier",
+      "description": "The slot to provide all known identifiers for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://www.w3.org/ns/adms#identifier"
+      ],
+      "is_a": "other_identifier",
+      "domain": "RightsStatement",
+      "slot_uri": "http://www.w3.org/ns/adms#identifier",
+      "alias": "other_identifier",
+      "owner": "RightsStatement",
+      "domain_of": [
+        "RightsStatement"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "other_identifier",
+      "range": "Identifier",
+      "recommended": true,
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "RightsStatement_title",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/title",
+      "description": "The slot to provide a title for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/title"
+      ],
+      "is_a": "title",
+      "domain": "RightsStatement",
+      "slot_uri": "http://purl.org/dc/terms/title",
+      "alias": "title",
+      "owner": "RightsStatement",
+      "domain_of": [
+        "RightsStatement"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "title",
+      "range": "string",
+      "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "RightsStatement_description",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/description",
+      "description": "The slot to provide a description for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/description"
+      ],
+      "is_a": "description",
+      "domain": "RightsStatement",
+      "slot_uri": "http://purl.org/dc/terms/description",
+      "alias": "description",
+      "owner": "RightsStatement",
+      "domain_of": [
+        "RightsStatement"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "description",
+      "range": "string",
+      "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Role_title",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/title",
+      "description": "The slot to provide a title for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/title"
+      ],
+      "is_a": "title",
+      "domain": "Role",
+      "slot_uri": "http://purl.org/dc/terms/title",
+      "alias": "title",
+      "owner": "Role",
+      "domain_of": [
+        "Role"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "title",
+      "range": "string",
+      "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Role_description",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/description",
+      "description": "The slot to provide a description for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/description"
+      ],
+      "is_a": "description",
+      "domain": "Role",
+      "slot_uri": "http://purl.org/dc/terms/description",
+      "alias": "description",
+      "owner": "Role",
+      "domain_of": [
+        "Role"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "description",
+      "range": "string",
+      "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "Software_has_part",
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/has_part",
       "description": "The slot to specify parts of a Software that are themselves Software.",
@@ -6513,6 +8501,99 @@
       "inlined": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
+    },
+    {
+      "name": "Standard_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/identifier",
+      "description": "The slot to provide the main identifier for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/identifier"
+      ],
+      "is_a": "identifier",
+      "domain": "Standard",
+      "slot_uri": "http://purl.org/dc/terms/identifier",
+      "alias": "identifier",
+      "owner": "Standard",
+      "domain_of": [
+        "Standard"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "identifier",
+      "range": "uriorcurie",
+      "recommended": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Standard_other_identifier",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/other_identifier",
+      "description": "The slot to provide all known identifiers for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://www.w3.org/ns/adms#identifier"
+      ],
+      "is_a": "other_identifier",
+      "domain": "Standard",
+      "slot_uri": "http://www.w3.org/ns/adms#identifier",
+      "alias": "other_identifier",
+      "owner": "Standard",
+      "domain_of": [
+        "Standard"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "other_identifier",
+      "range": "Identifier",
+      "recommended": true,
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Standard_title",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/title",
+      "description": "The slot to provide a title for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/title"
+      ],
+      "is_a": "title",
+      "domain": "Standard",
+      "slot_uri": "http://purl.org/dc/terms/title",
+      "alias": "title",
+      "owner": "Standard",
+      "domain_of": [
+        "Standard"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "title",
+      "range": "string",
+      "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Standard_description",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/description",
+      "description": "The slot to provide a description for an instance of this class.",
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://purl.org/dc/terms/description"
+      ],
+      "is_a": "description",
+      "domain": "Standard",
+      "slot_uri": "http://purl.org/dc/terms/description",
+      "alias": "description",
+      "owner": "Standard",
+      "domain_of": [
+        "Standard"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "description",
+      "range": "string",
+      "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
     }
   ],
   "classes": [
@@ -6521,6 +8602,7 @@
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Activity",
       "description": "See [DCAT-AP specs:Activity](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Activity)",
       "notes": [
+        "DCAT-AP does not provide any property constraints for this class.",
         "The specified properties (slots) of this class are part of our extension of the DCAT-AP."
       ],
       "in_subset": [
@@ -6563,7 +8645,10 @@
       ],
       "slots": [
         "Agent_name",
-        "Agent_type"
+        "Agent_type",
+        "Agent_rdf_type",
+        "Agent_identifier",
+        "Agent_other_identifier"
       ],
       "slot_usage": {},
       "class_uri": "http://xmlns.com/foaf/0.1/Agent",
@@ -6693,10 +8778,6 @@
       "mappings": [
         "linkml:Any"
       ],
-      "slots": [
-        "title",
-        "description"
-      ],
       "slot_usage": {},
       "class_uri": "https://w3id.org/linkml/Any",
       "@type": "ClassDefinition"
@@ -6705,16 +8786,35 @@
       "name": "Attribution",
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Attribution",
       "description": "See [DCAT-AP specs:Attribution](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Attribution)",
+      "notes": [
+        "DCAT-AP does not provide any property constraints for this class.",
+        "The specified slots of this class are part of our extension of the DCAT-AP. They are needed to allow what we consider a useful instantiation of these classes in the Python/Pydantic representations of DCAT-AP+. See also: https://github.com/nfdi-de/dcat-ap-plus/issues/40."
+      ],
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
       "mappings": [
         "prov:Attribution"
       ],
       "is_a": "SupportiveEntity",
       "slots": [
-        "title",
-        "description"
+        "Attribution_title",
+        "Attribution_description",
+        "attribution__agent"
       ],
       "slot_usage": {},
+      "attributes": [
+        {
+          "name": "agent",
+          "description": "The slot to reference an Agent that is having some form of responsibility for a Dataset.",
+          "notes": [
+            "not in DCAT-AP"
+          ],
+          "slot_uri": "prov:agent",
+          "range": "Agent",
+          "multivalued": true,
+          "inlined_as_list": true,
+          "@type": "SlotDefinition"
+        }
+      ],
       "class_uri": "http://www.w3.org/ns/prov#Attribution",
       "@type": "ClassDefinition"
     },
@@ -6745,7 +8845,10 @@
         "Catalogue_service",
         "Catalogue_temporal_coverage",
         "Catalogue_themes",
-        "Catalogue_title"
+        "Catalogue_title",
+        "id",
+        "Catalogue_identifier",
+        "Catalogue_other_identifier"
       ],
       "slot_usage": {},
       "class_uri": "http://www.w3.org/ns/dcat#Catalog",
@@ -6768,7 +8871,10 @@
         "CatalogueRecord_modification_date",
         "CatalogueRecord_primary_topic",
         "CatalogueRecord_source_metadata",
-        "CatalogueRecord_title"
+        "CatalogueRecord_title",
+        "id",
+        "CatalogueRecord_identifier",
+        "CatalogueRecord_other_identifier"
       ],
       "slot_usage": {},
       "class_uri": "http://www.w3.org/ns/dcat#CatalogRecord",
@@ -6794,14 +8900,20 @@
       "name": "ChecksumAlgorithm",
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/ChecksumAlgorithm",
       "description": "See [DCAT-AP specs:ChecksumAlgorithm](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#ChecksumAlgorithm)",
+      "notes": [
+        "DCAT-AP does not provide any property constraints for this class.",
+        "The specified slots of this class are part of our extension of the DCAT-AP. They are needed to allow what we consider a useful instantiation of these classes in the Python/Pydantic representations of DCAT-AP+. See also: https://github.com/nfdi-de/dcat-ap-plus/issues/40."
+      ],
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
       "mappings": [
         "spdx:ChecksumAlgorithm"
       ],
       "is_a": "SupportiveEntity",
       "slots": [
-        "title",
-        "description"
+        "ChecksumAlgorithm_identifier",
+        "ChecksumAlgorithm_other_identifier",
+        "ChecksumAlgorithm_title",
+        "ChecksumAlgorithm_description"
       ],
       "slot_usage": {},
       "class_uri": "http://spdx.org/rdf/terms#ChecksumAlgorithm",
@@ -6836,8 +8948,10 @@
       "is_a": "SupportiveEntity",
       "slots": [
         "Concept_preferred_label",
-        "title",
-        "description"
+        "Concept_identifier",
+        "Concept_other_identifier",
+        "Concept_title",
+        "Concept_description"
       ],
       "slot_usage": {},
       "class_uri": "http://www.w3.org/2004/02/skos/core#Concept",
@@ -6854,7 +8968,9 @@
       "is_a": "SupportiveEntity",
       "slots": [
         "ConceptScheme_title",
-        "description"
+        "ConceptScheme_description",
+        "ConceptScheme_identifier",
+        "ConceptScheme_other_identifier"
       ],
       "slot_usage": {},
       "class_uri": "http://www.w3.org/2004/02/skos/core#ConceptScheme",
@@ -6962,7 +9078,10 @@
         "DataService_publisher",
         "DataService_serves_dataset",
         "DataService_theme",
-        "DataService_title"
+        "DataService_title",
+        "id",
+        "DataService_identifier",
+        "DataService_other_identifier"
       ],
       "slot_usage": {},
       "class_uri": "http://www.w3.org/ns/dcat#DataService",
@@ -7042,7 +9161,10 @@
         "DatasetSeries_publisher",
         "DatasetSeries_release_date",
         "DatasetSeries_temporal_coverage",
-        "DatasetSeries_title"
+        "DatasetSeries_title",
+        "id",
+        "DatasetSeries_identifier",
+        "DatasetSeries_other_identifier"
       ],
       "slot_usage": {},
       "class_uri": "http://www.w3.org/ns/dcat#DatasetSeries",
@@ -7147,7 +9269,10 @@
         "Distribution_spatial_resolution",
         "Distribution_status",
         "Distribution_temporal_resolution",
-        "Distribution_title"
+        "Distribution_title",
+        "id",
+        "Distribution_identifier",
+        "Distribution_other_identifier"
       ],
       "slot_usage": {},
       "class_uri": "http://www.w3.org/ns/dcat#Distribution",
@@ -7157,15 +9282,20 @@
       "name": "Document",
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Document",
       "description": "See [DCAT-AP specs:Document](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Document)",
+      "notes": [
+        "DCAT-AP does not provide any property constraints for this class.",
+        "The specified slots of this class are part of our extension of the DCAT-AP. They are needed to allow what we consider a useful instantiation of these classes in the Python/Pydantic representations of DCAT-AP+. See also: https://github.com/nfdi-de/dcat-ap-plus/issues/40."
+      ],
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
       "mappings": [
         "foaf:Document"
       ],
       "is_a": "SupportiveEntity",
       "slots": [
-        "id",
-        "title",
-        "description"
+        "Document_identifier",
+        "Document_other_identifier",
+        "Document_title",
+        "Document_description"
       ],
       "slot_usage": {},
       "class_uri": "http://xmlns.com/foaf/0.1/Document",
@@ -7266,14 +9396,20 @@
       "name": "Frequency",
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Frequency",
       "description": "See [DCAT-AP specs:Frequency](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Frequency)",
+      "notes": [
+        "DCAT-AP does not provide any property constraints for this class.",
+        "The specified slots of this class are part of our extension of the DCAT-AP. They are needed to allow what we consider a useful instantiation of these classes in the Python/Pydantic representations of DCAT-AP+. See also: https://github.com/nfdi-de/dcat-ap-plus/issues/40."
+      ],
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
       "mappings": [
         "dcterms:Frequency"
       ],
       "is_a": "SupportiveEntity",
       "slots": [
-        "title",
-        "description"
+        "Frequency_identifier",
+        "Frequency_other_identifier",
+        "Frequency_title",
+        "Frequency_description"
       ],
       "slot_usage": {},
       "class_uri": "http://purl.org/dc/terms/Frequency",
@@ -7283,16 +9419,68 @@
       "name": "Geometry",
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Geometry",
       "description": "See [DCAT-AP specs:Geometry](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Geometry)",
+      "notes": [
+        "DCAT-AP does not provide any property constraints for this class.",
+        "The specified slots of this class are part of our extension of the DCAT-AP. They are needed to allow what we consider a useful instantiation of these classes in the Python/Pydantic representations of DCAT-AP+. See also: https://github.com/nfdi-de/dcat-ap-plus/issues/40."
+      ],
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
       "mappings": [
         "locn:Geometry"
       ],
       "is_a": "SupportiveEntity",
       "slots": [
-        "title",
-        "description"
+        "geometry__longitude",
+        "geometry__latitude",
+        "geometry__wkt",
+        "geometry__gml",
+        "geometry__crs",
+        "geometry__coordinates"
       ],
       "slot_usage": {},
+      "attributes": [
+        {
+          "name": "longitude",
+          "description": "The geographic coordinate that specifies the east / west position of the Geometry on the Earth's surface.",
+          "slot_uri": "locn_new:longitude",
+          "range": "string",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "latitude",
+          "description": "The geographic coordinate that specifies the north / south position of the geometry on the Earth's surface.",
+          "slot_uri": "locn_new:latitude",
+          "range": "string",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "wkt",
+          "description": "An expression of the Geometry in WKT, the Well-Known Text markup language.",
+          "slot_uri": "locn_new:wkt",
+          "range": "string",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "gml",
+          "description": "The expression of the Geometry in Geography Markup Language.",
+          "slot_uri": "locn_new:gml",
+          "range": "string",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "crs",
+          "description": "An identifier for the coordinate reference system.",
+          "slot_uri": "locn_new:crs",
+          "range": "uriorcurie",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "coordinates",
+          "description": "A list of geographic coordinates that define the extent of the Geometry.",
+          "slot_uri": "locn_new:coordinates",
+          "range": "string",
+          "@type": "SlotDefinition"
+        }
+      ],
       "class_uri": "http://www.w3.org/ns/locn#Geometry",
       "@type": "ClassDefinition"
     },
@@ -7307,8 +9495,8 @@
       "is_a": "SupportiveEntity",
       "slots": [
         "Identifier_notation",
-        "title",
-        "description"
+        "Identifier_title",
+        "Identifier_description"
       ],
       "slot_usage": {},
       "class_uri": "http://www.w3.org/ns/adms#Identifier",
@@ -7318,11 +9506,61 @@
       "name": "Kind",
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Kind",
       "description": "See [DCAT-AP specs:Kind](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Kind)",
+      "notes": [
+        "DCAT-AP does not provide any property constraints for this class.",
+        "The specified slots of this class are part of our extension of the DCAT-AP. They are needed to allow what we consider a useful instantiation of these classes in the Python/Pydantic representations of DCAT-AP+. See also: https://github.com/nfdi-de/dcat-ap-plus/issues/40."
+      ],
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
       "mappings": [
         "vcard:Kind"
       ],
+      "slots": [
+        "kind__formatted_name",
+        "kind__has_email",
+        "kind__has_telephone"
+      ],
       "slot_usage": {},
+      "attributes": [
+        {
+          "name": "formatted_name",
+          "description": "The slot to provide a the name of the contact point as a string.",
+          "notes": [
+            "not in DCAT-AP"
+          ],
+          "slot_uri": "vcard:fn",
+          "range": "string",
+          "required": true,
+          "multivalued": true,
+          "inlined_as_list": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "has_email",
+          "description": "The slot to specify the email address of the contact point as a literal string",
+          "notes": [
+            "not in DCAT-AP"
+          ],
+          "slot_uri": "vcard:hasEmail",
+          "range": "string",
+          "multivalued": true,
+          "inlined_as_list": true,
+          "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "has_telephone",
+          "description": "The slot to specify the telephone number of the contact point as a literal string.",
+          "notes": [
+            "not in DCAT-AP"
+          ],
+          "slot_uri": "vcard:hasTelephone",
+          "range": "string",
+          "multivalued": true,
+          "inlined_as_list": true,
+          "pattern": "^\\+?[0-9\\s\\-\\(\\)\\.]{6,20}$",
+          "@type": "SlotDefinition"
+        }
+      ],
       "class_uri": "http://www.w3.org/2006/vcard/ns#Kind",
       "@type": "ClassDefinition"
     },
@@ -7330,34 +9568,39 @@
       "name": "LegalResource",
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/LegalResource",
       "description": "See [DCAT-AP specs:LegalResource](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#LegalResource)",
+      "notes": [
+        "DCAT-AP does not provide any property constraints for this class.",
+        "The specified slots of this class are part of our extension of the DCAT-AP. They are needed to allow what we consider a useful instantiation of these classes in the Python/Pydantic representations of DCAT-AP+. See also: https://github.com/nfdi-de/dcat-ap-plus/issues/40."
+      ],
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
       "mappings": [
         "eli:LegalResource"
       ],
       "is_a": "SupportiveEntity",
       "slots": [
-        "id",
-        "title",
-        "description"
+        "LegalResource_identifier",
+        "LegalResource_other_identifier",
+        "LegalResource_title",
+        "LegalResource_description"
       ],
       "slot_usage": {},
       "class_uri": "http://data.europa.eu/eli/ontology#LegalResource",
       "@type": "ClassDefinition"
     },
     {
-      "name": "LicenseDocument",
-      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/LicenseDocument",
-      "description": "See [DCAT-AP specs:LicenseDocument](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#LicenseDocument)",
+      "name": "LicenceDocument",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/LicenceDocument",
+      "description": "See [DCAT-AP specs:LicenceDocument](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#LicenceDocument)",
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
       "mappings": [
         "dcterms:LicenseDocument"
       ],
-      "is_a": "SupportiveEntity",
       "slots": [
-        "LicenseDocument_type",
-        "id",
-        "title",
-        "description"
+        "LicenceDocument_type",
+        "LicenceDocument_identifier",
+        "LicenceDocument_other_identifier",
+        "LicenceDocument_title",
+        "LicenceDocument_description"
       ],
       "slot_usage": {},
       "class_uri": "http://purl.org/dc/terms/LicenseDocument",
@@ -7367,14 +9610,20 @@
       "name": "LinguisticSystem",
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/LinguisticSystem",
       "description": "See [DCAT-AP specs:LinguisticSystem](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#LinguisticSystem)",
+      "notes": [
+        "DCAT-AP does not provide any property constraints for this class.",
+        "The specified slots of this class are part of our extension of the DCAT-AP. They are needed to allow what we consider a useful instantiation of these classes in the Python/Pydantic representations of DCAT-AP+. See also: https://github.com/nfdi-de/dcat-ap-plus/issues/40."
+      ],
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
       "mappings": [
         "dcterms:LinguisticSystem"
       ],
       "is_a": "SupportiveEntity",
       "slots": [
-        "title",
-        "description"
+        "LinguisticSystem_identifier",
+        "LinguisticSystem_other_identifier",
+        "LinguisticSystem_title",
+        "LinguisticSystem_description"
       ],
       "slot_usage": {},
       "class_uri": "http://purl.org/dc/terms/LinguisticSystem",
@@ -7391,7 +9640,11 @@
       "slots": [
         "Location_bbox",
         "Location_centroid",
-        "Location_geometry"
+        "Location_geometry",
+        "Location_identifier",
+        "Location_other_identifier",
+        "Location_title",
+        "Location_description"
       ],
       "slot_usage": {},
       "class_uri": "http://purl.org/dc/terms/Location",
@@ -7401,14 +9654,20 @@
       "name": "MediaType",
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/MediaType",
       "description": "See [DCAT-AP specs:MediaType](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#MediaType)",
+      "notes": [
+        "DCAT-AP does not provide any property constraints for this class.",
+        "The specified slots of this class are part of our extension of the DCAT-AP. They are needed to allow what we consider a useful instantiation of these classes in the Python/Pydantic representations of DCAT-AP+. See also: https://github.com/nfdi-de/dcat-ap-plus/issues/40."
+      ],
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
       "mappings": [
         "dcterms:MediaType"
       ],
       "is_a": "SupportiveEntity",
       "slots": [
-        "title",
-        "description"
+        "MediaType_identifier",
+        "MediaType_other_identifier",
+        "MediaType_title",
+        "MediaType_description"
       ],
       "slot_usage": {},
       "class_uri": "http://purl.org/dc/terms/MediaType",
@@ -7418,14 +9677,20 @@
       "name": "MediaTypeOrExtent",
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/MediaTypeOrExtent",
       "description": "See [DCAT-AP specs:MediaTypeOrExtent](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#MediaTypeOrExtent)",
+      "notes": [
+        "DCAT-AP does not provide any property constraints for this class.",
+        "The specified slots of this class are part of our extension of the DCAT-AP. They are needed to allow what we consider a useful instantiation of these classes in the Python/Pydantic representations of DCAT-AP+. See also: https://github.com/nfdi-de/dcat-ap-plus/issues/40."
+      ],
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
       "mappings": [
         "dcterms:MediaTypeOrExtent"
       ],
       "is_a": "SupportiveEntity",
       "slots": [
-        "title",
-        "description"
+        "MediaTypeOrExtent_identifier",
+        "MediaTypeOrExtent_other_identifier",
+        "MediaTypeOrExtent_title",
+        "MediaTypeOrExtent_description"
       ],
       "slot_usage": {},
       "class_uri": "http://purl.org/dc/terms/MediaTypeOrExtent",
@@ -7444,9 +9709,7 @@
         "PeriodOfTime_beginning",
         "PeriodOfTime_end",
         "PeriodOfTime_end_date",
-        "PeriodOfTime_start_date",
-        "title",
-        "description"
+        "PeriodOfTime_start_date"
       ],
       "slot_usage": {},
       "class_uri": "http://purl.org/dc/terms/PeriodOfTime",
@@ -7491,14 +9754,20 @@
       "name": "Policy",
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Policy",
       "description": "See [DCAT-AP specs:Policy](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Policy)",
+      "notes": [
+        "DCAT-AP does not provide any property constraints for this class.",
+        "The specified slots of this class are part of our extension of the DCAT-AP. They are needed to allow what we consider a useful instantiation of these classes in the Python/Pydantic representations of DCAT-AP+. See also: https://github.com/nfdi-de/dcat-ap-plus/issues/40."
+      ],
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
       "mappings": [
         "odrl:Policy"
       ],
       "is_a": "SupportiveEntity",
       "slots": [
-        "title",
-        "description"
+        "Policy_identifier",
+        "Policy_other_identifier",
+        "Policy_title",
+        "Policy_description"
       ],
       "slot_usage": {},
       "class_uri": "http://www.w3.org/ns/odrl/2/Policy",
@@ -7508,14 +9777,20 @@
       "name": "ProvenanceStatement",
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/ProvenanceStatement",
       "description": "See [DCAT-AP specs:ProvenanceStatement](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#ProvenanceStatement)",
+      "notes": [
+        "DCAT-AP does not provide any property constraints for this class.",
+        "The specified slots of this class are part of our extension of the DCAT-AP. They are needed to allow what we consider a useful instantiation of these classes in the Python/Pydantic representations of DCAT-AP+. See also: https://github.com/nfdi-de/dcat-ap-plus/issues/40."
+      ],
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
       "mappings": [
         "dcterms:ProvenanceStatement"
       ],
       "is_a": "SupportiveEntity",
       "slots": [
-        "title",
-        "description"
+        "ProvenanceStatement_identifier",
+        "ProvenanceStatement_other_identifier",
+        "ProvenanceStatement_title",
+        "ProvenanceStatement_description"
       ],
       "slot_usage": {},
       "class_uri": "http://purl.org/dc/terms/ProvenanceStatement",
@@ -7618,7 +9893,9 @@
       ],
       "slots": [
         "Relationship_had_role",
-        "Relationship_relation"
+        "Relationship_relation",
+        "Relationship_title",
+        "Relationship_description"
       ],
       "slot_usage": {},
       "class_uri": "http://www.w3.org/ns/dcat#Relationship",
@@ -7628,6 +9905,10 @@
       "name": "Resource",
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Resource",
       "description": "See [DCAT-AP specs:Resource](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Resource)",
+      "notes": [
+        "DCAT-AP does not provide any property constraints for this class.",
+        "The specified slots of this class are part of our extension of the DCAT-AP. They are needed to allow what we consider a useful instantiation of these classes in the Python/Pydantic representations of DCAT-AP+. See also: https://github.com/nfdi-de/dcat-ap-plus/issues/40."
+      ],
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
       "mappings": [
         "rdfs:Resource"
@@ -7635,8 +9916,10 @@
       "is_a": "SupportiveEntity",
       "slots": [
         "id",
-        "title",
-        "description"
+        "Resource_identifier",
+        "Resource_other_identifier",
+        "Resource_title",
+        "Resource_description"
       ],
       "slot_usage": {},
       "class_uri": "http://www.w3.org/2000/01/rdf-schema#Resource",
@@ -7646,14 +9929,20 @@
       "name": "RightsStatement",
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/RightsStatement",
       "description": "See [DCAT-AP specs:RightsStatement](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#RightsStatement)",
+      "notes": [
+        "DCAT-AP does not provide any property constraints for this class.",
+        "The specified slots of this class are part of our extension of the DCAT-AP. They are needed to allow what we consider a useful instantiation of these classes in the Python/Pydantic representations of DCAT-AP+. See also: https://github.com/nfdi-de/dcat-ap-plus/issues/40."
+      ],
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
       "mappings": [
         "dcterms:RightsStatement"
       ],
       "is_a": "SupportiveEntity",
       "slots": [
-        "title",
-        "description"
+        "RightsStatement_identifier",
+        "RightsStatement_other_identifier",
+        "RightsStatement_title",
+        "RightsStatement_description"
       ],
       "slot_usage": {},
       "class_uri": "http://purl.org/dc/terms/RightsStatement",
@@ -7663,14 +9952,18 @@
       "name": "Role",
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Role",
       "description": "See [DCAT-AP specs:Role](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Role)",
+      "notes": [
+        "DCAT-AP does not provide any property constraints for this class.",
+        "The specified slots of this class are part of our extension of the DCAT-AP. They are needed to allow what we consider a useful instantiation of these classes in the Python/Pydantic representations of DCAT-AP+. See also: https://github.com/nfdi-de/dcat-ap-plus/issues/40."
+      ],
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
       "mappings": [
         "dcat:Role"
       ],
       "is_a": "SupportiveEntity",
       "slots": [
-        "title",
-        "description"
+        "Role_title",
+        "Role_description"
       ],
       "slot_usage": {},
       "class_uri": "http://www.w3.org/ns/dcat#Role",
@@ -7711,14 +10004,20 @@
       "name": "Standard",
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Standard",
       "description": "See [DCAT-AP specs:Standard](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Standard)",
+      "notes": [
+        "DCAT-AP does not provide any property constraints for this class.",
+        "The specified slots of this class are part of our extension of the DCAT-AP. They are needed to allow what we consider a useful instantiation of these classes in the Python/Pydantic representations of DCAT-AP+. See also: https://github.com/nfdi-de/dcat-ap-plus/issues/40."
+      ],
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
       "mappings": [
         "dcterms:Standard"
       ],
       "is_a": "SupportiveEntity",
       "slots": [
-        "title",
-        "description"
+        "Standard_identifier",
+        "Standard_other_identifier",
+        "Standard_title",
+        "Standard_description"
       ],
       "slot_usage": {},
       "class_uri": "http://purl.org/dc/terms/Standard",
@@ -7729,10 +10028,6 @@
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/SupportiveEntity",
       "description": "The supportive entities are supporting the main entities in the Application Profile. They are included in the Application Profile because they form the range of properties.",
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
-      "slots": [
-        "title",
-        "description"
-      ],
       "slot_usage": {},
       "class_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/SupportiveEntity",
       "@type": "ClassDefinition"
@@ -7765,25 +10060,40 @@
       "name": "TimeInstant",
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/TimeInstant",
       "description": "See [DCAT-AP specs:TimeInstant](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#TimeInstant)",
+      "notes": [
+        "DCAT-AP does not provide any property constraints for this class.",
+        "The specified slots of this class are part of our extension of the DCAT-AP. They are needed to allow what we consider a useful instantiation of these classes in the Python/Pydantic representations of DCAT-AP+. See also: https://github.com/nfdi-de/dcat-ap-plus/issues/40."
+      ],
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
       "mappings": [
         "time:Instant"
       ],
       "is_a": "SupportiveEntity",
       "slots": [
-        "title",
-        "description"
+        "timeInstant__datetime"
       ],
       "slot_usage": {},
+      "attributes": [
+        {
+          "name": "datetime",
+          "description": "The slot to provide a the datetime of a TimeInstant.",
+          "notes": [
+            "not in DCAT-AP"
+          ],
+          "slot_uri": "xsd:dateTime",
+          "range": "datetime",
+          "@type": "SlotDefinition"
+        }
+      ],
       "class_uri": "http://www.w3.org/2006/time#Instant",
       "@type": "ClassDefinition"
     }
   ],
   "metamodel_version": "1.11.0",
   "source_file": "dcat_ap_plus.yaml",
-  "source_file_date": "2026-06-10T16:34:47",
-  "source_file_size": 86797,
-  "generation_date": "2026-06-10T17:30:30",
+  "source_file_date": "2026-06-19T18:44:36",
+  "source_file_size": 110400,
+  "generation_date": "2026-06-19T18:45:11",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/dcat_ap_plus.context.jsonld",

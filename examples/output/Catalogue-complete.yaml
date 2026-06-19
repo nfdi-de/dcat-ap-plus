@@ -1,0 +1,237 @@
+id: https://example.org/catalogue/cat-001
+description:
+- This catalogue aggregates datasets related to environmental monitoring across Europe.
+- Dieser Katalog sammelt Datensätze zur Umweltüberwachung in ganz Europa.
+publisher:
+  name:
+  - European Environmental Agency
+  type:
+    preferred_label:
+    - Government Agency
+    identifier: http://purl.org/adms/publishertype/GovernmentAgency
+  identifier: http://publications.europa.eu/resource/authority/corporate-body/EEA
+title:
+- European Environmental Data Catalogue
+- Europäischer Umweltdatenkatalog
+applicable_legislation:
+- identifier: https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng
+  other_identifier:
+  - notation: https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng
+  - notation: https://gdpr-info.eu/
+  title:
+  - General Data Protection Regulation (GDPR)
+  description:
+  - EU regulation on data protection and privacy.
+- identifier: https://creativecommons.org/licenses/by/4.0
+  other_identifier:
+  - notation: https://creativecommons.org/licenses/by/4.0/rdf
+    title:
+    - RDF ID
+    description:
+    - The id to be used to explicitly refer to the RDF representation of the CC-BY
+      4.0 licence.
+  - notation: https://creativecommons.org/licenses/by/4.0/
+    title:
+    - CC-BY 4.0 id
+    description:
+    - The canonical idenfier used for the CC-BY 4.0 license
+  title:
+  - Attribution 4.0 International
+  - CC-BY 4.0
+  description:
+  - 'You are free to: ... '
+catalogue:
+- id: https://example.org/catalogue/sub-cat-001
+  description:
+  - A specialized sub-catalogue.
+  publisher:
+    name:
+    - European Environmental Agency
+    type:
+      preferred_label:
+      - Government Agency
+      identifier: http://purl.org/adms/publishertype/GovernmentAgency
+    identifier: http://publications.europa.eu/resource/authority/corporate-body/EEA
+  title:
+  - Sub-Catalogue for Specific Domain
+creator:
+  name:
+  - Peter Parker
+  type:
+    preferred_label:
+    - PrivateIndividual(s)
+    identifier: http://purl.org/adms/publishertype/PrivateIndividual(s)
+    other_identifier:
+    - notation: http://purl.org/adms/publishertype/PrivateIndividual(s)
+      description:
+      - The identifier for classifying people according to the DCAT-AP mandated ADMS
+        publisher type vocabulary.
+  rdf_type:
+    id: foaf:Person
+  identifier: https://orcid.org/0000-0002-0003-0004
+  other_identifier:
+  - notation: https://orcid.org/0000-0002-0003-0004
+    title:
+    - ORCID
+    description:
+    - The ORCID of the dataset creator.
+geographical_coverage:
+- bbox: POLYGON((-73.9872 -33.7507, -34.7929 -33.7507, -34.7929 5.2718, -73.9872 5.2718,
+    -73.9872 -33.7507))
+  centroid: POINT(-54.3900 -14.2394)
+  geometry:
+    longitude: '-47.9292'
+    latitude: '-15.7801'
+    wkt: POINT(-47.9292 -15.7801)
+    gml: "<gml:Point xmlns:gml=\"http://www.opengis.net/gml/3.2\" srsName=\"http://www.opengis.net/def/crs/OGC/1.3/CRS84\"\
+      >\n  <gml:pos>-47.9292 -15.7801</gml:pos>\n</gml:Point>\n"
+    crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+    coordinates: -47.9292, -15.7801
+  identifier: http://publications.europa.eu/resource/authority/country/BRA
+  other_identifier:
+  - notation: ISO3166-1:BRA
+  - notation: http://publications.europa.eu/resource/authority/country/BRA
+    description:
+    - The identifier from the EU Vocabularies Countries Named Authority List, as mandated
+      by the DCA-AP specs.
+  - notation: UN:M49:076
+  - notation: FIPS:BR
+  - notation: GNS:-1058129
+  title:
+  - Brazil
+  - Federative Republic of Brazil
+  - Brasil
+  - República Federativa do Brasil
+  description:
+  - Brazil, officially the Federative Republic of Brazil, is the largest country in
+    South America and the fifth-largest in the world by area.
+  - Brasil, oficialmente República Federativa do Brasil, é o maior país da América
+    do Sul e o quinto maior do mundo em área.
+- bbox: POLYGON((5.8663 47.2701, 15.0419 47.2701, 15.0419 55.0581, 5.8663 55.0581,
+    5.8663 47.2701))
+  centroid: POINT(10.4515 51.1657)
+  geometry:
+    longitude: '13.4050'
+    latitude: '52.5200'
+    wkt: POINT(13.4050 52.5200)
+    gml: "<gml:Point xmlns:gml=\"http://www.opengis.net/gml/3.2\" srsName=\"http://www.opengis.net/def/crs/OGC/1.3/CRS84\"\
+      >\n  <gml:pos>13.4050 52.5200</gml:pos>\n</gml:Point>\n"
+    crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+    coordinates: 13.4050, 52.5200
+  identifier: http://publications.europa.eu/resource/authority/country/DEU
+  other_identifier:
+  - notation: ISO3166-1:DEU
+  - notation: http://publications.europa.eu/resource/authority/country/DEU
+    description:
+    - The identifier from the EU Vocabularies Countries Named Authority List, as mandated
+      by the DCA-AP specs.
+  - notation: UN:M49:276
+  - notation: FIPS:GM
+  - notation: GNS:-1823572
+  title:
+  - Germany
+  - Federal Republic of Germany
+  - Deutschland
+  - Bundesrepublik Deutschland
+  description:
+  - Germany, officially the Federal Republic of Germany, is a country in Central Europe.
+    It is the second-most populous country in Europe after Russia and the most populous
+    member state of the European Union.
+  - Deutschland, offiziell Bundesrepublik Deutschland, ist ein Land in Mitteleuropa.
+    Es ist nach Russland das zweitbevölkerungsreichste Land Europas und das bevölkerungsreichste
+    Mitglied der Europäischen Union.
+has_dataset:
+- id: https://example.org/dataset/env-monitoring-001
+  description:
+  - Key dataset in this catalogue.
+  title:
+  - Environmental Monitoring Dataset 2025
+  was_generated_by:
+  - id: https://example.org/activity/env-monitoring-001
+has_part:
+- id: https://example.org/catalogue/cat-001-part-A
+  description:
+  - Section dedicated to air quality data.
+  publisher:
+    name:
+    - European Environmental Agency
+    type:
+      preferred_label:
+      - Government Agency
+      identifier: http://purl.org/adms/publishertype/GovernmentAgency
+    identifier: http://publications.europa.eu/resource/authority/corporate-body/EEA
+  title:
+  - 'Part A: Air Quality'
+homepage:
+  identifier: https://example.org/catalogue/cat-001/home
+  other_identifier:
+  - notation: https://example.org/catalogue/cat-001/home
+  title:
+  - Catalogue Homepage
+  description:
+  - Main entry point for the catalogue.
+language:
+- identifier: http://publications.europa.eu/resource/authority/language/ENG
+  title:
+  - English
+  description:
+  - Primary language of metadata.
+- identifier: http://publications.europa.eu/resource/authority/language/DEU
+  title:
+  - German
+  description:
+  - Secondary language of metadata.
+licence:
+  identifier: http://creativecommons.org/licenses/by/4.0/
+  other_identifier:
+  - notation: http://creativecommons.org/licenses/by/4.0/
+  title:
+  - CC BY 4.0
+  description:
+  - Creative Commons Attribution 4.0 International
+modification_date: '2026-06-19'
+release_date: '2026-01-01'
+rights:
+  identifier: http://publications.europa.eu/resource/authority/access-right/PUBLIC
+  other_identifier:
+  - notation: http://publications.europa.eu/resource/authority/access-right/PUBLIC
+    title:
+    - DCAT-AP mandated RightsStatement ID
+    description:
+    - The RightsStatement ID from the Access Rights Named Authority List as mandated
+      by the DCAT-AP specs.
+  title:
+  - The RightsStatement for this catalogue
+  description:
+  - The catalogue is open access.
+service:
+- id: https://example.org/
+  endpoint_URL:
+  - id: https://example.org/catalogue/cat-001/oai/
+    title:
+    - OAI Endpoint
+  title:
+  - OAI-PMH Service
+  description:
+  - Service for harvesting metadata.
+temporal_coverage:
+- beginning:
+    datetime: '2019-01-12T21:32:52+00:00'
+  end:
+    datetime: '2020-01-12T21:00:00+00:00'
+  end_date: '2020-01-12'
+  start_date: '2019-01-12'
+themes:
+- title:
+  - Dataset Theme Vocabulary
+  description:
+  - The Dataset Theme Vocabulary of the DCAT-AP standard.
+  identifier: http://publications.europa.eu/resource/authority/data-theme
+identifier: https://example.org/catalogue/cat-001
+other_identifier:
+- notation: https://example.org/catalogue/cat-001
+- notation: urn:example:cat:001
+  title:
+  - URN Identifier
+  description:
+  - Internal URN for the catalogue.
