@@ -63,6 +63,59 @@ The extension layer is authored *in Python code*, not in raw YAML, so that it bu
 
 Elements belonging to the DCAT-AP+ extension are tagged with `in_subset: [domain_agnostic_core]` in the schema, making it easy to distinguish them from the auto-generated DCAT-AP base.
 
+## Instantiation Enablers: Bridging Validation and Generation
+
+The official DCAT-AP SHACL shapes are designed primarily for **validating existing RDF data**. In that context, many supporting classes (e.g., `Location`, `Concept`, `LicenceDocument`, `ChecksumAlgorithm`) are defined with **no property constraints**. This is intentional: DCAT-AP considers defining constraints for these range classes out of scope. The shapes only require these classes to exist as valid targets (`sh:targetClass`) for properties defined elsewhere (e.g., a `Dataset` having the `license` slot that points to a `LicenceDocument`).
+
+However, DCAT-AP+ uses LinkML not just for validation, but also for **generating RDF data** via Python objects. To instantiate a class in Python and produce meaningful RDF, the class must define at least some slots. An empty class definition prevents the creation of Python / Pydantic objects.
+
+To bridge this gap between **validation-only shapes** and **generation-ready schemas**, DCAT-AP+ applies a layer of **Instantiation Enablers**. These are pragmatic design decisions that extend specific underspecified DCAT-AP classes with minimal, high-value slots. These slots are selected to be general enough to avoid overspecification, yet sufficient to allow the creation of minimally viable, FAIR-compliant Linked Data.
+
+### Extension Rationale
+
+We apply three main strategies to these underspecified classes:
+
+   1. **Enforcing Named Nodes:** To the core metadata classes (e.g., `Catalogue`, `Distribution`, `DatasetSeries`), we assign the mandatory `id` slot.
+      * **Why:** The Semantic Web relies on resources being named nodes (identified by a URI) rather than anonymous blank nodes. This allows data from different sources to link to the same entity unambiguously, creating a true distributed graph.
+      * **Note:** While this aligns with Linked Data best practices, it is also partly driven by a current LinkML limitation where distinguishing between "optional named node" and "optional blank node" is, to our knowledge, not yet supported. We therefore opt for the stricter, best-practice approach of forcing named nodes for key resources.
+
+   2. **Enabling Controlled Sources Usage:** Many DCAT-AP classes are intended to be instances of external controlled vocabularies, ontologies or databases (e.g., a `Concept` from a thematic taxonomy, a Language from the EU Vocabularies).
+      * **The Extension:** We add the `identifier` and `other_identifier` slots (mapped to the [DCTerms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) respectively [ADMS vocabulary](https://semiceu.github.io/ADMS/releases/2.00/)) to classes like `Concept`, `MediaType`, `Frequency`, `RightsStatement`, or `LinguisticSystem`.
+      * **The Benefit:** This allows data publishers to explicitly state which term from a vocabulary they are using via a `dcterms:identifier` statement, while still allowing the resource itself to remain a blank node if a global IRI is not available or desired. The `identifier` slot captures the primary identifier of a resource, while the `other_identifier` slot (mapped to `adms:identifier`) follows the strategy [proposed by the DCAT-AP team](https://github.com/SEMICeu/DCAT-AP/blob/2.x.y-draft/releases/2.x.y/usageguide-identifiers.md#proposal) to collect all available identifiers with contextual information (e.g., source vocabulary, notation, usage context) for better disambiguation and integration in downstream processes.
+      * **Future Roadmap:** Currently, the `identifier` slot is open to any URI. In a future release (tracked in [Issue #66](https://github.com/nfdi-de/dcat-ap-plus/issues/66)), we intend to use [LinkML's Slot Binding feature](https://linkml.io/linkml-model/latest/docs/bindings/) to constrain these slots to the specific DCAT-AP mandated Controlled Vocabularies, providing automated validation that the correct URIs are used.
+
+   3. **Adding Human-Readable Context:** For most underspecified classes, we also add the optional `title` and `description` slots (mapped to their [DCTerms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) equivalents).
+      * **Why:** Even if a resource is identified only by a controlled vocabulary URI or remains a blank node, it should still be understandable to a human reader. Adding a label or description ensures that the generated RDF remains readable and self-documenting.
+
+### Specialized Extensions
+
+Some classes require more than just generic identifiers, labels or free-text descriptions to be useful. Rather than inventing new properties, we reuse slots already specified in the source ontologies these classes originate from:
+
+  * `Location`: Defined in the [Location Core Vocabulary (LOCN)](https://semiceu.github.io/Core-Location-Vocabulary/releases/2.1.1/). We add slots like `bbox`, `centroid`, and `geometry` (with sub-slots for `wkt`, `gml`, `latitude`, `longitude`). These are standard LOCN properties, ensuring compatibility with existing geospatial tools. 
+  * `Kind`: Defined in the [vCard Ontology](https://www.w3.org/TR/vcard-rdf/) and used as the range for the `contact_point` slot. We add `formatted_name`, `has_email`, and `has_telephone`. These are direct mappings to vCard properties (`vcard:fn`, `vcard:hasEmail`, `vcard:hasTelephone`), ensuring contact information is machine-actionable according to the standard. 
+  * `Agent`: In addition to the existing `name` slot, we add `identifier` and `other_identifier` slots. This allows for direct disambiguation of agents (e.g., using an ORCID for a person or a ROR ID for an organization), which is crucial for data integration across different repositories. We also add `rdf_type` form the DCAT-AP+ [ClassifierMixin](design-patterns.md#pattern-3-flexible-classification-classifiermixin) to allow explicit additional typing with `foaf:Person` and `foaf:Organization`.
+
+### Example in Practice
+
+The impact of these enablers is visible in how you describe standard metadata using DCAT-AP mandated controlled vocabularies. Instead of a vague reference, you can provide the exact required identifier along with human-readable labels:
+
+```yaml
+language: # range: LinguisticSystem
+  - identifier: "http://publications.europa.eu/resource/authority/language/ENG"
+    other_identifier:
+      - notation: "http://publications.europa.eu/resource/authority/language/ENG"
+        title: "DCAT-AP mandated LinguisticSystem ID"
+        description: "The LinguisticSystem ID from the EU Vocabularies Languages Named Authority List as mandated by the DCAT-AP specs."
+    title:
+      - "English"
+    description:
+      - "The English language."
+```
+
+In this example, the `LinguisticSystem` class, which has no property constraints in the official DCAT-AP SHACL shapes, becomes a rich, verifiable object. The `identifier` slot captures the mandatory EU Vocabulary URI, while `other_identifier` preserves the context of that identifier. The `title` and `description` slots provide human context. The node itself can remain a blank node in the resulting RDF and identification can be handled via the `dcterms:identifier` property. 
+
+For a complete view of how these extensions look in a full dataset, refer to the comprehensive [example dataset](../tests/data/valid/Dataset-complete.yaml) in our test suite.
+
 ## Re-running the generation
 
 ### ⚠️ Critical Rule: Never Edit the YAML Files Directly

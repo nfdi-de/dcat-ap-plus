@@ -35,6 +35,7 @@ PREFIX_MAP = {
     'vcard': 'http://www.w3.org/2006/vcard/ns#',
     'adms': 'http://www.w3.org/ns/adms#',
     'dcatap': 'http://data.europa.eu/r5r/',
+    'locn_new': 'http://data.europa.eu/m8g/',
     'qb': 'http://purl.org/linked-data/cube#',
     'rdf': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
     'rdfs': 'http://www.w3.org/2000/01/rdf-schema#',
@@ -584,17 +585,200 @@ def build_dcatap_plus():
                                           in_subset='domain_agnostic_core'))
 
 
-    def extend_supportive_entities():
-        for supportive_entity in builder.schema.classes.keys():
-            slots = builder.schema.classes[supportive_entity].slots
-            if supportive_entity not in (MAIN_NODES + DATATYPES + ["DataGeneratingActivity"]):
-                if supportive_entity in ['Resource', 'Document', 'LegalResource', 'LicenseDocument']:
-                    builder.schema.classes[supportive_entity].slots = slots + ['id', 'title','description']
-                elif supportive_entity == 'ConceptScheme':
-                    builder.schema.classes[supportive_entity].slots = slots + ['description']
-                else:
-                    builder.schema.classes[supportive_entity].slots = slots + ['title','description']
+    def extend_underspecified_classes():
+        """
+        The function that extends those classes whose properties are under- or unspecified in DCAT-AP and thus don't
+        allow their instantiation in Python at all, or are insufficient for a "proper" / useful instantiation with
+        regard to linked data principles, such as mainly providing node IRIs and other identifiers.
+        """
+        for node in builder.schema.classes.keys():
+            # Temp variables to store existing slots & slot usages of a class which will be updated here
+            slots = builder.schema.classes[node].slots
+            slot_usage = builder.schema.classes[node].slot_usage
+            if not isinstance(slot_usage, dict):
+                slot_usage = slot_usage.__dict__
+                del slot_usage['_if_missing']
+            # List of very general slots & their usage dict needed to extend for allowing to describe an instance
+            descriptive_slots = ['title','description']
+            slot_usage_desc = {
+                'title': SlotDefinition(
+                    name='title',
+                    description='The slot to provide a title for an instance of this class.',
+                    range='string',
+                    multivalued=True,
+                    inlined_as_list=True),
+                'description': SlotDefinition(
+                    name='description',
+                    description='The slot to provide a description for an instance of this class.',
+                    range='string',
+                    multivalued=True,
+                    inlined_as_list=True)}
+            # List of identifier slots & their usage dict needed to extend as an alternative for having to force an
+            # instance IRI with the mandatory 'id' slot (to still allow blank nodes for these)
+            id_slots = ['identifier', 'other_identifier']
+            slot_usage_ids = {
+                'identifier':SlotDefinition(
+                    name='identifier',
+                    range='uriorcurie',
+                    recommended=True,
+                    description='The slot to provide the main identifier for an instance of this class.',
+                    multivalued=False),
+                'other_identifier':SlotDefinition(
+                    name='other_identifier',
+                    range='Identifier',
+                    description='The slot to provide all known identifiers for an instance of this class.',
+                    multivalued=True,
+                    recommended=True,
+                    inlined_as_list=True)}
+            # Add a note on each class that their slot specifications where added only in DCAT-AP+
+            if not builder.schema.classes[node].slots and node not in ['Any', 'SupportiveEntity']:
+                builder.schema.classes[node].notes.append(
+                    "The specified slots of this class are part of our extension of the DCAT-AP. "
+                    "They are needed to allow what we consider a useful instantiation of these classes in the "
+                    "Python/Pydantic representations of DCAT-AP+. See also: "
+                    "https://github.com/nfdi-de/dcat-ap-plus/issues/40.")
 
+            ##########################################################################################################
+            # Cases where instances MUST be named, SHOULD have additional identifiers & MAY have a basic description #
+            ##########################################################################################################
+            #  Currently, LinkML doesn't yet allow instances to be either named or blank nodes. Hence, the "id" slot
+            #  becomes mandatory because it uses the metamodel slot "identifier: true".
+            if node in ['Catalogue', 'CatalogueRecord', 'DatasetSeries', 'DataService', 'Distribution', 'Resource' ]:
+                if node in ['Catalogue', 'CatalogueRecord', 'DatasetSeries', 'DataService', 'Distribution']:
+                    builder.schema.classes[node].slots = slots + ['id'] + id_slots
+                    builder.schema.classes[node].slot_usage = slot_usage | slot_usage_ids
+                else:
+                    builder.schema.classes[node].slots = slots + ['id'] + id_slots + descriptive_slots
+                    builder.schema.classes[node].slot_usage = slot_usage | slot_usage_ids | slot_usage_desc
+
+            ###################################################################################################
+            # Cases where instances MAY be named, thus SHOULD have identifiers & MAY have a basic description #
+            ###################################################################################################
+            # We need identifiers for these, since they are expected to be instances from DCAT-AP mandated CVs
+            # See also: https://semiceu.github.io/DCAT-AP/releases/3.0.0/#controlled-vocabularies-to-be-used
+            # The descriptive slots allow very basic interoperability.
+            elif node in ['ChecksumAlgorithm', 'Concept', 'Document', 'Frequency', 'LegalResource', 'LicenceDocument',
+                          'LinguisticSystem', 'Location', 'MediaType', 'MediaTypeOrExtent', 'Policy', 'Standard',
+                          'ProvenanceStatement', 'RightsStatement']:
+                builder.schema.classes[node].slots = slots + id_slots + descriptive_slots
+                builder.schema.classes[node].slot_usage = slot_usage | slot_usage_ids | slot_usage_desc
+
+            ##################################################################
+            # Cases where blank nodes instances MAY have a basic description #
+            ##################################################################
+            elif node in ['Attribution', 'Identifier', 'Relationship', 'Role']:
+                builder.schema.classes[node].slots = slots + descriptive_slots
+                builder.schema.classes[node].slot_usage = slot_usage | slot_usage_desc
+                # Attribution must have a "agent" slot according to PROV-O to link to the Agent of an Attribution
+                builder.schema.classes['Attribution'].attributes = [
+                    SlotDefinition(
+                        name='agent',
+                        description='The slot to reference an Agent that is having some form of responsibility for a '
+                                    'Dataset.',
+                        slot_uri='prov:agent',
+                        multivalued=True,
+                        inlined_as_list=True,
+                        range='Agent',
+                        notes=['not in DCAT-AP']),
+                ]
+
+            ##################
+            ### EXCEPTIONS ###
+            ##################
+
+            # Agent already has the slots 'name' and 'type', but we need more as described in
+            #   https://github.com/nfdi-de/dcat-ap-plus/issues/84
+            elif node == 'Agent':
+                builder.schema.classes['Agent'].slots = slots + ['rdf_type'] + id_slots
+                builder.schema.classes['Agent'].slot_usage = {'rdf_type':
+                                                                  SlotDefinition(
+                                                                      name='rdf_type',
+                                                                      description='The slot to provide an additional rdf:type for the Agent. '
+                                                                                  'According to DCAT-AP that should be foaf:Person for individuals or, for'
+                                                                                  ' organizations it should be foaf:Organization or org:Organization.')
+                                                             } | slot_usage | slot_usage_ids
+
+            # ConceptScheme already has the 'title' slot, which would be duplicated if descriptive_slots were used here
+            elif node == 'ConceptScheme':
+                builder.schema.classes['ConceptScheme'].slots = slots + ['description'] + id_slots
+                builder.schema.classes[node].slot_usage = (slot_usage |
+                                                           {'description': SlotDefinition(
+                                                           name='description',
+                                                           description='The slot to provide a description for an instance of this class.',
+                                                           range='string',
+                                                           multivalued=True,
+                                                           inlined_as_list=True)} | slot_usage_ids)
+
+            # Geometry needs its very own slots/attributes based on the Location Core Vocabulary
+            elif node == 'Geometry':
+                builder.schema.classes['Geometry'].attributes = {
+                    'longitude': {'slot_uri': "locn_new:longitude",
+                                  'description': "The geographic coordinate that specifies the east / west position "
+                                                 "of the Geometry on the Earth's surface.",
+                                  'range': 'string'},
+                    'latitude': {'slot_uri': "locn_new:latitude",
+                                 'description': "The geographic coordinate that specifies the north / south position "
+                                                "of the geometry on the Earth's surface.",
+                                 'range': 'string'},
+                    'wkt': {'slot_uri': "locn_new:wkt",
+                            'description': "An expression of the Geometry in WKT, the Well-Known Text markup "
+                                           "language.",
+                            'range': 'string'},
+                    'gml': {'slot_uri': "locn_new:gml",
+                            'description': "The expression of the Geometry in Geography Markup Language.",
+                            'range': 'string'},
+                    'crs': {'slot_uri': "locn_new:crs",
+                            'description': "An identifier for the coordinate reference system.",
+                            'range': 'uriorcurie'},
+                    'coordinates': {'slot_uri': "locn_new:coordinates",
+                                    'description': "A list of geographic coordinates that define the extent of the "
+                                                   "Geometry.",
+                                    'range': 'string'},
+                }
+
+            # Kind MUST have a "formatted name" slot according to the vCard ontology, adding also a slot for an email
+            # and a telephone number makes most sense and should suffice for our use cases. Differentiating between what
+            # kind/type of contact poitn it is (individual/organization or group) is not deemed necessary here.
+            elif node == 'Kind':
+                builder.schema.classes['Kind'].attributes = [
+                    SlotDefinition(
+                        name='formatted_name',
+                        description='The slot to provide a the name of the contact point as a string.',
+                        slot_uri='vcard:fn',
+                        required=True,
+                        multivalued=True,
+                        inlined_as_list=True,
+                        range='string',
+                        notes=['not in DCAT-AP']),
+                    SlotDefinition(
+                        name='has_email',
+                        description='The slot to specify the email address of the contact point as a literal string',
+                        slot_uri='vcard:hasEmail',
+                        multivalued=True,
+                        inlined_as_list=True,
+                        range='string',
+                        pattern=r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
+                        notes=['not in DCAT-AP']),
+                    SlotDefinition(
+                        name='has_telephone',
+                        description='The slot to specify the telephone number of the contact point as a literal string.',
+                        slot_uri='vcard:hasTelephone',
+                        multivalued=True,
+                        inlined_as_list=True,
+                        range='string',
+                        pattern=r'^\+?[0-9\s\-\(\)\.]{6,20}$',
+                        notes=['not in DCAT-AP'])
+                ]
+
+            # TimeInstant seems to be sufficiently specified with a "xsd:datetime" mapped slot.
+            elif node == 'TimeInstant':
+                builder.schema.classes['TimeInstant'].attributes = [
+                    SlotDefinition(
+                        name='datetime',
+                        description='The slot to provide a the datetime of a TimeInstant.',
+                        slot_uri='xsd:dateTime',
+                        range='datetime',
+                        notes=['not in DCAT-AP'])]
 
     def add_classification_context():
         builder.add_class(ClassDefinition(name='ClassifierMixin',
@@ -978,13 +1162,13 @@ def build_dcatap_plus():
 
     # Add LinkML representation of DCAT-AP v3.0.0
     builder = parse_dcat_ap_shacl_shapes(builder)
-
     # Add slots & constraints to DCAT-AP's Dataset class
     extend_dataset()
+    # Add slots & constraints to DCAT-AP's Activity class and add DCAT-AP+'s DataGeneratingActivity subclass
     extend_activity()
-    extend_supportive_entities()
-
-    # Add classes and properties needed to extend DCAT-AP
+    # Add slots & constraints to underspecified DCAT-AP's classes
+    extend_underspecified_classes()
+    # Add new classes and properties needed to extend DCAT-AP -> DCAT-AP+ core
     add_classification_context()
     add_subject_of_interest_context()
     add_agent_context()
