@@ -229,7 +229,8 @@ def parse_dcat_ap_shacl_shapes(builder):
                     # sh:maxCount is only used in DCAT-AP for 0..1 cardinality so far and left out for 0..n or 1..n
                     required = True if 'sh:minCount' in slot_shape and int(slot_shape['sh:minCount']) >= 1 else False
                     multivalued = False if 'sh:maxCount' in slot_shape and int(slot_shape['sh:maxCount']) == 1 else True
-                    # Allow list inlining of objects in LinkML for multivalued slots
+                    # Allow inlining of objects in LinkML
+                    inlined = None
                     inlined_as_list = True if multivalued is True else None
                     # Use default slot range 'string' as substitute for 'rdfs:Literal' and 'xsd:date' for
                     # https://semiceu.github.io/DCAT-AP/releases/3.0.0/#TemporalLiteral, except for
@@ -286,6 +287,9 @@ def parse_dcat_ap_shacl_shapes(builder):
                         if 'sh:maxCount' in slot_shape:
                             class_slots[slot_name].multivalued = multivalued
                             class_slots[slot_name].inlined_as_list = inlined_as_list
+                        # Allow inlining of objects for single valued slots with classes as ranges
+                        if 'sh:class' in slot_shape:
+                            class_slots[slot_name].inlined = True
 
                     # Add the class slot
                     else:
@@ -297,6 +301,7 @@ def parse_dcat_ap_shacl_shapes(builder):
                                                                 range=slot_range,
                                                                 any_of=any_of,
                                                                 multivalued=multivalued,
+                                                                inlined = inlined,
                                                                 inlined_as_list=inlined_as_list)
 
 
