@@ -1,5 +1,5 @@
 # Auto generated from dcat_ap_plus.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-06-19T18:46:02
+# Generation date: 2026-07-01T15:13:45
 # Schema: dcat-ap-plus
 #
 # id: https://w3id.org/nfdi-de/dcat-ap-plus
@@ -60,7 +60,7 @@ from linkml_runtime.linkml_model.types import Date, Datetime, Decimal, Float, St
 from linkml_runtime.utils.metamodelcore import Decimal, URIorCURIE, XSDDate, XSDDateTime
 
 metamodel_version = "1.11.0"
-version = "0.1.0rc4.post29.dev0+7adacec9"
+version = "0.1.0rc4.post33.dev0+f183cf49"
 
 # Namespaces
 AFE = CurieNamespace('AFE', 'http://purl.allotrope.org/ontologies/equipment#AFE_')
@@ -497,7 +497,7 @@ class CatalogueRecord(YAMLRoot):
     description: Optional[Union[str, list[str]]] = empty_list()
     language: Optional[Union[Union[dict, "LinguisticSystem"], list[Union[dict, "LinguisticSystem"]]]] = empty_list()
     listing_date: Optional[Union[str, XSDDate]] = None
-    source_metadata: Optional[Union[str, CatalogueRecordId]] = None
+    source_metadata: Optional[Union[dict, "CatalogueRecord"]] = None
     title: Optional[Union[str, list[str]]] = empty_list()
     identifier: Optional[Union[str, URIorCURIE]] = None
     other_identifier: Optional[Union[Union[dict, "Identifier"], list[Union[dict, "Identifier"]]]] = empty_list()
@@ -531,8 +531,8 @@ class CatalogueRecord(YAMLRoot):
         if self.listing_date is not None and not isinstance(self.listing_date, XSDDate):
             self.listing_date = XSDDate(self.listing_date)
 
-        if self.source_metadata is not None and not isinstance(self.source_metadata, CatalogueRecordId):
-            self.source_metadata = CatalogueRecordId(self.source_metadata)
+        if self.source_metadata is not None and not isinstance(self.source_metadata, CatalogueRecord):
+            self.source_metadata = CatalogueRecord(**as_dict(self.source_metadata))
 
         if not isinstance(self.title, list):
             self.title = [self.title] if self.title is not None else []
@@ -2929,7 +2929,7 @@ slots.CatalogueRecord_primary_topic = Slot(uri=FOAF.primaryTopic, name="Catalogu
                    model_uri=DCATAP_PLUS.CatalogueRecord_primary_topic, domain=CatalogueRecord, range=Union[dict, Any])
 
 slots.CatalogueRecord_source_metadata = Slot(uri=DCTERMS.source, name="CatalogueRecord_source_metadata", curie=DCTERMS.curie('source'),
-                   model_uri=DCATAP_PLUS.CatalogueRecord_source_metadata, domain=CatalogueRecord, range=Optional[Union[str, CatalogueRecordId]])
+                   model_uri=DCATAP_PLUS.CatalogueRecord_source_metadata, domain=CatalogueRecord, range=Optional[Union[dict, "CatalogueRecord"]])
 
 slots.CatalogueRecord_title = Slot(uri=DCTERMS.title, name="CatalogueRecord_title", curie=DCTERMS.curie('title'),
                    model_uri=DCATAP_PLUS.CatalogueRecord_title, domain=CatalogueRecord, range=Optional[Union[str, list[str]]])

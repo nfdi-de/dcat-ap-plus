@@ -1157,11 +1157,15 @@
                     "description": "A link to the Dataset, Data service or Catalog described in the record."
                 },
                 "source_metadata": {
-                    "description": "The original metadata that was used in creating metadata for the Dataset, Data Service or Dataset Series.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/CatalogueRecord"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The original metadata that was used in creating metadata for the Dataset, Data Service or Dataset Series."
                 },
                 "title": {
                     "description": "A name given to the Catalogue Record.",
@@ -4424,5 +4428,5 @@
     "metamodel_version": "1.11.0",
     "title": "dcat-ap-plus",
     "type": "object",
-    "version": "0.1.0rc4.post29.dev0+7adacec9"
+    "version": "0.1.0rc4.post33.dev0+f183cf49"
 }

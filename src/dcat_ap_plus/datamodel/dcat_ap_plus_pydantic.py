@@ -30,7 +30,7 @@ from pydantic import (
 
 
 metamodel_version = "1.11.0"
-version = "0.1.0rc4.post29.dev0+7adacec9"
+version = "0.1.0rc4.post33.dev0+f183cf49"
 
 
 class ConfiguredBaseModel(BaseModel):
@@ -249,6 +249,7 @@ class Agent(ConfiguredBaseModel):
                                                     'org:Organization.',
                                      'name': 'rdf_type'},
                         'type': {'description': 'The nature of the agent.',
+                                 'inlined': True,
                                  'multivalued': False,
                                  'name': 'type',
                                  'range': 'Concept',
@@ -330,6 +331,7 @@ class Catalogue(ConfiguredBaseModel):
                                                                   'creation or '
                                                                   'management of the '
                                                                   'Catalog.',
+                                                   'inlined': True,
                                                    'inlined_as_list': True,
                                                    'multivalued': True,
                                                    'name': 'applicable_legislation',
@@ -347,6 +349,7 @@ class Catalogue(ConfiguredBaseModel):
                                       'slot_uri': 'dcat:catalog'},
                         'creator': {'description': 'An entity responsible for the '
                                                    'creation of the catalogue.',
+                                    'inlined': True,
                                     'multivalued': False,
                                     'name': 'creator',
                                     'range': 'Agent',
@@ -371,6 +374,7 @@ class Catalogue(ConfiguredBaseModel):
                                                   'slot_uri': 'dcterms:spatial'},
                         'has_dataset': {'description': 'A Dataset that is part of the '
                                                        'Catalogue.',
+                                        'inlined': True,
                                         'inlined_as_list': True,
                                         'multivalued': True,
                                         'name': 'has_dataset',
@@ -379,6 +383,7 @@ class Catalogue(ConfiguredBaseModel):
                                         'slot_uri': 'dcat:dataset'},
                         'has_part': {'description': 'A related Catalogue that is part '
                                                     'of the described Catalogue.',
+                                     'inlined': True,
                                      'inlined_as_list': True,
                                      'multivalued': True,
                                      'name': 'has_part',
@@ -387,6 +392,7 @@ class Catalogue(ConfiguredBaseModel):
                                      'slot_uri': 'dcterms:hasPart'},
                         'homepage': {'description': 'A web page that acts as the main '
                                                     'page for the Catalogue.',
+                                     'inlined': True,
                                      'multivalued': False,
                                      'name': 'homepage',
                                      'range': 'Document',
@@ -413,6 +419,7 @@ class Catalogue(ConfiguredBaseModel):
                                      'slot_uri': 'dcterms:language'},
                         'licence': {'description': 'A licence under which the '
                                                    'Catalogue can be used or reused.',
+                                    'inlined': True,
                                     'multivalued': False,
                                     'name': 'licence',
                                     'range': 'LicenceDocument',
@@ -438,6 +445,7 @@ class Catalogue(ConfiguredBaseModel):
                         'publisher': {'description': 'An entity (organisation) '
                                                      'responsible for making the '
                                                      'Catalogue available.',
+                                      'inlined': True,
                                       'multivalued': False,
                                       'name': 'publisher',
                                       'range': 'Agent',
@@ -462,6 +470,7 @@ class Catalogue(ConfiguredBaseModel):
                                          'slot_uri': 'dcterms:issued'},
                         'rights': {'description': 'A statement that specifies rights '
                                                   'associated with the Catalogue.',
+                                   'inlined': True,
                                    'multivalued': False,
                                    'name': 'rights',
                                    'range': 'RightsStatement',
@@ -477,6 +486,7 @@ class Catalogue(ConfiguredBaseModel):
                                     'slot_uri': 'dcat:service'},
                         'temporal_coverage': {'description': 'A temporal period that '
                                                              'the Catalogue covers.',
+                                              'inlined': True,
                                               'inlined_as_list': True,
                                               'multivalued': True,
                                               'name': 'temporal_coverage',
@@ -486,6 +496,7 @@ class Catalogue(ConfiguredBaseModel):
                         'themes': {'description': 'A knowledge organization system '
                                                   'used to classify the Resources that '
                                                   'are in the Catalogue.',
+                                   'inlined': True,
                                    'inlined_as_list': True,
                                    'multivalued': True,
                                    'name': 'themes',
@@ -697,6 +708,7 @@ class CatalogueRecord(ConfiguredBaseModel):
                                                        'record in the context of '
                                                        'editorial flow of the dataset '
                                                        'and data service descriptions.',
+                                        'inlined': True,
                                         'multivalued': False,
                                         'name': 'change_type',
                                         'range': 'Concept',
@@ -764,6 +776,7 @@ class CatalogueRecord(ConfiguredBaseModel):
                                           'description': 'A link to the Dataset, Data '
                                                          'service or Catalog described '
                                                          'in the record.',
+                                          'inlined': True,
                                           'multivalued': False,
                                           'name': 'primary_topic',
                                           'range': 'Any',
@@ -774,6 +787,7 @@ class CatalogueRecord(ConfiguredBaseModel):
                                                            'metadata for the Dataset, '
                                                            'Data Service or Dataset '
                                                            'Series.',
+                                            'inlined': True,
                                             'multivalued': False,
                                             'name': 'source_metadata',
                                             'range': 'CatalogueRecord',
@@ -839,13 +853,13 @@ class CatalogueRecord(ConfiguredBaseModel):
                        'DatasetSeries',
                        'Distribution'],
          'slot_uri': 'dcterms:modified'} })
-    primary_topic: str = Field(default=..., description="""A link to the Dataset, Data service or Catalog described in the record.""", json_schema_extra = { "linkml_meta": {'any_of': [{'range': 'Catalogue'},
+    primary_topic: Union[Catalogue, DataService, Dataset, DatasetSeries] = Field(default=..., description="""A link to the Dataset, Data service or Catalog described in the record.""", json_schema_extra = { "linkml_meta": {'any_of': [{'range': 'Catalogue'},
                     {'range': 'Dataset'},
                     {'range': 'DatasetSeries'},
                     {'range': 'DataService'}],
          'domain_of': ['CatalogueRecord'],
          'slot_uri': 'foaf:primaryTopic'} })
-    source_metadata: Optional[str] = Field(default=None, description="""The original metadata that was used in creating metadata for the Dataset, Data Service or Dataset Series.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatalogueRecord'], 'slot_uri': 'dcterms:source'} })
+    source_metadata: Optional[CatalogueRecord] = Field(default=None, description="""The original metadata that was used in creating metadata for the Dataset, Data Service or Dataset Series.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatalogueRecord'], 'slot_uri': 'dcterms:source'} })
     title: Optional[list[str]] = Field(default=None, description="""A name given to the Catalogue Record.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity',
                        'AgenticEntity',
                        'Attribution',
@@ -956,6 +970,7 @@ class Checksum(ConfiguredBaseModel):
          'from_schema': 'https://w3id.org/nfdi-de/dcat-ap-plus',
          'slot_usage': {'algorithm': {'description': 'The algorithm used to produce '
                                                      'the subject Checksum.',
+                                      'inlined': True,
                                       'multivalued': False,
                                       'name': 'algorithm',
                                       'range': 'ChecksumAlgorithm',
@@ -1755,6 +1770,7 @@ class DataService(ConfiguredBaseModel):
                                                          'or restrictions based on '
                                                          'privacy, security, or other '
                                                          'policies.',
+                                          'inlined': True,
                                           'multivalued': False,
                                           'name': 'access_rights',
                                           'range': 'RightsStatement',
@@ -1765,6 +1781,7 @@ class DataService(ConfiguredBaseModel):
                                                                   'creation or '
                                                                   'management of the '
                                                                   'Data Service.',
+                                                   'inlined': True,
                                                    'inlined_as_list': True,
                                                    'multivalued': True,
                                                    'name': 'applicable_legislation',
@@ -1774,6 +1791,7 @@ class DataService(ConfiguredBaseModel):
                         'conforms_to': {'description': 'An established (technical) '
                                                        'standard to which the Data '
                                                        'Service conforms.',
+                                        'inlined': True,
                                         'inlined_as_list': True,
                                         'multivalued': True,
                                         'name': 'conforms_to',
@@ -1810,6 +1828,7 @@ class DataService(ConfiguredBaseModel):
                         'endpoint_URL': {'description': 'The root location or primary '
                                                         'endpoint of the service (an '
                                                         'IRI).',
+                                         'inlined': True,
                                          'inlined_as_list': True,
                                          'multivalued': True,
                                          'name': 'endpoint_URL',
@@ -1822,6 +1841,7 @@ class DataService(ConfiguredBaseModel):
                                                                 'including their '
                                                                 'operations, '
                                                                 'parameters etc.',
+                                                 'inlined': True,
                                                  'inlined_as_list': True,
                                                  'multivalued': True,
                                                  'name': 'endpoint_description',
@@ -1857,6 +1877,7 @@ class DataService(ConfiguredBaseModel):
                                                         'access to the Data Service '
                                                         'and/or additional '
                                                         'information.',
+                                         'inlined': True,
                                          'inlined_as_list': True,
                                          'multivalued': True,
                                          'name': 'landing_page',
@@ -1865,6 +1886,7 @@ class DataService(ConfiguredBaseModel):
                                          'slot_uri': 'dcat:landingPage'},
                         'licence': {'description': 'A licence under which the Data '
                                                    'service is made available.',
+                                    'inlined': True,
                                     'multivalued': False,
                                     'name': 'licence',
                                     'range': 'LicenceDocument',
@@ -1881,6 +1903,7 @@ class DataService(ConfiguredBaseModel):
                         'publisher': {'description': 'An entity (organisation) '
                                                      'responsible for making the Data '
                                                      'Service available.',
+                                      'inlined': True,
                                       'multivalued': False,
                                       'name': 'publisher',
                                       'range': 'Agent',
@@ -1897,6 +1920,7 @@ class DataService(ConfiguredBaseModel):
                                            'required': False,
                                            'slot_uri': 'dcat:servesDataset'},
                         'theme': {'description': 'A category of the Data Service.',
+                                  'inlined': True,
                                   'inlined_as_list': True,
                                   'multivalued': True,
                                   'name': 'theme',
@@ -2092,6 +2116,7 @@ class Dataset(ConfiguredBaseModel):
                                                          'publicly accessible, has '
                                                          'access restrictions or is '
                                                          'not public.',
+                                          'inlined': True,
                                           'multivalued': False,
                                           'name': 'access_rights',
                                           'range': 'RightsStatement',
@@ -2102,6 +2127,7 @@ class Dataset(ConfiguredBaseModel):
                                                                   'creation or '
                                                                   'management of the '
                                                                   'Dataset.',
+                                                   'inlined': True,
                                                    'inlined_as_list': True,
                                                    'multivalued': True,
                                                    'name': 'applicable_legislation',
@@ -2110,6 +2136,7 @@ class Dataset(ConfiguredBaseModel):
                                                    'slot_uri': 'dcatap:applicableLegislation'},
                         'conforms_to': {'description': 'An implementing rule or other '
                                                        'specification.',
+                                        'inlined': True,
                                         'inlined_as_list': True,
                                         'multivalued': True,
                                         'name': 'conforms_to',
@@ -2128,6 +2155,7 @@ class Dataset(ConfiguredBaseModel):
                                           'slot_uri': 'dcat:contactPoint'},
                         'creator': {'description': 'An entity responsible for '
                                                    'producing the dataset.',
+                                    'inlined': True,
                                     'inlined_as_list': True,
                                     'multivalued': True,
                                     'name': 'creator',
@@ -2208,6 +2236,7 @@ class Dataset(ConfiguredBaseModel):
                                                             'references, cites, or '
                                                             'otherwise points to the '
                                                             'dataset.',
+                                             'inlined': True,
                                              'inlined_as_list': True,
                                              'multivalued': True,
                                              'name': 'is_referenced_by',
@@ -2227,6 +2256,7 @@ class Dataset(ConfiguredBaseModel):
                                                         'access to the Dataset, its '
                                                         'Distributions and/or '
                                                         'additional information.',
+                                         'inlined': True,
                                          'inlined_as_list': True,
                                          'multivalued': True,
                                          'name': 'landing_page',
@@ -2250,6 +2280,7 @@ class Dataset(ConfiguredBaseModel):
                                               'slot_uri': 'dcterms:modified'},
                         'other_identifier': {'description': 'A secondary identifier of '
                                                             'the Dataset',
+                                             'inlined': True,
                                              'inlined_as_list': True,
                                              'multivalued': True,
                                              'name': 'other_identifier',
@@ -2267,6 +2298,7 @@ class Dataset(ConfiguredBaseModel):
                         'publisher': {'description': 'An entity (organisation) '
                                                      'responsible for making the '
                                                      'Dataset available.',
+                                      'inlined': True,
                                       'multivalued': False,
                                       'name': 'publisher',
                                       'range': 'Agent',
@@ -2285,6 +2317,7 @@ class Dataset(ConfiguredBaseModel):
                         'qualified_relation': {'description': 'A description of a '
                                                               'relationship with '
                                                               'another resource.',
+                                               'inlined': True,
                                                'inlined_as_list': True,
                                                'multivalued': True,
                                                'name': 'qualified_relation',
@@ -2292,6 +2325,7 @@ class Dataset(ConfiguredBaseModel):
                                                'required': False,
                                                'slot_uri': 'dcat:qualifiedRelation'},
                         'related_resource': {'description': 'A related resource.',
+                                             'inlined': True,
                                              'inlined_as_list': True,
                                              'multivalued': True,
                                              'name': 'related_resource',
@@ -2308,6 +2342,7 @@ class Dataset(ConfiguredBaseModel):
                                          'slot_uri': 'dcterms:issued'},
                         'sample': {'description': 'A sample distribution of the '
                                                   'dataset.',
+                                   'inlined': True,
                                    'inlined_as_list': True,
                                    'multivalued': True,
                                    'name': 'sample',
@@ -2333,6 +2368,7 @@ class Dataset(ConfiguredBaseModel):
                                                'slot_uri': 'dcat:spatialResolutionInMeters'},
                         'temporal_coverage': {'description': 'A temporal period that '
                                                              'the Dataset covers.',
+                                              'inlined': True,
                                               'inlined_as_list': True,
                                               'multivalued': True,
                                               'name': 'temporal_coverage',
@@ -2348,6 +2384,7 @@ class Dataset(ConfiguredBaseModel):
                                                 'required': False,
                                                 'slot_uri': 'dcat:temporalResolution'},
                         'theme': {'description': 'A category of the Dataset.',
+                                  'inlined': True,
                                   'inlined_as_list': True,
                                   'multivalued': True,
                                   'name': 'theme',
@@ -2391,6 +2428,7 @@ class Dataset(ConfiguredBaseModel):
                                                             'the business context for, '
                                                             'the creation of the '
                                                             'dataset.',
+                                             'inlined': True,
                                              'inlined_as_list': True,
                                              'multivalued': True,
                                              'name': 'was_generated_by',
@@ -2830,6 +2868,7 @@ class DatasetSeries(ConfiguredBaseModel):
                                                                   'creation or '
                                                                   'management of the '
                                                                   'Dataset Series.',
+                                                   'inlined': True,
                                                    'inlined_as_list': True,
                                                    'multivalued': True,
                                                    'name': 'applicable_legislation',
@@ -2895,6 +2934,7 @@ class DatasetSeries(ConfiguredBaseModel):
                         'publisher': {'description': 'An entity (organisation) '
                                                      'responsible for ensuring the '
                                                      'coherency of the Dataset Series ',
+                                      'inlined': True,
                                       'multivalued': False,
                                       'name': 'publisher',
                                       'range': 'Agent',
@@ -2911,6 +2951,7 @@ class DatasetSeries(ConfiguredBaseModel):
                         'temporal_coverage': {'description': 'A temporal period that '
                                                              'the Dataset Series '
                                                              'covers.',
+                                              'inlined': True,
                                               'inlined_as_list': True,
                                               'multivalued': True,
                                               'name': 'temporal_coverage',
@@ -3322,6 +3363,7 @@ class Distribution(ConfiguredBaseModel):
                         'access_service': {'description': 'A data service that gives '
                                                           'access to the distribution '
                                                           'of the dataset.',
+                                           'inlined': True,
                                            'inlined_as_list': True,
                                            'multivalued': True,
                                            'name': 'access_service',
@@ -3333,6 +3375,7 @@ class Distribution(ConfiguredBaseModel):
                                                                   'creation or '
                                                                   'management of the '
                                                                   'Distribution.',
+                                                   'inlined': True,
                                                    'inlined_as_list': True,
                                                    'multivalued': True,
                                                    'name': 'applicable_legislation',
@@ -3343,6 +3386,7 @@ class Distribution(ConfiguredBaseModel):
                                                         'planned to keep the '
                                                         'Distribution of the Dataset '
                                                         'available.',
+                                         'inlined': True,
                                          'multivalued': False,
                                          'name': 'availability',
                                          'range': 'Concept',
@@ -3370,6 +3414,7 @@ class Distribution(ConfiguredBaseModel):
                                                               'compressed form, e.g. '
                                                               'to reduce the size of '
                                                               'the downloadable file.',
+                                               'inlined': True,
                                                'multivalued': False,
                                                'name': 'compression_format',
                                                'range': 'MediaType',
@@ -3395,6 +3440,7 @@ class Distribution(ConfiguredBaseModel):
                         'download_URL': {'description': 'A URL that is a direct link '
                                                         'to a downloadable file in a '
                                                         'given format.',
+                                         'inlined': True,
                                          'inlined_as_list': True,
                                          'multivalued': True,
                                          'name': 'download_URL',
@@ -3413,6 +3459,7 @@ class Distribution(ConfiguredBaseModel):
                                                       'rights associated with the '
                                                       'distribution if using the '
                                                       '[[ODRL]] vocabulary.',
+                                       'inlined': True,
                                        'multivalued': False,
                                        'name': 'has_policy',
                                        'range': 'Policy',
@@ -3435,6 +3482,7 @@ class Distribution(ConfiguredBaseModel):
                                      'slot_uri': 'dcterms:language'},
                         'licence': {'description': 'A licence under which the '
                                                    'Distribution is made available.',
+                                    'inlined': True,
                                     'multivalued': False,
                                     'name': 'licence',
                                     'range': 'LicenceDocument',
@@ -3495,6 +3543,7 @@ class Distribution(ConfiguredBaseModel):
                                          'slot_uri': 'dcterms:issued'},
                         'rights': {'description': 'A statement that specifies rights '
                                                   'associated with the Distribution.',
+                                   'inlined': True,
                                    'multivalued': False,
                                    'name': 'rights',
                                    'range': 'RightsStatement',
@@ -5078,6 +5127,7 @@ class Relationship(ConfiguredBaseModel):
                         'had_role': {'description': 'A function of an entity or agent '
                                                     'with respect to another entity or '
                                                     'resource.',
+                                     'inlined': True,
                                      'inlined_as_list': True,
                                      'multivalued': True,
                                      'name': 'had_role',
@@ -5086,6 +5136,7 @@ class Relationship(ConfiguredBaseModel):
                                      'slot_uri': 'dcat:hadRole'},
                         'relation': {'description': 'A resource related to the source '
                                                     'resource.',
+                                     'inlined': True,
                                      'inlined_as_list': True,
                                      'multivalued': True,
                                      'name': 'relation',
@@ -7050,12 +7101,14 @@ class PeriodOfTime(SupportiveEntity):
          'from_schema': 'https://w3id.org/nfdi-de/dcat-ap-plus',
          'slot_usage': {'beginning': {'description': 'The beginning of a period or '
                                                      'interval.',
+                                      'inlined': True,
                                       'multivalued': False,
                                       'name': 'beginning',
                                       'range': 'TimeInstant',
                                       'required': False,
                                       'slot_uri': 'time:hasBeginning'},
                         'end': {'description': 'The end of a period or interval.',
+                                'inlined': True,
                                 'multivalued': False,
                                 'name': 'end',
                                 'range': 'TimeInstant',
