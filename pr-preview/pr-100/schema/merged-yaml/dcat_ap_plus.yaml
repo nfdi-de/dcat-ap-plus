@@ -21,7 +21,7 @@ see_also:
 - https://github.com/HendrikBorgelt/DCAT-ap_as_LinkML_template/blob/main/src/dcatlinkml/schema/dcatlinkml.yaml
 - https://gitlab.com/opensourcelab/scientificdata/scidats/-/blob/feature/linkml-schemata/schemata/metadata_model_scidats_dcat_ap.yaml?ref_type=heads
 id: https://w3id.org/nfdi-de/dcat-ap-plus
-version: 0.1.0rc4.post37.dev0+86341c73
+version: 0.1.0rc4.post38.dev0+815308cd
 imports:
 - linkml:types
 license: CC-BY 4.0
@@ -3330,6 +3330,8 @@ slots:
     range: CatalogueRecord
     required: false
     multivalued: false
+    inlined: true
+    inlined_as_list: false
   CatalogueRecord_title:
     name: CatalogueRecord_title
     definition_uri: https://w3id.org/nfdi-de/dcat-ap-plus/title
@@ -7500,6 +7502,7 @@ classes:
         required: false
         recommended: true
         multivalued: false
+        inlined: true
       identifier:
         name: identifier
         description: The slot to provide the main identifier for an instance of this
@@ -7744,6 +7747,7 @@ classes:
         range: LegalResource
         required: false
         multivalued: true
+        inlined: true
         inlined_as_list: true
       catalogue:
         name: catalogue
@@ -7761,6 +7765,7 @@ classes:
         range: Agent
         required: false
         multivalued: false
+        inlined: true
       description:
         name: description
         description: A free-text account of the Catalogue.
@@ -7784,6 +7789,7 @@ classes:
         range: Dataset
         required: false
         multivalued: true
+        inlined: true
         inlined_as_list: true
       has_part:
         name: has_part
@@ -7792,6 +7798,7 @@ classes:
         range: Catalogue
         required: false
         multivalued: true
+        inlined: true
         inlined_as_list: true
       homepage:
         name: homepage
@@ -7801,6 +7808,7 @@ classes:
         required: false
         recommended: true
         multivalued: false
+        inlined: true
       language:
         name: language
         description: A language used in the textual metadata describing titles, descriptions,
@@ -7818,6 +7826,7 @@ classes:
         range: LicenceDocument
         required: false
         multivalued: false
+        inlined: true
       modification_date:
         name: modification_date
         description: The most recent date on which the Catalogue was modified.
@@ -7834,6 +7843,7 @@ classes:
         range: Agent
         required: true
         multivalued: false
+        inlined: true
       record:
         name: record
         description: A Catalogue Record that is part of the Catalogue.
@@ -7857,6 +7867,7 @@ classes:
         range: RightsStatement
         required: false
         multivalued: false
+        inlined: true
       service:
         name: service
         description: A site or end-point (Data Service) that is listed in the Catalogue.
@@ -7872,6 +7883,7 @@ classes:
         range: PeriodOfTime
         required: false
         multivalued: true
+        inlined: true
         inlined_as_list: true
       themes:
         name: themes
@@ -7882,6 +7894,7 @@ classes:
         required: false
         recommended: true
         multivalued: true
+        inlined: true
         inlined_as_list: true
       title:
         name: title
@@ -7947,6 +7960,7 @@ classes:
         required: false
         recommended: true
         multivalued: false
+        inlined: true
       description:
         name: description
         description: A free-text account of the record. This property can be repeated
@@ -7990,6 +8004,7 @@ classes:
         range: Any
         required: true
         multivalued: false
+        inlined: true
         any_of:
         - range: Catalogue
         - range: Dataset
@@ -8003,6 +8018,7 @@ classes:
         range: CatalogueRecord
         required: false
         multivalued: false
+        inlined: true
       title:
         name: title
         description: A name given to the Catalogue Record.
@@ -8045,6 +8061,7 @@ classes:
         range: ChecksumAlgorithm
         required: true
         multivalued: false
+        inlined: true
       checksum_value:
         name: checksum_value
         description: A lower case hexadecimal encoded digest value produced using
@@ -8323,6 +8340,7 @@ classes:
         range: RightsStatement
         required: false
         multivalued: false
+        inlined: true
       applicable_legislation:
         name: applicable_legislation
         description: The legislation that mandates the creation or management of the
@@ -8331,6 +8349,7 @@ classes:
         range: LegalResource
         required: false
         multivalued: true
+        inlined: true
         inlined_as_list: true
       conforms_to:
         name: conforms_to
@@ -8341,6 +8360,7 @@ classes:
         required: false
         recommended: true
         multivalued: true
+        inlined: true
         inlined_as_list: true
       contact_point:
         name: contact_point
@@ -8375,6 +8395,7 @@ classes:
         range: Resource
         required: true
         multivalued: true
+        inlined: true
         inlined_as_list: true
       endpoint_description:
         name: endpoint_description
@@ -8385,6 +8406,7 @@ classes:
         required: false
         recommended: true
         multivalued: true
+        inlined: true
         inlined_as_list: true
       format:
         name: format
@@ -8411,6 +8433,7 @@ classes:
         range: Document
         required: false
         multivalued: true
+        inlined: true
         inlined_as_list: true
       licence:
         name: licence
@@ -8419,6 +8442,7 @@ classes:
         range: LicenceDocument
         required: false
         multivalued: false
+        inlined: true
       publisher:
         name: publisher
         description: An entity (organisation) responsible for making the Data Service
@@ -8427,6 +8451,7 @@ classes:
         range: Agent
         required: false
         multivalued: false
+        inlined: true
       serves_dataset:
         name: serves_dataset
         description: This property refers to a collection of data that this data service
@@ -8444,6 +8469,7 @@ classes:
         required: false
         recommended: true
         multivalued: true
+        inlined: true
         inlined_as_list: true
       title:
         name: title
@@ -8528,6 +8554,7 @@ classes:
         range: RightsStatement
         required: false
         multivalued: false
+        inlined: true
       applicable_legislation:
         name: applicable_legislation
         description: The legislation that mandates the creation or management of the
@@ -8536,6 +8563,7 @@ classes:
         range: LegalResource
         required: false
         multivalued: true
+        inlined: true
         inlined_as_list: true
       conforms_to:
         name: conforms_to
@@ -8544,6 +8572,7 @@ classes:
         range: Standard
         required: false
         multivalued: true
+        inlined: true
         inlined_as_list: true
       contact_point:
         name: contact_point
@@ -8562,6 +8591,7 @@ classes:
         range: Agent
         required: false
         multivalued: true
+        inlined: true
         inlined_as_list: true
       dataset_distribution:
         name: dataset_distribution
@@ -8636,6 +8666,7 @@ classes:
         range: Resource
         required: false
         multivalued: true
+        inlined: true
         inlined_as_list: true
       keyword:
         name: keyword
@@ -8654,6 +8685,7 @@ classes:
         range: Document
         required: false
         multivalued: true
+        inlined: true
         inlined_as_list: true
       language:
         name: language
@@ -8677,6 +8709,7 @@ classes:
         range: Identifier
         required: false
         multivalued: true
+        inlined: true
         inlined_as_list: true
       provenance:
         name: provenance
@@ -8693,6 +8726,7 @@ classes:
         range: Agent
         required: false
         multivalued: false
+        inlined: true
       qualified_attribution:
         name: qualified_attribution
         description: An Agent having some form of responsibility for the resource.
@@ -8708,6 +8742,7 @@ classes:
         range: Relationship
         required: false
         multivalued: true
+        inlined: true
         inlined_as_list: true
       related_resource:
         name: related_resource
@@ -8716,6 +8751,7 @@ classes:
         range: Resource
         required: false
         multivalued: true
+        inlined: true
         inlined_as_list: true
       release_date:
         name: release_date
@@ -8731,6 +8767,7 @@ classes:
         range: Distribution
         required: false
         multivalued: true
+        inlined: true
         inlined_as_list: true
       source:
         name: source
@@ -8755,6 +8792,7 @@ classes:
         range: PeriodOfTime
         required: false
         multivalued: true
+        inlined: true
         inlined_as_list: true
       temporal_resolution:
         name: temporal_resolution
@@ -8771,6 +8809,7 @@ classes:
         required: false
         recommended: true
         multivalued: true
+        inlined: true
         inlined_as_list: true
       title:
         name: title
@@ -8814,6 +8853,7 @@ classes:
         range: DataGeneratingActivity
         required: true
         multivalued: true
+        inlined: true
         inlined_as_list: true
     class_uri: dcat:Dataset
   DatasetSeries:
@@ -8846,6 +8886,7 @@ classes:
         range: LegalResource
         required: false
         multivalued: true
+        inlined: true
         inlined_as_list: true
       contact_point:
         name: contact_point
@@ -8895,6 +8936,7 @@ classes:
         range: Agent
         required: false
         multivalued: false
+        inlined: true
       release_date:
         name: release_date
         description: The date of formal issuance (e.g., publication) of the Dataset
@@ -8910,6 +8952,7 @@ classes:
         range: PeriodOfTime
         required: false
         multivalued: true
+        inlined: true
         inlined_as_list: true
       title:
         name: title
@@ -9058,6 +9101,7 @@ classes:
         range: DataService
         required: false
         multivalued: true
+        inlined: true
         inlined_as_list: true
       applicable_legislation:
         name: applicable_legislation
@@ -9067,6 +9111,7 @@ classes:
         range: LegalResource
         required: false
         multivalued: true
+        inlined: true
         inlined_as_list: true
       availability:
         name: availability
@@ -9077,6 +9122,7 @@ classes:
         required: false
         recommended: true
         multivalued: false
+        inlined: true
       byte_size:
         name: byte_size
         description: The size of a Distribution in bytes.
@@ -9100,6 +9146,7 @@ classes:
         range: MediaType
         required: false
         multivalued: false
+        inlined: true
       description:
         name: description
         description: A free-text account of the Distribution.
@@ -9125,6 +9172,7 @@ classes:
         range: Resource
         required: false
         multivalued: true
+        inlined: true
         inlined_as_list: true
       format:
         name: format
@@ -9142,6 +9190,7 @@ classes:
         range: Policy
         required: false
         multivalued: false
+        inlined: true
       language:
         name: language
         description: A language used in the Distribution.
@@ -9157,6 +9206,7 @@ classes:
         range: LicenceDocument
         required: false
         multivalued: false
+        inlined: true
       linked_schemas:
         name: linked_schemas
         description: An established schema to which the described Distribution conforms.
@@ -9203,6 +9253,7 @@ classes:
         range: RightsStatement
         required: false
         multivalued: false
+        inlined: true
       spatial_resolution:
         name: spatial_resolution
         description: The minimum spatial separation resolvable in a dataset distribution,
@@ -9940,6 +9991,7 @@ classes:
         range: TimeInstant
         required: false
         multivalued: false
+        inlined: true
       end:
         name: end
         description: The end of a period or interval.
@@ -9947,6 +9999,7 @@ classes:
         range: TimeInstant
         required: false
         multivalued: false
+        inlined: true
       end_date:
         name: end_date
         description: The end of the period.
@@ -10181,6 +10234,7 @@ classes:
         range: Role
         required: true
         multivalued: true
+        inlined: true
         inlined_as_list: true
       relation:
         name: relation
@@ -10189,6 +10243,7 @@ classes:
         range: Resource
         required: true
         multivalued: true
+        inlined: true
         inlined_as_list: true
       title:
         name: title
@@ -10467,7 +10522,7 @@ classes:
     class_uri: time:Instant
 metamodel_version: 1.11.0
 source_file: dcat_ap_plus.yaml
-source_file_date: '2026-07-01T12:47:36'
-source_file_size: 110400
-generation_date: '2026-07-01T12:47:46'
+source_file_date: '2026-07-01T13:19:05'
+source_file_size: 111566
+generation_date: '2026-07-01T13:19:15'
 
