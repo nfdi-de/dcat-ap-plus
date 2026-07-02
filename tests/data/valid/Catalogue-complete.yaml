@@ -1,4 +1,4 @@
-# A complete example of a DCAT-AP+ Catalogue instance
+# A complete (fictional) example of a DCAT-AP+ Catalogue instance
 id: "https://example.org/catalogue/cat-001"
 applicable_legislation: # range LegalResource
   - identifier: "https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng"
@@ -182,16 +182,19 @@ publisher: # range: Agent
     identifier: "http://purl.org/adms/publishertype/GovernmentAgency"
     preferred_label:
       - "Government Agency"
-# TODO: the range union of primary_topic doesn't work as it should
-#record: # range: CatalogueRecord
-#  - id: "https://example.org/dataset/env-monitoring-001.ttl"
-#    title:
-#        - "Record for env-monitoring-001"
-#    description:
-#        - "Catalogue record describing the main dataset."
-#    modification_date: "2026-06-19"
-#    primary_topic:
-#      id: "https://example.org/dataset/env-monitoring-001"
+record: # range: CatalogueRecord
+  - id: "https://example.org/dataset/env-monitoring-001.ttl"
+    title:
+      - "Record for Environmental Monitoring Dataset 001"
+    description:
+      - "This record describes the dataset containing air quality measurements from 2025."
+    modification_date: "2026-06-19"
+    primary_topic: # range: Dataset, DatasetSeries, DataService or Catalogue
+      id: "https://example.org/dataset/env-monitoring-001"
+      title:
+        - "Environmental Monitoring Dataset 001"
+      description:
+        - "This dataset contains air quality measurements from 2025."
 release_date: "2026-01-01"
 rights: # range: RightsStatement
   identifier: "http://publications.europa.eu/resource/authority/access-right/PUBLIC"

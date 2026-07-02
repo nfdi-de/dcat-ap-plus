@@ -1,15 +1,12 @@
-# A complete example of a DCAT-AP+ CatalogueRecord instance
-# due to the range union of primary_topic not working yet, this example is invalid
+# A complete (fictional) example of a DCAT-AP+ CatalogueRecord instance
 id: "https://example.org/dataset/env-monitoring-001.ttl"
 identifier: "https://example.org/dataset/env-monitoring-001.ttl"
 other_identifier:
   - notation: "https://example.org/dataset/env-monitoring-001.ttl"
 title:
-  - "Record for Environmental Monitoring Dataset"
-  - "Datensatz für Umweltüberwachungsdatensatz"
+  - "Record for Environmental Monitoring Dataset 001"
 description:
   - "This record describes the dataset containing air quality measurements from 2025."
-  - "Dieser Datensatz beschreibt den Datensatz mit Luftqualitätsmessungen aus dem Jahr 2025."
 application_profile:
   - identifier: "https://w3id.org/nfdi-de/dcat-ap-plus"
     other_identifier:
@@ -48,16 +45,22 @@ language: # range: LinguisticSystem
       - "Secondary language of metadata."
 listing_date: "2026-06-10"
 modification_date: "2026-06-19"
-# TODO: the range union of promary_topic doesn't work as it should
-#primary_topic:
-#  id: "https://example.org/dataset/env-monitoring-001"
-source_metadata:
+primary_topic: # range: Dataset, DatasetSeries, DataService or Catalogue
+  id: "https://example.org/dataset/env-monitoring-001"
+  title:
+    - "Environmental Monitoring Dataset 001"
+  description:
+    - "This dataset contains air quality measurements from 2025."
+source_metadata: # range: CatalogueRecord
   id: "https://example.org/dataset/env-monitoring-001_source.txt"
   title:
     - "Original ISO 19115 Record"
   description:
     - "Metadata originally created in ISO 19115 format."
   modification_date: "2026-06-01"
-  # TODO: the range union of promary_topic doesn't work as it should
-  #primary_topic:
-  #  id: "https://example.org/dataset/env-monitoring-001"
+  primary_topic: # range: Dataset, DatasetSeries, DataService or Catalogue
+    id: "https://example.org/dataset/env-monitoring-001"
+    title:
+      - "Environmental Monitoring Dataset 001"
+    description:
+      - "This dataset contains air quality measurements from 2025."
