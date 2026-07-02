@@ -410,6 +410,19 @@ publisher:
     identifier: http://purl.org/adms/publishertype/GovernmentAgency
     preferred_label:
     - Government Agency
+record:
+- description:
+  - This record describes the dataset containing air quality measurements from 2025.
+  id: https://example.org/dataset/env-monitoring-001.ttl
+  modification_date: '2026-06-19'
+  primary_topic:
+    description:
+    - This dataset contains air quality measurements from 2025.
+    id: https://example.org/dataset/env-monitoring-001
+    title:
+    - Environmental Monitoring Dataset 001
+  title:
+  - Record for Environmental Monitoring Dataset 001
 release_date: '2026-01-01'
 rights:
   description:
@@ -450,6 +463,77 @@ themes:
 title:
 - European Environmental Data Catalogue
 - "Europ\xE4ischer Umweltdatenkatalog"
+
+```
+## CatalogueRecord-complete
+### Input
+```yaml
+application_profile:
+- identifier: https://w3id.org/nfdi-de/dcat-ap-plus
+  other_identifier:
+  - description:
+    - This identifier links to the GitHub pages documentation of the DCAT-AP+.
+    notation: https://nfdi-de.github.io/dcat-ap-plus/
+    title:
+    - GitHub pages URL
+  - description:
+    - This identifier is the official PURL of the DCAT-AP+.
+    notation: https://w3id.org/nfdi-de/dcat-ap-plus
+    title:
+    - official PURL
+change_type:
+  description:
+  - The distribution is complete and stable.
+  identifier: http://publications.europa.eu/resource/authority/distribution-status/COMPLETED
+  other_identifier:
+  - description:
+    - The status code ID from the EU Vocabularies Distribution Status as mandated
+      by the DCAT-AP specs.
+    notation: http://publications.europa.eu/resource/authority/distribution-status/COMPLETED
+    title:
+    - DCAT-AP mandated status code ID
+  preferred_label:
+  - COMPLETED
+description:
+- This record describes the dataset containing air quality measurements from 2025.
+id: https://example.org/dataset/env-monitoring-001.ttl
+identifier: https://example.org/dataset/env-monitoring-001.ttl
+language:
+- description:
+  - Primary language of metadata.
+  identifier: http://publications.europa.eu/resource/authority/language/ENG
+  title:
+  - English
+- description:
+  - Secondary language of metadata.
+  identifier: http://publications.europa.eu/resource/authority/language/DEU
+  title:
+  - German
+listing_date: '2026-06-10'
+modification_date: '2026-06-19'
+other_identifier:
+- notation: https://example.org/dataset/env-monitoring-001.ttl
+primary_topic:
+  description:
+  - This dataset contains air quality measurements from 2025.
+  id: https://example.org/dataset/env-monitoring-001
+  title:
+  - Environmental Monitoring Dataset 001
+source_metadata:
+  description:
+  - Metadata originally created in ISO 19115 format.
+  id: https://example.org/dataset/env-monitoring-001_source.txt
+  modification_date: '2026-06-01'
+  primary_topic:
+    description:
+    - This dataset contains air quality measurements from 2025.
+    id: https://example.org/dataset/env-monitoring-001
+    title:
+    - Environmental Monitoring Dataset 001
+  title:
+  - Original ISO 19115 Record
+title:
+- Record for Environmental Monitoring Dataset 001
 
 ```
 ## Dataset-001
@@ -1155,67 +1239,5 @@ temporal_resolution: P1D
 title:
 - Comprehensive Example Distribution 001
 - Umfassende Beispiel-Distribution 001
-
-```
-## CatalogueRecord-complete
-### Input
-```yaml
-application_profile:
-- identifier: https://w3id.org/nfdi-de/dcat-ap-plus
-  other_identifier:
-  - description:
-    - This identifier links to the GitHub pages documentation of the DCAT-AP+.
-    notation: https://nfdi-de.github.io/dcat-ap-plus/
-    title:
-    - GitHub pages URL
-  - description:
-    - This identifier is the official PURL of the DCAT-AP+.
-    notation: https://w3id.org/nfdi-de/dcat-ap-plus
-    title:
-    - official PURL
-change_type:
-  description:
-  - The distribution is complete and stable.
-  identifier: http://publications.europa.eu/resource/authority/distribution-status/COMPLETED
-  other_identifier:
-  - description:
-    - The status code ID from the EU Vocabularies Distribution Status as mandated
-      by the DCAT-AP specs.
-    notation: http://publications.europa.eu/resource/authority/distribution-status/COMPLETED
-    title:
-    - DCAT-AP mandated status code ID
-  preferred_label:
-  - COMPLETED
-description:
-- This record describes the dataset containing air quality measurements from 2025.
-- "Dieser Datensatz beschreibt den Datensatz mit Luftqualit\xE4tsmessungen aus dem\
-  \ Jahr 2025."
-id: https://example.org/dataset/env-monitoring-001.ttl
-identifier: https://example.org/dataset/env-monitoring-001.ttl
-language:
-- description:
-  - Primary language of metadata.
-  identifier: http://publications.europa.eu/resource/authority/language/ENG
-  title:
-  - English
-- description:
-  - Secondary language of metadata.
-  identifier: http://publications.europa.eu/resource/authority/language/DEU
-  title:
-  - German
-listing_date: '2026-06-10'
-modification_date: '2026-06-19'
-other_identifier:
-- notation: https://example.org/dataset/env-monitoring-001.ttl
-source_metadata:
-  description:
-  - Metadata originally created in ISO 19115 format.
-  id: https://example.org/dataset/env-monitoring-001_source.txt
-  modification_date: '2026-06-01'
-  title:
-  - Original ISO 19115 Record
-title:
-- Record for Environmental Monitoring Dataset
-- "Datensatz f\xFCr Umwelt\xFCberwachungsdatensatz"
 
 ```

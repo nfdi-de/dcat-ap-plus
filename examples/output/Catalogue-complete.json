@@ -302,6 +302,27 @@
     ]
   },
   "modification_date": "2026-06-19",
+  "record": [
+    {
+      "id": "https://example.org/dataset/env-monitoring-001.ttl",
+      "modification_date": "2026-06-19",
+      "primary_topic": {
+        "id": "https://example.org/dataset/env-monitoring-001",
+        "title": [
+          "Environmental Monitoring Dataset 001"
+        ],
+        "description": [
+          "This dataset contains air quality measurements from 2025."
+        ]
+      },
+      "description": [
+        "This record describes the dataset containing air quality measurements from 2025."
+      ],
+      "title": [
+        "Record for Environmental Monitoring Dataset 001"
+      ]
+    }
+  ],
   "release_date": "2026-01-01",
   "rights": {
     "identifier": "http://publications.europa.eu/resource/authority/access-right/PUBLIC",

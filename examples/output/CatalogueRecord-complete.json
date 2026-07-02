@@ -1,0 +1,111 @@
+{
+  "id": "https://example.org/dataset/env-monitoring-001.ttl",
+  "modification_date": "2026-06-19",
+  "primary_topic": {
+    "id": "https://example.org/dataset/env-monitoring-001",
+    "title": [
+      "Environmental Monitoring Dataset 001"
+    ],
+    "description": [
+      "This dataset contains air quality measurements from 2025."
+    ]
+  },
+  "application_profile": [
+    {
+      "identifier": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "other_identifier": [
+        {
+          "notation": "https://nfdi-de.github.io/dcat-ap-plus/",
+          "title": [
+            "GitHub pages URL"
+          ],
+          "description": [
+            "This identifier links to the GitHub pages documentation of the DCAT-AP+."
+          ]
+        },
+        {
+          "notation": "https://w3id.org/nfdi-de/dcat-ap-plus",
+          "title": [
+            "official PURL"
+          ],
+          "description": [
+            "This identifier is the official PURL of the DCAT-AP+."
+          ]
+        }
+      ]
+    }
+  ],
+  "change_type": {
+    "preferred_label": [
+      "COMPLETED"
+    ],
+    "identifier": "http://publications.europa.eu/resource/authority/distribution-status/COMPLETED",
+    "other_identifier": [
+      {
+        "notation": "http://publications.europa.eu/resource/authority/distribution-status/COMPLETED",
+        "title": [
+          "DCAT-AP mandated status code ID"
+        ],
+        "description": [
+          "The status code ID from the EU Vocabularies Distribution Status as mandated by the DCAT-AP specs."
+        ]
+      }
+    ],
+    "description": [
+      "The distribution is complete and stable."
+    ]
+  },
+  "description": [
+    "This record describes the dataset containing air quality measurements from 2025."
+  ],
+  "language": [
+    {
+      "identifier": "http://publications.europa.eu/resource/authority/language/ENG",
+      "title": [
+        "English"
+      ],
+      "description": [
+        "Primary language of metadata."
+      ]
+    },
+    {
+      "identifier": "http://publications.europa.eu/resource/authority/language/DEU",
+      "title": [
+        "German"
+      ],
+      "description": [
+        "Secondary language of metadata."
+      ]
+    }
+  ],
+  "listing_date": "2026-06-10",
+  "source_metadata": {
+    "id": "https://example.org/dataset/env-monitoring-001_source.txt",
+    "modification_date": "2026-06-01",
+    "primary_topic": {
+      "id": "https://example.org/dataset/env-monitoring-001",
+      "title": [
+        "Environmental Monitoring Dataset 001"
+      ],
+      "description": [
+        "This dataset contains air quality measurements from 2025."
+      ]
+    },
+    "description": [
+      "Metadata originally created in ISO 19115 format."
+    ],
+    "title": [
+      "Original ISO 19115 Record"
+    ]
+  },
+  "title": [
+    "Record for Environmental Monitoring Dataset 001"
+  ],
+  "identifier": "https://example.org/dataset/env-monitoring-001.ttl",
+  "other_identifier": [
+    {
+      "notation": "https://example.org/dataset/env-monitoring-001.ttl"
+    }
+  ],
+  "@type": "CatalogueRecord"
+}

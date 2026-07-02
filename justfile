@@ -191,13 +191,13 @@ _test-python: gen-python
   uv run python -m pytest
 
 # Run example tests
+# Note: TTL output cannot be turned on because of the range unions on slots like `primary_topic` in `CatalogueRecord`. The schema cannot know which of the classes in that range union to be instanciated. --> TTL examples must thus be made manually using `linkml-convert`
 _test-examples: _ensure_examples_output
   uv run linkml-run-examples \
     --input-formats json \
     --input-formats yaml \
     --output-formats json \
     --output-formats yaml \
-    --output-formats ttl \
     --counter-example-input-directory tests/data/invalid \
     --input-directory tests/data/valid \
     --output-directory examples/output \
