@@ -1,5 +1,5 @@
 # Auto generated from dcat_ap_plus.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-06-10T17:31:08
+# Generation date: 2026-07-01T15:13:45
 # Schema: dcat-ap-plus
 #
 # id: https://w3id.org/nfdi-de/dcat-ap-plus
@@ -56,11 +56,11 @@ from rdflib import (
     URIRef
 )
 
-from linkml_runtime.linkml_model.types import Date, Decimal, Float, String, Uriorcurie
-from linkml_runtime.utils.metamodelcore import Decimal, URIorCURIE, XSDDate
+from linkml_runtime.linkml_model.types import Date, Datetime, Decimal, Float, String, Uriorcurie
+from linkml_runtime.utils.metamodelcore import Decimal, URIorCURIE, XSDDate, XSDDateTime
 
 metamodel_version = "1.11.0"
-version = "0.1.0rc4.post34.dev0+20e64d58"
+version = "0.1.0rc4.post33.dev0+f183cf49"
 
 # Namespaces
 AFE = CurieNamespace('AFE', 'http://purl.allotrope.org/ontologies/equipment#AFE_')
@@ -82,6 +82,7 @@ FOAF = CurieNamespace('foaf', 'http://xmlns.com/foaf/0.1/')
 IANA = CurieNamespace('iana', 'https://www.iana.org/assignments/')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
 LOCN = CurieNamespace('locn', 'http://www.w3.org/ns/locn#')
+LOCN_NEW = CurieNamespace('locn_new', 'http://data.europa.eu/m8g/')
 ODRL = CurieNamespace('odrl', 'http://www.w3.org/ns/odrl/2/')
 PROV = CurieNamespace('prov', 'http://www.w3.org/ns/prov#')
 QB = CurieNamespace('qb', 'http://purl.org/linked-data/cube#')
@@ -133,11 +134,23 @@ class AgenticEntityId(URIorCURIE):
     pass
 
 
+class CatalogueId(URIorCURIE):
+    pass
+
+
+class CatalogueRecordId(URIorCURIE):
+    pass
+
+
 class DataGeneratingActivityId(ActivityId):
     pass
 
 
 class DataAnalysisId(DataGeneratingActivityId):
+    pass
+
+
+class DataServiceId(URIorCURIE):
     pass
 
 
@@ -149,11 +162,19 @@ class AnalysisDatasetId(DatasetId):
     pass
 
 
+class DatasetSeriesId(URIorCURIE):
+    pass
+
+
 class DefinedTermId(URIorCURIE):
     pass
 
 
 class DeviceId(AgenticEntityId):
+    pass
+
+
+class DistributionId(URIorCURIE):
     pass
 
 
@@ -174,18 +195,6 @@ class AnalysisSourceDataId(EvaluatedEntityId):
 
 
 class SoftwareId(AgenticEntityId):
-    pass
-
-
-class DocumentId(URIorCURIE):
-    pass
-
-
-class LegalResourceId(URIorCURIE):
-    pass
-
-
-class LicenseDocumentId(URIorCURIE):
     pass
 
 
@@ -275,6 +284,9 @@ class Agent(YAMLRoot):
 
     name: Union[str, list[str]] = None
     type: Optional[Union[dict, "Concept"]] = None
+    rdf_type: Optional[Union[dict, "DefinedTerm"]] = None
+    identifier: Optional[Union[str, URIorCURIE]] = None
+    other_identifier: Optional[Union[Union[dict, "Identifier"], list[Union[dict, "Identifier"]]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.name):
@@ -285,6 +297,14 @@ class Agent(YAMLRoot):
 
         if self.type is not None and not isinstance(self.type, Concept):
             self.type = Concept(**as_dict(self.type))
+
+        if self.rdf_type is not None and not isinstance(self.rdf_type, DefinedTerm):
+            self.rdf_type = DefinedTerm(**as_dict(self.rdf_type))
+
+        if self.identifier is not None and not isinstance(self.identifier, URIorCURIE):
+            self.identifier = URIorCURIE(self.identifier)
+
+        self._normalize_inlined_as_list(slot_name="other_identifier", slot_type=Identifier, key_name="notation", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -357,27 +377,35 @@ class Catalogue(YAMLRoot):
     class_name: ClassVar[str] = "Catalogue"
     class_model_uri: ClassVar[URIRef] = DCATAP_PLUS.Catalogue
 
+    id: Union[str, CatalogueId] = None
     description: Union[str, list[str]] = None
     publisher: Union[dict, Agent] = None
     title: Union[str, list[str]] = None
-    applicable_legislation: Optional[Union[dict[Union[str, LegalResourceId], Union[dict, "LegalResource"]], list[Union[dict, "LegalResource"]]]] = empty_dict()
-    catalogue: Optional[Union[Union[dict, "Catalogue"], list[Union[dict, "Catalogue"]]]] = empty_list()
+    applicable_legislation: Optional[Union[Union[dict, "LegalResource"], list[Union[dict, "LegalResource"]]]] = empty_list()
+    catalogue: Optional[Union[dict[Union[str, CatalogueId], Union[dict, "Catalogue"]], list[Union[dict, "Catalogue"]]]] = empty_dict()
     creator: Optional[Union[dict, Agent]] = None
     geographical_coverage: Optional[Union[Union[dict, "Location"], list[Union[dict, "Location"]]]] = empty_list()
     has_dataset: Optional[Union[dict[Union[str, DatasetId], Union[dict, "Dataset"]], list[Union[dict, "Dataset"]]]] = empty_dict()
-    has_part: Optional[Union[Union[dict, "Catalogue"], list[Union[dict, "Catalogue"]]]] = empty_list()
+    has_part: Optional[Union[dict[Union[str, CatalogueId], Union[dict, "Catalogue"]], list[Union[dict, "Catalogue"]]]] = empty_dict()
     homepage: Optional[Union[dict, "Document"]] = None
     language: Optional[Union[Union[dict, "LinguisticSystem"], list[Union[dict, "LinguisticSystem"]]]] = empty_list()
-    licence: Optional[Union[dict, "LicenseDocument"]] = None
+    licence: Optional[Union[dict, "LicenceDocument"]] = None
     modification_date: Optional[Union[str, XSDDate]] = None
-    record: Optional[Union[Union[dict, "CatalogueRecord"], list[Union[dict, "CatalogueRecord"]]]] = empty_list()
+    record: Optional[Union[dict[Union[str, CatalogueRecordId], Union[dict, "CatalogueRecord"]], list[Union[dict, "CatalogueRecord"]]]] = empty_dict()
     release_date: Optional[Union[str, XSDDate]] = None
     rights: Optional[Union[dict, "RightsStatement"]] = None
-    service: Optional[Union[Union[dict, "DataService"], list[Union[dict, "DataService"]]]] = empty_list()
+    service: Optional[Union[dict[Union[str, DataServiceId], Union[dict, "DataService"]], list[Union[dict, "DataService"]]]] = empty_dict()
     temporal_coverage: Optional[Union[Union[dict, "PeriodOfTime"], list[Union[dict, "PeriodOfTime"]]]] = empty_list()
     themes: Optional[Union[Union[dict, "ConceptScheme"], list[Union[dict, "ConceptScheme"]]]] = empty_list()
+    identifier: Optional[Union[str, URIorCURIE]] = None
+    other_identifier: Optional[Union[Union[dict, "Identifier"], list[Union[dict, "Identifier"]]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, CatalogueId):
+            self.id = CatalogueId(self.id)
+
         if self._is_empty(self.description):
             self.MissingRequiredField("description")
         if not isinstance(self.description, list):
@@ -395,9 +423,11 @@ class Catalogue(YAMLRoot):
             self.title = [self.title] if self.title is not None else []
         self.title = [v if isinstance(v, str) else str(v) for v in self.title]
 
-        self._normalize_inlined_as_list(slot_name="applicable_legislation", slot_type=LegalResource, key_name="id", keyed=True)
+        if not isinstance(self.applicable_legislation, list):
+            self.applicable_legislation = [self.applicable_legislation] if self.applicable_legislation is not None else []
+        self.applicable_legislation = [v if isinstance(v, LegalResource) else LegalResource(**as_dict(v)) for v in self.applicable_legislation]
 
-        self._normalize_inlined_as_list(slot_name="catalogue", slot_type=Catalogue, key_name="description", keyed=False)
+        self._normalize_inlined_as_list(slot_name="catalogue", slot_type=Catalogue, key_name="id", keyed=True)
 
         if self.creator is not None and not isinstance(self.creator, Agent):
             self.creator = Agent(**as_dict(self.creator))
@@ -408,7 +438,7 @@ class Catalogue(YAMLRoot):
 
         self._normalize_inlined_as_list(slot_name="has_dataset", slot_type=Dataset, key_name="id", keyed=True)
 
-        self._normalize_inlined_as_list(slot_name="has_part", slot_type=Catalogue, key_name="description", keyed=False)
+        self._normalize_inlined_as_list(slot_name="has_part", slot_type=Catalogue, key_name="id", keyed=True)
 
         if self.homepage is not None and not isinstance(self.homepage, Document):
             self.homepage = Document(**as_dict(self.homepage))
@@ -417,13 +447,13 @@ class Catalogue(YAMLRoot):
             self.language = [self.language] if self.language is not None else []
         self.language = [v if isinstance(v, LinguisticSystem) else LinguisticSystem(**as_dict(v)) for v in self.language]
 
-        if self.licence is not None and not isinstance(self.licence, LicenseDocument):
-            self.licence = LicenseDocument(**as_dict(self.licence))
+        if self.licence is not None and not isinstance(self.licence, LicenceDocument):
+            self.licence = LicenceDocument(**as_dict(self.licence))
 
         if self.modification_date is not None and not isinstance(self.modification_date, XSDDate):
             self.modification_date = XSDDate(self.modification_date)
 
-        self._normalize_inlined_as_list(slot_name="record", slot_type=CatalogueRecord, key_name="modification_date", keyed=False)
+        self._normalize_inlined_as_list(slot_name="record", slot_type=CatalogueRecord, key_name="id", keyed=True)
 
         if self.release_date is not None and not isinstance(self.release_date, XSDDate):
             self.release_date = XSDDate(self.release_date)
@@ -431,13 +461,18 @@ class Catalogue(YAMLRoot):
         if self.rights is not None and not isinstance(self.rights, RightsStatement):
             self.rights = RightsStatement(**as_dict(self.rights))
 
-        self._normalize_inlined_as_list(slot_name="service", slot_type=DataService, key_name="title", keyed=False)
+        self._normalize_inlined_as_list(slot_name="service", slot_type=DataService, key_name="id", keyed=True)
 
         if not isinstance(self.temporal_coverage, list):
             self.temporal_coverage = [self.temporal_coverage] if self.temporal_coverage is not None else []
         self.temporal_coverage = [v if isinstance(v, PeriodOfTime) else PeriodOfTime(**as_dict(v)) for v in self.temporal_coverage]
 
         self._normalize_inlined_as_list(slot_name="themes", slot_type=ConceptScheme, key_name="title", keyed=False)
+
+        if self.identifier is not None and not isinstance(self.identifier, URIorCURIE):
+            self.identifier = URIorCURIE(self.identifier)
+
+        self._normalize_inlined_as_list(slot_name="other_identifier", slot_type=Identifier, key_name="notation", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -454,6 +489,7 @@ class CatalogueRecord(YAMLRoot):
     class_name: ClassVar[str] = "CatalogueRecord"
     class_model_uri: ClassVar[URIRef] = DCATAP_PLUS.CatalogueRecord
 
+    id: Union[str, CatalogueRecordId] = None
     modification_date: Union[str, XSDDate] = None
     primary_topic: Union[dict, Any] = None
     application_profile: Optional[Union[Union[dict, "Standard"], list[Union[dict, "Standard"]]]] = empty_list()
@@ -463,8 +499,15 @@ class CatalogueRecord(YAMLRoot):
     listing_date: Optional[Union[str, XSDDate]] = None
     source_metadata: Optional[Union[dict, "CatalogueRecord"]] = None
     title: Optional[Union[str, list[str]]] = empty_list()
+    identifier: Optional[Union[str, URIorCURIE]] = None
+    other_identifier: Optional[Union[Union[dict, "Identifier"], list[Union[dict, "Identifier"]]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, CatalogueRecordId):
+            self.id = CatalogueRecordId(self.id)
+
         if self._is_empty(self.modification_date):
             self.MissingRequiredField("modification_date")
         if not isinstance(self.modification_date, XSDDate):
@@ -494,6 +537,11 @@ class CatalogueRecord(YAMLRoot):
         if not isinstance(self.title, list):
             self.title = [self.title] if self.title is not None else []
         self.title = [v if isinstance(v, str) else str(v) for v in self.title]
+
+        if self.identifier is not None and not isinstance(self.identifier, URIorCURIE):
+            self.identifier = URIorCURIE(self.identifier)
+
+        self._normalize_inlined_as_list(slot_name="other_identifier", slot_type=Identifier, key_name="notation", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -628,24 +676,32 @@ class DataService(YAMLRoot):
     class_name: ClassVar[str] = "DataService"
     class_model_uri: ClassVar[URIRef] = DCATAP_PLUS.DataService
 
+    id: Union[str, DataServiceId] = None
     endpoint_URL: Union[dict[Union[str, ResourceId], Union[dict, "Resource"]], list[Union[dict, "Resource"]]] = empty_dict()
     title: Union[str, list[str]] = None
     access_rights: Optional[Union[dict, "RightsStatement"]] = None
-    applicable_legislation: Optional[Union[dict[Union[str, LegalResourceId], Union[dict, "LegalResource"]], list[Union[dict, "LegalResource"]]]] = empty_dict()
+    applicable_legislation: Optional[Union[Union[dict, "LegalResource"], list[Union[dict, "LegalResource"]]]] = empty_list()
     conforms_to: Optional[Union[Union[dict, "Standard"], list[Union[dict, "Standard"]]]] = empty_list()
     contact_point: Optional[Union[Union[dict, "Kind"], list[Union[dict, "Kind"]]]] = empty_list()
     description: Optional[Union[str, list[str]]] = empty_list()
-    documentation: Optional[Union[dict[Union[str, DocumentId], Union[dict, "Document"]], list[Union[dict, "Document"]]]] = empty_dict()
+    documentation: Optional[Union[Union[dict, "Document"], list[Union[dict, "Document"]]]] = empty_list()
     endpoint_description: Optional[Union[dict[Union[str, ResourceId], Union[dict, "Resource"]], list[Union[dict, "Resource"]]]] = empty_dict()
     format: Optional[Union[Union[dict, "MediaTypeOrExtent"], list[Union[dict, "MediaTypeOrExtent"]]]] = empty_list()
     keyword: Optional[Union[str, list[str]]] = empty_list()
-    landing_page: Optional[Union[dict[Union[str, DocumentId], Union[dict, "Document"]], list[Union[dict, "Document"]]]] = empty_dict()
-    licence: Optional[Union[dict, "LicenseDocument"]] = None
+    landing_page: Optional[Union[Union[dict, "Document"], list[Union[dict, "Document"]]]] = empty_list()
+    licence: Optional[Union[dict, "LicenceDocument"]] = None
     publisher: Optional[Union[dict, Agent]] = None
     serves_dataset: Optional[Union[dict[Union[str, DatasetId], Union[dict, "Dataset"]], list[Union[dict, "Dataset"]]]] = empty_dict()
     theme: Optional[Union[Union[dict, "Concept"], list[Union[dict, "Concept"]]]] = empty_list()
+    identifier: Optional[Union[str, URIorCURIE]] = None
+    other_identifier: Optional[Union[Union[dict, "Identifier"], list[Union[dict, "Identifier"]]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, DataServiceId):
+            self.id = DataServiceId(self.id)
+
         if self._is_empty(self.endpoint_URL):
             self.MissingRequiredField("endpoint_URL")
         self._normalize_inlined_as_list(slot_name="endpoint_URL", slot_type=Resource, key_name="id", keyed=True)
@@ -659,21 +715,23 @@ class DataService(YAMLRoot):
         if self.access_rights is not None and not isinstance(self.access_rights, RightsStatement):
             self.access_rights = RightsStatement(**as_dict(self.access_rights))
 
-        self._normalize_inlined_as_list(slot_name="applicable_legislation", slot_type=LegalResource, key_name="id", keyed=True)
+        if not isinstance(self.applicable_legislation, list):
+            self.applicable_legislation = [self.applicable_legislation] if self.applicable_legislation is not None else []
+        self.applicable_legislation = [v if isinstance(v, LegalResource) else LegalResource(**as_dict(v)) for v in self.applicable_legislation]
 
         if not isinstance(self.conforms_to, list):
             self.conforms_to = [self.conforms_to] if self.conforms_to is not None else []
         self.conforms_to = [v if isinstance(v, Standard) else Standard(**as_dict(v)) for v in self.conforms_to]
 
-        if not isinstance(self.contact_point, list):
-            self.contact_point = [self.contact_point] if self.contact_point is not None else []
-        self.contact_point = [v if isinstance(v, Kind) else Kind(**as_dict(v)) for v in self.contact_point]
+        self._normalize_inlined_as_list(slot_name="contact_point", slot_type=Kind, key_name="formatted_name", keyed=False)
 
         if not isinstance(self.description, list):
             self.description = [self.description] if self.description is not None else []
         self.description = [v if isinstance(v, str) else str(v) for v in self.description]
 
-        self._normalize_inlined_as_list(slot_name="documentation", slot_type=Document, key_name="id", keyed=True)
+        if not isinstance(self.documentation, list):
+            self.documentation = [self.documentation] if self.documentation is not None else []
+        self.documentation = [v if isinstance(v, Document) else Document(**as_dict(v)) for v in self.documentation]
 
         self._normalize_inlined_as_list(slot_name="endpoint_description", slot_type=Resource, key_name="id", keyed=True)
 
@@ -685,10 +743,12 @@ class DataService(YAMLRoot):
             self.keyword = [self.keyword] if self.keyword is not None else []
         self.keyword = [v if isinstance(v, str) else str(v) for v in self.keyword]
 
-        self._normalize_inlined_as_list(slot_name="landing_page", slot_type=Document, key_name="id", keyed=True)
+        if not isinstance(self.landing_page, list):
+            self.landing_page = [self.landing_page] if self.landing_page is not None else []
+        self.landing_page = [v if isinstance(v, Document) else Document(**as_dict(v)) for v in self.landing_page]
 
-        if self.licence is not None and not isinstance(self.licence, LicenseDocument):
-            self.licence = LicenseDocument(**as_dict(self.licence))
+        if self.licence is not None and not isinstance(self.licence, LicenceDocument):
+            self.licence = LicenceDocument(**as_dict(self.licence))
 
         if self.publisher is not None and not isinstance(self.publisher, Agent):
             self.publisher = Agent(**as_dict(self.publisher))
@@ -696,6 +756,11 @@ class DataService(YAMLRoot):
         self._normalize_inlined_as_list(slot_name="serves_dataset", slot_type=Dataset, key_name="id", keyed=True)
 
         self._normalize_inlined_as_list(slot_name="theme", slot_type=Concept, key_name="preferred_label", keyed=False)
+
+        if self.identifier is not None and not isinstance(self.identifier, URIorCURIE):
+            self.identifier = URIorCURIE(self.identifier)
+
+        self._normalize_inlined_as_list(slot_name="other_identifier", slot_type=Identifier, key_name="notation", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -718,20 +783,20 @@ class Dataset(YAMLRoot):
     title: Union[str, list[str]] = None
     was_generated_by: Union[dict[Union[str, DataGeneratingActivityId], Union[dict, DataGeneratingActivity]], list[Union[dict, DataGeneratingActivity]]] = empty_dict()
     access_rights: Optional[Union[dict, "RightsStatement"]] = None
-    applicable_legislation: Optional[Union[dict[Union[str, LegalResourceId], Union[dict, "LegalResource"]], list[Union[dict, "LegalResource"]]]] = empty_dict()
+    applicable_legislation: Optional[Union[Union[dict, "LegalResource"], list[Union[dict, "LegalResource"]]]] = empty_list()
     conforms_to: Optional[Union[Union[dict, "Standard"], list[Union[dict, "Standard"]]]] = empty_list()
     contact_point: Optional[Union[Union[dict, "Kind"], list[Union[dict, "Kind"]]]] = empty_list()
     creator: Optional[Union[Union[dict, Agent], list[Union[dict, Agent]]]] = empty_list()
-    dataset_distribution: Optional[Union[Union[dict, "Distribution"], list[Union[dict, "Distribution"]]]] = empty_list()
-    documentation: Optional[Union[dict[Union[str, DocumentId], Union[dict, "Document"]], list[Union[dict, "Document"]]]] = empty_dict()
+    dataset_distribution: Optional[Union[dict[Union[str, DistributionId], Union[dict, "Distribution"]], list[Union[dict, "Distribution"]]]] = empty_dict()
+    documentation: Optional[Union[Union[dict, "Document"], list[Union[dict, "Document"]]]] = empty_list()
     frequency: Optional[Union[dict, "Frequency"]] = None
     geographical_coverage: Optional[Union[Union[dict, "Location"], list[Union[dict, "Location"]]]] = empty_list()
     has_version: Optional[Union[dict[Union[str, DatasetId], Union[dict, "Dataset"]], list[Union[dict, "Dataset"]]]] = empty_dict()
     identifier: Optional[Union[str, list[str]]] = empty_list()
-    in_series: Optional[Union[Union[dict, "DatasetSeries"], list[Union[dict, "DatasetSeries"]]]] = empty_list()
+    in_series: Optional[Union[dict[Union[str, DatasetSeriesId], Union[dict, "DatasetSeries"]], list[Union[dict, "DatasetSeries"]]]] = empty_dict()
     is_referenced_by: Optional[Union[dict[Union[str, ResourceId], Union[dict, "Resource"]], list[Union[dict, "Resource"]]]] = empty_dict()
     keyword: Optional[Union[str, list[str]]] = empty_list()
-    landing_page: Optional[Union[dict[Union[str, DocumentId], Union[dict, "Document"]], list[Union[dict, "Document"]]]] = empty_dict()
+    landing_page: Optional[Union[Union[dict, "Document"], list[Union[dict, "Document"]]]] = empty_list()
     language: Optional[Union[Union[dict, "LinguisticSystem"], list[Union[dict, "LinguisticSystem"]]]] = empty_list()
     modification_date: Optional[Union[str, XSDDate]] = None
     other_identifier: Optional[Union[Union[dict, "Identifier"], list[Union[dict, "Identifier"]]]] = empty_list()
@@ -741,7 +806,7 @@ class Dataset(YAMLRoot):
     qualified_relation: Optional[Union[Union[dict, "Relationship"], list[Union[dict, "Relationship"]]]] = empty_list()
     related_resource: Optional[Union[dict[Union[str, ResourceId], Union[dict, "Resource"]], list[Union[dict, "Resource"]]]] = empty_dict()
     release_date: Optional[Union[str, XSDDate]] = None
-    sample: Optional[Union[Union[dict, "Distribution"], list[Union[dict, "Distribution"]]]] = empty_list()
+    sample: Optional[Union[dict[Union[str, DistributionId], Union[dict, "Distribution"]], list[Union[dict, "Distribution"]]]] = empty_dict()
     source: Optional[Union[dict[Union[str, DatasetId], Union[dict, "Dataset"]], list[Union[dict, "Dataset"]]]] = empty_dict()
     spatial_resolution: Optional[Decimal] = None
     temporal_coverage: Optional[Union[Union[dict, "PeriodOfTime"], list[Union[dict, "PeriodOfTime"]]]] = empty_list()
@@ -778,23 +843,23 @@ class Dataset(YAMLRoot):
         if self.access_rights is not None and not isinstance(self.access_rights, RightsStatement):
             self.access_rights = RightsStatement(**as_dict(self.access_rights))
 
-        self._normalize_inlined_as_list(slot_name="applicable_legislation", slot_type=LegalResource, key_name="id", keyed=True)
+        if not isinstance(self.applicable_legislation, list):
+            self.applicable_legislation = [self.applicable_legislation] if self.applicable_legislation is not None else []
+        self.applicable_legislation = [v if isinstance(v, LegalResource) else LegalResource(**as_dict(v)) for v in self.applicable_legislation]
 
         if not isinstance(self.conforms_to, list):
             self.conforms_to = [self.conforms_to] if self.conforms_to is not None else []
         self.conforms_to = [v if isinstance(v, Standard) else Standard(**as_dict(v)) for v in self.conforms_to]
 
-        if not isinstance(self.contact_point, list):
-            self.contact_point = [self.contact_point] if self.contact_point is not None else []
-        self.contact_point = [v if isinstance(v, Kind) else Kind(**as_dict(v)) for v in self.contact_point]
+        self._normalize_inlined_as_list(slot_name="contact_point", slot_type=Kind, key_name="formatted_name", keyed=False)
 
         self._normalize_inlined_as_list(slot_name="creator", slot_type=Agent, key_name="name", keyed=False)
 
-        if not isinstance(self.dataset_distribution, list):
-            self.dataset_distribution = [self.dataset_distribution] if self.dataset_distribution is not None else []
-        self.dataset_distribution = [v if isinstance(v, Distribution) else Distribution(**as_dict(v)) for v in self.dataset_distribution]
+        self._normalize_inlined_as_list(slot_name="dataset_distribution", slot_type=Distribution, key_name="id", keyed=True)
 
-        self._normalize_inlined_as_list(slot_name="documentation", slot_type=Document, key_name="id", keyed=True)
+        if not isinstance(self.documentation, list):
+            self.documentation = [self.documentation] if self.documentation is not None else []
+        self.documentation = [v if isinstance(v, Document) else Document(**as_dict(v)) for v in self.documentation]
 
         if self.frequency is not None and not isinstance(self.frequency, Frequency):
             self.frequency = Frequency(**as_dict(self.frequency))
@@ -809,7 +874,7 @@ class Dataset(YAMLRoot):
             self.identifier = [self.identifier] if self.identifier is not None else []
         self.identifier = [v if isinstance(v, str) else str(v) for v in self.identifier]
 
-        self._normalize_inlined_as_list(slot_name="in_series", slot_type=DatasetSeries, key_name="description", keyed=False)
+        self._normalize_inlined_as_list(slot_name="in_series", slot_type=DatasetSeries, key_name="id", keyed=True)
 
         self._normalize_inlined_as_list(slot_name="is_referenced_by", slot_type=Resource, key_name="id", keyed=True)
 
@@ -817,7 +882,9 @@ class Dataset(YAMLRoot):
             self.keyword = [self.keyword] if self.keyword is not None else []
         self.keyword = [v if isinstance(v, str) else str(v) for v in self.keyword]
 
-        self._normalize_inlined_as_list(slot_name="landing_page", slot_type=Document, key_name="id", keyed=True)
+        if not isinstance(self.landing_page, list):
+            self.landing_page = [self.landing_page] if self.landing_page is not None else []
+        self.landing_page = [v if isinstance(v, Document) else Document(**as_dict(v)) for v in self.landing_page]
 
         if not isinstance(self.language, list):
             self.language = [self.language] if self.language is not None else []
@@ -848,9 +915,7 @@ class Dataset(YAMLRoot):
         if self.release_date is not None and not isinstance(self.release_date, XSDDate):
             self.release_date = XSDDate(self.release_date)
 
-        if not isinstance(self.sample, list):
-            self.sample = [self.sample] if self.sample is not None else []
-        self.sample = [v if isinstance(v, Distribution) else Distribution(**as_dict(v)) for v in self.sample]
+        self._normalize_inlined_as_list(slot_name="sample", slot_type=Distribution, key_name="id", keyed=True)
 
         self._normalize_inlined_as_list(slot_name="source", slot_type=Dataset, key_name="id", keyed=True)
 
@@ -924,9 +989,10 @@ class DatasetSeries(YAMLRoot):
     class_name: ClassVar[str] = "DatasetSeries"
     class_model_uri: ClassVar[URIRef] = DCATAP_PLUS.DatasetSeries
 
+    id: Union[str, DatasetSeriesId] = None
     description: Union[str, list[str]] = None
     title: Union[str, list[str]] = None
-    applicable_legislation: Optional[Union[dict[Union[str, LegalResourceId], Union[dict, "LegalResource"]], list[Union[dict, "LegalResource"]]]] = empty_dict()
+    applicable_legislation: Optional[Union[Union[dict, "LegalResource"], list[Union[dict, "LegalResource"]]]] = empty_list()
     contact_point: Optional[Union[Union[dict, "Kind"], list[Union[dict, "Kind"]]]] = empty_list()
     frequency: Optional[Union[dict, "Frequency"]] = None
     geographical_coverage: Optional[Union[Union[dict, "Location"], list[Union[dict, "Location"]]]] = empty_list()
@@ -934,8 +1000,15 @@ class DatasetSeries(YAMLRoot):
     publisher: Optional[Union[dict, Agent]] = None
     release_date: Optional[Union[str, XSDDate]] = None
     temporal_coverage: Optional[Union[Union[dict, "PeriodOfTime"], list[Union[dict, "PeriodOfTime"]]]] = empty_list()
+    identifier: Optional[Union[str, URIorCURIE]] = None
+    other_identifier: Optional[Union[Union[dict, "Identifier"], list[Union[dict, "Identifier"]]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, DatasetSeriesId):
+            self.id = DatasetSeriesId(self.id)
+
         if self._is_empty(self.description):
             self.MissingRequiredField("description")
         if not isinstance(self.description, list):
@@ -948,11 +1021,11 @@ class DatasetSeries(YAMLRoot):
             self.title = [self.title] if self.title is not None else []
         self.title = [v if isinstance(v, str) else str(v) for v in self.title]
 
-        self._normalize_inlined_as_list(slot_name="applicable_legislation", slot_type=LegalResource, key_name="id", keyed=True)
+        if not isinstance(self.applicable_legislation, list):
+            self.applicable_legislation = [self.applicable_legislation] if self.applicable_legislation is not None else []
+        self.applicable_legislation = [v if isinstance(v, LegalResource) else LegalResource(**as_dict(v)) for v in self.applicable_legislation]
 
-        if not isinstance(self.contact_point, list):
-            self.contact_point = [self.contact_point] if self.contact_point is not None else []
-        self.contact_point = [v if isinstance(v, Kind) else Kind(**as_dict(v)) for v in self.contact_point]
+        self._normalize_inlined_as_list(slot_name="contact_point", slot_type=Kind, key_name="formatted_name", keyed=False)
 
         if self.frequency is not None and not isinstance(self.frequency, Frequency):
             self.frequency = Frequency(**as_dict(self.frequency))
@@ -973,6 +1046,11 @@ class DatasetSeries(YAMLRoot):
         if not isinstance(self.temporal_coverage, list):
             self.temporal_coverage = [self.temporal_coverage] if self.temporal_coverage is not None else []
         self.temporal_coverage = [v if isinstance(v, PeriodOfTime) else PeriodOfTime(**as_dict(v)) for v in self.temporal_coverage]
+
+        if self.identifier is not None and not isinstance(self.identifier, URIorCURIE):
+            self.identifier = URIorCURIE(self.identifier)
+
+        self._normalize_inlined_as_list(slot_name="other_identifier", slot_type=Identifier, key_name="notation", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -1051,20 +1129,21 @@ class Distribution(YAMLRoot):
     class_name: ClassVar[str] = "Distribution"
     class_model_uri: ClassVar[URIRef] = DCATAP_PLUS.Distribution
 
+    id: Union[str, DistributionId] = None
     access_URL: Union[dict[Union[str, ResourceId], Union[dict, "Resource"]], list[Union[dict, "Resource"]]] = empty_dict()
-    access_service: Optional[Union[Union[dict, DataService], list[Union[dict, DataService]]]] = empty_list()
-    applicable_legislation: Optional[Union[dict[Union[str, LegalResourceId], Union[dict, "LegalResource"]], list[Union[dict, "LegalResource"]]]] = empty_dict()
+    access_service: Optional[Union[dict[Union[str, DataServiceId], Union[dict, DataService]], list[Union[dict, DataService]]]] = empty_dict()
+    applicable_legislation: Optional[Union[Union[dict, "LegalResource"], list[Union[dict, "LegalResource"]]]] = empty_list()
     availability: Optional[Union[dict, "Concept"]] = None
     byte_size: Optional[int] = None
     checksum: Optional[Union[dict, Checksum]] = None
     compression_format: Optional[Union[dict, "MediaType"]] = None
     description: Optional[Union[str, list[str]]] = empty_list()
-    documentation: Optional[Union[dict[Union[str, DocumentId], Union[dict, "Document"]], list[Union[dict, "Document"]]]] = empty_dict()
+    documentation: Optional[Union[Union[dict, "Document"], list[Union[dict, "Document"]]]] = empty_list()
     download_URL: Optional[Union[dict[Union[str, ResourceId], Union[dict, "Resource"]], list[Union[dict, "Resource"]]]] = empty_dict()
     format: Optional[Union[dict, "MediaTypeOrExtent"]] = None
     has_policy: Optional[Union[dict, "Policy"]] = None
     language: Optional[Union[Union[dict, "LinguisticSystem"], list[Union[dict, "LinguisticSystem"]]]] = empty_list()
-    licence: Optional[Union[dict, "LicenseDocument"]] = None
+    licence: Optional[Union[dict, "LicenceDocument"]] = None
     linked_schemas: Optional[Union[Union[dict, "Standard"], list[Union[dict, "Standard"]]]] = empty_list()
     media_type: Optional[Union[dict, "MediaType"]] = None
     modification_date: Optional[Union[str, XSDDate]] = None
@@ -1075,15 +1154,24 @@ class Distribution(YAMLRoot):
     status: Optional[Union[dict, "Concept"]] = None
     temporal_resolution: Optional[str] = None
     title: Optional[Union[str, list[str]]] = empty_list()
+    identifier: Optional[Union[str, URIorCURIE]] = None
+    other_identifier: Optional[Union[Union[dict, "Identifier"], list[Union[dict, "Identifier"]]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, DistributionId):
+            self.id = DistributionId(self.id)
+
         if self._is_empty(self.access_URL):
             self.MissingRequiredField("access_URL")
         self._normalize_inlined_as_list(slot_name="access_URL", slot_type=Resource, key_name="id", keyed=True)
 
-        self._normalize_inlined_as_list(slot_name="access_service", slot_type=DataService, key_name="title", keyed=False)
+        self._normalize_inlined_as_list(slot_name="access_service", slot_type=DataService, key_name="id", keyed=True)
 
-        self._normalize_inlined_as_list(slot_name="applicable_legislation", slot_type=LegalResource, key_name="id", keyed=True)
+        if not isinstance(self.applicable_legislation, list):
+            self.applicable_legislation = [self.applicable_legislation] if self.applicable_legislation is not None else []
+        self.applicable_legislation = [v if isinstance(v, LegalResource) else LegalResource(**as_dict(v)) for v in self.applicable_legislation]
 
         if self.availability is not None and not isinstance(self.availability, Concept):
             self.availability = Concept(**as_dict(self.availability))
@@ -1101,7 +1189,9 @@ class Distribution(YAMLRoot):
             self.description = [self.description] if self.description is not None else []
         self.description = [v if isinstance(v, str) else str(v) for v in self.description]
 
-        self._normalize_inlined_as_list(slot_name="documentation", slot_type=Document, key_name="id", keyed=True)
+        if not isinstance(self.documentation, list):
+            self.documentation = [self.documentation] if self.documentation is not None else []
+        self.documentation = [v if isinstance(v, Document) else Document(**as_dict(v)) for v in self.documentation]
 
         self._normalize_inlined_as_list(slot_name="download_URL", slot_type=Resource, key_name="id", keyed=True)
 
@@ -1115,8 +1205,8 @@ class Distribution(YAMLRoot):
             self.language = [self.language] if self.language is not None else []
         self.language = [v if isinstance(v, LinguisticSystem) else LinguisticSystem(**as_dict(v)) for v in self.language]
 
-        if self.licence is not None and not isinstance(self.licence, LicenseDocument):
-            self.licence = LicenseDocument(**as_dict(self.licence))
+        if self.licence is not None and not isinstance(self.licence, LicenceDocument):
+            self.licence = LicenceDocument(**as_dict(self.licence))
 
         if not isinstance(self.linked_schemas, list):
             self.linked_schemas = [self.linked_schemas] if self.linked_schemas is not None else []
@@ -1149,6 +1239,11 @@ class Distribution(YAMLRoot):
         if not isinstance(self.title, list):
             self.title = [self.title] if self.title is not None else []
         self.title = [v if isinstance(v, str) else str(v) for v in self.title]
+
+        if self.identifier is not None and not isinstance(self.identifier, URIorCURIE):
+            self.identifier = URIorCURIE(self.identifier)
+
+        self._normalize_inlined_as_list(slot_name="other_identifier", slot_type=Identifier, key_name="notation", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -1296,6 +1391,7 @@ class AnalysisSourceData(EvaluatedEntity):
         super().__post_init__(**kwargs)
 
 
+@dataclass(repr=False)
 class Kind(YAMLRoot):
     """
     See [DCAT-AP specs:Kind](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Kind)
@@ -1306,6 +1402,64 @@ class Kind(YAMLRoot):
     class_class_curie: ClassVar[str] = "vcard:Kind"
     class_name: ClassVar[str] = "Kind"
     class_model_uri: ClassVar[URIRef] = DCATAP_PLUS.Kind
+
+    formatted_name: Union[str, list[str]] = None
+    has_email: Optional[Union[str, list[str]]] = empty_list()
+    has_telephone: Optional[Union[str, list[str]]] = empty_list()
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.formatted_name):
+            self.MissingRequiredField("formatted_name")
+        if not isinstance(self.formatted_name, list):
+            self.formatted_name = [self.formatted_name] if self.formatted_name is not None else []
+        self.formatted_name = [v if isinstance(v, str) else str(v) for v in self.formatted_name]
+
+        if not isinstance(self.has_email, list):
+            self.has_email = [self.has_email] if self.has_email is not None else []
+        self.has_email = [v if isinstance(v, str) else str(v) for v in self.has_email]
+
+        if not isinstance(self.has_telephone, list):
+            self.has_telephone = [self.has_telephone] if self.has_telephone is not None else []
+        self.has_telephone = [v if isinstance(v, str) else str(v) for v in self.has_telephone]
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class LicenceDocument(YAMLRoot):
+    """
+    See [DCAT-AP specs:LicenceDocument](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#LicenceDocument)
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = DCTERMS["LicenseDocument"]
+    class_class_curie: ClassVar[str] = "dcterms:LicenseDocument"
+    class_name: ClassVar[str] = "LicenceDocument"
+    class_model_uri: ClassVar[URIRef] = DCATAP_PLUS.LicenceDocument
+
+    type: Optional[Union[Union[dict, "Concept"], list[Union[dict, "Concept"]]]] = empty_list()
+    identifier: Optional[Union[str, URIorCURIE]] = None
+    other_identifier: Optional[Union[Union[dict, "Identifier"], list[Union[dict, "Identifier"]]]] = empty_list()
+    title: Optional[Union[str, list[str]]] = empty_list()
+    description: Optional[Union[str, list[str]]] = empty_list()
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        self._normalize_inlined_as_list(slot_name="type", slot_type=Concept, key_name="preferred_label", keyed=False)
+
+        if self.identifier is not None and not isinstance(self.identifier, URIorCURIE):
+            self.identifier = URIorCURIE(self.identifier)
+
+        self._normalize_inlined_as_list(slot_name="other_identifier", slot_type=Identifier, key_name="notation", keyed=False)
+
+        if not isinstance(self.title, list):
+            self.title = [self.title] if self.title is not None else []
+        self.title = [v if isinstance(v, str) else str(v) for v in self.title]
+
+        if not isinstance(self.description, list):
+            self.description = [self.description] if self.description is not None else []
+        self.description = [v if isinstance(v, str) else str(v) for v in self.description]
+
+        super().__post_init__(**kwargs)
 
 
 @dataclass(repr=False)
@@ -1323,6 +1477,10 @@ class Location(YAMLRoot):
     bbox: Optional[str] = None
     centroid: Optional[str] = None
     geometry: Optional[Union[dict, "Geometry"]] = None
+    identifier: Optional[Union[str, URIorCURIE]] = None
+    other_identifier: Optional[Union[Union[dict, "Identifier"], list[Union[dict, "Identifier"]]]] = empty_list()
+    title: Optional[Union[str, list[str]]] = empty_list()
+    description: Optional[Union[str, list[str]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self.bbox is not None and not isinstance(self.bbox, str):
@@ -1333,6 +1491,19 @@ class Location(YAMLRoot):
 
         if self.geometry is not None and not isinstance(self.geometry, Geometry):
             self.geometry = Geometry(**as_dict(self.geometry))
+
+        if self.identifier is not None and not isinstance(self.identifier, URIorCURIE):
+            self.identifier = URIorCURIE(self.identifier)
+
+        self._normalize_inlined_as_list(slot_name="other_identifier", slot_type=Identifier, key_name="notation", keyed=False)
+
+        if not isinstance(self.title, list):
+            self.title = [self.title] if self.title is not None else []
+        self.title = [v if isinstance(v, str) else str(v) for v in self.title]
+
+        if not isinstance(self.description, list):
+            self.description = [self.description] if self.description is not None else []
+        self.description = [v if isinstance(v, str) else str(v) for v in self.description]
 
         super().__post_init__(**kwargs)
 
@@ -1473,6 +1644,8 @@ class Relationship(YAMLRoot):
 
     had_role: Union[Union[dict, "Role"], list[Union[dict, "Role"]]] = None
     relation: Union[dict[Union[str, ResourceId], Union[dict, "Resource"]], list[Union[dict, "Resource"]]] = empty_dict()
+    title: Optional[Union[str, list[str]]] = empty_list()
+    description: Optional[Union[str, list[str]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.had_role):
@@ -1484,6 +1657,14 @@ class Relationship(YAMLRoot):
         if self._is_empty(self.relation):
             self.MissingRequiredField("relation")
         self._normalize_inlined_as_list(slot_name="relation", slot_type=Resource, key_name="id", keyed=True)
+
+        if not isinstance(self.title, list):
+            self.title = [self.title] if self.title is not None else []
+        self.title = [v if isinstance(v, str) else str(v) for v in self.title]
+
+        if not isinstance(self.description, list):
+            self.description = [self.description] if self.description is not None else []
+        self.description = [v if isinstance(v, str) else str(v) for v in self.description]
 
         super().__post_init__(**kwargs)
 
@@ -1517,7 +1698,6 @@ class Software(AgenticEntity):
         super().__post_init__(**kwargs)
 
 
-@dataclass(repr=False)
 class SupportiveEntity(YAMLRoot):
     """
     The supportive entities are supporting the main entities in the Application Profile. They are included in the
@@ -1529,18 +1709,6 @@ class SupportiveEntity(YAMLRoot):
     class_class_curie: ClassVar[str] = "dcatap_plus:SupportiveEntity"
     class_name: ClassVar[str] = "SupportiveEntity"
     class_model_uri: ClassVar[URIRef] = DCATAP_PLUS.SupportiveEntity
-
-    title: Optional[str] = None
-    description: Optional[str] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self.title is not None and not isinstance(self.title, str):
-            self.title = str(self.title)
-
-        if self.description is not None and not isinstance(self.description, str):
-            self.description = str(self.description)
-
-        super().__post_init__(**kwargs)
 
 
 @dataclass(repr=False)
@@ -1555,15 +1723,20 @@ class Attribution(SupportiveEntity):
     class_name: ClassVar[str] = "Attribution"
     class_model_uri: ClassVar[URIRef] = DCATAP_PLUS.Attribution
 
-    title: Optional[str] = None
-    description: Optional[str] = None
+    title: Optional[Union[str, list[str]]] = empty_list()
+    description: Optional[Union[str, list[str]]] = empty_list()
+    agent: Optional[Union[Union[dict, Agent], list[Union[dict, Agent]]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self.title is not None and not isinstance(self.title, str):
-            self.title = str(self.title)
+        if not isinstance(self.title, list):
+            self.title = [self.title] if self.title is not None else []
+        self.title = [v if isinstance(v, str) else str(v) for v in self.title]
 
-        if self.description is not None and not isinstance(self.description, str):
-            self.description = str(self.description)
+        if not isinstance(self.description, list):
+            self.description = [self.description] if self.description is not None else []
+        self.description = [v if isinstance(v, str) else str(v) for v in self.description]
+
+        self._normalize_inlined_as_list(slot_name="agent", slot_type=Agent, key_name="name", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -1580,15 +1753,24 @@ class ChecksumAlgorithm(SupportiveEntity):
     class_name: ClassVar[str] = "ChecksumAlgorithm"
     class_model_uri: ClassVar[URIRef] = DCATAP_PLUS.ChecksumAlgorithm
 
-    title: Optional[str] = None
-    description: Optional[str] = None
+    identifier: Optional[Union[str, URIorCURIE]] = None
+    other_identifier: Optional[Union[Union[dict, "Identifier"], list[Union[dict, "Identifier"]]]] = empty_list()
+    title: Optional[Union[str, list[str]]] = empty_list()
+    description: Optional[Union[str, list[str]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self.title is not None and not isinstance(self.title, str):
-            self.title = str(self.title)
+        if self.identifier is not None and not isinstance(self.identifier, URIorCURIE):
+            self.identifier = URIorCURIE(self.identifier)
 
-        if self.description is not None and not isinstance(self.description, str):
-            self.description = str(self.description)
+        self._normalize_inlined_as_list(slot_name="other_identifier", slot_type=Identifier, key_name="notation", keyed=False)
+
+        if not isinstance(self.title, list):
+            self.title = [self.title] if self.title is not None else []
+        self.title = [v if isinstance(v, str) else str(v) for v in self.title]
+
+        if not isinstance(self.description, list):
+            self.description = [self.description] if self.description is not None else []
+        self.description = [v if isinstance(v, str) else str(v) for v in self.description]
 
         super().__post_init__(**kwargs)
 
@@ -1606,8 +1788,10 @@ class Concept(SupportiveEntity):
     class_model_uri: ClassVar[URIRef] = DCATAP_PLUS.Concept
 
     preferred_label: Union[str, list[str]] = None
-    title: Optional[str] = None
-    description: Optional[str] = None
+    identifier: Optional[Union[str, URIorCURIE]] = None
+    other_identifier: Optional[Union[Union[dict, "Identifier"], list[Union[dict, "Identifier"]]]] = empty_list()
+    title: Optional[Union[str, list[str]]] = empty_list()
+    description: Optional[Union[str, list[str]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.preferred_label):
@@ -1616,11 +1800,18 @@ class Concept(SupportiveEntity):
             self.preferred_label = [self.preferred_label] if self.preferred_label is not None else []
         self.preferred_label = [v if isinstance(v, str) else str(v) for v in self.preferred_label]
 
-        if self.title is not None and not isinstance(self.title, str):
-            self.title = str(self.title)
+        if self.identifier is not None and not isinstance(self.identifier, URIorCURIE):
+            self.identifier = URIorCURIE(self.identifier)
 
-        if self.description is not None and not isinstance(self.description, str):
-            self.description = str(self.description)
+        self._normalize_inlined_as_list(slot_name="other_identifier", slot_type=Identifier, key_name="notation", keyed=False)
+
+        if not isinstance(self.title, list):
+            self.title = [self.title] if self.title is not None else []
+        self.title = [v if isinstance(v, str) else str(v) for v in self.title]
+
+        if not isinstance(self.description, list):
+            self.description = [self.description] if self.description is not None else []
+        self.description = [v if isinstance(v, str) else str(v) for v in self.description]
 
         super().__post_init__(**kwargs)
 
@@ -1638,7 +1829,9 @@ class ConceptScheme(SupportiveEntity):
     class_model_uri: ClassVar[URIRef] = DCATAP_PLUS.ConceptScheme
 
     title: Union[str, list[str]] = None
-    description: Optional[str] = None
+    description: Optional[Union[str, list[str]]] = empty_list()
+    identifier: Optional[Union[str, URIorCURIE]] = None
+    other_identifier: Optional[Union[Union[dict, "Identifier"], list[Union[dict, "Identifier"]]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.title):
@@ -1647,8 +1840,14 @@ class ConceptScheme(SupportiveEntity):
             self.title = [self.title] if self.title is not None else []
         self.title = [v if isinstance(v, str) else str(v) for v in self.title]
 
-        if self.description is not None and not isinstance(self.description, str):
-            self.description = str(self.description)
+        if not isinstance(self.description, list):
+            self.description = [self.description] if self.description is not None else []
+        self.description = [v if isinstance(v, str) else str(v) for v in self.description]
+
+        if self.identifier is not None and not isinstance(self.identifier, URIorCURIE):
+            self.identifier = URIorCURIE(self.identifier)
+
+        self._normalize_inlined_as_list(slot_name="other_identifier", slot_type=Identifier, key_name="notation", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -1665,21 +1864,24 @@ class Document(SupportiveEntity):
     class_name: ClassVar[str] = "Document"
     class_model_uri: ClassVar[URIRef] = DCATAP_PLUS.Document
 
-    id: Union[str, DocumentId] = None
-    title: Optional[str] = None
-    description: Optional[str] = None
+    identifier: Optional[Union[str, URIorCURIE]] = None
+    other_identifier: Optional[Union[Union[dict, "Identifier"], list[Union[dict, "Identifier"]]]] = empty_list()
+    title: Optional[Union[str, list[str]]] = empty_list()
+    description: Optional[Union[str, list[str]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, DocumentId):
-            self.id = DocumentId(self.id)
+        if self.identifier is not None and not isinstance(self.identifier, URIorCURIE):
+            self.identifier = URIorCURIE(self.identifier)
 
-        if self.title is not None and not isinstance(self.title, str):
-            self.title = str(self.title)
+        self._normalize_inlined_as_list(slot_name="other_identifier", slot_type=Identifier, key_name="notation", keyed=False)
 
-        if self.description is not None and not isinstance(self.description, str):
-            self.description = str(self.description)
+        if not isinstance(self.title, list):
+            self.title = [self.title] if self.title is not None else []
+        self.title = [v if isinstance(v, str) else str(v) for v in self.title]
+
+        if not isinstance(self.description, list):
+            self.description = [self.description] if self.description is not None else []
+        self.description = [v if isinstance(v, str) else str(v) for v in self.description]
 
         super().__post_init__(**kwargs)
 
@@ -1696,15 +1898,24 @@ class Frequency(SupportiveEntity):
     class_name: ClassVar[str] = "Frequency"
     class_model_uri: ClassVar[URIRef] = DCATAP_PLUS.Frequency
 
-    title: Optional[str] = None
-    description: Optional[str] = None
+    identifier: Optional[Union[str, URIorCURIE]] = None
+    other_identifier: Optional[Union[Union[dict, "Identifier"], list[Union[dict, "Identifier"]]]] = empty_list()
+    title: Optional[Union[str, list[str]]] = empty_list()
+    description: Optional[Union[str, list[str]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self.title is not None and not isinstance(self.title, str):
-            self.title = str(self.title)
+        if self.identifier is not None and not isinstance(self.identifier, URIorCURIE):
+            self.identifier = URIorCURIE(self.identifier)
 
-        if self.description is not None and not isinstance(self.description, str):
-            self.description = str(self.description)
+        self._normalize_inlined_as_list(slot_name="other_identifier", slot_type=Identifier, key_name="notation", keyed=False)
+
+        if not isinstance(self.title, list):
+            self.title = [self.title] if self.title is not None else []
+        self.title = [v if isinstance(v, str) else str(v) for v in self.title]
+
+        if not isinstance(self.description, list):
+            self.description = [self.description] if self.description is not None else []
+        self.description = [v if isinstance(v, str) else str(v) for v in self.description]
 
         super().__post_init__(**kwargs)
 
@@ -1721,15 +1932,31 @@ class Geometry(SupportiveEntity):
     class_name: ClassVar[str] = "Geometry"
     class_model_uri: ClassVar[URIRef] = DCATAP_PLUS.Geometry
 
-    title: Optional[str] = None
-    description: Optional[str] = None
+    longitude: Optional[str] = None
+    latitude: Optional[str] = None
+    wkt: Optional[str] = None
+    gml: Optional[str] = None
+    crs: Optional[Union[str, URIorCURIE]] = None
+    coordinates: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self.title is not None and not isinstance(self.title, str):
-            self.title = str(self.title)
+        if self.longitude is not None and not isinstance(self.longitude, str):
+            self.longitude = str(self.longitude)
 
-        if self.description is not None and not isinstance(self.description, str):
-            self.description = str(self.description)
+        if self.latitude is not None and not isinstance(self.latitude, str):
+            self.latitude = str(self.latitude)
+
+        if self.wkt is not None and not isinstance(self.wkt, str):
+            self.wkt = str(self.wkt)
+
+        if self.gml is not None and not isinstance(self.gml, str):
+            self.gml = str(self.gml)
+
+        if self.crs is not None and not isinstance(self.crs, URIorCURIE):
+            self.crs = URIorCURIE(self.crs)
+
+        if self.coordinates is not None and not isinstance(self.coordinates, str):
+            self.coordinates = str(self.coordinates)
 
         super().__post_init__(**kwargs)
 
@@ -1747,8 +1974,8 @@ class Identifier(SupportiveEntity):
     class_model_uri: ClassVar[URIRef] = DCATAP_PLUS.Identifier
 
     notation: str = None
-    title: Optional[str] = None
-    description: Optional[str] = None
+    title: Optional[Union[str, list[str]]] = empty_list()
+    description: Optional[Union[str, list[str]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.notation):
@@ -1756,11 +1983,13 @@ class Identifier(SupportiveEntity):
         if not isinstance(self.notation, str):
             self.notation = str(self.notation)
 
-        if self.title is not None and not isinstance(self.title, str):
-            self.title = str(self.title)
+        if not isinstance(self.title, list):
+            self.title = [self.title] if self.title is not None else []
+        self.title = [v if isinstance(v, str) else str(v) for v in self.title]
 
-        if self.description is not None and not isinstance(self.description, str):
-            self.description = str(self.description)
+        if not isinstance(self.description, list):
+            self.description = [self.description] if self.description is not None else []
+        self.description = [v if isinstance(v, str) else str(v) for v in self.description]
 
         super().__post_init__(**kwargs)
 
@@ -1777,55 +2006,24 @@ class LegalResource(SupportiveEntity):
     class_name: ClassVar[str] = "LegalResource"
     class_model_uri: ClassVar[URIRef] = DCATAP_PLUS.LegalResource
 
-    id: Union[str, LegalResourceId] = None
-    title: Optional[str] = None
-    description: Optional[str] = None
+    identifier: Optional[Union[str, URIorCURIE]] = None
+    other_identifier: Optional[Union[Union[dict, Identifier], list[Union[dict, Identifier]]]] = empty_list()
+    title: Optional[Union[str, list[str]]] = empty_list()
+    description: Optional[Union[str, list[str]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, LegalResourceId):
-            self.id = LegalResourceId(self.id)
+        if self.identifier is not None and not isinstance(self.identifier, URIorCURIE):
+            self.identifier = URIorCURIE(self.identifier)
 
-        if self.title is not None and not isinstance(self.title, str):
-            self.title = str(self.title)
+        self._normalize_inlined_as_list(slot_name="other_identifier", slot_type=Identifier, key_name="notation", keyed=False)
 
-        if self.description is not None and not isinstance(self.description, str):
-            self.description = str(self.description)
+        if not isinstance(self.title, list):
+            self.title = [self.title] if self.title is not None else []
+        self.title = [v if isinstance(v, str) else str(v) for v in self.title]
 
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class LicenseDocument(SupportiveEntity):
-    """
-    See [DCAT-AP specs:LicenseDocument](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#LicenseDocument)
-    """
-    _inherited_slots: ClassVar[list[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = DCTERMS["LicenseDocument"]
-    class_class_curie: ClassVar[str] = "dcterms:LicenseDocument"
-    class_name: ClassVar[str] = "LicenseDocument"
-    class_model_uri: ClassVar[URIRef] = DCATAP_PLUS.LicenseDocument
-
-    id: Union[str, LicenseDocumentId] = None
-    type: Optional[Union[Union[dict, Concept], list[Union[dict, Concept]]]] = empty_list()
-    title: Optional[str] = None
-    description: Optional[str] = None
-
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, LicenseDocumentId):
-            self.id = LicenseDocumentId(self.id)
-
-        self._normalize_inlined_as_list(slot_name="type", slot_type=Concept, key_name="preferred_label", keyed=False)
-
-        if self.title is not None and not isinstance(self.title, str):
-            self.title = str(self.title)
-
-        if self.description is not None and not isinstance(self.description, str):
-            self.description = str(self.description)
+        if not isinstance(self.description, list):
+            self.description = [self.description] if self.description is not None else []
+        self.description = [v if isinstance(v, str) else str(v) for v in self.description]
 
         super().__post_init__(**kwargs)
 
@@ -1842,15 +2040,24 @@ class LinguisticSystem(SupportiveEntity):
     class_name: ClassVar[str] = "LinguisticSystem"
     class_model_uri: ClassVar[URIRef] = DCATAP_PLUS.LinguisticSystem
 
-    title: Optional[str] = None
-    description: Optional[str] = None
+    identifier: Optional[Union[str, URIorCURIE]] = None
+    other_identifier: Optional[Union[Union[dict, Identifier], list[Union[dict, Identifier]]]] = empty_list()
+    title: Optional[Union[str, list[str]]] = empty_list()
+    description: Optional[Union[str, list[str]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self.title is not None and not isinstance(self.title, str):
-            self.title = str(self.title)
+        if self.identifier is not None and not isinstance(self.identifier, URIorCURIE):
+            self.identifier = URIorCURIE(self.identifier)
 
-        if self.description is not None and not isinstance(self.description, str):
-            self.description = str(self.description)
+        self._normalize_inlined_as_list(slot_name="other_identifier", slot_type=Identifier, key_name="notation", keyed=False)
+
+        if not isinstance(self.title, list):
+            self.title = [self.title] if self.title is not None else []
+        self.title = [v if isinstance(v, str) else str(v) for v in self.title]
+
+        if not isinstance(self.description, list):
+            self.description = [self.description] if self.description is not None else []
+        self.description = [v if isinstance(v, str) else str(v) for v in self.description]
 
         super().__post_init__(**kwargs)
 
@@ -1867,15 +2074,24 @@ class MediaType(SupportiveEntity):
     class_name: ClassVar[str] = "MediaType"
     class_model_uri: ClassVar[URIRef] = DCATAP_PLUS.MediaType
 
-    title: Optional[str] = None
-    description: Optional[str] = None
+    identifier: Optional[Union[str, URIorCURIE]] = None
+    other_identifier: Optional[Union[Union[dict, Identifier], list[Union[dict, Identifier]]]] = empty_list()
+    title: Optional[Union[str, list[str]]] = empty_list()
+    description: Optional[Union[str, list[str]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self.title is not None and not isinstance(self.title, str):
-            self.title = str(self.title)
+        if self.identifier is not None and not isinstance(self.identifier, URIorCURIE):
+            self.identifier = URIorCURIE(self.identifier)
 
-        if self.description is not None and not isinstance(self.description, str):
-            self.description = str(self.description)
+        self._normalize_inlined_as_list(slot_name="other_identifier", slot_type=Identifier, key_name="notation", keyed=False)
+
+        if not isinstance(self.title, list):
+            self.title = [self.title] if self.title is not None else []
+        self.title = [v if isinstance(v, str) else str(v) for v in self.title]
+
+        if not isinstance(self.description, list):
+            self.description = [self.description] if self.description is not None else []
+        self.description = [v if isinstance(v, str) else str(v) for v in self.description]
 
         super().__post_init__(**kwargs)
 
@@ -1892,15 +2108,24 @@ class MediaTypeOrExtent(SupportiveEntity):
     class_name: ClassVar[str] = "MediaTypeOrExtent"
     class_model_uri: ClassVar[URIRef] = DCATAP_PLUS.MediaTypeOrExtent
 
-    title: Optional[str] = None
-    description: Optional[str] = None
+    identifier: Optional[Union[str, URIorCURIE]] = None
+    other_identifier: Optional[Union[Union[dict, Identifier], list[Union[dict, Identifier]]]] = empty_list()
+    title: Optional[Union[str, list[str]]] = empty_list()
+    description: Optional[Union[str, list[str]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self.title is not None and not isinstance(self.title, str):
-            self.title = str(self.title)
+        if self.identifier is not None and not isinstance(self.identifier, URIorCURIE):
+            self.identifier = URIorCURIE(self.identifier)
 
-        if self.description is not None and not isinstance(self.description, str):
-            self.description = str(self.description)
+        self._normalize_inlined_as_list(slot_name="other_identifier", slot_type=Identifier, key_name="notation", keyed=False)
+
+        if not isinstance(self.title, list):
+            self.title = [self.title] if self.title is not None else []
+        self.title = [v if isinstance(v, str) else str(v) for v in self.title]
+
+        if not isinstance(self.description, list):
+            self.description = [self.description] if self.description is not None else []
+        self.description = [v if isinstance(v, str) else str(v) for v in self.description]
 
         super().__post_init__(**kwargs)
 
@@ -1921,8 +2146,6 @@ class PeriodOfTime(SupportiveEntity):
     end: Optional[Union[dict, "TimeInstant"]] = None
     end_date: Optional[Union[str, XSDDate]] = None
     start_date: Optional[Union[str, XSDDate]] = None
-    title: Optional[str] = None
-    description: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self.beginning is not None and not isinstance(self.beginning, TimeInstant):
@@ -1936,12 +2159,6 @@ class PeriodOfTime(SupportiveEntity):
 
         if self.start_date is not None and not isinstance(self.start_date, XSDDate):
             self.start_date = XSDDate(self.start_date)
-
-        if self.title is not None and not isinstance(self.title, str):
-            self.title = str(self.title)
-
-        if self.description is not None and not isinstance(self.description, str):
-            self.description = str(self.description)
 
         super().__post_init__(**kwargs)
 
@@ -1958,15 +2175,24 @@ class Policy(SupportiveEntity):
     class_name: ClassVar[str] = "Policy"
     class_model_uri: ClassVar[URIRef] = DCATAP_PLUS.Policy
 
-    title: Optional[str] = None
-    description: Optional[str] = None
+    identifier: Optional[Union[str, URIorCURIE]] = None
+    other_identifier: Optional[Union[Union[dict, Identifier], list[Union[dict, Identifier]]]] = empty_list()
+    title: Optional[Union[str, list[str]]] = empty_list()
+    description: Optional[Union[str, list[str]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self.title is not None and not isinstance(self.title, str):
-            self.title = str(self.title)
+        if self.identifier is not None and not isinstance(self.identifier, URIorCURIE):
+            self.identifier = URIorCURIE(self.identifier)
 
-        if self.description is not None and not isinstance(self.description, str):
-            self.description = str(self.description)
+        self._normalize_inlined_as_list(slot_name="other_identifier", slot_type=Identifier, key_name="notation", keyed=False)
+
+        if not isinstance(self.title, list):
+            self.title = [self.title] if self.title is not None else []
+        self.title = [v if isinstance(v, str) else str(v) for v in self.title]
+
+        if not isinstance(self.description, list):
+            self.description = [self.description] if self.description is not None else []
+        self.description = [v if isinstance(v, str) else str(v) for v in self.description]
 
         super().__post_init__(**kwargs)
 
@@ -1983,15 +2209,24 @@ class ProvenanceStatement(SupportiveEntity):
     class_name: ClassVar[str] = "ProvenanceStatement"
     class_model_uri: ClassVar[URIRef] = DCATAP_PLUS.ProvenanceStatement
 
-    title: Optional[str] = None
-    description: Optional[str] = None
+    identifier: Optional[Union[str, URIorCURIE]] = None
+    other_identifier: Optional[Union[Union[dict, Identifier], list[Union[dict, Identifier]]]] = empty_list()
+    title: Optional[Union[str, list[str]]] = empty_list()
+    description: Optional[Union[str, list[str]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self.title is not None and not isinstance(self.title, str):
-            self.title = str(self.title)
+        if self.identifier is not None and not isinstance(self.identifier, URIorCURIE):
+            self.identifier = URIorCURIE(self.identifier)
 
-        if self.description is not None and not isinstance(self.description, str):
-            self.description = str(self.description)
+        self._normalize_inlined_as_list(slot_name="other_identifier", slot_type=Identifier, key_name="notation", keyed=False)
+
+        if not isinstance(self.title, list):
+            self.title = [self.title] if self.title is not None else []
+        self.title = [v if isinstance(v, str) else str(v) for v in self.title]
+
+        if not isinstance(self.description, list):
+            self.description = [self.description] if self.description is not None else []
+        self.description = [v if isinstance(v, str) else str(v) for v in self.description]
 
         super().__post_init__(**kwargs)
 
@@ -2009,8 +2244,10 @@ class Resource(SupportiveEntity):
     class_model_uri: ClassVar[URIRef] = DCATAP_PLUS.Resource
 
     id: Union[str, ResourceId] = None
-    title: Optional[str] = None
-    description: Optional[str] = None
+    identifier: Optional[Union[str, URIorCURIE]] = None
+    other_identifier: Optional[Union[Union[dict, Identifier], list[Union[dict, Identifier]]]] = empty_list()
+    title: Optional[Union[str, list[str]]] = empty_list()
+    description: Optional[Union[str, list[str]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.id):
@@ -2018,11 +2255,18 @@ class Resource(SupportiveEntity):
         if not isinstance(self.id, ResourceId):
             self.id = ResourceId(self.id)
 
-        if self.title is not None and not isinstance(self.title, str):
-            self.title = str(self.title)
+        if self.identifier is not None and not isinstance(self.identifier, URIorCURIE):
+            self.identifier = URIorCURIE(self.identifier)
 
-        if self.description is not None and not isinstance(self.description, str):
-            self.description = str(self.description)
+        self._normalize_inlined_as_list(slot_name="other_identifier", slot_type=Identifier, key_name="notation", keyed=False)
+
+        if not isinstance(self.title, list):
+            self.title = [self.title] if self.title is not None else []
+        self.title = [v if isinstance(v, str) else str(v) for v in self.title]
+
+        if not isinstance(self.description, list):
+            self.description = [self.description] if self.description is not None else []
+        self.description = [v if isinstance(v, str) else str(v) for v in self.description]
 
         super().__post_init__(**kwargs)
 
@@ -2039,15 +2283,24 @@ class RightsStatement(SupportiveEntity):
     class_name: ClassVar[str] = "RightsStatement"
     class_model_uri: ClassVar[URIRef] = DCATAP_PLUS.RightsStatement
 
-    title: Optional[str] = None
-    description: Optional[str] = None
+    identifier: Optional[Union[str, URIorCURIE]] = None
+    other_identifier: Optional[Union[Union[dict, Identifier], list[Union[dict, Identifier]]]] = empty_list()
+    title: Optional[Union[str, list[str]]] = empty_list()
+    description: Optional[Union[str, list[str]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self.title is not None and not isinstance(self.title, str):
-            self.title = str(self.title)
+        if self.identifier is not None and not isinstance(self.identifier, URIorCURIE):
+            self.identifier = URIorCURIE(self.identifier)
 
-        if self.description is not None and not isinstance(self.description, str):
-            self.description = str(self.description)
+        self._normalize_inlined_as_list(slot_name="other_identifier", slot_type=Identifier, key_name="notation", keyed=False)
+
+        if not isinstance(self.title, list):
+            self.title = [self.title] if self.title is not None else []
+        self.title = [v if isinstance(v, str) else str(v) for v in self.title]
+
+        if not isinstance(self.description, list):
+            self.description = [self.description] if self.description is not None else []
+        self.description = [v if isinstance(v, str) else str(v) for v in self.description]
 
         super().__post_init__(**kwargs)
 
@@ -2064,15 +2317,17 @@ class Role(SupportiveEntity):
     class_name: ClassVar[str] = "Role"
     class_model_uri: ClassVar[URIRef] = DCATAP_PLUS.Role
 
-    title: Optional[str] = None
-    description: Optional[str] = None
+    title: Optional[Union[str, list[str]]] = empty_list()
+    description: Optional[Union[str, list[str]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self.title is not None and not isinstance(self.title, str):
-            self.title = str(self.title)
+        if not isinstance(self.title, list):
+            self.title = [self.title] if self.title is not None else []
+        self.title = [v if isinstance(v, str) else str(v) for v in self.title]
 
-        if self.description is not None and not isinstance(self.description, str):
-            self.description = str(self.description)
+        if not isinstance(self.description, list):
+            self.description = [self.description] if self.description is not None else []
+        self.description = [v if isinstance(v, str) else str(v) for v in self.description]
 
         super().__post_init__(**kwargs)
 
@@ -2089,15 +2344,24 @@ class Standard(SupportiveEntity):
     class_name: ClassVar[str] = "Standard"
     class_model_uri: ClassVar[URIRef] = DCATAP_PLUS.Standard
 
-    title: Optional[str] = None
-    description: Optional[str] = None
+    identifier: Optional[Union[str, URIorCURIE]] = None
+    other_identifier: Optional[Union[Union[dict, Identifier], list[Union[dict, Identifier]]]] = empty_list()
+    title: Optional[Union[str, list[str]]] = empty_list()
+    description: Optional[Union[str, list[str]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self.title is not None and not isinstance(self.title, str):
-            self.title = str(self.title)
+        if self.identifier is not None and not isinstance(self.identifier, URIorCURIE):
+            self.identifier = URIorCURIE(self.identifier)
 
-        if self.description is not None and not isinstance(self.description, str):
-            self.description = str(self.description)
+        self._normalize_inlined_as_list(slot_name="other_identifier", slot_type=Identifier, key_name="notation", keyed=False)
+
+        if not isinstance(self.title, list):
+            self.title = [self.title] if self.title is not None else []
+        self.title = [v if isinstance(v, str) else str(v) for v in self.title]
+
+        if not isinstance(self.description, list):
+            self.description = [self.description] if self.description is not None else []
+        self.description = [v if isinstance(v, str) else str(v) for v in self.description]
 
         super().__post_init__(**kwargs)
 
@@ -2147,101 +2411,16 @@ class TimeInstant(SupportiveEntity):
     class_name: ClassVar[str] = "TimeInstant"
     class_model_uri: ClassVar[URIRef] = DCATAP_PLUS.TimeInstant
 
-    title: Optional[str] = None
-    description: Optional[str] = None
+    datetime: Optional[Union[str, XSDDateTime]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self.title is not None and not isinstance(self.title, str):
-            self.title = str(self.title)
-
-        if self.description is not None and not isinstance(self.description, str):
-            self.description = str(self.description)
+        if self.datetime is not None and not isinstance(self.datetime, XSDDateTime):
+            self.datetime = XSDDateTime(self.datetime)
 
         super().__post_init__(**kwargs)
 
 
 # Enumerations
-class DatasetThemes(EnumDefinitionImpl):
-
-    AGRI = PermissibleValue(
-        text="AGRI",
-        description="Agriculture, fisheries, forestry and food",
-        meaning=None)
-    ECON = PermissibleValue(
-        text="ECON",
-        description="Economy and finance",
-        meaning=None)
-    EDUC = PermissibleValue(
-        text="EDUC",
-        description="Education, culture and sport",
-        meaning=None)
-    ENER = PermissibleValue(
-        text="ENER",
-        description="Energy",
-        meaning=None)
-    ENVI = PermissibleValue(
-        text="ENVI",
-        description="Environment",
-        meaning=None)
-    GOVE = PermissibleValue(
-        text="GOVE",
-        description="Government and public sector",
-        meaning=None)
-    HEAL = PermissibleValue(
-        text="HEAL",
-        description="Health",
-        meaning=None)
-    INTR = PermissibleValue(
-        text="INTR",
-        description="International issues",
-        meaning=None)
-    JUST = PermissibleValue(
-        text="JUST",
-        description="Justice, legal system and public safety",
-        meaning=None)
-    OP_DATPRO = PermissibleValue(
-        text="OP_DATPRO",
-        description="Provisional data",
-        meaning=None)
-    REGI = PermissibleValue(
-        text="REGI",
-        description="Regions and cities",
-        meaning=None)
-    SOCI = PermissibleValue(
-        text="SOCI",
-        description="Population and society",
-        meaning=None)
-    TECH = PermissibleValue(
-        text="TECH",
-        description="Science and technology",
-        meaning=None)
-    TRAN = PermissibleValue(
-        text="TRAN",
-        description="Transport",
-        meaning=None)
-
-    _defn = EnumDefinition(
-        name="DatasetThemes",
-    )
-
-class TopLevelMediaTypes(EnumDefinitionImpl):
-
-    application = PermissibleValue(text="application")
-    audio = PermissibleValue(text="audio")
-    example = PermissibleValue(text="example")
-    font = PermissibleValue(text="font")
-    haptics = PermissibleValue(text="haptics")
-    image = PermissibleValue(text="image")
-    message = PermissibleValue(text="message")
-    model = PermissibleValue(text="model")
-    multipart = PermissibleValue(text="multipart")
-    text = PermissibleValue(text="text")
-    video = PermissibleValue(text="video")
-
-    _defn = EnumDefinition(
-        name="TopLevelMediaTypes",
-    )
-
 class QUDTQuantityKindEnum(EnumDefinitionImpl):
     """
     Possible kinds of quantifiable attribute types provided as QUDT QualityKind instances.
@@ -2552,14 +2731,49 @@ slots.version_notes = Slot(uri=ADMS.versionNotes, name="version_notes", curie=AD
 slots.was_generated_by = Slot(uri=PROV.wasGeneratedBy, name="was_generated_by", curie=PROV.curie('wasGeneratedBy'),
                    model_uri=DCATAP_PLUS.was_generated_by, domain=None, range=Optional[str])
 
+slots.attribution__agent = Slot(uri=PROV.agent, name="attribution__agent", curie=PROV.curie('agent'),
+                   model_uri=DCATAP_PLUS.attribution__agent, domain=None, range=Optional[Union[Union[dict, Agent], list[Union[dict, Agent]]]])
+
 slots.definedTerm__from_CV = Slot(uri=SCHEMA.inDefinedTermSet, name="definedTerm__from_CV", curie=SCHEMA.curie('inDefinedTermSet'),
                    model_uri=DCATAP_PLUS.definedTerm__from_CV, domain=None, range=Optional[Union[str, URIorCURIE]])
+
+slots.geometry__longitude = Slot(uri=LOCN_NEW.longitude, name="geometry__longitude", curie=LOCN_NEW.curie('longitude'),
+                   model_uri=DCATAP_PLUS.geometry__longitude, domain=None, range=Optional[str])
+
+slots.geometry__latitude = Slot(uri=LOCN_NEW.latitude, name="geometry__latitude", curie=LOCN_NEW.curie('latitude'),
+                   model_uri=DCATAP_PLUS.geometry__latitude, domain=None, range=Optional[str])
+
+slots.geometry__wkt = Slot(uri=LOCN_NEW.wkt, name="geometry__wkt", curie=LOCN_NEW.curie('wkt'),
+                   model_uri=DCATAP_PLUS.geometry__wkt, domain=None, range=Optional[str])
+
+slots.geometry__gml = Slot(uri=LOCN_NEW.gml, name="geometry__gml", curie=LOCN_NEW.curie('gml'),
+                   model_uri=DCATAP_PLUS.geometry__gml, domain=None, range=Optional[str])
+
+slots.geometry__crs = Slot(uri=LOCN_NEW.crs, name="geometry__crs", curie=LOCN_NEW.curie('crs'),
+                   model_uri=DCATAP_PLUS.geometry__crs, domain=None, range=Optional[Union[str, URIorCURIE]])
+
+slots.geometry__coordinates = Slot(uri=LOCN_NEW.coordinates, name="geometry__coordinates", curie=LOCN_NEW.curie('coordinates'),
+                   model_uri=DCATAP_PLUS.geometry__coordinates, domain=None, range=Optional[str])
+
+slots.kind__formatted_name = Slot(uri=VCARD.fn, name="kind__formatted_name", curie=VCARD.curie('fn'),
+                   model_uri=DCATAP_PLUS.kind__formatted_name, domain=None, range=Union[str, list[str]])
+
+slots.kind__has_email = Slot(uri=VCARD.hasEmail, name="kind__has_email", curie=VCARD.curie('hasEmail'),
+                   model_uri=DCATAP_PLUS.kind__has_email, domain=None, range=Optional[Union[str, list[str]]],
+                   pattern=re.compile(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'))
+
+slots.kind__has_telephone = Slot(uri=VCARD.hasTelephone, name="kind__has_telephone", curie=VCARD.curie('hasTelephone'),
+                   model_uri=DCATAP_PLUS.kind__has_telephone, domain=None, range=Optional[Union[str, list[str]]],
+                   pattern=re.compile(r'^\+?[0-9\s\-\(\)\.]{6,20}$'))
 
 slots.quantitativeAttribute__has_quantity_type = Slot(uri=QUDT.hasQuantityKind, name="quantitativeAttribute__has_quantity_type", curie=QUDT.curie('hasQuantityKind'),
                    model_uri=DCATAP_PLUS.quantitativeAttribute__has_quantity_type, domain=None, range=Union[str, DefinedTermId])
 
 slots.quantitativeAttribute__unit = Slot(uri=QUDT.unit, name="quantitativeAttribute__unit", curie=QUDT.curie('unit'),
                    model_uri=DCATAP_PLUS.quantitativeAttribute__unit, domain=None, range=Optional[Union[str, DefinedTermId]])
+
+slots.timeInstant__datetime = Slot(uri=XSD.dateTime, name="timeInstant__datetime", curie=XSD.curie('dateTime'),
+                   model_uri=DCATAP_PLUS.timeInstant__datetime, domain=None, range=Optional[Union[str, XSDDateTime]])
 
 slots.Activity_title = Slot(uri=DCTERMS.title, name="Activity_title", curie=DCTERMS.curie('title'),
                    model_uri=DCATAP_PLUS.Activity_title, domain=Activity, range=Optional[Union[str, list[str]]])
@@ -2594,11 +2808,20 @@ slots.Activity_had_input_activity = Slot(uri=PROV.wasInformedBy, name="Activity_
 slots.Activity_carried_out_by = Slot(uri=PROV.wasAssociatedWith, name="Activity_carried_out_by", curie=PROV.curie('wasAssociatedWith'),
                    model_uri=DCATAP_PLUS.Activity_carried_out_by, domain=Activity, range=Optional[Union[dict[Union[str, AgenticEntityId], Union[dict, "AgenticEntity"]], list[Union[dict, "AgenticEntity"]]]])
 
+slots.Agent_rdf_type = Slot(uri=RDF.type, name="Agent_rdf_type", curie=RDF.curie('type'),
+                   model_uri=DCATAP_PLUS.Agent_rdf_type, domain=Agent, range=Optional[Union[dict, "DefinedTerm"]])
+
 slots.Agent_name = Slot(uri=FOAF.name, name="Agent_name", curie=FOAF.curie('name'),
                    model_uri=DCATAP_PLUS.Agent_name, domain=Agent, range=Union[str, list[str]])
 
 slots.Agent_type = Slot(uri=DCTERMS.type, name="Agent_type", curie=DCTERMS.curie('type'),
                    model_uri=DCATAP_PLUS.Agent_type, domain=Agent, range=Optional[Union[dict, "Concept"]])
+
+slots.Agent_identifier = Slot(uri=DCTERMS.identifier, name="Agent_identifier", curie=DCTERMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.Agent_identifier, domain=Agent, range=Optional[Union[str, URIorCURIE]])
+
+slots.Agent_other_identifier = Slot(uri=ADMS.identifier, name="Agent_other_identifier", curie=ADMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.Agent_other_identifier, domain=Agent, range=Optional[Union[Union[dict, "Identifier"], list[Union[dict, "Identifier"]]]])
 
 slots.AgenticEntity_has_part = Slot(uri=DCTERMS.hasPart, name="AgenticEntity_has_part", curie=DCTERMS.curie('hasPart'),
                    model_uri=DCATAP_PLUS.AgenticEntity_has_part, domain=AgenticEntity, range=Optional[Union[dict[Union[str, AgenticEntityId], Union[dict, "AgenticEntity"]], list[Union[dict, "AgenticEntity"]]]])
@@ -2615,11 +2838,17 @@ slots.AnalysisDataset_was_generated_by = Slot(uri=PROV.wasGeneratedBy, name="Ana
 slots.AnalysisSourceData_was_generated_by = Slot(uri=PROV.wasGeneratedBy, name="AnalysisSourceData_was_generated_by", curie=PROV.curie('wasGeneratedBy'),
                    model_uri=DCATAP_PLUS.AnalysisSourceData_was_generated_by, domain=AnalysisSourceData, range=Optional[Union[dict[Union[str, DataGeneratingActivityId], Union[dict, DataGeneratingActivity]], list[Union[dict, DataGeneratingActivity]]]])
 
+slots.Attribution_title = Slot(uri=DCTERMS.title, name="Attribution_title", curie=DCTERMS.curie('title'),
+                   model_uri=DCATAP_PLUS.Attribution_title, domain=Attribution, range=Optional[Union[str, list[str]]])
+
+slots.Attribution_description = Slot(uri=DCTERMS.description, name="Attribution_description", curie=DCTERMS.curie('description'),
+                   model_uri=DCATAP_PLUS.Attribution_description, domain=Attribution, range=Optional[Union[str, list[str]]])
+
 slots.Catalogue_applicable_legislation = Slot(uri=DCATAP.applicableLegislation, name="Catalogue_applicable_legislation", curie=DCATAP.curie('applicableLegislation'),
-                   model_uri=DCATAP_PLUS.Catalogue_applicable_legislation, domain=Catalogue, range=Optional[Union[dict[Union[str, LegalResourceId], Union[dict, "LegalResource"]], list[Union[dict, "LegalResource"]]]])
+                   model_uri=DCATAP_PLUS.Catalogue_applicable_legislation, domain=Catalogue, range=Optional[Union[Union[dict, "LegalResource"], list[Union[dict, "LegalResource"]]]])
 
 slots.Catalogue_catalogue = Slot(uri=DCAT.catalog, name="Catalogue_catalogue", curie=DCAT.curie('catalog'),
-                   model_uri=DCATAP_PLUS.Catalogue_catalogue, domain=Catalogue, range=Optional[Union[Union[dict, "Catalogue"], list[Union[dict, "Catalogue"]]]])
+                   model_uri=DCATAP_PLUS.Catalogue_catalogue, domain=Catalogue, range=Optional[Union[dict[Union[str, CatalogueId], Union[dict, "Catalogue"]], list[Union[dict, "Catalogue"]]]])
 
 slots.Catalogue_creator = Slot(uri=DCTERMS.creator, name="Catalogue_creator", curie=DCTERMS.curie('creator'),
                    model_uri=DCATAP_PLUS.Catalogue_creator, domain=Catalogue, range=Optional[Union[dict, Agent]])
@@ -2634,7 +2863,7 @@ slots.Catalogue_has_dataset = Slot(uri=DCAT.dataset, name="Catalogue_has_dataset
                    model_uri=DCATAP_PLUS.Catalogue_has_dataset, domain=Catalogue, range=Optional[Union[dict[Union[str, DatasetId], Union[dict, "Dataset"]], list[Union[dict, "Dataset"]]]])
 
 slots.Catalogue_has_part = Slot(uri=DCTERMS.hasPart, name="Catalogue_has_part", curie=DCTERMS.curie('hasPart'),
-                   model_uri=DCATAP_PLUS.Catalogue_has_part, domain=Catalogue, range=Optional[Union[Union[dict, "Catalogue"], list[Union[dict, "Catalogue"]]]])
+                   model_uri=DCATAP_PLUS.Catalogue_has_part, domain=Catalogue, range=Optional[Union[dict[Union[str, CatalogueId], Union[dict, "Catalogue"]], list[Union[dict, "Catalogue"]]]])
 
 slots.Catalogue_homepage = Slot(uri=FOAF.homepage, name="Catalogue_homepage", curie=FOAF.curie('homepage'),
                    model_uri=DCATAP_PLUS.Catalogue_homepage, domain=Catalogue, range=Optional[Union[dict, "Document"]])
@@ -2643,7 +2872,7 @@ slots.Catalogue_language = Slot(uri=DCTERMS.language, name="Catalogue_language",
                    model_uri=DCATAP_PLUS.Catalogue_language, domain=Catalogue, range=Optional[Union[Union[dict, "LinguisticSystem"], list[Union[dict, "LinguisticSystem"]]]])
 
 slots.Catalogue_licence = Slot(uri=DCTERMS.license, name="Catalogue_licence", curie=DCTERMS.curie('license'),
-                   model_uri=DCATAP_PLUS.Catalogue_licence, domain=Catalogue, range=Optional[Union[dict, "LicenseDocument"]])
+                   model_uri=DCATAP_PLUS.Catalogue_licence, domain=Catalogue, range=Optional[Union[dict, "LicenceDocument"]])
 
 slots.Catalogue_modification_date = Slot(uri=DCTERMS.modified, name="Catalogue_modification_date", curie=DCTERMS.curie('modified'),
                    model_uri=DCATAP_PLUS.Catalogue_modification_date, domain=Catalogue, range=Optional[Union[str, XSDDate]])
@@ -2652,7 +2881,7 @@ slots.Catalogue_publisher = Slot(uri=DCTERMS.publisher, name="Catalogue_publishe
                    model_uri=DCATAP_PLUS.Catalogue_publisher, domain=Catalogue, range=Union[dict, Agent])
 
 slots.Catalogue_record = Slot(uri=DCAT.record, name="Catalogue_record", curie=DCAT.curie('record'),
-                   model_uri=DCATAP_PLUS.Catalogue_record, domain=Catalogue, range=Optional[Union[Union[dict, "CatalogueRecord"], list[Union[dict, "CatalogueRecord"]]]])
+                   model_uri=DCATAP_PLUS.Catalogue_record, domain=Catalogue, range=Optional[Union[dict[Union[str, CatalogueRecordId], Union[dict, "CatalogueRecord"]], list[Union[dict, "CatalogueRecord"]]]])
 
 slots.Catalogue_release_date = Slot(uri=DCTERMS.issued, name="Catalogue_release_date", curie=DCTERMS.curie('issued'),
                    model_uri=DCATAP_PLUS.Catalogue_release_date, domain=Catalogue, range=Optional[Union[str, XSDDate]])
@@ -2661,7 +2890,7 @@ slots.Catalogue_rights = Slot(uri=DCTERMS.rights, name="Catalogue_rights", curie
                    model_uri=DCATAP_PLUS.Catalogue_rights, domain=Catalogue, range=Optional[Union[dict, "RightsStatement"]])
 
 slots.Catalogue_service = Slot(uri=DCAT.service, name="Catalogue_service", curie=DCAT.curie('service'),
-                   model_uri=DCATAP_PLUS.Catalogue_service, domain=Catalogue, range=Optional[Union[Union[dict, "DataService"], list[Union[dict, "DataService"]]]])
+                   model_uri=DCATAP_PLUS.Catalogue_service, domain=Catalogue, range=Optional[Union[dict[Union[str, DataServiceId], Union[dict, "DataService"]], list[Union[dict, "DataService"]]]])
 
 slots.Catalogue_temporal_coverage = Slot(uri=DCTERMS.temporal, name="Catalogue_temporal_coverage", curie=DCTERMS.curie('temporal'),
                    model_uri=DCATAP_PLUS.Catalogue_temporal_coverage, domain=Catalogue, range=Optional[Union[Union[dict, "PeriodOfTime"], list[Union[dict, "PeriodOfTime"]]]])
@@ -2671,6 +2900,12 @@ slots.Catalogue_themes = Slot(uri=DCAT.themeTaxonomy, name="Catalogue_themes", c
 
 slots.Catalogue_title = Slot(uri=DCTERMS.title, name="Catalogue_title", curie=DCTERMS.curie('title'),
                    model_uri=DCATAP_PLUS.Catalogue_title, domain=Catalogue, range=Union[str, list[str]])
+
+slots.Catalogue_identifier = Slot(uri=DCTERMS.identifier, name="Catalogue_identifier", curie=DCTERMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.Catalogue_identifier, domain=Catalogue, range=Optional[Union[str, URIorCURIE]])
+
+slots.Catalogue_other_identifier = Slot(uri=ADMS.identifier, name="Catalogue_other_identifier", curie=ADMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.Catalogue_other_identifier, domain=Catalogue, range=Optional[Union[Union[dict, "Identifier"], list[Union[dict, "Identifier"]]]])
 
 slots.CatalogueRecord_application_profile = Slot(uri=DCTERMS.conformsTo, name="CatalogueRecord_application_profile", curie=DCTERMS.curie('conformsTo'),
                    model_uri=DCATAP_PLUS.CatalogueRecord_application_profile, domain=CatalogueRecord, range=Optional[Union[Union[dict, "Standard"], list[Union[dict, "Standard"]]]])
@@ -2699,11 +2934,29 @@ slots.CatalogueRecord_source_metadata = Slot(uri=DCTERMS.source, name="Catalogue
 slots.CatalogueRecord_title = Slot(uri=DCTERMS.title, name="CatalogueRecord_title", curie=DCTERMS.curie('title'),
                    model_uri=DCATAP_PLUS.CatalogueRecord_title, domain=CatalogueRecord, range=Optional[Union[str, list[str]]])
 
+slots.CatalogueRecord_identifier = Slot(uri=DCTERMS.identifier, name="CatalogueRecord_identifier", curie=DCTERMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.CatalogueRecord_identifier, domain=CatalogueRecord, range=Optional[Union[str, URIorCURIE]])
+
+slots.CatalogueRecord_other_identifier = Slot(uri=ADMS.identifier, name="CatalogueRecord_other_identifier", curie=ADMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.CatalogueRecord_other_identifier, domain=CatalogueRecord, range=Optional[Union[Union[dict, "Identifier"], list[Union[dict, "Identifier"]]]])
+
 slots.Checksum_algorithm = Slot(uri=SPDX.algorithm, name="Checksum_algorithm", curie=SPDX.curie('algorithm'),
                    model_uri=DCATAP_PLUS.Checksum_algorithm, domain=Checksum, range=Union[dict, "ChecksumAlgorithm"])
 
 slots.Checksum_checksum_value = Slot(uri=SPDX.checksumValue, name="Checksum_checksum_value", curie=SPDX.curie('checksumValue'),
                    model_uri=DCATAP_PLUS.Checksum_checksum_value, domain=Checksum, range=str)
+
+slots.ChecksumAlgorithm_identifier = Slot(uri=DCTERMS.identifier, name="ChecksumAlgorithm_identifier", curie=DCTERMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.ChecksumAlgorithm_identifier, domain=ChecksumAlgorithm, range=Optional[Union[str, URIorCURIE]])
+
+slots.ChecksumAlgorithm_other_identifier = Slot(uri=ADMS.identifier, name="ChecksumAlgorithm_other_identifier", curie=ADMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.ChecksumAlgorithm_other_identifier, domain=ChecksumAlgorithm, range=Optional[Union[Union[dict, "Identifier"], list[Union[dict, "Identifier"]]]])
+
+slots.ChecksumAlgorithm_title = Slot(uri=DCTERMS.title, name="ChecksumAlgorithm_title", curie=DCTERMS.curie('title'),
+                   model_uri=DCATAP_PLUS.ChecksumAlgorithm_title, domain=ChecksumAlgorithm, range=Optional[Union[str, list[str]]])
+
+slots.ChecksumAlgorithm_description = Slot(uri=DCTERMS.description, name="ChecksumAlgorithm_description", curie=DCTERMS.curie('description'),
+                   model_uri=DCATAP_PLUS.ChecksumAlgorithm_description, domain=ChecksumAlgorithm, range=Optional[Union[str, list[str]]])
 
 slots.ClassifierMixin_type = Slot(uri=DCTERMS.type, name="ClassifierMixin_type", curie=DCTERMS.curie('type'),
                    model_uri=DCATAP_PLUS.ClassifierMixin_type, domain=None, range=Optional[Union[dict, "DefinedTerm"]])
@@ -2711,8 +2964,29 @@ slots.ClassifierMixin_type = Slot(uri=DCTERMS.type, name="ClassifierMixin_type",
 slots.Concept_preferred_label = Slot(uri=SKOS.prefLabel, name="Concept_preferred_label", curie=SKOS.curie('prefLabel'),
                    model_uri=DCATAP_PLUS.Concept_preferred_label, domain=Concept, range=Union[str, list[str]])
 
+slots.Concept_identifier = Slot(uri=DCTERMS.identifier, name="Concept_identifier", curie=DCTERMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.Concept_identifier, domain=Concept, range=Optional[Union[str, URIorCURIE]])
+
+slots.Concept_other_identifier = Slot(uri=ADMS.identifier, name="Concept_other_identifier", curie=ADMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.Concept_other_identifier, domain=Concept, range=Optional[Union[Union[dict, "Identifier"], list[Union[dict, "Identifier"]]]])
+
+slots.Concept_title = Slot(uri=DCTERMS.title, name="Concept_title", curie=DCTERMS.curie('title'),
+                   model_uri=DCATAP_PLUS.Concept_title, domain=Concept, range=Optional[Union[str, list[str]]])
+
+slots.Concept_description = Slot(uri=DCTERMS.description, name="Concept_description", curie=DCTERMS.curie('description'),
+                   model_uri=DCATAP_PLUS.Concept_description, domain=Concept, range=Optional[Union[str, list[str]]])
+
 slots.ConceptScheme_title = Slot(uri=DCTERMS.title, name="ConceptScheme_title", curie=DCTERMS.curie('title'),
                    model_uri=DCATAP_PLUS.ConceptScheme_title, domain=ConceptScheme, range=Union[str, list[str]])
+
+slots.ConceptScheme_description = Slot(uri=DCTERMS.description, name="ConceptScheme_description", curie=DCTERMS.curie('description'),
+                   model_uri=DCATAP_PLUS.ConceptScheme_description, domain=ConceptScheme, range=Optional[Union[str, list[str]]])
+
+slots.ConceptScheme_identifier = Slot(uri=DCTERMS.identifier, name="ConceptScheme_identifier", curie=DCTERMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.ConceptScheme_identifier, domain=ConceptScheme, range=Optional[Union[str, URIorCURIE]])
+
+slots.ConceptScheme_other_identifier = Slot(uri=ADMS.identifier, name="ConceptScheme_other_identifier", curie=ADMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.ConceptScheme_other_identifier, domain=ConceptScheme, range=Optional[Union[Union[dict, "Identifier"], list[Union[dict, "Identifier"]]]])
 
 slots.DataAnalysis_evaluated_entity = Slot(uri=PROV.used, name="DataAnalysis_evaluated_entity", curie=PROV.curie('used'),
                    model_uri=DCATAP_PLUS.DataAnalysis_evaluated_entity, domain=DataAnalysis, range=Optional[Union[dict[Union[str, AnalysisSourceDataId], Union[dict, "AnalysisSourceData"]], list[Union[dict, "AnalysisSourceData"]]]])
@@ -2721,7 +2995,7 @@ slots.DataService_access_rights = Slot(uri=DCTERMS.accessRights, name="DataServi
                    model_uri=DCATAP_PLUS.DataService_access_rights, domain=DataService, range=Optional[Union[dict, "RightsStatement"]])
 
 slots.DataService_applicable_legislation = Slot(uri=DCATAP.applicableLegislation, name="DataService_applicable_legislation", curie=DCATAP.curie('applicableLegislation'),
-                   model_uri=DCATAP_PLUS.DataService_applicable_legislation, domain=DataService, range=Optional[Union[dict[Union[str, LegalResourceId], Union[dict, "LegalResource"]], list[Union[dict, "LegalResource"]]]])
+                   model_uri=DCATAP_PLUS.DataService_applicable_legislation, domain=DataService, range=Optional[Union[Union[dict, "LegalResource"], list[Union[dict, "LegalResource"]]]])
 
 slots.DataService_conforms_to = Slot(uri=DCTERMS.conformsTo, name="DataService_conforms_to", curie=DCTERMS.curie('conformsTo'),
                    model_uri=DCATAP_PLUS.DataService_conforms_to, domain=DataService, range=Optional[Union[Union[dict, "Standard"], list[Union[dict, "Standard"]]]])
@@ -2733,7 +3007,7 @@ slots.DataService_description = Slot(uri=DCTERMS.description, name="DataService_
                    model_uri=DCATAP_PLUS.DataService_description, domain=DataService, range=Optional[Union[str, list[str]]])
 
 slots.DataService_documentation = Slot(uri=FOAF.page, name="DataService_documentation", curie=FOAF.curie('page'),
-                   model_uri=DCATAP_PLUS.DataService_documentation, domain=DataService, range=Optional[Union[dict[Union[str, DocumentId], Union[dict, "Document"]], list[Union[dict, "Document"]]]])
+                   model_uri=DCATAP_PLUS.DataService_documentation, domain=DataService, range=Optional[Union[Union[dict, "Document"], list[Union[dict, "Document"]]]])
 
 slots.DataService_endpoint_URL = Slot(uri=DCAT.endpointURL, name="DataService_endpoint_URL", curie=DCAT.curie('endpointURL'),
                    model_uri=DCATAP_PLUS.DataService_endpoint_URL, domain=DataService, range=Union[dict[Union[str, ResourceId], Union[dict, "Resource"]], list[Union[dict, "Resource"]]])
@@ -2748,10 +3022,10 @@ slots.DataService_keyword = Slot(uri=DCAT.keyword, name="DataService_keyword", c
                    model_uri=DCATAP_PLUS.DataService_keyword, domain=DataService, range=Optional[Union[str, list[str]]])
 
 slots.DataService_landing_page = Slot(uri=DCAT.landingPage, name="DataService_landing_page", curie=DCAT.curie('landingPage'),
-                   model_uri=DCATAP_PLUS.DataService_landing_page, domain=DataService, range=Optional[Union[dict[Union[str, DocumentId], Union[dict, "Document"]], list[Union[dict, "Document"]]]])
+                   model_uri=DCATAP_PLUS.DataService_landing_page, domain=DataService, range=Optional[Union[Union[dict, "Document"], list[Union[dict, "Document"]]]])
 
 slots.DataService_licence = Slot(uri=DCTERMS.license, name="DataService_licence", curie=DCTERMS.curie('license'),
-                   model_uri=DCATAP_PLUS.DataService_licence, domain=DataService, range=Optional[Union[dict, "LicenseDocument"]])
+                   model_uri=DCATAP_PLUS.DataService_licence, domain=DataService, range=Optional[Union[dict, "LicenceDocument"]])
 
 slots.DataService_publisher = Slot(uri=DCTERMS.publisher, name="DataService_publisher", curie=DCTERMS.curie('publisher'),
                    model_uri=DCATAP_PLUS.DataService_publisher, domain=DataService, range=Optional[Union[dict, Agent]])
@@ -2765,11 +3039,17 @@ slots.DataService_theme = Slot(uri=DCAT.theme, name="DataService_theme", curie=D
 slots.DataService_title = Slot(uri=DCTERMS.title, name="DataService_title", curie=DCTERMS.curie('title'),
                    model_uri=DCATAP_PLUS.DataService_title, domain=DataService, range=Union[str, list[str]])
 
+slots.DataService_identifier = Slot(uri=DCTERMS.identifier, name="DataService_identifier", curie=DCTERMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.DataService_identifier, domain=DataService, range=Optional[Union[str, URIorCURIE]])
+
+slots.DataService_other_identifier = Slot(uri=ADMS.identifier, name="DataService_other_identifier", curie=ADMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.DataService_other_identifier, domain=DataService, range=Optional[Union[Union[dict, "Identifier"], list[Union[dict, "Identifier"]]]])
+
 slots.Dataset_access_rights = Slot(uri=DCTERMS.accessRights, name="Dataset_access_rights", curie=DCTERMS.curie('accessRights'),
                    model_uri=DCATAP_PLUS.Dataset_access_rights, domain=Dataset, range=Optional[Union[dict, "RightsStatement"]])
 
 slots.Dataset_applicable_legislation = Slot(uri=DCATAP.applicableLegislation, name="Dataset_applicable_legislation", curie=DCATAP.curie('applicableLegislation'),
-                   model_uri=DCATAP_PLUS.Dataset_applicable_legislation, domain=Dataset, range=Optional[Union[dict[Union[str, LegalResourceId], Union[dict, "LegalResource"]], list[Union[dict, "LegalResource"]]]])
+                   model_uri=DCATAP_PLUS.Dataset_applicable_legislation, domain=Dataset, range=Optional[Union[Union[dict, "LegalResource"], list[Union[dict, "LegalResource"]]]])
 
 slots.Dataset_conforms_to = Slot(uri=DCTERMS.conformsTo, name="Dataset_conforms_to", curie=DCTERMS.curie('conformsTo'),
                    model_uri=DCATAP_PLUS.Dataset_conforms_to, domain=Dataset, range=Optional[Union[Union[dict, "Standard"], list[Union[dict, "Standard"]]]])
@@ -2781,13 +3061,13 @@ slots.Dataset_creator = Slot(uri=DCTERMS.creator, name="Dataset_creator", curie=
                    model_uri=DCATAP_PLUS.Dataset_creator, domain=Dataset, range=Optional[Union[Union[dict, Agent], list[Union[dict, Agent]]]])
 
 slots.Dataset_dataset_distribution = Slot(uri=DCAT.distribution, name="Dataset_dataset_distribution", curie=DCAT.curie('distribution'),
-                   model_uri=DCATAP_PLUS.Dataset_dataset_distribution, domain=Dataset, range=Optional[Union[Union[dict, "Distribution"], list[Union[dict, "Distribution"]]]])
+                   model_uri=DCATAP_PLUS.Dataset_dataset_distribution, domain=Dataset, range=Optional[Union[dict[Union[str, DistributionId], Union[dict, "Distribution"]], list[Union[dict, "Distribution"]]]])
 
 slots.Dataset_description = Slot(uri=DCTERMS.description, name="Dataset_description", curie=DCTERMS.curie('description'),
                    model_uri=DCATAP_PLUS.Dataset_description, domain=Dataset, range=Union[str, list[str]])
 
 slots.Dataset_documentation = Slot(uri=FOAF.page, name="Dataset_documentation", curie=FOAF.curie('page'),
-                   model_uri=DCATAP_PLUS.Dataset_documentation, domain=Dataset, range=Optional[Union[dict[Union[str, DocumentId], Union[dict, "Document"]], list[Union[dict, "Document"]]]])
+                   model_uri=DCATAP_PLUS.Dataset_documentation, domain=Dataset, range=Optional[Union[Union[dict, "Document"], list[Union[dict, "Document"]]]])
 
 slots.Dataset_frequency = Slot(uri=DCTERMS.accrualPeriodicity, name="Dataset_frequency", curie=DCTERMS.curie('accrualPeriodicity'),
                    model_uri=DCATAP_PLUS.Dataset_frequency, domain=Dataset, range=Optional[Union[dict, "Frequency"]])
@@ -2802,7 +3082,7 @@ slots.Dataset_identifier = Slot(uri=DCTERMS.identifier, name="Dataset_identifier
                    model_uri=DCATAP_PLUS.Dataset_identifier, domain=Dataset, range=Optional[Union[str, list[str]]])
 
 slots.Dataset_in_series = Slot(uri=DCAT.inSeries, name="Dataset_in_series", curie=DCAT.curie('inSeries'),
-                   model_uri=DCATAP_PLUS.Dataset_in_series, domain=Dataset, range=Optional[Union[Union[dict, "DatasetSeries"], list[Union[dict, "DatasetSeries"]]]])
+                   model_uri=DCATAP_PLUS.Dataset_in_series, domain=Dataset, range=Optional[Union[dict[Union[str, DatasetSeriesId], Union[dict, "DatasetSeries"]], list[Union[dict, "DatasetSeries"]]]])
 
 slots.Dataset_is_referenced_by = Slot(uri=DCTERMS.isReferencedBy, name="Dataset_is_referenced_by", curie=DCTERMS.curie('isReferencedBy'),
                    model_uri=DCATAP_PLUS.Dataset_is_referenced_by, domain=Dataset, range=Optional[Union[dict[Union[str, ResourceId], Union[dict, "Resource"]], list[Union[dict, "Resource"]]]])
@@ -2811,7 +3091,7 @@ slots.Dataset_keyword = Slot(uri=DCAT.keyword, name="Dataset_keyword", curie=DCA
                    model_uri=DCATAP_PLUS.Dataset_keyword, domain=Dataset, range=Optional[Union[str, list[str]]])
 
 slots.Dataset_landing_page = Slot(uri=DCAT.landingPage, name="Dataset_landing_page", curie=DCAT.curie('landingPage'),
-                   model_uri=DCATAP_PLUS.Dataset_landing_page, domain=Dataset, range=Optional[Union[dict[Union[str, DocumentId], Union[dict, "Document"]], list[Union[dict, "Document"]]]])
+                   model_uri=DCATAP_PLUS.Dataset_landing_page, domain=Dataset, range=Optional[Union[Union[dict, "Document"], list[Union[dict, "Document"]]]])
 
 slots.Dataset_language = Slot(uri=DCTERMS.language, name="Dataset_language", curie=DCTERMS.curie('language'),
                    model_uri=DCATAP_PLUS.Dataset_language, domain=Dataset, range=Optional[Union[Union[dict, "LinguisticSystem"], list[Union[dict, "LinguisticSystem"]]]])
@@ -2841,7 +3121,7 @@ slots.Dataset_release_date = Slot(uri=DCTERMS.issued, name="Dataset_release_date
                    model_uri=DCATAP_PLUS.Dataset_release_date, domain=Dataset, range=Optional[Union[str, XSDDate]])
 
 slots.Dataset_sample = Slot(uri=ADMS.sample, name="Dataset_sample", curie=ADMS.curie('sample'),
-                   model_uri=DCATAP_PLUS.Dataset_sample, domain=Dataset, range=Optional[Union[Union[dict, "Distribution"], list[Union[dict, "Distribution"]]]])
+                   model_uri=DCATAP_PLUS.Dataset_sample, domain=Dataset, range=Optional[Union[dict[Union[str, DistributionId], Union[dict, "Distribution"]], list[Union[dict, "Distribution"]]]])
 
 slots.Dataset_source = Slot(uri=DCTERMS.source, name="Dataset_source", curie=DCTERMS.curie('source'),
                    model_uri=DCATAP_PLUS.Dataset_source, domain=Dataset, range=Optional[Union[dict[Union[str, DatasetId], Union[dict, "Dataset"]], list[Union[dict, "Dataset"]]]])
@@ -2874,7 +3154,7 @@ slots.Dataset_was_generated_by = Slot(uri=PROV.wasGeneratedBy, name="Dataset_was
                    model_uri=DCATAP_PLUS.Dataset_was_generated_by, domain=Dataset, range=Union[dict[Union[str, DataGeneratingActivityId], Union[dict, DataGeneratingActivity]], list[Union[dict, DataGeneratingActivity]]])
 
 slots.DatasetSeries_applicable_legislation = Slot(uri=DCATAP.applicableLegislation, name="DatasetSeries_applicable_legislation", curie=DCATAP.curie('applicableLegislation'),
-                   model_uri=DCATAP_PLUS.DatasetSeries_applicable_legislation, domain=DatasetSeries, range=Optional[Union[dict[Union[str, LegalResourceId], Union[dict, "LegalResource"]], list[Union[dict, "LegalResource"]]]])
+                   model_uri=DCATAP_PLUS.DatasetSeries_applicable_legislation, domain=DatasetSeries, range=Optional[Union[Union[dict, "LegalResource"], list[Union[dict, "LegalResource"]]]])
 
 slots.DatasetSeries_contact_point = Slot(uri=DCAT.contactPoint, name="DatasetSeries_contact_point", curie=DCAT.curie('contactPoint'),
                    model_uri=DCATAP_PLUS.DatasetSeries_contact_point, domain=DatasetSeries, range=Optional[Union[Union[dict, "Kind"], list[Union[dict, "Kind"]]]])
@@ -2903,6 +3183,12 @@ slots.DatasetSeries_temporal_coverage = Slot(uri=DCTERMS.temporal, name="Dataset
 slots.DatasetSeries_title = Slot(uri=DCTERMS.title, name="DatasetSeries_title", curie=DCTERMS.curie('title'),
                    model_uri=DCATAP_PLUS.DatasetSeries_title, domain=DatasetSeries, range=Union[str, list[str]])
 
+slots.DatasetSeries_identifier = Slot(uri=DCTERMS.identifier, name="DatasetSeries_identifier", curie=DCTERMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.DatasetSeries_identifier, domain=DatasetSeries, range=Optional[Union[str, URIorCURIE]])
+
+slots.DatasetSeries_other_identifier = Slot(uri=ADMS.identifier, name="DatasetSeries_other_identifier", curie=ADMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.DatasetSeries_other_identifier, domain=DatasetSeries, range=Optional[Union[Union[dict, "Identifier"], list[Union[dict, "Identifier"]]]])
+
 slots.DefinedTerm_title = Slot(uri=SCHEMA.name, name="DefinedTerm_title", curie=SCHEMA.curie('name'),
                    model_uri=DCATAP_PLUS.DefinedTerm_title, domain=DefinedTerm, range=Optional[str])
 
@@ -2916,10 +3202,10 @@ slots.Distribution_access_URL = Slot(uri=DCAT.accessURL, name="Distribution_acce
                    model_uri=DCATAP_PLUS.Distribution_access_URL, domain=Distribution, range=Union[dict[Union[str, ResourceId], Union[dict, "Resource"]], list[Union[dict, "Resource"]]])
 
 slots.Distribution_access_service = Slot(uri=DCAT.accessService, name="Distribution_access_service", curie=DCAT.curie('accessService'),
-                   model_uri=DCATAP_PLUS.Distribution_access_service, domain=Distribution, range=Optional[Union[Union[dict, DataService], list[Union[dict, DataService]]]])
+                   model_uri=DCATAP_PLUS.Distribution_access_service, domain=Distribution, range=Optional[Union[dict[Union[str, DataServiceId], Union[dict, DataService]], list[Union[dict, DataService]]]])
 
 slots.Distribution_applicable_legislation = Slot(uri=DCATAP.applicableLegislation, name="Distribution_applicable_legislation", curie=DCATAP.curie('applicableLegislation'),
-                   model_uri=DCATAP_PLUS.Distribution_applicable_legislation, domain=Distribution, range=Optional[Union[dict[Union[str, LegalResourceId], Union[dict, "LegalResource"]], list[Union[dict, "LegalResource"]]]])
+                   model_uri=DCATAP_PLUS.Distribution_applicable_legislation, domain=Distribution, range=Optional[Union[Union[dict, "LegalResource"], list[Union[dict, "LegalResource"]]]])
 
 slots.Distribution_availability = Slot(uri=DCATAP.availability, name="Distribution_availability", curie=DCATAP.curie('availability'),
                    model_uri=DCATAP_PLUS.Distribution_availability, domain=Distribution, range=Optional[Union[dict, "Concept"]])
@@ -2937,7 +3223,7 @@ slots.Distribution_description = Slot(uri=DCTERMS.description, name="Distributio
                    model_uri=DCATAP_PLUS.Distribution_description, domain=Distribution, range=Optional[Union[str, list[str]]])
 
 slots.Distribution_documentation = Slot(uri=FOAF.page, name="Distribution_documentation", curie=FOAF.curie('page'),
-                   model_uri=DCATAP_PLUS.Distribution_documentation, domain=Distribution, range=Optional[Union[dict[Union[str, DocumentId], Union[dict, "Document"]], list[Union[dict, "Document"]]]])
+                   model_uri=DCATAP_PLUS.Distribution_documentation, domain=Distribution, range=Optional[Union[Union[dict, "Document"], list[Union[dict, "Document"]]]])
 
 slots.Distribution_download_URL = Slot(uri=DCAT.downloadURL, name="Distribution_download_URL", curie=DCAT.curie('downloadURL'),
                    model_uri=DCATAP_PLUS.Distribution_download_URL, domain=Distribution, range=Optional[Union[dict[Union[str, ResourceId], Union[dict, "Resource"]], list[Union[dict, "Resource"]]]])
@@ -2952,7 +3238,7 @@ slots.Distribution_language = Slot(uri=DCTERMS.language, name="Distribution_lang
                    model_uri=DCATAP_PLUS.Distribution_language, domain=Distribution, range=Optional[Union[Union[dict, "LinguisticSystem"], list[Union[dict, "LinguisticSystem"]]]])
 
 slots.Distribution_licence = Slot(uri=DCTERMS.license, name="Distribution_licence", curie=DCTERMS.curie('license'),
-                   model_uri=DCATAP_PLUS.Distribution_licence, domain=Distribution, range=Optional[Union[dict, "LicenseDocument"]])
+                   model_uri=DCATAP_PLUS.Distribution_licence, domain=Distribution, range=Optional[Union[dict, "LicenceDocument"]])
 
 slots.Distribution_linked_schemas = Slot(uri=DCTERMS.conformsTo, name="Distribution_linked_schemas", curie=DCTERMS.curie('conformsTo'),
                    model_uri=DCATAP_PLUS.Distribution_linked_schemas, domain=Distribution, range=Optional[Union[Union[dict, "Standard"], list[Union[dict, "Standard"]]]])
@@ -2984,6 +3270,24 @@ slots.Distribution_temporal_resolution = Slot(uri=DCAT.temporalResolution, name=
 slots.Distribution_title = Slot(uri=DCTERMS.title, name="Distribution_title", curie=DCTERMS.curie('title'),
                    model_uri=DCATAP_PLUS.Distribution_title, domain=Distribution, range=Optional[Union[str, list[str]]])
 
+slots.Distribution_identifier = Slot(uri=DCTERMS.identifier, name="Distribution_identifier", curie=DCTERMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.Distribution_identifier, domain=Distribution, range=Optional[Union[str, URIorCURIE]])
+
+slots.Distribution_other_identifier = Slot(uri=ADMS.identifier, name="Distribution_other_identifier", curie=ADMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.Distribution_other_identifier, domain=Distribution, range=Optional[Union[Union[dict, "Identifier"], list[Union[dict, "Identifier"]]]])
+
+slots.Document_identifier = Slot(uri=DCTERMS.identifier, name="Document_identifier", curie=DCTERMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.Document_identifier, domain=Document, range=Optional[Union[str, URIorCURIE]])
+
+slots.Document_other_identifier = Slot(uri=ADMS.identifier, name="Document_other_identifier", curie=ADMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.Document_other_identifier, domain=Document, range=Optional[Union[Union[dict, "Identifier"], list[Union[dict, "Identifier"]]]])
+
+slots.Document_title = Slot(uri=DCTERMS.title, name="Document_title", curie=DCTERMS.curie('title'),
+                   model_uri=DCATAP_PLUS.Document_title, domain=Document, range=Optional[Union[str, list[str]]])
+
+slots.Document_description = Slot(uri=DCTERMS.description, name="Document_description", curie=DCTERMS.curie('description'),
+                   model_uri=DCATAP_PLUS.Document_description, domain=Document, range=Optional[Union[str, list[str]]])
+
 slots.Entity_title = Slot(uri=DCTERMS.title, name="Entity_title", curie=DCTERMS.curie('title'),
                    model_uri=DCATAP_PLUS.Entity_title, domain=Entity, range=Optional[str])
 
@@ -3014,11 +3318,65 @@ slots.EvaluatedEntity_was_generated_by = Slot(uri=PROV.wasGeneratedBy, name="Eva
 slots.EvaluatedEntity_other_identifier = Slot(uri=ADMS.identifier, name="EvaluatedEntity_other_identifier", curie=ADMS.curie('identifier'),
                    model_uri=DCATAP_PLUS.EvaluatedEntity_other_identifier, domain=EvaluatedEntity, range=Optional[Union[Union[dict, "Identifier"], list[Union[dict, "Identifier"]]]])
 
+slots.Frequency_identifier = Slot(uri=DCTERMS.identifier, name="Frequency_identifier", curie=DCTERMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.Frequency_identifier, domain=Frequency, range=Optional[Union[str, URIorCURIE]])
+
+slots.Frequency_other_identifier = Slot(uri=ADMS.identifier, name="Frequency_other_identifier", curie=ADMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.Frequency_other_identifier, domain=Frequency, range=Optional[Union[Union[dict, "Identifier"], list[Union[dict, "Identifier"]]]])
+
+slots.Frequency_title = Slot(uri=DCTERMS.title, name="Frequency_title", curie=DCTERMS.curie('title'),
+                   model_uri=DCATAP_PLUS.Frequency_title, domain=Frequency, range=Optional[Union[str, list[str]]])
+
+slots.Frequency_description = Slot(uri=DCTERMS.description, name="Frequency_description", curie=DCTERMS.curie('description'),
+                   model_uri=DCATAP_PLUS.Frequency_description, domain=Frequency, range=Optional[Union[str, list[str]]])
+
 slots.Identifier_notation = Slot(uri=SKOS.notation, name="Identifier_notation", curie=SKOS.curie('notation'),
                    model_uri=DCATAP_PLUS.Identifier_notation, domain=Identifier, range=str)
 
-slots.LicenseDocument_type = Slot(uri=DCTERMS.type, name="LicenseDocument_type", curie=DCTERMS.curie('type'),
-                   model_uri=DCATAP_PLUS.LicenseDocument_type, domain=LicenseDocument, range=Optional[Union[Union[dict, Concept], list[Union[dict, Concept]]]])
+slots.Identifier_title = Slot(uri=DCTERMS.title, name="Identifier_title", curie=DCTERMS.curie('title'),
+                   model_uri=DCATAP_PLUS.Identifier_title, domain=Identifier, range=Optional[Union[str, list[str]]])
+
+slots.Identifier_description = Slot(uri=DCTERMS.description, name="Identifier_description", curie=DCTERMS.curie('description'),
+                   model_uri=DCATAP_PLUS.Identifier_description, domain=Identifier, range=Optional[Union[str, list[str]]])
+
+slots.LegalResource_identifier = Slot(uri=DCTERMS.identifier, name="LegalResource_identifier", curie=DCTERMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.LegalResource_identifier, domain=LegalResource, range=Optional[Union[str, URIorCURIE]])
+
+slots.LegalResource_other_identifier = Slot(uri=ADMS.identifier, name="LegalResource_other_identifier", curie=ADMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.LegalResource_other_identifier, domain=LegalResource, range=Optional[Union[Union[dict, Identifier], list[Union[dict, Identifier]]]])
+
+slots.LegalResource_title = Slot(uri=DCTERMS.title, name="LegalResource_title", curie=DCTERMS.curie('title'),
+                   model_uri=DCATAP_PLUS.LegalResource_title, domain=LegalResource, range=Optional[Union[str, list[str]]])
+
+slots.LegalResource_description = Slot(uri=DCTERMS.description, name="LegalResource_description", curie=DCTERMS.curie('description'),
+                   model_uri=DCATAP_PLUS.LegalResource_description, domain=LegalResource, range=Optional[Union[str, list[str]]])
+
+slots.LicenceDocument_type = Slot(uri=DCTERMS.type, name="LicenceDocument_type", curie=DCTERMS.curie('type'),
+                   model_uri=DCATAP_PLUS.LicenceDocument_type, domain=LicenceDocument, range=Optional[Union[Union[dict, "Concept"], list[Union[dict, "Concept"]]]])
+
+slots.LicenceDocument_identifier = Slot(uri=DCTERMS.identifier, name="LicenceDocument_identifier", curie=DCTERMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.LicenceDocument_identifier, domain=LicenceDocument, range=Optional[Union[str, URIorCURIE]])
+
+slots.LicenceDocument_other_identifier = Slot(uri=ADMS.identifier, name="LicenceDocument_other_identifier", curie=ADMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.LicenceDocument_other_identifier, domain=LicenceDocument, range=Optional[Union[Union[dict, "Identifier"], list[Union[dict, "Identifier"]]]])
+
+slots.LicenceDocument_title = Slot(uri=DCTERMS.title, name="LicenceDocument_title", curie=DCTERMS.curie('title'),
+                   model_uri=DCATAP_PLUS.LicenceDocument_title, domain=LicenceDocument, range=Optional[Union[str, list[str]]])
+
+slots.LicenceDocument_description = Slot(uri=DCTERMS.description, name="LicenceDocument_description", curie=DCTERMS.curie('description'),
+                   model_uri=DCATAP_PLUS.LicenceDocument_description, domain=LicenceDocument, range=Optional[Union[str, list[str]]])
+
+slots.LinguisticSystem_identifier = Slot(uri=DCTERMS.identifier, name="LinguisticSystem_identifier", curie=DCTERMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.LinguisticSystem_identifier, domain=LinguisticSystem, range=Optional[Union[str, URIorCURIE]])
+
+slots.LinguisticSystem_other_identifier = Slot(uri=ADMS.identifier, name="LinguisticSystem_other_identifier", curie=ADMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.LinguisticSystem_other_identifier, domain=LinguisticSystem, range=Optional[Union[Union[dict, Identifier], list[Union[dict, Identifier]]]])
+
+slots.LinguisticSystem_title = Slot(uri=DCTERMS.title, name="LinguisticSystem_title", curie=DCTERMS.curie('title'),
+                   model_uri=DCATAP_PLUS.LinguisticSystem_title, domain=LinguisticSystem, range=Optional[Union[str, list[str]]])
+
+slots.LinguisticSystem_description = Slot(uri=DCTERMS.description, name="LinguisticSystem_description", curie=DCTERMS.curie('description'),
+                   model_uri=DCATAP_PLUS.LinguisticSystem_description, domain=LinguisticSystem, range=Optional[Union[str, list[str]]])
 
 slots.Location_bbox = Slot(uri=DCAT.bbox, name="Location_bbox", curie=DCAT.curie('bbox'),
                    model_uri=DCATAP_PLUS.Location_bbox, domain=Location, range=Optional[str])
@@ -3028,6 +3386,42 @@ slots.Location_centroid = Slot(uri=DCAT.centroid, name="Location_centroid", curi
 
 slots.Location_geometry = Slot(uri=LOCN.geometry, name="Location_geometry", curie=LOCN.curie('geometry'),
                    model_uri=DCATAP_PLUS.Location_geometry, domain=Location, range=Optional[Union[dict, "Geometry"]])
+
+slots.Location_identifier = Slot(uri=DCTERMS.identifier, name="Location_identifier", curie=DCTERMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.Location_identifier, domain=Location, range=Optional[Union[str, URIorCURIE]])
+
+slots.Location_other_identifier = Slot(uri=ADMS.identifier, name="Location_other_identifier", curie=ADMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.Location_other_identifier, domain=Location, range=Optional[Union[Union[dict, "Identifier"], list[Union[dict, "Identifier"]]]])
+
+slots.Location_title = Slot(uri=DCTERMS.title, name="Location_title", curie=DCTERMS.curie('title'),
+                   model_uri=DCATAP_PLUS.Location_title, domain=Location, range=Optional[Union[str, list[str]]])
+
+slots.Location_description = Slot(uri=DCTERMS.description, name="Location_description", curie=DCTERMS.curie('description'),
+                   model_uri=DCATAP_PLUS.Location_description, domain=Location, range=Optional[Union[str, list[str]]])
+
+slots.MediaType_identifier = Slot(uri=DCTERMS.identifier, name="MediaType_identifier", curie=DCTERMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.MediaType_identifier, domain=MediaType, range=Optional[Union[str, URIorCURIE]])
+
+slots.MediaType_other_identifier = Slot(uri=ADMS.identifier, name="MediaType_other_identifier", curie=ADMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.MediaType_other_identifier, domain=MediaType, range=Optional[Union[Union[dict, Identifier], list[Union[dict, Identifier]]]])
+
+slots.MediaType_title = Slot(uri=DCTERMS.title, name="MediaType_title", curie=DCTERMS.curie('title'),
+                   model_uri=DCATAP_PLUS.MediaType_title, domain=MediaType, range=Optional[Union[str, list[str]]])
+
+slots.MediaType_description = Slot(uri=DCTERMS.description, name="MediaType_description", curie=DCTERMS.curie('description'),
+                   model_uri=DCATAP_PLUS.MediaType_description, domain=MediaType, range=Optional[Union[str, list[str]]])
+
+slots.MediaTypeOrExtent_identifier = Slot(uri=DCTERMS.identifier, name="MediaTypeOrExtent_identifier", curie=DCTERMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.MediaTypeOrExtent_identifier, domain=MediaTypeOrExtent, range=Optional[Union[str, URIorCURIE]])
+
+slots.MediaTypeOrExtent_other_identifier = Slot(uri=ADMS.identifier, name="MediaTypeOrExtent_other_identifier", curie=ADMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.MediaTypeOrExtent_other_identifier, domain=MediaTypeOrExtent, range=Optional[Union[Union[dict, Identifier], list[Union[dict, Identifier]]]])
+
+slots.MediaTypeOrExtent_title = Slot(uri=DCTERMS.title, name="MediaTypeOrExtent_title", curie=DCTERMS.curie('title'),
+                   model_uri=DCATAP_PLUS.MediaTypeOrExtent_title, domain=MediaTypeOrExtent, range=Optional[Union[str, list[str]]])
+
+slots.MediaTypeOrExtent_description = Slot(uri=DCTERMS.description, name="MediaTypeOrExtent_description", curie=DCTERMS.curie('description'),
+                   model_uri=DCATAP_PLUS.MediaTypeOrExtent_description, domain=MediaTypeOrExtent, range=Optional[Union[str, list[str]]])
 
 slots.PeriodOfTime_beginning = Slot(uri=TIME.hasBeginning, name="PeriodOfTime_beginning", curie=TIME.curie('hasBeginning'),
                    model_uri=DCATAP_PLUS.PeriodOfTime_beginning, domain=PeriodOfTime, range=Optional[Union[dict, "TimeInstant"]])
@@ -3041,6 +3435,30 @@ slots.PeriodOfTime_end_date = Slot(uri=DCAT.endDate, name="PeriodOfTime_end_date
 slots.PeriodOfTime_start_date = Slot(uri=DCAT.startDate, name="PeriodOfTime_start_date", curie=DCAT.curie('startDate'),
                    model_uri=DCATAP_PLUS.PeriodOfTime_start_date, domain=PeriodOfTime, range=Optional[Union[str, XSDDate]])
 
+slots.Policy_identifier = Slot(uri=DCTERMS.identifier, name="Policy_identifier", curie=DCTERMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.Policy_identifier, domain=Policy, range=Optional[Union[str, URIorCURIE]])
+
+slots.Policy_other_identifier = Slot(uri=ADMS.identifier, name="Policy_other_identifier", curie=ADMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.Policy_other_identifier, domain=Policy, range=Optional[Union[Union[dict, Identifier], list[Union[dict, Identifier]]]])
+
+slots.Policy_title = Slot(uri=DCTERMS.title, name="Policy_title", curie=DCTERMS.curie('title'),
+                   model_uri=DCATAP_PLUS.Policy_title, domain=Policy, range=Optional[Union[str, list[str]]])
+
+slots.Policy_description = Slot(uri=DCTERMS.description, name="Policy_description", curie=DCTERMS.curie('description'),
+                   model_uri=DCATAP_PLUS.Policy_description, domain=Policy, range=Optional[Union[str, list[str]]])
+
+slots.ProvenanceStatement_identifier = Slot(uri=DCTERMS.identifier, name="ProvenanceStatement_identifier", curie=DCTERMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.ProvenanceStatement_identifier, domain=ProvenanceStatement, range=Optional[Union[str, URIorCURIE]])
+
+slots.ProvenanceStatement_other_identifier = Slot(uri=ADMS.identifier, name="ProvenanceStatement_other_identifier", curie=ADMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.ProvenanceStatement_other_identifier, domain=ProvenanceStatement, range=Optional[Union[Union[dict, Identifier], list[Union[dict, Identifier]]]])
+
+slots.ProvenanceStatement_title = Slot(uri=DCTERMS.title, name="ProvenanceStatement_title", curie=DCTERMS.curie('title'),
+                   model_uri=DCATAP_PLUS.ProvenanceStatement_title, domain=ProvenanceStatement, range=Optional[Union[str, list[str]]])
+
+slots.ProvenanceStatement_description = Slot(uri=DCTERMS.description, name="ProvenanceStatement_description", curie=DCTERMS.curie('description'),
+                   model_uri=DCATAP_PLUS.ProvenanceStatement_description, domain=ProvenanceStatement, range=Optional[Union[str, list[str]]])
+
 slots.QualitativeAttribute_value = Slot(uri=PROV.value, name="QualitativeAttribute_value", curie=PROV.curie('value'),
                    model_uri=DCATAP_PLUS.QualitativeAttribute_value, domain=QualitativeAttribute, range=str)
 
@@ -3053,8 +3471,56 @@ slots.Relationship_had_role = Slot(uri=DCAT.hadRole, name="Relationship_had_role
 slots.Relationship_relation = Slot(uri=DCTERMS.relation, name="Relationship_relation", curie=DCTERMS.curie('relation'),
                    model_uri=DCATAP_PLUS.Relationship_relation, domain=Relationship, range=Union[dict[Union[str, ResourceId], Union[dict, "Resource"]], list[Union[dict, "Resource"]]])
 
+slots.Relationship_title = Slot(uri=DCTERMS.title, name="Relationship_title", curie=DCTERMS.curie('title'),
+                   model_uri=DCATAP_PLUS.Relationship_title, domain=Relationship, range=Optional[Union[str, list[str]]])
+
+slots.Relationship_description = Slot(uri=DCTERMS.description, name="Relationship_description", curie=DCTERMS.curie('description'),
+                   model_uri=DCATAP_PLUS.Relationship_description, domain=Relationship, range=Optional[Union[str, list[str]]])
+
+slots.Resource_identifier = Slot(uri=DCTERMS.identifier, name="Resource_identifier", curie=DCTERMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.Resource_identifier, domain=Resource, range=Optional[Union[str, URIorCURIE]])
+
+slots.Resource_other_identifier = Slot(uri=ADMS.identifier, name="Resource_other_identifier", curie=ADMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.Resource_other_identifier, domain=Resource, range=Optional[Union[Union[dict, Identifier], list[Union[dict, Identifier]]]])
+
+slots.Resource_title = Slot(uri=DCTERMS.title, name="Resource_title", curie=DCTERMS.curie('title'),
+                   model_uri=DCATAP_PLUS.Resource_title, domain=Resource, range=Optional[Union[str, list[str]]])
+
+slots.Resource_description = Slot(uri=DCTERMS.description, name="Resource_description", curie=DCTERMS.curie('description'),
+                   model_uri=DCATAP_PLUS.Resource_description, domain=Resource, range=Optional[Union[str, list[str]]])
+
+slots.RightsStatement_identifier = Slot(uri=DCTERMS.identifier, name="RightsStatement_identifier", curie=DCTERMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.RightsStatement_identifier, domain=RightsStatement, range=Optional[Union[str, URIorCURIE]])
+
+slots.RightsStatement_other_identifier = Slot(uri=ADMS.identifier, name="RightsStatement_other_identifier", curie=ADMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.RightsStatement_other_identifier, domain=RightsStatement, range=Optional[Union[Union[dict, Identifier], list[Union[dict, Identifier]]]])
+
+slots.RightsStatement_title = Slot(uri=DCTERMS.title, name="RightsStatement_title", curie=DCTERMS.curie('title'),
+                   model_uri=DCATAP_PLUS.RightsStatement_title, domain=RightsStatement, range=Optional[Union[str, list[str]]])
+
+slots.RightsStatement_description = Slot(uri=DCTERMS.description, name="RightsStatement_description", curie=DCTERMS.curie('description'),
+                   model_uri=DCATAP_PLUS.RightsStatement_description, domain=RightsStatement, range=Optional[Union[str, list[str]]])
+
+slots.Role_title = Slot(uri=DCTERMS.title, name="Role_title", curie=DCTERMS.curie('title'),
+                   model_uri=DCATAP_PLUS.Role_title, domain=Role, range=Optional[Union[str, list[str]]])
+
+slots.Role_description = Slot(uri=DCTERMS.description, name="Role_description", curie=DCTERMS.curie('description'),
+                   model_uri=DCATAP_PLUS.Role_description, domain=Role, range=Optional[Union[str, list[str]]])
+
 slots.Software_has_part = Slot(uri=DCTERMS.hasPart, name="Software_has_part", curie=DCTERMS.curie('hasPart'),
                    model_uri=DCATAP_PLUS.Software_has_part, domain=Software, range=Optional[Union[dict[Union[str, SoftwareId], Union[dict, "Software"]], list[Union[dict, "Software"]]]])
 
 slots.Software_other_identifier = Slot(uri=ADMS.identifier, name="Software_other_identifier", curie=ADMS.curie('identifier'),
                    model_uri=DCATAP_PLUS.Software_other_identifier, domain=Software, range=Optional[Union[Union[dict, "Identifier"], list[Union[dict, "Identifier"]]]])
+
+slots.Standard_identifier = Slot(uri=DCTERMS.identifier, name="Standard_identifier", curie=DCTERMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.Standard_identifier, domain=Standard, range=Optional[Union[str, URIorCURIE]])
+
+slots.Standard_other_identifier = Slot(uri=ADMS.identifier, name="Standard_other_identifier", curie=ADMS.curie('identifier'),
+                   model_uri=DCATAP_PLUS.Standard_other_identifier, domain=Standard, range=Optional[Union[Union[dict, Identifier], list[Union[dict, Identifier]]]])
+
+slots.Standard_title = Slot(uri=DCTERMS.title, name="Standard_title", curie=DCTERMS.curie('title'),
+                   model_uri=DCATAP_PLUS.Standard_title, domain=Standard, range=Optional[Union[str, list[str]]])
+
+slots.Standard_description = Slot(uri=DCTERMS.description, name="Standard_description", curie=DCTERMS.curie('description'),
+                   model_uri=DCATAP_PLUS.Standard_description, domain=Standard, range=Optional[Union[str, list[str]]])

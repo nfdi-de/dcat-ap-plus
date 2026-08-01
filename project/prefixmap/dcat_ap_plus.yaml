@@ -18,6 +18,7 @@
    "iana": "https://www.iana.org/assignments/",
    "linkml": "https://w3id.org/linkml/",
    "locn": "http://www.w3.org/ns/locn#",
+   "locn_new": "http://data.europa.eu/m8g/",
    "odrl": "http://www.w3.org/ns/odrl/2/",
    "prov": "http://www.w3.org/ns/prov#",
    "qb": "http://purl.org/linked-data/cube#",
@@ -122,7 +123,7 @@
    "LegalResource": {
       "@id": "eli:LegalResource"
    },
-   "LicenseDocument": {
+   "LicenceDocument": {
       "@id": "dcterms:LicenseDocument"
    },
    "LinguisticSystem": {

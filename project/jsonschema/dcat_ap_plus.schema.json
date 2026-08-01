@@ -151,12 +151,40 @@
             "additionalProperties": false,
             "description": "See [DCAT-AP specs:Agent](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Agent)",
             "properties": {
+                "identifier": {
+                    "description": "The slot to provide the main identifier for an instance of this class.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "name": {
                     "description": "A name of the agent.",
                     "items": {
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "other_identifier": {
+                    "description": "The slot to provide all known identifiers for an instance of this class.",
+                    "items": {
+                        "$ref": "#/$defs/Identifier"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "rdf_type": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/DefinedTerm"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The slot to provide an additional rdf:type for the Agent. According to DCAT-AP that should be foaf:Person for individuals or, for organizations it should be foaf:Organization or org:Organization."
                 },
                 "type": {
                     "anyOf": [
@@ -771,22 +799,6 @@
         "Any": {
             "additionalProperties": true,
             "description": "This abstract class is needed to create the union of Dataset, DatasetSeries, Catalogue and DataService for the range of the slot [primary_topic](https://nfdi-de.github.io/chem-dcat-ap/elements/primary_topic/).",
-            "properties": {
-                "description": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "title": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                }
-            },
             "title": "Any",
             "type": [
                 "null",
@@ -800,17 +812,33 @@
             "additionalProperties": false,
             "description": "See [DCAT-AP specs:Attribution](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Attribution)",
             "properties": {
-                "description": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
+                "agent": {
+                    "description": "The slot to reference an Agent that is having some form of responsibility for a Dataset.",
+                    "items": {
+                        "$ref": "#/$defs/Agent"
+                    },
                     "type": [
-                        "string",
+                        "array",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "The slot to provide a description for an instance of this class.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
                         "null"
                     ]
                 },
                 "title": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
+                    "description": "The slot to provide a title for an instance of this class.",
+                    "items": {
+                        "type": "string"
+                    },
                     "type": [
-                        "string",
+                        "array",
                         "null"
                     ]
                 }
@@ -901,6 +929,17 @@
                     ],
                     "description": "A web page that acts as the main page for the Catalogue."
                 },
+                "id": {
+                    "description": "A slot to provide an URI for an entity within this schema.",
+                    "type": "string"
+                },
+                "identifier": {
+                    "description": "The slot to provide the main identifier for an instance of this class.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "language": {
                     "description": "A language used in the textual metadata describing titles, descriptions, etc. of the Datasets in the Catalogue.",
                     "items": {
@@ -914,7 +953,7 @@
                 "licence": {
                     "anyOf": [
                         {
-                            "$ref": "#/$defs/LicenseDocument"
+                            "$ref": "#/$defs/LicenceDocument"
                         },
                         {
                             "type": "null"
@@ -927,6 +966,16 @@
                     "format": "date",
                     "type": [
                         "string",
+                        "null"
+                    ]
+                },
+                "other_identifier": {
+                    "description": "The slot to provide all known identifiers for an instance of this class.",
+                    "items": {
+                        "$ref": "#/$defs/Identifier"
+                    },
+                    "type": [
+                        "array",
                         "null"
                     ]
                 },
@@ -1004,7 +1053,8 @@
             "required": [
                 "description",
                 "publisher",
-                "title"
+                "title",
+                "id"
             ],
             "title": "Catalogue",
             "type": "object"
@@ -1044,6 +1094,17 @@
                         "null"
                     ]
                 },
+                "id": {
+                    "description": "A slot to provide an URI for an entity within this schema.",
+                    "type": "string"
+                },
+                "identifier": {
+                    "description": "The slot to provide the main identifier for an instance of this class.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "language": {
                     "description": "A language used in the textual metadata describing titles, descriptions, etc. of the Catalogued Resource.",
                     "items": {
@@ -1067,20 +1128,30 @@
                     "format": "date",
                     "type": "string"
                 },
+                "other_identifier": {
+                    "description": "The slot to provide all known identifiers for an instance of this class.",
+                    "items": {
+                        "$ref": "#/$defs/Identifier"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "primary_topic": {
                     "$ref": "#/$defs/Any",
                     "anyOf": [
                         {
-                            "$ref": "#/$defs/Catalogue"
+                            "type": "string"
                         },
                         {
                             "type": "string"
                         },
                         {
-                            "$ref": "#/$defs/DatasetSeries"
+                            "type": "string"
                         },
                         {
-                            "$ref": "#/$defs/DataService"
+                            "type": "string"
                         }
                     ],
                     "description": "A link to the Dataset, Data service or Catalog described in the record."
@@ -1109,7 +1180,8 @@
             },
             "required": [
                 "modification_date",
-                "primary_topic"
+                "primary_topic",
+                "id"
             ],
             "title": "CatalogueRecord",
             "type": "object"
@@ -1140,16 +1212,39 @@
             "description": "See [DCAT-AP specs:ChecksumAlgorithm](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#ChecksumAlgorithm)",
             "properties": {
                 "description": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
+                    "description": "The slot to provide a description for an instance of this class.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "identifier": {
+                    "description": "The slot to provide the main identifier for an instance of this class.",
                     "type": [
                         "string",
                         "null"
                     ]
                 },
-                "title": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
+                "other_identifier": {
+                    "description": "The slot to provide all known identifiers for an instance of this class.",
+                    "items": {
+                        "$ref": "#/$defs/Identifier"
+                    },
                     "type": [
-                        "string",
+                        "array",
+                        "null"
+                    ]
+                },
+                "title": {
+                    "description": "The slot to provide a title for an instance of this class.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
                         "null"
                     ]
                 }
@@ -1192,9 +1287,29 @@
             "description": "See [DCAT-AP specs:Concept](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Concept)",
             "properties": {
                 "description": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
+                    "description": "The slot to provide a description for an instance of this class.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "identifier": {
+                    "description": "The slot to provide the main identifier for an instance of this class.",
                     "type": [
                         "string",
+                        "null"
+                    ]
+                },
+                "other_identifier": {
+                    "description": "The slot to provide all known identifiers for an instance of this class.",
+                    "items": {
+                        "$ref": "#/$defs/Identifier"
+                    },
+                    "type": [
+                        "array",
                         "null"
                     ]
                 },
@@ -1206,9 +1321,12 @@
                     "type": "array"
                 },
                 "title": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
+                    "description": "The slot to provide a title for an instance of this class.",
+                    "items": {
+                        "type": "string"
+                    },
                     "type": [
-                        "string",
+                        "array",
                         "null"
                     ]
                 }
@@ -1224,9 +1342,29 @@
             "description": "See [DCAT-AP specs:ConceptScheme](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#ConceptScheme)",
             "properties": {
                 "description": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
+                    "description": "The slot to provide a description for an instance of this class.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "identifier": {
+                    "description": "The slot to provide the main identifier for an instance of this class.",
                     "type": [
                         "string",
+                        "null"
+                    ]
+                },
+                "other_identifier": {
+                    "description": "The slot to provide all known identifiers for an instance of this class.",
+                    "items": {
+                        "$ref": "#/$defs/Identifier"
+                    },
+                    "type": [
+                        "array",
                         "null"
                     ]
                 },
@@ -1714,6 +1852,17 @@
                         "null"
                     ]
                 },
+                "id": {
+                    "description": "A slot to provide an URI for an entity within this schema.",
+                    "type": "string"
+                },
+                "identifier": {
+                    "description": "The slot to provide the main identifier for an instance of this class.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "keyword": {
                     "description": "A keyword or tag describing the Data Service.",
                     "items": {
@@ -1737,13 +1886,23 @@
                 "licence": {
                     "anyOf": [
                         {
-                            "$ref": "#/$defs/LicenseDocument"
+                            "$ref": "#/$defs/LicenceDocument"
                         },
                         {
                             "type": "null"
                         }
                     ],
                     "description": "A licence under which the Data service is made available."
+                },
+                "other_identifier": {
+                    "description": "The slot to provide all known identifiers for an instance of this class.",
+                    "items": {
+                        "$ref": "#/$defs/Identifier"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "publisher": {
                     "anyOf": [
@@ -1786,7 +1945,8 @@
             },
             "required": [
                 "endpoint_URL",
-                "title"
+                "title",
+                "id"
             ],
             "title": "DataService",
             "type": "object"
@@ -2223,11 +2383,32 @@
                         "null"
                     ]
                 },
+                "id": {
+                    "description": "A slot to provide an URI for an entity within this schema.",
+                    "type": "string"
+                },
+                "identifier": {
+                    "description": "The slot to provide the main identifier for an instance of this class.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "modification_date": {
                     "description": "The most recent date on which the Dataset Series was changed or modified.",
                     "format": "date",
                     "type": [
                         "string",
+                        "null"
+                    ]
+                },
+                "other_identifier": {
+                    "description": "The slot to provide all known identifiers for an instance of this class.",
+                    "items": {
+                        "$ref": "#/$defs/Identifier"
+                    },
+                    "type": [
+                        "array",
                         "null"
                     ]
                 },
@@ -2270,31 +2451,11 @@
             },
             "required": [
                 "description",
-                "title"
+                "title",
+                "id"
             ],
             "title": "DatasetSeries",
             "type": "object"
-        },
-        "DatasetThemes": {
-            "description": "",
-            "enum": [
-                "AGRI",
-                "ECON",
-                "EDUC",
-                "ENER",
-                "ENVI",
-                "GOVE",
-                "HEAL",
-                "INTR",
-                "JUST",
-                "OP_DATPRO",
-                "REGI",
-                "SOCI",
-                "TECH",
-                "TRAN"
-            ],
-            "title": "DatasetThemes",
-            "type": "string"
         },
         "DefinedTerm": {
             "additionalProperties": false,
@@ -2550,6 +2711,17 @@
                     ],
                     "description": "The policy expressing the rights associated with the distribution if using the [[ODRL]] vocabulary."
                 },
+                "id": {
+                    "description": "A slot to provide an URI for an entity within this schema.",
+                    "type": "string"
+                },
+                "identifier": {
+                    "description": "The slot to provide the main identifier for an instance of this class.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "language": {
                     "description": "A language used in the Distribution.",
                     "items": {
@@ -2563,7 +2735,7 @@
                 "licence": {
                     "anyOf": [
                         {
-                            "$ref": "#/$defs/LicenseDocument"
+                            "$ref": "#/$defs/LicenceDocument"
                         },
                         {
                             "type": "null"
@@ -2597,6 +2769,16 @@
                     "format": "date",
                     "type": [
                         "string",
+                        "null"
+                    ]
+                },
+                "other_identifier": {
+                    "description": "The slot to provide all known identifiers for an instance of this class.",
+                    "items": {
+                        "$ref": "#/$defs/Identifier"
+                    },
+                    "type": [
+                        "array",
                         "null"
                     ]
                 },
@@ -2668,7 +2850,8 @@
                 }
             },
             "required": [
-                "access_URL"
+                "access_URL",
+                "id"
             ],
             "title": "Distribution",
             "type": "object"
@@ -2678,27 +2861,43 @@
             "description": "See [DCAT-AP specs:Document](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Document)",
             "properties": {
                 "description": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
+                    "description": "The slot to provide a description for an instance of this class.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "identifier": {
+                    "description": "The slot to provide the main identifier for an instance of this class.",
                     "type": [
                         "string",
                         "null"
                     ]
                 },
-                "id": {
-                    "description": "A slot to provide an URI for an entity within this schema.",
-                    "type": "string"
+                "other_identifier": {
+                    "description": "The slot to provide all known identifiers for an instance of this class.",
+                    "items": {
+                        "$ref": "#/$defs/Identifier"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "title": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
+                    "description": "The slot to provide a title for an instance of this class.",
+                    "items": {
+                        "type": "string"
+                    },
                     "type": [
-                        "string",
+                        "array",
                         "null"
                     ]
                 }
             },
-            "required": [
-                "id"
-            ],
             "title": "Document",
             "type": "object"
         },
@@ -3066,16 +3265,39 @@
             "description": "See [DCAT-AP specs:Frequency](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Frequency)",
             "properties": {
                 "description": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
+                    "description": "The slot to provide a description for an instance of this class.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "identifier": {
+                    "description": "The slot to provide the main identifier for an instance of this class.",
                     "type": [
                         "string",
                         "null"
                     ]
                 },
-                "title": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
+                "other_identifier": {
+                    "description": "The slot to provide all known identifiers for an instance of this class.",
+                    "items": {
+                        "$ref": "#/$defs/Identifier"
+                    },
                     "type": [
-                        "string",
+                        "array",
+                        "null"
+                    ]
+                },
+                "title": {
+                    "description": "The slot to provide a title for an instance of this class.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
                         "null"
                     ]
                 }
@@ -3087,15 +3309,43 @@
             "additionalProperties": false,
             "description": "See [DCAT-AP specs:Geometry](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Geometry)",
             "properties": {
-                "description": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
+                "coordinates": {
+                    "description": "A list of geographic coordinates that define the extent of the Geometry.",
                     "type": [
                         "string",
                         "null"
                     ]
                 },
-                "title": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
+                "crs": {
+                    "description": "An identifier for the coordinate reference system.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "gml": {
+                    "description": "The expression of the Geometry in Geography Markup Language.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "latitude": {
+                    "description": "The geographic coordinate that specifies the north / south position of the geometry on the Earth's surface.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "longitude": {
+                    "description": "The geographic coordinate that specifies the east / west position of the Geometry on the Earth's surface.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "wkt": {
+                    "description": "An expression of the Geometry in WKT, the Well-Known Text markup language.",
                     "type": [
                         "string",
                         "null"
@@ -3110,9 +3360,12 @@
             "description": "See [DCAT-AP specs:Identifier](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Identifier)",
             "properties": {
                 "description": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
+                    "description": "The slot to provide a description for an instance of this class.",
+                    "items": {
+                        "type": "string"
+                    },
                     "type": [
-                        "string",
+                        "array",
                         "null"
                     ]
                 },
@@ -3121,9 +3374,12 @@
                     "type": "string"
                 },
                 "title": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
+                    "description": "The slot to provide a title for an instance of this class.",
+                    "items": {
+                        "type": "string"
+                    },
                     "type": [
-                        "string",
+                        "array",
                         "null"
                     ]
                 }
@@ -3137,6 +3393,40 @@
         "Kind": {
             "additionalProperties": false,
             "description": "See [DCAT-AP specs:Kind](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Kind)",
+            "properties": {
+                "formatted_name": {
+                    "description": "The slot to provide a the name of the contact point as a string.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "has_email": {
+                    "description": "The slot to specify the email address of the contact point as a literal string",
+                    "items": {
+                        "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "has_telephone": {
+                    "description": "The slot to specify the telephone number of the contact point as a literal string.",
+                    "items": {
+                        "pattern": "^\\+?[0-9\\s\\-\\(\\)\\.]{6,20}$",
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "formatted_name"
+            ],
             "title": "Kind",
             "type": "object"
         },
@@ -3145,49 +3435,84 @@
             "description": "See [DCAT-AP specs:LegalResource](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#LegalResource)",
             "properties": {
                 "description": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
+                    "description": "The slot to provide a description for an instance of this class.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "identifier": {
+                    "description": "The slot to provide the main identifier for an instance of this class.",
                     "type": [
                         "string",
                         "null"
                     ]
                 },
-                "id": {
-                    "description": "A slot to provide an URI for an entity within this schema.",
-                    "type": "string"
+                "other_identifier": {
+                    "description": "The slot to provide all known identifiers for an instance of this class.",
+                    "items": {
+                        "$ref": "#/$defs/Identifier"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "title": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
+                    "description": "The slot to provide a title for an instance of this class.",
+                    "items": {
+                        "type": "string"
+                    },
                     "type": [
-                        "string",
+                        "array",
                         "null"
                     ]
                 }
             },
-            "required": [
-                "id"
-            ],
             "title": "LegalResource",
             "type": "object"
         },
-        "LicenseDocument": {
+        "LicenceDocument": {
             "additionalProperties": false,
-            "description": "See [DCAT-AP specs:LicenseDocument](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#LicenseDocument)",
+            "description": "See [DCAT-AP specs:LicenceDocument](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#LicenceDocument)",
             "properties": {
                 "description": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
+                    "description": "The slot to provide a description for an instance of this class.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "identifier": {
+                    "description": "The slot to provide the main identifier for an instance of this class.",
                     "type": [
                         "string",
                         "null"
                     ]
                 },
-                "id": {
-                    "description": "A slot to provide an URI for an entity within this schema.",
-                    "type": "string"
+                "other_identifier": {
+                    "description": "The slot to provide all known identifiers for an instance of this class.",
+                    "items": {
+                        "$ref": "#/$defs/Identifier"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "title": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
+                    "description": "The slot to provide a title for an instance of this class.",
+                    "items": {
+                        "type": "string"
+                    },
                     "type": [
-                        "string",
+                        "array",
                         "null"
                     ]
                 },
@@ -3202,10 +3527,7 @@
                     ]
                 }
             },
-            "required": [
-                "id"
-            ],
-            "title": "LicenseDocument",
+            "title": "LicenceDocument",
             "type": "object"
         },
         "LinguisticSystem": {
@@ -3213,16 +3535,39 @@
             "description": "See [DCAT-AP specs:LinguisticSystem](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#LinguisticSystem)",
             "properties": {
                 "description": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
+                    "description": "The slot to provide a description for an instance of this class.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "identifier": {
+                    "description": "The slot to provide the main identifier for an instance of this class.",
                     "type": [
                         "string",
                         "null"
                     ]
                 },
-                "title": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
+                "other_identifier": {
+                    "description": "The slot to provide all known identifiers for an instance of this class.",
+                    "items": {
+                        "$ref": "#/$defs/Identifier"
+                    },
                     "type": [
-                        "string",
+                        "array",
+                        "null"
+                    ]
+                },
+                "title": {
+                    "description": "The slot to provide a title for an instance of this class.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
                         "null"
                     ]
                 }
@@ -3248,6 +3593,16 @@
                         "null"
                     ]
                 },
+                "description": {
+                    "description": "The slot to provide a description for an instance of this class.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "geometry": {
                     "anyOf": [
                         {
@@ -3258,6 +3613,33 @@
                         }
                     ],
                     "description": "The corresponding geometry for a resource."
+                },
+                "identifier": {
+                    "description": "The slot to provide the main identifier for an instance of this class.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "other_identifier": {
+                    "description": "The slot to provide all known identifiers for an instance of this class.",
+                    "items": {
+                        "$ref": "#/$defs/Identifier"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "title": {
+                    "description": "The slot to provide a title for an instance of this class.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 }
             },
             "title": "Location",
@@ -3268,16 +3650,39 @@
             "description": "See [DCAT-AP specs:MediaType](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#MediaType)",
             "properties": {
                 "description": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
+                    "description": "The slot to provide a description for an instance of this class.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "identifier": {
+                    "description": "The slot to provide the main identifier for an instance of this class.",
                     "type": [
                         "string",
                         "null"
                     ]
                 },
-                "title": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
+                "other_identifier": {
+                    "description": "The slot to provide all known identifiers for an instance of this class.",
+                    "items": {
+                        "$ref": "#/$defs/Identifier"
+                    },
                     "type": [
-                        "string",
+                        "array",
+                        "null"
+                    ]
+                },
+                "title": {
+                    "description": "The slot to provide a title for an instance of this class.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
                         "null"
                     ]
                 }
@@ -3290,16 +3695,39 @@
             "description": "See [DCAT-AP specs:MediaTypeOrExtent](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#MediaTypeOrExtent)",
             "properties": {
                 "description": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
+                    "description": "The slot to provide a description for an instance of this class.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "identifier": {
+                    "description": "The slot to provide the main identifier for an instance of this class.",
                     "type": [
                         "string",
                         "null"
                     ]
                 },
-                "title": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
+                "other_identifier": {
+                    "description": "The slot to provide all known identifiers for an instance of this class.",
+                    "items": {
+                        "$ref": "#/$defs/Identifier"
+                    },
                     "type": [
-                        "string",
+                        "array",
+                        "null"
+                    ]
+                },
+                "title": {
+                    "description": "The slot to provide a title for an instance of this class.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
                         "null"
                     ]
                 }
@@ -3321,13 +3749,6 @@
                         }
                     ],
                     "description": "The beginning of a period or interval."
-                },
-                "description": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
                 },
                 "end": {
                     "anyOf": [
@@ -3351,13 +3772,6 @@
                 "start_date": {
                     "description": "The start of the period.",
                     "format": "date",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "title": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
                     "type": [
                         "string",
                         "null"
@@ -3416,16 +3830,39 @@
             "description": "See [DCAT-AP specs:Policy](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Policy)",
             "properties": {
                 "description": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
+                    "description": "The slot to provide a description for an instance of this class.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "identifier": {
+                    "description": "The slot to provide the main identifier for an instance of this class.",
                     "type": [
                         "string",
                         "null"
                     ]
                 },
-                "title": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
+                "other_identifier": {
+                    "description": "The slot to provide all known identifiers for an instance of this class.",
+                    "items": {
+                        "$ref": "#/$defs/Identifier"
+                    },
                     "type": [
-                        "string",
+                        "array",
+                        "null"
+                    ]
+                },
+                "title": {
+                    "description": "The slot to provide a title for an instance of this class.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
                         "null"
                     ]
                 }
@@ -3438,16 +3875,39 @@
             "description": "See [DCAT-AP specs:ProvenanceStatement](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#ProvenanceStatement)",
             "properties": {
                 "description": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
+                    "description": "The slot to provide a description for an instance of this class.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "identifier": {
+                    "description": "The slot to provide the main identifier for an instance of this class.",
                     "type": [
                         "string",
                         "null"
                     ]
                 },
-                "title": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
+                "other_identifier": {
+                    "description": "The slot to provide all known identifiers for an instance of this class.",
+                    "items": {
+                        "$ref": "#/$defs/Identifier"
+                    },
                     "type": [
-                        "string",
+                        "array",
+                        "null"
+                    ]
+                },
+                "title": {
+                    "description": "The slot to provide a title for an instance of this class.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
                         "null"
                     ]
                 }
@@ -3582,6 +4042,16 @@
             "additionalProperties": false,
             "description": "See [DCAT-AP specs:Relationship](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Relationship)",
             "properties": {
+                "description": {
+                    "description": "The slot to provide a description for an instance of this class.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "had_role": {
                     "description": "A function of an entity or agent with respect to another entity or resource.",
                     "items": {
@@ -3595,6 +4065,16 @@
                         "$ref": "#/$defs/Resource"
                     },
                     "type": "array"
+                },
+                "title": {
+                    "description": "The slot to provide a title for an instance of this class.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 }
             },
             "required": [
@@ -3609,9 +4089,12 @@
             "description": "See [DCAT-AP specs:Resource](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Resource)",
             "properties": {
                 "description": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
+                    "description": "The slot to provide a description for an instance of this class.",
+                    "items": {
+                        "type": "string"
+                    },
                     "type": [
-                        "string",
+                        "array",
                         "null"
                     ]
                 },
@@ -3619,10 +4102,30 @@
                     "description": "A slot to provide an URI for an entity within this schema.",
                     "type": "string"
                 },
-                "title": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
+                "identifier": {
+                    "description": "The slot to provide the main identifier for an instance of this class.",
                     "type": [
                         "string",
+                        "null"
+                    ]
+                },
+                "other_identifier": {
+                    "description": "The slot to provide all known identifiers for an instance of this class.",
+                    "items": {
+                        "$ref": "#/$defs/Identifier"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "title": {
+                    "description": "The slot to provide a title for an instance of this class.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
                         "null"
                     ]
                 }
@@ -3638,16 +4141,39 @@
             "description": "See [DCAT-AP specs:RightsStatement](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#RightsStatement)",
             "properties": {
                 "description": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
+                    "description": "The slot to provide a description for an instance of this class.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "identifier": {
+                    "description": "The slot to provide the main identifier for an instance of this class.",
                     "type": [
                         "string",
                         "null"
                     ]
                 },
-                "title": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
+                "other_identifier": {
+                    "description": "The slot to provide all known identifiers for an instance of this class.",
+                    "items": {
+                        "$ref": "#/$defs/Identifier"
+                    },
                     "type": [
-                        "string",
+                        "array",
+                        "null"
+                    ]
+                },
+                "title": {
+                    "description": "The slot to provide a title for an instance of this class.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
                         "null"
                     ]
                 }
@@ -3660,16 +4186,22 @@
             "description": "See [DCAT-AP specs:Role](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Role)",
             "properties": {
                 "description": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
+                    "description": "The slot to provide a description for an instance of this class.",
+                    "items": {
+                        "type": "string"
+                    },
                     "type": [
-                        "string",
+                        "array",
                         "null"
                     ]
                 },
                 "title": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
+                    "description": "The slot to provide a title for an instance of this class.",
+                    "items": {
+                        "type": "string"
+                    },
                     "type": [
-                        "string",
+                        "array",
                         "null"
                     ]
                 }
@@ -3783,16 +4315,39 @@
             "description": "See [DCAT-AP specs:Standard](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Standard)",
             "properties": {
                 "description": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
+                    "description": "The slot to provide a description for an instance of this class.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "identifier": {
+                    "description": "The slot to provide the main identifier for an instance of this class.",
                     "type": [
                         "string",
                         "null"
                     ]
                 },
-                "title": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
+                "other_identifier": {
+                    "description": "The slot to provide all known identifiers for an instance of this class.",
+                    "items": {
+                        "$ref": "#/$defs/Identifier"
+                    },
                     "type": [
-                        "string",
+                        "array",
+                        "null"
+                    ]
+                },
+                "title": {
+                    "description": "The slot to provide a title for an instance of this class.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
                         "null"
                     ]
                 }
@@ -3803,22 +4358,6 @@
         "SupportiveEntity": {
             "additionalProperties": false,
             "description": "The supportive entities are supporting the main entities in the Application Profile. They are included in the Application Profile because they form the range of properties.",
-            "properties": {
-                "description": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "title": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                }
-            },
             "title": "SupportiveEntity",
             "type": "object"
         },
@@ -3870,15 +4409,9 @@
             "additionalProperties": false,
             "description": "See [DCAT-AP specs:TimeInstant](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#TimeInstant)",
             "properties": {
-                "description": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "title": {
-                    "description": "This slot is described in more detail within the class in which it is used.",
+                "datetime": {
+                    "description": "The slot to provide a the datetime of a TimeInstant.",
+                    "format": "date-time",
                     "type": [
                         "string",
                         "null"
@@ -3887,24 +4420,6 @@
             },
             "title": "TimeInstant",
             "type": "object"
-        },
-        "TopLevelMediaTypes": {
-            "description": "",
-            "enum": [
-                "application",
-                "audio",
-                "example",
-                "font",
-                "haptics",
-                "image",
-                "message",
-                "model",
-                "multipart",
-                "text",
-                "video"
-            ],
-            "title": "TopLevelMediaTypes",
-            "type": "string"
         }
     },
     "$id": "https://w3id.org/nfdi-de/dcat-ap-plus",
@@ -3913,5 +4428,5 @@
     "metamodel_version": "1.11.0",
     "title": "dcat-ap-plus",
     "type": "object",
-    "version": "0.1.0rc4.post34.dev0+20e64d58"
+    "version": "0.1.0rc4.post33.dev0+f183cf49"
 }
