@@ -38,6 +38,7 @@
       "iana": "https://www.iana.org/assignments/",
       "linkml": "https://w3id.org/linkml/",
       "locn": "http://www.w3.org/ns/locn#",
+      "locn_new": "http://data.europa.eu/m8g/",
       "odrl": "http://www.w3.org/ns/odrl/2/",
       "prov": "http://www.w3.org/ns/prov#",
       "qb": "http://purl.org/linked-data/cube#",
@@ -69,6 +70,10 @@
       },
       "application_profile": {
          "@id": "dcterms:conformsTo"
+      },
+      "agent": {
+         "@type": "@id",
+         "@id": "prov:agent"
       },
       "availability": {
          "@id": "dcatap:availability"
@@ -161,6 +166,25 @@
       "geometry": {
          "@id": "locn:geometry"
       },
+      "coordinates": {
+         "@id": "locn_new:coordinates"
+      },
+      "crs": {
+         "@type": "xsd:anyURI",
+         "@id": "locn_new:crs"
+      },
+      "gml": {
+         "@id": "locn_new:gml"
+      },
+      "latitude": {
+         "@id": "locn_new:latitude"
+      },
+      "longitude": {
+         "@id": "locn_new:longitude"
+      },
+      "wkt": {
+         "@id": "locn_new:wkt"
+      },
       "had_input_activity": {
          "@type": "@id",
          "@id": "prov:wasInformedBy"
@@ -220,6 +244,15 @@
       },
       "keyword": {
          "@id": "dcat:keyword"
+      },
+      "formatted_name": {
+         "@id": "vcard:fn"
+      },
+      "has_email": {
+         "@id": "vcard:hasEmail"
+      },
+      "has_telephone": {
+         "@id": "vcard:hasTelephone"
       },
       "landing_page": {
          "@id": "dcat:landingPage"
@@ -347,6 +380,10 @@
       "themes": {
          "@id": "dcat:themeTaxonomy"
       },
+      "datetime": {
+         "@type": "xsd:dateTime",
+         "@id": "xsd:dateTime"
+      },
       "title": {
          "@id": "dcterms:title"
       },
@@ -379,6 +416,14 @@
          "@context": {
             "type": {
                "@id": "dcterms:type",
+               "@type": "@id"
+            },
+            "identifier": {
+               "@id": "dcterms:identifier",
+               "@type": "xsd:anyURI"
+            },
+            "other_identifier": {
+               "@id": "adms:identifier",
                "@type": "@id"
             }
          }
@@ -482,6 +527,14 @@
             "themes": {
                "@id": "dcat:themeTaxonomy",
                "@type": "@id"
+            },
+            "identifier": {
+               "@id": "dcterms:identifier",
+               "@type": "xsd:anyURI"
+            },
+            "other_identifier": {
+               "@id": "adms:identifier",
+               "@type": "@id"
             }
          }
       },
@@ -515,6 +568,14 @@
             "source_metadata": {
                "@id": "dcterms:source",
                "@type": "@id"
+            },
+            "identifier": {
+               "@id": "dcterms:identifier",
+               "@type": "xsd:anyURI"
+            },
+            "other_identifier": {
+               "@id": "adms:identifier",
+               "@type": "@id"
             }
          }
       },
@@ -532,7 +593,17 @@
          }
       },
       "ChecksumAlgorithm": {
-         "@id": "spdx:ChecksumAlgorithm"
+         "@id": "spdx:ChecksumAlgorithm",
+         "@context": {
+            "identifier": {
+               "@id": "dcterms:identifier",
+               "@type": "xsd:anyURI"
+            },
+            "other_identifier": {
+               "@id": "adms:identifier",
+               "@type": "@id"
+            }
+         }
       },
       "ClassifierMixin": {
          "@id": "ClassifierMixin",
@@ -544,10 +615,30 @@
          }
       },
       "Concept": {
-         "@id": "skos:Concept"
+         "@id": "skos:Concept",
+         "@context": {
+            "identifier": {
+               "@id": "dcterms:identifier",
+               "@type": "xsd:anyURI"
+            },
+            "other_identifier": {
+               "@id": "adms:identifier",
+               "@type": "@id"
+            }
+         }
       },
       "ConceptScheme": {
-         "@id": "skos:ConceptScheme"
+         "@id": "skos:ConceptScheme",
+         "@context": {
+            "identifier": {
+               "@id": "dcterms:identifier",
+               "@type": "xsd:anyURI"
+            },
+            "other_identifier": {
+               "@id": "adms:identifier",
+               "@type": "@id"
+            }
+         }
       },
       "DataAnalysis": {
          "@id": "prov:Activity"
@@ -608,6 +699,14 @@
             },
             "theme": {
                "@id": "dcat:theme",
+               "@type": "@id"
+            },
+            "identifier": {
+               "@id": "dcterms:identifier",
+               "@type": "xsd:anyURI"
+            },
+            "other_identifier": {
+               "@id": "adms:identifier",
                "@type": "@id"
             }
          }
@@ -771,6 +870,14 @@
             "temporal_coverage": {
                "@id": "dcterms:temporal",
                "@type": "@id"
+            },
+            "identifier": {
+               "@id": "dcterms:identifier",
+               "@type": "xsd:anyURI"
+            },
+            "other_identifier": {
+               "@id": "adms:identifier",
+               "@type": "@id"
             }
          }
       },
@@ -876,11 +983,29 @@
             "temporal_resolution": {
                "@id": "dcat:temporalResolution",
                "@type": "xsd:duration"
+            },
+            "identifier": {
+               "@id": "dcterms:identifier",
+               "@type": "xsd:anyURI"
+            },
+            "other_identifier": {
+               "@id": "adms:identifier",
+               "@type": "@id"
             }
          }
       },
       "Document": {
-         "@id": "foaf:Document"
+         "@id": "foaf:Document",
+         "@context": {
+            "identifier": {
+               "@id": "dcterms:identifier",
+               "@type": "xsd:anyURI"
+            },
+            "other_identifier": {
+               "@id": "adms:identifier",
+               "@type": "@id"
+            }
+         }
       },
       "Entity": {
          "@id": "prov:Entity",
@@ -914,7 +1039,17 @@
          }
       },
       "Frequency": {
-         "@id": "dcterms:Frequency"
+         "@id": "dcterms:Frequency",
+         "@context": {
+            "identifier": {
+               "@id": "dcterms:identifier",
+               "@type": "xsd:anyURI"
+            },
+            "other_identifier": {
+               "@id": "adms:identifier",
+               "@type": "@id"
+            }
+         }
       },
       "Geometry": {
          "@id": "locn:Geometry"
@@ -926,19 +1061,47 @@
          "@id": "vcard:Kind"
       },
       "LegalResource": {
-         "@id": "eli:LegalResource"
+         "@id": "eli:LegalResource",
+         "@context": {
+            "identifier": {
+               "@id": "dcterms:identifier",
+               "@type": "xsd:anyURI"
+            },
+            "other_identifier": {
+               "@id": "adms:identifier",
+               "@type": "@id"
+            }
+         }
       },
-      "LicenseDocument": {
+      "LicenceDocument": {
          "@id": "dcterms:LicenseDocument",
          "@context": {
             "type": {
                "@id": "dcterms:type",
                "@type": "@id"
+            },
+            "identifier": {
+               "@id": "dcterms:identifier",
+               "@type": "xsd:anyURI"
+            },
+            "other_identifier": {
+               "@id": "adms:identifier",
+               "@type": "@id"
             }
          }
       },
       "LinguisticSystem": {
-         "@id": "dcterms:LinguisticSystem"
+         "@id": "dcterms:LinguisticSystem",
+         "@context": {
+            "identifier": {
+               "@id": "dcterms:identifier",
+               "@type": "xsd:anyURI"
+            },
+            "other_identifier": {
+               "@id": "adms:identifier",
+               "@type": "@id"
+            }
+         }
       },
       "Location": {
          "@id": "dcterms:Location",
@@ -946,14 +1109,42 @@
             "geometry": {
                "@id": "locn:geometry",
                "@type": "@id"
+            },
+            "identifier": {
+               "@id": "dcterms:identifier",
+               "@type": "xsd:anyURI"
+            },
+            "other_identifier": {
+               "@id": "adms:identifier",
+               "@type": "@id"
             }
          }
       },
       "MediaType": {
-         "@id": "dcterms:MediaType"
+         "@id": "dcterms:MediaType",
+         "@context": {
+            "identifier": {
+               "@id": "dcterms:identifier",
+               "@type": "xsd:anyURI"
+            },
+            "other_identifier": {
+               "@id": "adms:identifier",
+               "@type": "@id"
+            }
+         }
       },
       "MediaTypeOrExtent": {
-         "@id": "dcterms:MediaTypeOrExtent"
+         "@id": "dcterms:MediaTypeOrExtent",
+         "@context": {
+            "identifier": {
+               "@id": "dcterms:identifier",
+               "@type": "xsd:anyURI"
+            },
+            "other_identifier": {
+               "@id": "adms:identifier",
+               "@type": "@id"
+            }
+         }
       },
       "PeriodOfTime": {
          "@id": "dcterms:PeriodOfTime",
@@ -980,10 +1171,30 @@
          "@id": "prov:Plan"
       },
       "Policy": {
-         "@id": "odrl:Policy"
+         "@id": "odrl:Policy",
+         "@context": {
+            "identifier": {
+               "@id": "dcterms:identifier",
+               "@type": "xsd:anyURI"
+            },
+            "other_identifier": {
+               "@id": "adms:identifier",
+               "@type": "@id"
+            }
+         }
       },
       "ProvenanceStatement": {
-         "@id": "dcterms:ProvenanceStatement"
+         "@id": "dcterms:ProvenanceStatement",
+         "@context": {
+            "identifier": {
+               "@id": "dcterms:identifier",
+               "@type": "xsd:anyURI"
+            },
+            "other_identifier": {
+               "@id": "adms:identifier",
+               "@type": "@id"
+            }
+         }
       },
       "QualitativeAttribute": {
          "@id": "prov:Entity"
@@ -1011,10 +1222,30 @@
          }
       },
       "Resource": {
-         "@id": "rdfs:Resource"
+         "@id": "rdfs:Resource",
+         "@context": {
+            "identifier": {
+               "@id": "dcterms:identifier",
+               "@type": "xsd:anyURI"
+            },
+            "other_identifier": {
+               "@id": "adms:identifier",
+               "@type": "@id"
+            }
+         }
       },
       "RightsStatement": {
-         "@id": "dcterms:RightsStatement"
+         "@id": "dcterms:RightsStatement",
+         "@context": {
+            "identifier": {
+               "@id": "dcterms:identifier",
+               "@type": "xsd:anyURI"
+            },
+            "other_identifier": {
+               "@id": "adms:identifier",
+               "@type": "@id"
+            }
+         }
       },
       "Role": {
          "@id": "dcat:Role"
@@ -1029,7 +1260,17 @@
          }
       },
       "Standard": {
-         "@id": "dcterms:Standard"
+         "@id": "dcterms:Standard",
+         "@context": {
+            "identifier": {
+               "@id": "dcterms:identifier",
+               "@type": "xsd:anyURI"
+            },
+            "other_identifier": {
+               "@id": "adms:identifier",
+               "@type": "@id"
+            }
+         }
       },
       "SupportiveEntity": {
          "@id": "SupportiveEntity"

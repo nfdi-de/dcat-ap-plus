@@ -1,0 +1,52 @@
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcatap: <http://data.europa.eu/r5r/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix eli: <http://data.europa.eu/eli/ontology#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/dataset/air-quality-series-001> a dcat:DatasetSeries ;
+    dcatap:applicableLegislation [ a eli:LegalResource ;
+            dcterms:description "EU Directive on ambient air quality." ;
+            dcterms:identifier <https://eur-lex.europa.eu/eli/dir/2008/50/oj> ;
+            dcterms:title "Ambient Air Quality Directive" ] ;
+    dcterms:accrualPeriodicity [ a dcterms:Frequency ;
+            dcterms:description "The frequency with which this DatasetSeries is being updated." ;
+            dcterms:identifier <http://publications.europa.eu/resource/authority/frequency/ANNUAL> ;
+            dcterms:title "Update Frequency" ;
+            adms:identifier [ a adms:Identifier ;
+                    dcterms:description "This identifier from the http://publications.europa.eu/resource/authority/frequency vocabulary should be used according to the DCAT-AP specs to indicate an annual update frequency of a dataset." ;
+                    dcterms:title "DCAT-AP mandated identifier" ;
+                    skos:notation "http://publications.europa.eu/resource/authority/frequency/ANNUAL" ] ] ;
+    dcterms:description "A series of datasets containing annual air quality measurements from 2020 to present.",
+        "Eine Reihe von Datensätzen mit jährlichen Luftqualitätsmessungen von 2020 bis heute." ;
+    dcterms:issued "2020-01-15"^^xsd:date ;
+    dcterms:modified "2026-06-15"^^xsd:date ;
+    dcterms:publisher [ a foaf:Agent ;
+            dcterms:identifier <http://publications.europa.eu/resource/authority/corporate-body/UBA_DE> ;
+            dcterms:type [ a skos:Concept ;
+                    dcterms:identifier <http://purl.org/adms/publishertype/GovernmentAgency> ;
+                    skos:prefLabel "Government Agency" ] ;
+            foaf:name "Federal Environment Agency" ] ;
+    dcterms:spatial [ a dcterms:Location ;
+            dcterms:description "Coverage limited to Germany." ;
+            dcterms:identifier <http://publications.europa.eu/resource/authority/country/DEU> ;
+            dcterms:title "Germany" ] ;
+    dcterms:temporal [ a dcterms:PeriodOfTime ;
+            time:hasBeginning [ a time:Instant ;
+                    xsd:dateTime "2019-01-12T21:32:52+00:00"^^xsd:dateTime ] ;
+            time:hasEnd [ a time:Instant ;
+                    xsd:dateTime "2020-01-12T21:00:00+00:00"^^xsd:dateTime ] ;
+            dcat:endDate "2020-01-12"^^xsd:date ;
+            dcat:startDate "2019-01-12"^^xsd:date ] ;
+    dcterms:title "Annual Air Quality Measurements Series",
+        "Jahresreihe der Luftqualitätsmessungen" ;
+    dcat:contactPoint [ a vcard:Kind ;
+            vcard:fn "Air Quality Data Manager" ;
+            vcard:hasEmail "airquality@example.org" ;
+            vcard:hasTelephone "+49-9876-54321" ] .
+
