@@ -1,0 +1,182 @@
+{
+   "AFE": "http://purl.allotrope.org/ontologies/equipment#AFE_",
+   "BFO": "http://purl.obolibrary.org/obo/BFO_",
+   "IAO": "http://purl.obolibrary.org/obo/IAO_",
+   "NCIT": "http://purl.obolibrary.org/obo/NCIT_",
+   "OBI": "http://purl.obolibrary.org/obo/OBI_",
+   "SIO": "http://semanticscience.org/resource/SIO_",
+   "SOSA": "http://www.w3.org/ns/sosa/",
+   "adms": "http://www.w3.org/ns/adms#",
+   "dcat": "http://www.w3.org/ns/dcat#",
+   "dcatap": "http://data.europa.eu/r5r/",
+   "dcatap_plus": "https://w3id.org/nfdi-de/dcat-ap-plus/",
+   "dcterms": "http://purl.org/dc/terms/",
+   "eli": "http://data.europa.eu/eli/ontology#",
+   "epos": "https://www.epos-eu.org/epos-dcat-ap#",
+   "ex": "http://example.org/",
+   "foaf": "http://xmlns.com/foaf/0.1/",
+   "iana": "https://www.iana.org/assignments/",
+   "linkml": "https://w3id.org/linkml/",
+   "locn": "http://www.w3.org/ns/locn#",
+   "odrl": "http://www.w3.org/ns/odrl/2/",
+   "prov": "http://www.w3.org/ns/prov#",
+   "qb": "http://purl.org/linked-data/cube#",
+   "qudt": "http://qudt.org/schema/qudt/",
+   "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+   "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+   "schema": "http://schema.org/",
+   "sh": "http://www.w3.org/ns/shacl#",
+   "skos": "http://www.w3.org/2004/02/skos/core#",
+   "spdx": "http://spdx.org/rdf/terms#",
+   "time": "http://www.w3.org/2006/time#",
+   "vcard": "http://www.w3.org/2006/vcard/ns#",
+   "vl": "https://purl.eu/ns/shacl#",
+   "xsd": "http://www.w3.org/2001/XMLSchema#",
+   "Activity": {
+      "@id": "prov:Activity"
+   },
+   "Agent": {
+      "@id": "foaf:Agent"
+   },
+   "AgenticEntity": {
+      "@id": "prov:Agent"
+   },
+   "AnalysisDataset": {
+      "@id": "dcat:Dataset"
+   },
+   "AnalysisSourceData": {
+      "@id": "prov:Entity"
+   },
+   "Any": {
+      "@id": "linkml:Any"
+   },
+   "Attribution": {
+      "@id": "prov:Attribution"
+   },
+   "Catalogue": {
+      "@id": "dcat:Catalog"
+   },
+   "CatalogueRecord": {
+      "@id": "dcat:CatalogRecord"
+   },
+   "Checksum": {
+      "@id": "spdx:Checksum"
+   },
+   "ChecksumAlgorithm": {
+      "@id": "spdx:ChecksumAlgorithm"
+   },
+   "Concept": {
+      "@id": "skos:Concept"
+   },
+   "ConceptScheme": {
+      "@id": "skos:ConceptScheme"
+   },
+   "DataAnalysis": {
+      "@id": "prov:Activity"
+   },
+   "DataGeneratingActivity": {
+      "@id": "prov:Activity"
+   },
+   "DataService": {
+      "@id": "dcat:DataService"
+   },
+   "Dataset": {
+      "@id": "dcat:Dataset"
+   },
+   "DatasetSeries": {
+      "@id": "dcat:DatasetSeries"
+   },
+   "DefinedTerm": {
+      "@id": "schema:DefinedTerm"
+   },
+   "Device": {
+      "@id": "prov:Agent"
+   },
+   "Distribution": {
+      "@id": "dcat:Distribution"
+   },
+   "Document": {
+      "@id": "foaf:Document"
+   },
+   "Entity": {
+      "@id": "prov:Entity"
+   },
+   "EvaluatedActivity": {
+      "@id": "prov:Activity"
+   },
+   "EvaluatedEntity": {
+      "@id": "prov:Entity"
+   },
+   "Frequency": {
+      "@id": "dcterms:Frequency"
+   },
+   "Geometry": {
+      "@id": "locn:Geometry"
+   },
+   "Identifier": {
+      "@id": "adms:Identifier"
+   },
+   "Kind": {
+      "@id": "vcard:Kind"
+   },
+   "LegalResource": {
+      "@id": "eli:LegalResource"
+   },
+   "LicenseDocument": {
+      "@id": "dcterms:LicenseDocument"
+   },
+   "LinguisticSystem": {
+      "@id": "dcterms:LinguisticSystem"
+   },
+   "Location": {
+      "@id": "dcterms:Location"
+   },
+   "MediaType": {
+      "@id": "dcterms:MediaType"
+   },
+   "MediaTypeOrExtent": {
+      "@id": "dcterms:MediaTypeOrExtent"
+   },
+   "PeriodOfTime": {
+      "@id": "dcterms:PeriodOfTime"
+   },
+   "Plan": {
+      "@id": "prov:Plan"
+   },
+   "Policy": {
+      "@id": "odrl:Policy"
+   },
+   "ProvenanceStatement": {
+      "@id": "dcterms:ProvenanceStatement"
+   },
+   "QualitativeAttribute": {
+      "@id": "prov:Entity"
+   },
+   "QuantitativeAttribute": {
+      "@id": "qudt:Quantity"
+   },
+   "Relationship": {
+      "@id": "dcat:Relationship"
+   },
+   "Resource": {
+      "@id": "rdfs:Resource"
+   },
+   "RightsStatement": {
+      "@id": "dcterms:RightsStatement"
+   },
+   "Role": {
+      "@id": "dcat:Role"
+   },
+   "Software": {
+      "@id": "prov:SoftwareAgent"
+   },
+   "Standard": {
+      "@id": "dcterms:Standard"
+   },
+   "Surrounding": {
+      "@id": "prov:Location"
+   },
+   "TimeInstant": {
+      "@id": "time:Instant"
+   }
+}
