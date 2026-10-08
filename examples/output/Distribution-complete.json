@@ -1,0 +1,379 @@
+{
+  "id": "https://example.org/data/dist-001",
+  "access_URL": [
+    {
+      "id": "https://example.org/data/dist-001.csv",
+      "identifier": "https://example.org/data/dist-001.csv",
+      "other_identifier": [
+        {
+          "notation": "https://example.org/data/dist-001.csv",
+          "title": [
+            "canonical access URL"
+          ]
+        }
+      ],
+      "title": [
+        "CSV Access Point"
+      ],
+      "description": [
+        "Direct access URL for the CSV distribution."
+      ]
+    },
+    {
+      "id": "https://mirror.example.org/data/dist-001.csv",
+      "identifier": "https://mirror.example.org/data/dist-001.csv",
+      "other_identifier": [
+        {
+          "notation": "https://mirror.example.org/data/dist-001.csv",
+          "title": [
+            "Mirror access URL"
+          ]
+        }
+      ],
+      "title": [
+        "CSV Access Point Mirror"
+      ],
+      "description": [
+        "Direct access URL for the CSV distribution on the mirror server."
+      ]
+    }
+  ],
+  "access_service": [
+    {
+      "id": "https://example.org/",
+      "endpoint_URL": [
+        {
+          "id": "https://api.example.org/sparql",
+          "title": [
+            "SPARQL Endpoint"
+          ]
+        }
+      ],
+      "title": [
+        "Example Data Service"
+      ],
+      "description": [
+        "The service providing access to this distribution."
+      ]
+    }
+  ],
+  "applicable_legislation": [
+    {
+      "identifier": "https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng",
+      "other_identifier": [
+        {
+          "notation": "https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng"
+        },
+        {
+          "notation": "https://gdpr-info.eu/"
+        }
+      ],
+      "title": [
+        "General Data Protection Regulation (GDPR)"
+      ],
+      "description": [
+        "EU regulation on data protection and privacy."
+      ]
+    },
+    {
+      "identifier": "https://creativecommons.org/licenses/by/4.0",
+      "other_identifier": [
+        {
+          "notation": "https://creativecommons.org/licenses/by/4.0/rdf",
+          "title": [
+            "RDF ID"
+          ],
+          "description": [
+            "The id to be used to explicitly refer to the RDF representation of the CC-BY 4.0 licence."
+          ]
+        },
+        {
+          "notation": "https://creativecommons.org/licenses/by/4.0/",
+          "title": [
+            "CC-BY 4.0 id"
+          ],
+          "description": [
+            "The canonical idenfier used for the CC-BY 4.0 license"
+          ]
+        }
+      ],
+      "title": [
+        "Attribution 4.0 International",
+        "CC-BY 4.0"
+      ],
+      "description": [
+        "You are free to: ... "
+      ]
+    }
+  ],
+  "availability": {
+    "preferred_label": [
+      "STABLE"
+    ],
+    "identifier": "http://publications.europa.eu/resource/authority/planned-availability/STABLE",
+    "other_identifier": [
+      {
+        "notation": "http://publications.europa.eu/resource/authority/planned-availability/STABLE",
+        "title": [
+          "DCAT-AP Availability ID"
+        ],
+        "description": [
+          "The Availability ID from the Distribution availability vocabulary as mandated by the DCAT-AP specs."
+        ]
+      }
+    ]
+  },
+  "byte_size": 1048576,
+  "checksum": {
+    "algorithm": {
+      "identifier": "http://spdx.org/rdf/terms#checksumAlgorithm_sha1",
+      "other_identifier": [
+        {
+          "notation": "http://spdx.org/rdf/terms#checksumAlgorithm_sha1",
+          "title": [
+            "DCAT-AP mandated ChecksumAlgorithm ID"
+          ],
+          "description": [
+            "The ChecksumAlgorithm ID from the SPDX® language as mandated by the DCAT-AP specs."
+          ]
+        }
+      ],
+      "title": [
+        "SHA1"
+      ],
+      "description": [
+        "Secure Hash Algorithm 1"
+      ]
+    },
+    "checksum_value": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+  },
+  "compression_format": {
+    "identifier": "http://www.iana.org/assignments/media-types/application/gzip",
+    "other_identifier": [
+      {
+        "notation": "http://www.iana.org/assignments/media-types/application/gzip",
+        "title": [
+          "DCAT-AP mandated MediaType ID"
+        ],
+        "description": [
+          "The MediaType ID from the IANA Media Types as mandated by the DCAT-AP specs."
+        ]
+      }
+    ],
+    "title": [
+      "Gzip"
+    ],
+    "description": [
+      "GNU Zip compression format"
+    ]
+  },
+  "description": [
+    "This distribution contains the full dataset in CSV format, compressed via Gzip.",
+    "Diese Distribution enthält den vollständigen Datensatz im CSV-Format, komprimiert mit Gzip."
+  ],
+  "documentation": [
+    {
+      "identifier": "https://example.org/docs/dist-001-readme.txt",
+      "other_identifier": [
+        {
+          "notation": "https://example.org/docs/dist-001-readme.txt"
+        }
+      ],
+      "title": [
+        "Readme for Distribution 001"
+      ],
+      "description": [
+        "Technical documentation for the CSV structure."
+      ]
+    }
+  ],
+  "download_URL": [
+    {
+      "id": "https://example.org/download/dist-001.csv.gz",
+      "title": [
+        "Direct Download Link"
+      ]
+    },
+    {
+      "id": "https://mirror.example.org/download/dist-001.csv.gz",
+      "title": [
+        "Direct Download Mirror Link"
+      ]
+    }
+  ],
+  "format": {
+    "identifier": "http://publications.europa.eu/resource/authority/file-type/CSV",
+    "other_identifier": [
+      {
+        "notation": "http://publications.europa.eu/resource/authority/file-type/CSV",
+        "title": [
+          "DCAT-AP mandated MediaTypeOrExtent ID"
+        ],
+        "description": [
+          "The MediaTypeOrExtent ID from the EU Vocabularies File Type Named Authority List as mandated by the DCAT-AP specs."
+        ]
+      }
+    ],
+    "title": [
+      "CSV"
+    ],
+    "description": [
+      "Comma Separated Values"
+    ]
+  },
+  "has_policy": {
+    "identifier": "https://example.org/policy/open-data-policy-01",
+    "other_identifier": [
+      {
+        "notation": "https://example.org/policy/open-data-policy-01"
+      }
+    ],
+    "title": [
+      "Open Data Policy v1"
+    ],
+    "description": [
+      "Policy governing the reuse of this distribution."
+    ]
+  },
+  "language": [
+    {
+      "identifier": "http://publications.europa.eu/resource/authority/language/ENG",
+      "other_identifier": [
+        {
+          "notation": "http://publications.europa.eu/resource/authority/language/ENG",
+          "title": [
+            "DCAT-AP mandated LinguisticSystem ID"
+          ],
+          "description": [
+            "The LinguisticSystem ID from the EU Vocabularies Languages Named Authority List as mandated by the DCAT-AP specs."
+          ]
+        }
+      ],
+      "title": [
+        "English"
+      ],
+      "description": [
+        "The english language."
+      ]
+    }
+  ],
+  "licence": {
+    "identifier": "http://creativecommons.org/licenses/by/4.0/",
+    "other_identifier": [
+      {
+        "notation": "http://creativecommons.org/licenses/by/4.0/"
+      }
+    ],
+    "title": [
+      "CC BY 4.0"
+    ],
+    "description": [
+      "Creative Commons Attribution 4.0 International"
+    ]
+  },
+  "linked_schemas": [
+    {
+      "identifier": "http://www.w3.org/ns/csvw",
+      "other_identifier": [
+        {
+          "notation": "https://www.w3.org/ns/csvw"
+        }
+      ],
+      "title": [
+        "CSVW"
+      ],
+      "description": [
+        "CSV on the Web W3C Recommendation"
+      ]
+    }
+  ],
+  "media_type": {
+    "identifier": "http://www.iana.org/assignments/media-types/text/csv",
+    "other_identifier": [
+      {
+        "notation": "http://www.iana.org/assignments/media-types/text/csv",
+        "title": [
+          "DCAT-AP mandated MediaType ID"
+        ],
+        "description": [
+          "The MediaType ID from the IANA Media Types as mandated by the DCAT-AP specs."
+        ]
+      }
+    ],
+    "title": [
+      "text/csv"
+    ],
+    "description": [
+      "IANA media type for CSV"
+    ]
+  },
+  "modification_date": "2026-06-18",
+  "packaging_format": {
+    "identifier": "http://www.iana.org/assignments/media-types/application/gzip",
+    "other_identifier": [
+      {
+        "notation": "http://www.iana.org/assignments/media-types/application/gzip",
+        "title": [
+          "DCAT-AP mandated MediaType ID"
+        ],
+        "description": [
+          "The MediaType ID from the IANA Media Types as mandated by the DCAT-AP specs."
+        ]
+      }
+    ],
+    "title": [
+      "Gzip"
+    ],
+    "description": [
+      "GNU Zip compression format"
+    ]
+  },
+  "release_date": "2026-06-15",
+  "rights": {
+    "identifier": "http://publications.europa.eu/resource/authority/access-right/PUBLIC",
+    "other_identifier": [
+      {
+        "notation": "http://publications.europa.eu/resource/authority/access-right/PUBLIC",
+        "title": [
+          "DCAT-AP mandated RightsStatement ID"
+        ],
+        "description": [
+          "The RightsStatement ID from the Access Rights Named Authority List as mandated by the DCAT-AP specs."
+        ]
+      }
+    ],
+    "title": [
+      "The RightsStatement for this dataset"
+    ],
+    "description": [
+      "This dataset is public."
+    ]
+  },
+  "spatial_resolution": 0.5,
+  "status": {
+    "preferred_label": [
+      "COMPLETED"
+    ],
+    "identifier": "http://publications.europa.eu/resource/authority/distribution-status/COMPLETED",
+    "other_identifier": [
+      {
+        "notation": "http://publications.europa.eu/resource/authority/distribution-status/COMPLETED",
+        "title": [
+          "DCAT-AP mandated status code ID"
+        ],
+        "description": [
+          "The status code ID from the EU Vocabularies Distribution Status as mandated by the DCAT-AP specs."
+        ]
+      }
+    ],
+    "description": [
+      "The distribution is complete and stable."
+    ]
+  },
+  "temporal_resolution": "P1D",
+  "title": [
+    "Comprehensive Example Distribution 001",
+    "Umfassende Beispiel-Distribution 001"
+  ],
+  "@type": "Distribution"
+}
