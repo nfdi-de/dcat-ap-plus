@@ -29,8 +29,8 @@ from pydantic import (
 )
 
 
-metamodel_version = "1.11.0"
-version = "0.1.0rc4.post34.dev0+20e64d58"
+metamodel_version = "1.12.0"
+version = "0.1.0rc4.post33.dev0+b75744da"
 
 
 class ConfiguredBaseModel(BaseModel):
@@ -177,6 +177,7 @@ linkml_meta = LinkMLMeta({'default_prefix': 'dcatap_plus',
                             'from_schema': 'https://w3id.org/nfdi-de/dcat-ap-plus',
                             'name': 'duration',
                             'pattern': '-?P((([0-9]+Y([0-9]+M)?([0-9]+D)?|([0-9]+M)([0-9]+D)?|([0-9]+D))(T(([0-9]+H)([0-9]+M)?([0-9]+(\\.[0-9]+)?S)?|([0-9]+M)([0-9]+(\\.[0-9]+)?S)?|([0-9]+(\\.[0-9]+)?S)))?)|(T(([0-9]+H)([0-9]+M)?([0-9]+(\\.[0-9]+)?S)?|([0-9]+M)([0-9]+(\\.[0-9]+)?S)?|([0-9]+(\\.[0-9]+)?S))))',
+                            'typeof': 'string',
                             'uri': 'xsd:duration'},
                'hexBinary': {'base': 'str',
                              'conforms_to': 'https://www.w3.org/TR/xmlschema11-2/#hexBinary',
@@ -185,6 +186,7 @@ linkml_meta = LinkMLMeta({'default_prefix': 'dcatap_plus',
                              'from_schema': 'https://w3id.org/nfdi-de/dcat-ap-plus',
                              'name': 'hexBinary',
                              'pattern': '([0-9a-fA-F]{2})*',
+                             'typeof': 'string',
                              'uri': 'xsd:hexBinary'},
                'nonNegativeInteger': {'base': 'int',
                                       'conforms_to': 'https://www.w3.org/TR/xmlschema11-2/#nonNegativeInteger',
@@ -193,6 +195,7 @@ linkml_meta = LinkMLMeta({'default_prefix': 'dcatap_plus',
                                       'from_schema': 'https://w3id.org/nfdi-de/dcat-ap-plus',
                                       'name': 'nonNegativeInteger',
                                       'pattern': '([\\-+]?[0-9]+)',
+                                      'typeof': 'integer',
                                       'uri': 'xsd:nonNegativeInteger'}}} )
 
 class DatasetThemes(str, Enum):
