@@ -21,7 +21,7 @@ see_also:
 - https://github.com/HendrikBorgelt/DCAT-ap_as_LinkML_template/blob/main/src/dcatlinkml/schema/dcatlinkml.yaml
 - https://gitlab.com/opensourcelab/scientificdata/scidats/-/blob/feature/linkml-schemata/schemata/metadata_model_scidats_dcat_ap.yaml?ref_type=heads
 id: https://w3id.org/nfdi-de/dcat-ap-plus
-version: 0.1.0rc4.post33.dev0+b75744da
+version: 0.1.0rc4.post34.dev0+50623bef
 imports:
 - linkml:types
 license: CC-BY 4.0
@@ -141,6 +141,7 @@ types:
     conforms_to: https://www.w3.org/TR/xmlschema11-2/#duration
     description: The datatype that represents durations of time.
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
+    typeof: string
     base: str
     uri: xsd:duration
     pattern: -?P((([0-9]+Y([0-9]+M)?([0-9]+D)?|([0-9]+M)([0-9]+D)?|([0-9]+D))(T(([0-9]+H)([0-9]+M)?([0-9]+(\.[0-9]+)?S)?|([0-9]+M)([0-9]+(\.[0-9]+)?S)?|([0-9]+(\.[0-9]+)?S)))?)|(T(([0-9]+H)([0-9]+M)?([0-9]+(\.[0-9]+)?S)?|([0-9]+M)([0-9]+(\.[0-9]+)?S)?|([0-9]+(\.[0-9]+)?S))))
@@ -150,6 +151,7 @@ types:
     conforms_to: https://www.w3.org/TR/xmlschema11-2/#hexBinary
     description: The datatype that represents arbitrary hex-encoded binary data.
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
+    typeof: string
     base: str
     uri: xsd:hexBinary
     pattern: ([0-9a-fA-F]{2})*
@@ -159,6 +161,7 @@ types:
     conforms_to: https://www.w3.org/TR/xmlschema11-2/#nonNegativeInteger
     description: The datatype that represents non-negative integers.
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
+    typeof: integer
     base: int
     uri: xsd:nonNegativeInteger
     pattern: ([\-+]?[0-9]+)
@@ -5626,7 +5629,7 @@ classes:
     in_subset:
     - domain_agnostic_core
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - prov:Activity
     mixins:
     - ClassifierMixin
@@ -5714,7 +5717,7 @@ classes:
     definition_uri: https://w3id.org/nfdi-de/dcat-ap-plus/Agent
     description: See [DCAT-AP specs:Agent](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Agent)
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - foaf:Agent
     slots:
     - Agent_name
@@ -5745,7 +5748,7 @@ classes:
     in_subset:
     - domain_agnostic_core
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - prov:Agent
     mixins:
     - ClassifierMixin
@@ -5796,7 +5799,7 @@ classes:
     in_subset:
     - domain_agnostic_core
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - dcat:Dataset
     is_a: Dataset
     slots:
@@ -5853,7 +5856,7 @@ classes:
     in_subset:
     - domain_agnostic_core
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - prov:Entity
     is_a: EvaluatedEntity
     slots:
@@ -5882,7 +5885,7 @@ classes:
     description: This abstract class is needed to create the union of Dataset, DatasetSeries,
       Catalogue and DataService for the range of the slot [primary_topic](https://nfdi-de.github.io/chem-dcat-ap/elements/primary_topic/).
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - linkml:Any
     slots:
     - title
@@ -5893,7 +5896,7 @@ classes:
     definition_uri: https://w3id.org/nfdi-de/dcat-ap-plus/Attribution
     description: See [DCAT-AP specs:Attribution](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Attribution)
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - prov:Attribution
     is_a: SupportiveEntity
     slots:
@@ -5905,7 +5908,7 @@ classes:
     definition_uri: https://w3id.org/nfdi-de/dcat-ap-plus/Catalogue
     description: See [DCAT-AP specs:Catalogue](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Catalogue)
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - dcat:Catalog
     slots:
     - Catalogue_applicable_legislation
@@ -6096,7 +6099,7 @@ classes:
     definition_uri: https://w3id.org/nfdi-de/dcat-ap-plus/CatalogueRecord
     description: See [DCAT-AP specs:CatalogueRecord](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#CatalogueRecord)
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - dcat:CatalogRecord
     slots:
     - CatalogueRecord_application_profile
@@ -6203,7 +6206,7 @@ classes:
     definition_uri: https://w3id.org/nfdi-de/dcat-ap-plus/Checksum
     description: See [DCAT-AP specs:Checksum](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Checksum)
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - spdx:Checksum
     slots:
     - Checksum_algorithm
@@ -6232,7 +6235,7 @@ classes:
     definition_uri: https://w3id.org/nfdi-de/dcat-ap-plus/ChecksumAlgorithm
     description: See [DCAT-AP specs:ChecksumAlgorithm](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#ChecksumAlgorithm)
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - spdx:ChecksumAlgorithm
     is_a: SupportiveEntity
     slots:
@@ -6263,7 +6266,7 @@ classes:
     definition_uri: https://w3id.org/nfdi-de/dcat-ap-plus/Concept
     description: See [DCAT-AP specs:Concept](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Concept)
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - skos:Concept
     is_a: SupportiveEntity
     slots:
@@ -6285,7 +6288,7 @@ classes:
     definition_uri: https://w3id.org/nfdi-de/dcat-ap-plus/ConceptScheme
     description: See [DCAT-AP specs:ConceptScheme](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#ConceptScheme)
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - skos:ConceptScheme
     is_a: SupportiveEntity
     slots:
@@ -6308,9 +6311,8 @@ classes:
     in_subset:
     - domain_agnostic_core
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
-    - prov:Activity
     exact_mappings:
+    - prov:Activity
     - OBI:0200000
     close_mappings:
     - NCIT:C25391
@@ -6350,7 +6352,7 @@ classes:
     in_subset:
     - domain_agnostic_core
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - prov:Activity
     is_a: Activity
     slots:
@@ -6378,7 +6380,7 @@ classes:
     definition_uri: https://w3id.org/nfdi-de/dcat-ap-plus/DataService
     description: See [DCAT-AP specs:DataService](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#DataService)
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - dcat:DataService
     slots:
     - DataService_access_rights
@@ -6548,7 +6550,7 @@ classes:
     in_subset:
     - domain_agnostic_core
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - dcat:Dataset
     slots:
     - Dataset_access_rights
@@ -6900,7 +6902,7 @@ classes:
     definition_uri: https://w3id.org/nfdi-de/dcat-ap-plus/DatasetSeries
     description: See [DCAT-AP specs:DatasetSeries](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#DatasetSeries)
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - dcat:DatasetSeries
     slots:
     - DatasetSeries_applicable_legislation
@@ -7009,7 +7011,7 @@ classes:
     in_subset:
     - domain_agnostic_core
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - schema:DefinedTerm
     slots:
     - id
@@ -7036,9 +7038,8 @@ classes:
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
     aliases:
     - hardware instrument
-    mappings:
-    - prov:Agent
     exact_mappings:
+    - prov:Agent
     - epos:Equipment
     - OBI:0000968
     - http://purl.obolibrary.org/obo/NCIT_C62103
@@ -7077,7 +7078,7 @@ classes:
     definition_uri: https://w3id.org/nfdi-de/dcat-ap-plus/Distribution
     description: See [DCAT-AP specs:Distribution](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Distribution)
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - dcat:Distribution
     slots:
     - Distribution_access_URL
@@ -7316,7 +7317,7 @@ classes:
     definition_uri: https://w3id.org/nfdi-de/dcat-ap-plus/Document
     description: See [DCAT-AP specs:Document](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Document)
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - foaf:Document
     is_a: SupportiveEntity
     slots:
@@ -7332,7 +7333,7 @@ classes:
     in_subset:
     - domain_agnostic_core
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - prov:Entity
     mixins:
     - ClassifierMixin
@@ -7383,7 +7384,7 @@ classes:
     in_subset:
     - domain_agnostic_core
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - prov:Activity
     is_a: Activity
     slots:
@@ -7417,7 +7418,7 @@ classes:
     in_subset:
     - domain_agnostic_core
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - prov:Entity
     is_a: Entity
     slots:
@@ -7458,7 +7459,7 @@ classes:
     definition_uri: https://w3id.org/nfdi-de/dcat-ap-plus/Frequency
     description: See [DCAT-AP specs:Frequency](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Frequency)
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - dcterms:Frequency
     is_a: SupportiveEntity
     slots:
@@ -7470,7 +7471,7 @@ classes:
     definition_uri: https://w3id.org/nfdi-de/dcat-ap-plus/Geometry
     description: See [DCAT-AP specs:Geometry](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Geometry)
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - locn:Geometry
     is_a: SupportiveEntity
     slots:
@@ -7482,7 +7483,7 @@ classes:
     definition_uri: https://w3id.org/nfdi-de/dcat-ap-plus/Identifier
     description: See [DCAT-AP specs:Identifier](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Identifier)
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - adms:Identifier
     is_a: SupportiveEntity
     slots:
@@ -7505,7 +7506,7 @@ classes:
     definition_uri: https://w3id.org/nfdi-de/dcat-ap-plus/Kind
     description: See [DCAT-AP specs:Kind](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Kind)
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - vcard:Kind
     class_uri: vcard:Kind
   LegalResource:
@@ -7513,7 +7514,7 @@ classes:
     definition_uri: https://w3id.org/nfdi-de/dcat-ap-plus/LegalResource
     description: See [DCAT-AP specs:LegalResource](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#LegalResource)
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - eli:LegalResource
     is_a: SupportiveEntity
     slots:
@@ -7526,7 +7527,7 @@ classes:
     definition_uri: https://w3id.org/nfdi-de/dcat-ap-plus/LicenseDocument
     description: See [DCAT-AP specs:LicenseDocument](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#LicenseDocument)
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - dcterms:LicenseDocument
     is_a: SupportiveEntity
     slots:
@@ -7551,7 +7552,7 @@ classes:
     definition_uri: https://w3id.org/nfdi-de/dcat-ap-plus/LinguisticSystem
     description: See [DCAT-AP specs:LinguisticSystem](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#LinguisticSystem)
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - dcterms:LinguisticSystem
     is_a: SupportiveEntity
     slots:
@@ -7563,7 +7564,7 @@ classes:
     definition_uri: https://w3id.org/nfdi-de/dcat-ap-plus/Location
     description: See [DCAT-AP specs:Location](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Location)
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - dcterms:Location
     slots:
     - Location_bbox
@@ -7602,7 +7603,7 @@ classes:
     definition_uri: https://w3id.org/nfdi-de/dcat-ap-plus/MediaType
     description: See [DCAT-AP specs:MediaType](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#MediaType)
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - dcterms:MediaType
     is_a: SupportiveEntity
     slots:
@@ -7614,7 +7615,7 @@ classes:
     definition_uri: https://w3id.org/nfdi-de/dcat-ap-plus/MediaTypeOrExtent
     description: See [DCAT-AP specs:MediaTypeOrExtent](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#MediaTypeOrExtent)
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - dcterms:MediaTypeOrExtent
     is_a: SupportiveEntity
     slots:
@@ -7626,7 +7627,7 @@ classes:
     definition_uri: https://w3id.org/nfdi-de/dcat-ap-plus/PeriodOfTime
     description: See [DCAT-AP specs:PeriodOfTime](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#PeriodOfTime)
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - dcterms:PeriodOfTime
     is_a: SupportiveEntity
     slots:
@@ -7689,7 +7690,7 @@ classes:
     - Plan Specification
     - Method
     - Procedure
-    mappings:
+    exact_mappings:
     - prov:Plan
     mixins:
     - ClassifierMixin
@@ -7704,7 +7705,7 @@ classes:
     definition_uri: https://w3id.org/nfdi-de/dcat-ap-plus/Policy
     description: See [DCAT-AP specs:Policy](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Policy)
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - odrl:Policy
     is_a: SupportiveEntity
     slots:
@@ -7716,7 +7717,7 @@ classes:
     definition_uri: https://w3id.org/nfdi-de/dcat-ap-plus/ProvenanceStatement
     description: See [DCAT-AP specs:ProvenanceStatement](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#ProvenanceStatement)
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - dcterms:ProvenanceStatement
     is_a: SupportiveEntity
     slots:
@@ -7731,7 +7732,7 @@ classes:
     in_subset:
     - domain_agnostic_core
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - prov:Entity
     mixins:
     - ClassifierMixin
@@ -7755,7 +7756,7 @@ classes:
     in_subset:
     - domain_agnostic_core
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - qudt:Quantity
     mixins:
     - ClassifierMixin
@@ -7803,7 +7804,7 @@ classes:
     definition_uri: https://w3id.org/nfdi-de/dcat-ap-plus/Relationship
     description: See [DCAT-AP specs:Relationship](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Relationship)
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - dcat:Relationship
     slots:
     - Relationship_had_role
@@ -7832,7 +7833,7 @@ classes:
     definition_uri: https://w3id.org/nfdi-de/dcat-ap-plus/Resource
     description: See [DCAT-AP specs:Resource](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Resource)
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - rdfs:Resource
     is_a: SupportiveEntity
     slots:
@@ -7845,7 +7846,7 @@ classes:
     definition_uri: https://w3id.org/nfdi-de/dcat-ap-plus/RightsStatement
     description: See [DCAT-AP specs:RightsStatement](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#RightsStatement)
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - dcterms:RightsStatement
     is_a: SupportiveEntity
     slots:
@@ -7857,7 +7858,7 @@ classes:
     definition_uri: https://w3id.org/nfdi-de/dcat-ap-plus/Role
     description: See [DCAT-AP specs:Role](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Role)
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - dcat:Role
     is_a: SupportiveEntity
     slots:
@@ -7872,9 +7873,8 @@ classes:
     in_subset:
     - domain_agnostic_core
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
-    - prov:SoftwareAgent
     exact_mappings:
+    - prov:SoftwareAgent
     - schema:SoftwareApplication
     is_a: AgenticEntity
     slots:
@@ -7909,7 +7909,7 @@ classes:
     definition_uri: https://w3id.org/nfdi-de/dcat-ap-plus/Standard
     description: See [DCAT-AP specs:Standard](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Standard)
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - dcterms:Standard
     is_a: SupportiveEntity
     slots:
@@ -7935,7 +7935,7 @@ classes:
     in_subset:
     - domain_agnostic_core
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - prov:Location
     mixins:
     - ClassifierMixin
@@ -7950,16 +7950,15 @@ classes:
     definition_uri: https://w3id.org/nfdi-de/dcat-ap-plus/TimeInstant
     description: See [DCAT-AP specs:TimeInstant](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#TimeInstant)
     from_schema: https://w3id.org/nfdi-de/dcat-ap-plus
-    mappings:
+    exact_mappings:
     - time:Instant
     is_a: SupportiveEntity
     slots:
     - title
     - description
     class_uri: time:Instant
-metamodel_version: 1.11.0
+metamodel_version: 1.12.0
 source_file: dcat_ap_plus.yaml
-source_file_date: '2026-10-07T09:36:24'
-source_file_size: 86797
-generation_date: '2026-10-07T09:36:30'
+source_file_date: '2026-10-14T18:09:56'
+source_file_size: 86855
 
