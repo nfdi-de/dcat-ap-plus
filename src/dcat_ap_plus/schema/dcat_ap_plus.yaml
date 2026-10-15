@@ -1,7 +1,7 @@
 id: https://w3id.org/nfdi-de/dcat-ap-plus
 name: dcat-ap-plus
 title: DCAT-AP-PLUS
-version: "0.1.0rc4.post36.dev0+b5e290db"  # Managed by dynamic-versioning. Don't change this line!
+version: "0.1.0rc4.post33.dev0+b75744da"  # Managed by dynamic-versioning. Don't change this line!
 description: >-
   This metadata schema is an extension of the DCAT Application Profile for Providing Links to Use-case Specific Context. It allows to provide additional metadata regarding: which kind(s) of entity(s) or activity(s) were evaluated (a dcat:Dataset is about), which kind of activity generated a dcat:Dataset, which kind of instruments were used in the dataset generating activity, in which surrounding (e.g. a laboratory) and according to which plan the dataset generating activity took place, as well as regarding which kind(s) of qualitative and quantitative characteristic were attributed to the evaluated entity or evaluated activity and to the used instruments.
 license: CC-BY 4.0
@@ -58,6 +58,7 @@ types:
     name: duration
     conforms_to: https://www.w3.org/TR/xmlschema11-2/#duration
     description: The datatype that represents durations of time.
+    typeof: string
     base: str
     uri: xsd:duration
     pattern: -?P((([0-9]+Y([0-9]+M)?([0-9]+D)?|([0-9]+M)([0-9]+D)?|([0-9]+D))(T(([0-9]+H)([0-9]+M)?([0-9]+(\.[0-9]+)?S)?|([0-9]+M)([0-9]+(\.[0-9]+)?S)?|([0-9]+(\.[0-9]+)?S)))?)|(T(([0-9]+H)([0-9]+M)?([0-9]+(\.[0-9]+)?S)?|([0-9]+M)([0-9]+(\.[0-9]+)?S)?|([0-9]+(\.[0-9]+)?S))))
@@ -65,6 +66,7 @@ types:
     name: hexBinary
     conforms_to: https://www.w3.org/TR/xmlschema11-2/#hexBinary
     description: The datatype that represents arbitrary hex-encoded binary data.
+    typeof: string
     base: str
     uri: xsd:hexBinary
     pattern: ([0-9a-fA-F]{2})*
@@ -72,6 +74,7 @@ types:
     name: nonNegativeInteger
     conforms_to: https://www.w3.org/TR/xmlschema11-2/#nonNegativeInteger
     description: The datatype that represents non-negative integers.
+    typeof: integer
     base: int
     uri: xsd:nonNegativeInteger
     pattern: ([\-+]?[0-9]+)
@@ -2132,6 +2135,7 @@ classes:
       title:
         name: title
         description: The slot to provide a title for the Entity.
+        multivalued: true
       description:
         name: description
         description: The slot to provide a description for the Entity.
@@ -2184,6 +2188,7 @@ classes:
       title:
         name: title
         description: The slot to provide a title for the EvaluatedEntity.
+        multivalued: true
       description:
         name: description
         description: The slot to provide a description for the EvaluatedEntity.

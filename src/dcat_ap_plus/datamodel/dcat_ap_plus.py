@@ -1,5 +1,4 @@
 # Auto generated from dcat_ap_plus.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-06-10T17:31:08
 # Schema: dcat-ap-plus
 #
 # id: https://w3id.org/nfdi-de/dcat-ap-plus
@@ -56,11 +55,11 @@ from rdflib import (
     URIRef
 )
 
-from linkml_runtime.linkml_model.types import Date, Decimal, Float, String, Uriorcurie
+from linkml_runtime.linkml_model.types import Date, Decimal, Float, Integer, String, Uriorcurie
 from linkml_runtime.utils.metamodelcore import Decimal, URIorCURIE, XSDDate
 
-metamodel_version = "1.11.0"
-version = "0.1.0rc4.post34.dev0+20e64d58"
+metamodel_version = "1.12.0"
+version = "0.1.0rc4.post33.dev0+b75744da"
 
 # Namespaces
 AFE = CurieNamespace('AFE', 'http://purl.allotrope.org/ontologies/equipment#AFE_')
@@ -100,7 +99,7 @@ DEFAULT_ = DCATAP_PLUS
 
 
 # Types
-class Duration(str):
+class Duration(String):
     """ The datatype that represents durations of time. """
     type_class_uri = XSD["duration"]
     type_class_curie = "xsd:duration"
@@ -108,7 +107,7 @@ class Duration(str):
     type_model_uri = DCATAP_PLUS.Duration
 
 
-class HexBinary(str):
+class HexBinary(String):
     """ The datatype that represents arbitrary hex-encoded binary data. """
     type_class_uri = XSD["hexBinary"]
     type_class_curie = "xsd:hexBinary"
@@ -116,7 +115,7 @@ class HexBinary(str):
     type_model_uri = DCATAP_PLUS.HexBinary
 
 
-class NonNegativeInteger(int):
+class NonNegativeInteger(Integer):
     """ The datatype that represents non-negative integers. """
     type_class_uri = XSD["nonNegativeInteger"]
     type_class_curie = "xsd:nonNegativeInteger"
@@ -455,7 +454,7 @@ class CatalogueRecord(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = DCATAP_PLUS.CatalogueRecord
 
     modification_date: Union[str, XSDDate] = None
-    primary_topic: Union[dict, Any] = None
+    primary_topic: Union[dict, Catalogue, str, DatasetId, "DatasetSeries", "DataService"] = None
     application_profile: Optional[Union[Union[dict, "Standard"], list[Union[dict, "Standard"]]]] = empty_list()
     change_type: Optional[Union[dict, "Concept"]] = None
     description: Optional[Union[str, list[str]]] = empty_list()
@@ -469,6 +468,19 @@ class CatalogueRecord(YAMLRoot):
             self.MissingRequiredField("modification_date")
         if not isinstance(self.modification_date, XSDDate):
             self.modification_date = XSDDate(self.modification_date)
+
+        if self._is_empty(self.primary_topic):
+            self.MissingRequiredField("primary_topic")
+        if not isinstance(self.primary_topic, (Catalogue, DatasetId, DatasetSeries, DataService)):
+            value = self.primary_topic
+            for _coerce in (lambda: Catalogue(**as_dict(value)), lambda: DatasetId(value), lambda: DatasetSeries(**as_dict(value)), lambda: DataService(**as_dict(value))):
+                try:
+                    self.primary_topic = _coerce()
+                    break
+                except (ValueError, TypeError):
+                    continue
+            else:
+                raise ValueError(f"None of the candidate types Union[Catalogue, DatasetId, DatasetSeries, DataService] could be constructed from {value!r} for slot primary_topic")
 
         if not isinstance(self.application_profile, list):
             self.application_profile = [self.application_profile] if self.application_profile is not None else []
@@ -511,7 +523,7 @@ class Checksum(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = DCATAP_PLUS.Checksum
 
     algorithm: Union[dict, "ChecksumAlgorithm"] = None
-    checksum_value: str = None
+    checksum_value: Union[str, HexBinary] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.algorithm):
@@ -521,8 +533,8 @@ class Checksum(YAMLRoot):
 
         if self._is_empty(self.checksum_value):
             self.MissingRequiredField("checksum_value")
-        if not isinstance(self.checksum_value, str):
-            self.checksum_value = str(self.checksum_value)
+        if not isinstance(self.checksum_value, HexBinary):
+            self.checksum_value = HexBinary(self.checksum_value)
 
         super().__post_init__(**kwargs)
 
@@ -745,7 +757,7 @@ class Dataset(YAMLRoot):
     source: Optional[Union[dict[Union[str, DatasetId], Union[dict, "Dataset"]], list[Union[dict, "Dataset"]]]] = empty_dict()
     spatial_resolution: Optional[Decimal] = None
     temporal_coverage: Optional[Union[Union[dict, "PeriodOfTime"], list[Union[dict, "PeriodOfTime"]]]] = empty_list()
-    temporal_resolution: Optional[str] = None
+    temporal_resolution: Optional[Union[str, Duration]] = None
     theme: Optional[Union[Union[dict, "Concept"], list[Union[dict, "Concept"]]]] = empty_list()
     type: Optional[Union[Union[dict, "Concept"], list[Union[dict, "Concept"]]]] = empty_list()
     version: Optional[str] = None
@@ -861,8 +873,8 @@ class Dataset(YAMLRoot):
             self.temporal_coverage = [self.temporal_coverage] if self.temporal_coverage is not None else []
         self.temporal_coverage = [v if isinstance(v, PeriodOfTime) else PeriodOfTime(**as_dict(v)) for v in self.temporal_coverage]
 
-        if self.temporal_resolution is not None and not isinstance(self.temporal_resolution, str):
-            self.temporal_resolution = str(self.temporal_resolution)
+        if self.temporal_resolution is not None and not isinstance(self.temporal_resolution, Duration):
+            self.temporal_resolution = Duration(self.temporal_resolution)
 
         self._normalize_inlined_as_list(slot_name="theme", slot_type=Concept, key_name="preferred_label", keyed=False)
 
@@ -1055,7 +1067,7 @@ class Distribution(YAMLRoot):
     access_service: Optional[Union[Union[dict, DataService], list[Union[dict, DataService]]]] = empty_list()
     applicable_legislation: Optional[Union[dict[Union[str, LegalResourceId], Union[dict, "LegalResource"]], list[Union[dict, "LegalResource"]]]] = empty_dict()
     availability: Optional[Union[dict, "Concept"]] = None
-    byte_size: Optional[int] = None
+    byte_size: Optional[Union[int, NonNegativeInteger]] = None
     checksum: Optional[Union[dict, Checksum]] = None
     compression_format: Optional[Union[dict, "MediaType"]] = None
     description: Optional[Union[str, list[str]]] = empty_list()
@@ -1073,7 +1085,7 @@ class Distribution(YAMLRoot):
     rights: Optional[Union[dict, "RightsStatement"]] = None
     spatial_resolution: Optional[Decimal] = None
     status: Optional[Union[dict, "Concept"]] = None
-    temporal_resolution: Optional[str] = None
+    temporal_resolution: Optional[Union[str, Duration]] = None
     title: Optional[Union[str, list[str]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
@@ -1088,8 +1100,8 @@ class Distribution(YAMLRoot):
         if self.availability is not None and not isinstance(self.availability, Concept):
             self.availability = Concept(**as_dict(self.availability))
 
-        if self.byte_size is not None and not isinstance(self.byte_size, int):
-            self.byte_size = int(self.byte_size)
+        if self.byte_size is not None and not isinstance(self.byte_size, NonNegativeInteger):
+            self.byte_size = NonNegativeInteger(self.byte_size)
 
         if self.checksum is not None and not isinstance(self.checksum, Checksum):
             self.checksum = Checksum(**as_dict(self.checksum))
@@ -1143,8 +1155,8 @@ class Distribution(YAMLRoot):
         if self.status is not None and not isinstance(self.status, Concept):
             self.status = Concept(**as_dict(self.status))
 
-        if self.temporal_resolution is not None and not isinstance(self.temporal_resolution, str):
-            self.temporal_resolution = str(self.temporal_resolution)
+        if self.temporal_resolution is not None and not isinstance(self.temporal_resolution, Duration):
+            self.temporal_resolution = Duration(self.temporal_resolution)
 
         if not isinstance(self.title, list):
             self.title = [self.title] if self.title is not None else []
@@ -1166,7 +1178,7 @@ class Entity(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = DCATAP_PLUS.Entity
 
     id: Union[str, EntityId] = None
-    title: Optional[str] = None
+    title: Optional[Union[str, list[str]]] = empty_list()
     description: Optional[str] = None
     other_identifier: Optional[Union[Union[dict, "Identifier"], list[Union[dict, "Identifier"]]]] = empty_list()
     has_qualitative_attribute: Optional[Union[Union[dict, "QualitativeAttribute"], list[Union[dict, "QualitativeAttribute"]]]] = empty_list()
@@ -1182,8 +1194,9 @@ class Entity(YAMLRoot):
         if not isinstance(self.id, EntityId):
             self.id = EntityId(self.id)
 
-        if self.title is not None and not isinstance(self.title, str):
-            self.title = str(self.title)
+        if not isinstance(self.title, list):
+            self.title = [self.title] if self.title is not None else []
+        self.title = [v if isinstance(v, str) else str(v) for v in self.title]
 
         if self.description is not None and not isinstance(self.description, str):
             self.description = str(self.description)
@@ -1247,7 +1260,7 @@ class EvaluatedEntity(Entity):
 
     id: Union[str, EvaluatedEntityId] = None
     was_generated_by: Optional[Union[dict[Union[str, ActivityId], Union[dict, Activity]], list[Union[dict, Activity]]]] = empty_dict()
-    title: Optional[str] = None
+    title: Optional[Union[str, list[str]]] = empty_list()
     description: Optional[str] = None
     other_identifier: Optional[Union[Union[dict, "Identifier"], list[Union[dict, "Identifier"]]]] = empty_list()
 
@@ -1259,8 +1272,9 @@ class EvaluatedEntity(Entity):
 
         self._normalize_inlined_as_list(slot_name="was_generated_by", slot_type=Activity, key_name="id", keyed=True)
 
-        if self.title is not None and not isinstance(self.title, str):
-            self.title = str(self.title)
+        if not isinstance(self.title, list):
+            self.title = [self.title] if self.title is not None else []
+        self.title = [v if isinstance(v, str) else str(v) for v in self.title]
 
         if self.description is not None and not isinstance(self.description, str):
             self.description = str(self.description)
@@ -2691,7 +2705,7 @@ slots.CatalogueRecord_modification_date = Slot(uri=DCTERMS.modified, name="Catal
                    model_uri=DCATAP_PLUS.CatalogueRecord_modification_date, domain=CatalogueRecord, range=Union[str, XSDDate])
 
 slots.CatalogueRecord_primary_topic = Slot(uri=FOAF.primaryTopic, name="CatalogueRecord_primary_topic", curie=FOAF.curie('primaryTopic'),
-                   model_uri=DCATAP_PLUS.CatalogueRecord_primary_topic, domain=CatalogueRecord, range=Union[dict, Any])
+                   model_uri=DCATAP_PLUS.CatalogueRecord_primary_topic, domain=CatalogueRecord, range=Union[dict, Catalogue, str, DatasetId, "DatasetSeries", "DataService"])
 
 slots.CatalogueRecord_source_metadata = Slot(uri=DCTERMS.source, name="CatalogueRecord_source_metadata", curie=DCTERMS.curie('source'),
                    model_uri=DCATAP_PLUS.CatalogueRecord_source_metadata, domain=CatalogueRecord, range=Optional[Union[dict, "CatalogueRecord"]])
@@ -2703,7 +2717,7 @@ slots.Checksum_algorithm = Slot(uri=SPDX.algorithm, name="Checksum_algorithm", c
                    model_uri=DCATAP_PLUS.Checksum_algorithm, domain=Checksum, range=Union[dict, "ChecksumAlgorithm"])
 
 slots.Checksum_checksum_value = Slot(uri=SPDX.checksumValue, name="Checksum_checksum_value", curie=SPDX.curie('checksumValue'),
-                   model_uri=DCATAP_PLUS.Checksum_checksum_value, domain=Checksum, range=str)
+                   model_uri=DCATAP_PLUS.Checksum_checksum_value, domain=Checksum, range=Union[str, HexBinary])
 
 slots.ClassifierMixin_type = Slot(uri=DCTERMS.type, name="ClassifierMixin_type", curie=DCTERMS.curie('type'),
                    model_uri=DCATAP_PLUS.ClassifierMixin_type, domain=None, range=Optional[Union[dict, "DefinedTerm"]])
@@ -2853,7 +2867,7 @@ slots.Dataset_temporal_coverage = Slot(uri=DCTERMS.temporal, name="Dataset_tempo
                    model_uri=DCATAP_PLUS.Dataset_temporal_coverage, domain=Dataset, range=Optional[Union[Union[dict, "PeriodOfTime"], list[Union[dict, "PeriodOfTime"]]]])
 
 slots.Dataset_temporal_resolution = Slot(uri=DCAT.temporalResolution, name="Dataset_temporal_resolution", curie=DCAT.curie('temporalResolution'),
-                   model_uri=DCATAP_PLUS.Dataset_temporal_resolution, domain=Dataset, range=Optional[str])
+                   model_uri=DCATAP_PLUS.Dataset_temporal_resolution, domain=Dataset, range=Optional[Union[str, Duration]])
 
 slots.Dataset_theme = Slot(uri=DCAT.theme, name="Dataset_theme", curie=DCAT.curie('theme'),
                    model_uri=DCATAP_PLUS.Dataset_theme, domain=Dataset, range=Optional[Union[Union[dict, "Concept"], list[Union[dict, "Concept"]]]])
@@ -2925,7 +2939,7 @@ slots.Distribution_availability = Slot(uri=DCATAP.availability, name="Distributi
                    model_uri=DCATAP_PLUS.Distribution_availability, domain=Distribution, range=Optional[Union[dict, "Concept"]])
 
 slots.Distribution_byte_size = Slot(uri=DCAT.byteSize, name="Distribution_byte_size", curie=DCAT.curie('byteSize'),
-                   model_uri=DCATAP_PLUS.Distribution_byte_size, domain=Distribution, range=Optional[int])
+                   model_uri=DCATAP_PLUS.Distribution_byte_size, domain=Distribution, range=Optional[Union[int, NonNegativeInteger]])
 
 slots.Distribution_checksum = Slot(uri=SPDX.checksum, name="Distribution_checksum", curie=SPDX.curie('checksum'),
                    model_uri=DCATAP_PLUS.Distribution_checksum, domain=Distribution, range=Optional[Union[dict, Checksum]])
@@ -2979,13 +2993,13 @@ slots.Distribution_status = Slot(uri=ADMS.status, name="Distribution_status", cu
                    model_uri=DCATAP_PLUS.Distribution_status, domain=Distribution, range=Optional[Union[dict, "Concept"]])
 
 slots.Distribution_temporal_resolution = Slot(uri=DCAT.temporalResolution, name="Distribution_temporal_resolution", curie=DCAT.curie('temporalResolution'),
-                   model_uri=DCATAP_PLUS.Distribution_temporal_resolution, domain=Distribution, range=Optional[str])
+                   model_uri=DCATAP_PLUS.Distribution_temporal_resolution, domain=Distribution, range=Optional[Union[str, Duration]])
 
 slots.Distribution_title = Slot(uri=DCTERMS.title, name="Distribution_title", curie=DCTERMS.curie('title'),
                    model_uri=DCATAP_PLUS.Distribution_title, domain=Distribution, range=Optional[Union[str, list[str]]])
 
 slots.Entity_title = Slot(uri=DCTERMS.title, name="Entity_title", curie=DCTERMS.curie('title'),
-                   model_uri=DCATAP_PLUS.Entity_title, domain=Entity, range=Optional[str])
+                   model_uri=DCATAP_PLUS.Entity_title, domain=Entity, range=Optional[Union[str, list[str]]])
 
 slots.Entity_description = Slot(uri=DCTERMS.description, name="Entity_description", curie=DCTERMS.curie('description'),
                    model_uri=DCATAP_PLUS.Entity_description, domain=Entity, range=Optional[str])
@@ -3003,7 +3017,7 @@ slots.EvaluatedActivity_other_identifier = Slot(uri=ADMS.identifier, name="Evalu
                    model_uri=DCATAP_PLUS.EvaluatedActivity_other_identifier, domain=EvaluatedActivity, range=Optional[Union[Union[dict, "Identifier"], list[Union[dict, "Identifier"]]]])
 
 slots.EvaluatedEntity_title = Slot(uri=DCTERMS.title, name="EvaluatedEntity_title", curie=DCTERMS.curie('title'),
-                   model_uri=DCATAP_PLUS.EvaluatedEntity_title, domain=EvaluatedEntity, range=Optional[str])
+                   model_uri=DCATAP_PLUS.EvaluatedEntity_title, domain=EvaluatedEntity, range=Optional[Union[str, list[str]]])
 
 slots.EvaluatedEntity_description = Slot(uri=DCTERMS.description, name="EvaluatedEntity_description", curie=DCTERMS.curie('description'),
                    model_uri=DCATAP_PLUS.EvaluatedEntity_description, domain=EvaluatedEntity, range=Optional[str])

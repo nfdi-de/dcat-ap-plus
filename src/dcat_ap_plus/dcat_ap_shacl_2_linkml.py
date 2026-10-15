@@ -311,10 +311,12 @@ def parse_dcat_ap_shacl_shapes(builder):
             pattern, base, description = '', '', ''
             if 'nonNegativeInteger' in node_name:
                 base = 'int'
+                typeof = 'integer'
                 description = 'The datatype that represents non-negative integers.'
                 pattern = r'([\-+]?[0-9]+)'
             elif 'duration' in node_name:
                 base = 'str'
+                typeof = 'string'
                 description = 'The datatype that represents durations of time.'
                 pattern =  r"""
                                         -?P( ( ( [0-9]+Y([0-9]+M)?([0-9]+D)?
@@ -335,12 +337,14 @@ def parse_dcat_ap_shacl_shapes(builder):
                                           )""".replace('\n','').replace(' ','')
             elif 'hexBinary' in node_name:
                 base = 'str'
+                typeof = 'string'
                 description = 'The datatype that represents arbitrary hex-encoded binary data.'
                 pattern = r'([0-9a-fA-F]{2})*'
 
             builder.add_type(TypeDefinition(name=node_name,
                                             uri=node_curie,
                                             conforms_to=f'https://www.w3.org/TR/xmlschema11-2/#{node_name}',
+                                            typeof=typeof,
                                             base=base,
                                             description=description,
                                             pattern=pattern))

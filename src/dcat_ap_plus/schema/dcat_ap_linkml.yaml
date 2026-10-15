@@ -1,7 +1,7 @@
 id: https://w3id.org/nfdi-de/dcat-ap-linkml
 name: dcat-ap-linkml
 title: LinkML schema representation of DCAT-AP 3.0.0
-version: "0.1.0rc4.post36.dev0+b5e290db"  # Managed by dynamic-versioning. Don't change this line!
+version: "0.0.0-dev"  # Managed by dynamic-versioning. Don't change this line!
 description: >-
   This LinkML schema representation of DCAT-AP 3.0.0 was automatically created from these [JSON-LD SHACL shapes](https://github.com/SEMICeu/DCAT-AP/blob/master/releases/3.0.0/shacl/dcat-ap-SHACL.jsonld) using a Python script (https://github.com/nfdi-de/dcat-ap-plus/blob/main/src/dcat_ap_shacl_2_linkml.py).
 
@@ -45,6 +45,7 @@ types:
     name: duration
     conforms_to: https://www.w3.org/TR/xmlschema11-2/#duration
     description: The datatype that represents durations of time.
+    typeof: string
     base: str
     uri: xsd:duration
     pattern: -?P((([0-9]+Y([0-9]+M)?([0-9]+D)?|([0-9]+M)([0-9]+D)?|([0-9]+D))(T(([0-9]+H)([0-9]+M)?([0-9]+(\.[0-9]+)?S)?|([0-9]+M)([0-9]+(\.[0-9]+)?S)?|([0-9]+(\.[0-9]+)?S)))?)|(T(([0-9]+H)([0-9]+M)?([0-9]+(\.[0-9]+)?S)?|([0-9]+M)([0-9]+(\.[0-9]+)?S)?|([0-9]+(\.[0-9]+)?S))))
@@ -52,6 +53,7 @@ types:
     name: hexBinary
     conforms_to: https://www.w3.org/TR/xmlschema11-2/#hexBinary
     description: The datatype that represents arbitrary hex-encoded binary data.
+    typeof: string
     base: str
     uri: xsd:hexBinary
     pattern: ([0-9a-fA-F]{2})*
@@ -59,6 +61,7 @@ types:
     name: nonNegativeInteger
     conforms_to: https://www.w3.org/TR/xmlschema11-2/#nonNegativeInteger
     description: The datatype that represents non-negative integers.
+    typeof: integer
     base: int
     uri: xsd:nonNegativeInteger
     pattern: ([\-+]?[0-9]+)
