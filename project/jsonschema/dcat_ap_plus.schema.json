@@ -108,6 +108,16 @@
                         "null"
                     ]
                 },
+                "qualified_association": {
+                    "description": "The slot to specify, in the form of an Association, which AgenticEntity played a part in carrying out the Activity and in which role.",
+                    "items": {
+                        "$ref": "#/$defs/Association"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "rdf_type": {
                     "anyOf": [
                         {
@@ -145,6 +155,43 @@
                 "id"
             ],
             "title": "Activity",
+            "type": "object"
+        },
+        "ActivityRole": {
+            "additionalProperties": false,
+            "description": "The role an AgenticEntity played in an Activity (e.g. principal investigator, sponsor or funder of a study). The role is a node of its own, so that a profile based on SKOS can identify it by the IRI of a concept of a controlled vocabulary (id) and a profile based on OWL can additionally classify it by an ontology class (rdf_type).",
+            "properties": {
+                "id": {
+                    "description": "A slot to provide an URI for an entity within this schema.",
+                    "type": "string"
+                },
+                "rdf_type": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/DefinedTerm"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The slot to specify the ontology class that is instantiated by an entity."
+                },
+                "type": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/DefinedTerm"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "This slot is described in more detail within the class in which it is used."
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "ActivityRole",
             "type": "object"
         },
         "Agent": {
@@ -796,6 +843,32 @@
                 "string"
             ]
         },
+        "Association": {
+            "additionalProperties": false,
+            "description": "The qualified form of the relation between an Activity and an AgenticEntity that played a part in carrying it out. It allows to additionally state in which role the AgenticEntity took part in the Activity.",
+            "properties": {
+                "activity_role": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/ActivityRole"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The slot to specify the role an AgenticEntity played in an Activity."
+                },
+                "agent": {
+                    "description": "The slot to specify the AgenticEntity that took part in the Activity.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "agent"
+            ],
+            "title": "Association",
+            "type": "object"
+        },
         "Attribution": {
             "additionalProperties": false,
             "description": "See [DCAT-AP specs:Attribution](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Attribution)",
@@ -1383,6 +1456,16 @@
                         "null"
                     ]
                 },
+                "qualified_association": {
+                    "description": "The slot to specify, in the form of an Association, which AgenticEntity played a part in carrying out the Activity and in which role.",
+                    "items": {
+                        "$ref": "#/$defs/Association"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "rdf_type": {
                     "anyOf": [
                         {
@@ -1566,6 +1649,16 @@
                     "description": "The slot to provide an Activity of which the Activity is a part.",
                     "items": {
                         "$ref": "#/$defs/Activity"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "qualified_association": {
+                    "description": "The slot to specify, in the form of an Association, which AgenticEntity played a part in carrying out the Activity and in which role.",
+                    "items": {
+                        "$ref": "#/$defs/Association"
                     },
                     "type": [
                         "array",
@@ -2911,6 +3004,16 @@
                         "null"
                     ]
                 },
+                "qualified_association": {
+                    "description": "The slot to specify, in the form of an Association, which AgenticEntity played a part in carrying out the Activity and in which role.",
+                    "items": {
+                        "$ref": "#/$defs/Association"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "rdf_type": {
                     "anyOf": [
                         {
@@ -3913,5 +4016,5 @@
     "metamodel_version": "1.12.0",
     "title": "dcat-ap-plus",
     "type": "object",
-    "version": "0.1.0rc4.post33.dev0+b75744da"
+    "version": "0.1.0rc5.post1.dev0+dcd4c272"
 }

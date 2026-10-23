@@ -61,6 +61,13 @@
       "access_URL": {
          "@id": "dcat:accessURL"
       },
+      "activity_role": {
+         "@type": "@id",
+         "@id": "prov:hadRole"
+      },
+      "agent": {
+         "@id": "prov:agent"
+      },
       "algorithm": {
          "@id": "spdx:algorithm"
       },
@@ -274,6 +281,10 @@
       "publisher": {
          "@id": "dcterms:publisher"
       },
+      "qualified_association": {
+         "@type": "@id",
+         "@id": "prov:qualifiedAssociation"
+      },
       "qualified_attribution": {
          "@id": "prov:qualifiedAttribution"
       },
@@ -374,6 +385,9 @@
             }
          }
       },
+      "ActivityRole": {
+         "@id": "prov:Role"
+      },
       "Agent": {
          "@id": "foaf:Agent",
          "@context": {
@@ -412,6 +426,15 @@
       },
       "Any": {
          "@id": "linkml:Any"
+      },
+      "Association": {
+         "@id": "prov:Association",
+         "@context": {
+            "agent": {
+               "@id": "prov:agent",
+               "@type": "@id"
+            }
+         }
       },
       "Attribution": {
          "@id": "prov:Attribution"

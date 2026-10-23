@@ -35,6 +35,9 @@
    "Activity": {
       "@id": "prov:Activity"
    },
+   "ActivityRole": {
+      "@id": "prov:Role"
+   },
    "Agent": {
       "@id": "foaf:Agent"
    },
@@ -49,6 +52,9 @@
    },
    "Any": {
       "@id": "linkml:Any"
+   },
+   "Association": {
+      "@id": "prov:Association"
    },
    "Attribution": {
       "@id": "prov:Attribution"
