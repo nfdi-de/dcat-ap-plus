@@ -168,6 +168,7 @@ Activity:
     - had_output_entity          # prov:generated → Entity
     - had_input_activity         # prov:wasInformedBy → Activity
     - carried_out_by             # prov:wasAssociatedWith → AgenticEntity
+    - qualified_association      # prov:qualifiedAssociation → Association
     - has_qualitative_attribute  # dcterms:relation → QualitativeAttribute
     - has_quantitative_attribute # dcterms:relation → QuantitativeAttribute
     - has_part                   # dcterms:hasPart → Activity
@@ -198,6 +199,72 @@ Software:
 
 !!! note "Why not `foaf:Agent`?"
     DCAT-AP already uses `foaf:Agent` for people and organisations responsible for a dataset's *publication*. `AgenticEntity` (mapped to `prov:Agent`) serves a different purpose: it describes what was involved in the dataset's *generation*. Also, it is part of the core PROV-O `Activity` pattern and should thus be reused. We renamed it to avoid confusion between these two distinct shapes.
+
+### Association: in which role did an agent take part?
+
+`carried_out_by` states *that* an `AgenticEntity` took part in an `Activity`, but not in *what capacity*: the principal investigator, the sponsor and the funder of a study are all just "associated with" it. For this, DCAT-AP+ adds the PROV-O qualification pattern. It is the Activity-side counterpart of the `Attribution` that DCAT-AP uses via `qualified_attribution` on a `Dataset`:
+
+```yaml
+Activity:
+  slots:
+    - qualified_association   # prov:qualifiedAssociation → Association
+
+Association:
+  class_uri: prov:Association
+  slots:
+    - agent                   # prov:agent → AgenticEntity (required, not inlined)
+    - activity_role           # prov:hadRole → ActivityRole (recommended, inlined)
+
+ActivityRole:
+  class_uri: prov:Role
+  mixins:
+    - ClassifierMixin         # adds rdf_type + type slots, see Pattern 3
+  slots:
+    - id
+```
+
+`carried_out_by` is not replaced: both slots are independent and can be used side by side.
+
+#### Example: describe the roles of a principal investigator and a sponsor
+
+```yaml
+# Activity instance
+qualified_association:
+  - agent: https://orcid.org/0000-0002-1825-0097
+    activity_role:
+      id: https://standards.iso.org/iso/19115/resources/Codelists/gml/CI_RoleCode.xml#principalInvestigator
+  - agent: https://example.org/organisations/sponsor-1
+    activity_role:
+      id: https://example.org/roles/sponsor
+      rdf_type:
+        id: https://example.org/ontology/SponsorRole
+        title: "sponsor role"
+```
+
+This gives each `prov:Association` a `prov:agent` and a `prov:hadRole`, and types the role node as `prov:Role`:
+
+```turtle
+ex:activity prov:qualifiedAssociation [ a prov:Association ;
+        prov:agent <https://orcid.org/0000-0002-1825-0097> ;
+        prov:hadRole <https://standards.iso.org/iso/19115/resources/Codelists/gml/CI_RoleCode.xml#principalInvestigator> ] .
+
+<https://standards.iso.org/iso/19115/resources/Codelists/gml/CI_RoleCode.xml#principalInvestigator> a prov:Role .
+```
+
+#### Design rationale: why the role is a node
+
+DCAT-AP+ does not choose between SKOS and OWL, so the role is a node of its own (`ActivityRole`) instead of a bare IRI:
+
+- A profile based on **SKOS** identifies the role by the IRI of a concept of a controlled vocabulary, as in the first association above. This is the same `prov:hadRole` triple as with a bare IRI.
+- A profile based on **OWL** can additionally classify the same node with an ontology class via `rdf_type` (e.g. a role class of BFO or OBI), as in the second association above.
+
+The role is *recommended*, not required, as in PROV-O. The `agent` of an `Association` is required and given by reference (e.g. an ORCID or ROR IRI), so that an agent does not have to be described twice. Its range and cardinality are set in the `slot_usage` of `Association` and not on the global slot, so that a profile that also fills DCAT-AP's `Attribution` (whose agent has the range `Agent`) can define its own constraints.
+
+!!! note "A role is given as a node, not as a bare IRI"
+    The value of `activity_role` is a node with an `id`, as in the examples above. A bare IRI string such as `activity_role: https://example.org/roles/sponsor` is not accepted by the generated Python data model.
+
+!!! note "The role is not bound to a controlled vocabulary"
+    DCAT-AP+ names no vocabulary for the roles. A domain profile can bind the role to one, e.g. HealthDCAT-AP recommends the codes of ISO 19115 `CI_RoleCode`.
 
 ### DataGeneratingActivity: the specialization for data production
 
