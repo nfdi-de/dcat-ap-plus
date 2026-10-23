@@ -1,0 +1,24 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix schema1: <http://schema.org/> .
+<https://example.org/activity/001> dcterms:title "Example activity carried out by two agents" ;
+	a prov:Activity ;
+	prov:qualifiedAssociation _:c14n0 , _:c14n1 , _:c14n2 ;
+	prov:wasAssociatedWith <https://example.org/organisations/funder-1> , <https://example.org/organisations/sponsor-1> , <https://orcid.org/0000-0002-1825-0097> .
+<https://example.org/ontology/SponsorRole> schema1:name "sponsor role" ;
+	a schema1:DefinedTerm .
+<https://example.org/organisations/funder-1> a prov:Agent .
+<https://example.org/organisations/sponsor-1> a prov:Agent .
+<https://example.org/roles/sponsor> a prov:Role , <https://example.org/ontology/SponsorRole> .
+<https://orcid.org/0000-0002-1825-0097> a prov:Agent .
+<https://standards.iso.org/iso/19115/resources/Codelists/gml/CI_RoleCode.xml#principalInvestigator> a prov:Role .
+_:c14n0 a prov:Association ;
+	prov:agent <https://example.org/organisations/funder-1> .
+_:c14n1 a prov:Association ;
+	prov:agent <https://example.org/organisations/sponsor-1> ;
+	prov:hadRole <https://example.org/roles/sponsor> .
+_:c14n2 a prov:Association ;
+	prov:agent <https://orcid.org/0000-0002-1825-0097> ;
+	prov:hadRole <https://standards.iso.org/iso/19115/resources/Codelists/gml/CI_RoleCode.xml#principalInvestigator> .

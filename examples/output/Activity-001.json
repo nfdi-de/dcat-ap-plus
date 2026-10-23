@@ -1,0 +1,39 @@
+{
+  "id": "https://example.org/activity/001",
+  "title": [
+    "Example activity carried out by two agents"
+  ],
+  "carried_out_by": [
+    {
+      "id": "https://orcid.org/0000-0002-1825-0097"
+    },
+    {
+      "id": "https://example.org/organisations/sponsor-1"
+    },
+    {
+      "id": "https://example.org/organisations/funder-1"
+    }
+  ],
+  "qualified_association": [
+    {
+      "agent": "https://orcid.org/0000-0002-1825-0097",
+      "activity_role": {
+        "id": "https://standards.iso.org/iso/19115/resources/Codelists/gml/CI_RoleCode.xml#principalInvestigator"
+      }
+    },
+    {
+      "agent": "https://example.org/organisations/sponsor-1",
+      "activity_role": {
+        "id": "https://example.org/roles/sponsor",
+        "rdf_type": {
+          "id": "https://example.org/ontology/SponsorRole",
+          "title": "sponsor role"
+        }
+      }
+    },
+    {
+      "agent": "https://example.org/organisations/funder-1"
+    }
+  ],
+  "@type": "Activity"
+}
