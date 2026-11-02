@@ -30,7 +30,7 @@ from pydantic import (
 
 
 metamodel_version = "1.12.0"
-version = "0.1.0rc4.post33.dev0+b75744da"
+version = "0.1.0rc5.post1.dev0+dcd4c272"
 
 
 class ConfiguredBaseModel(BaseModel):
@@ -312,6 +312,30 @@ class Agent(ConfiguredBaseModel):
     type: Optional[Concept] = Field(default=None, description="""The nature of the agent.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Agent', 'ClassifierMixin', 'Dataset', 'LicenseDocument'],
          'recommended': True,
          'slot_uri': 'dcterms:type'} })
+
+
+class Association(ConfiguredBaseModel):
+    """
+    The qualified form of the relation between an Activity and an AgenticEntity that played a part in carrying it out. It allows to additionally state in which role the AgenticEntity took part in the Activity.
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'prov:Association',
+         'from_schema': 'https://w3id.org/nfdi-de/dcat-ap-plus',
+         'in_subset': ['domain_agnostic_core'],
+         'slot_usage': {'agent': {'description': 'The slot to specify the '
+                                                 'AgenticEntity that took part in the '
+                                                 'Activity.',
+                                  'inlined': False,
+                                  'name': 'agent',
+                                  'range': 'AgenticEntity',
+                                  'required': True}}})
+
+    agent: str = Field(default=..., description="""The slot to specify the AgenticEntity that took part in the Activity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Association'],
+         'in_subset': ['domain_agnostic_core'],
+         'slot_uri': 'prov:agent'} })
+    activity_role: Optional[ActivityRole] = Field(default=None, description="""The slot to specify the role an AgenticEntity played in an Activity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Association'],
+         'in_subset': ['domain_agnostic_core'],
+         'recommended': True,
+         'slot_uri': 'prov:hadRole'} })
 
 
 class Catalogue(ConfiguredBaseModel):
@@ -906,6 +930,8 @@ class Activity(ClassifierMixin):
                                     'name': 'part_of',
                                     'notes': ['not in DCAT-AP'],
                                     'range': 'Activity'},
+                        'qualified_association': {'name': 'qualified_association',
+                                                  'notes': ['not in DCAT-AP']},
                         'title': {'description': 'The slot to provide a title for the '
                                                  'Activity.',
                                   'inlined_as_list': True,
@@ -914,6 +940,7 @@ class Activity(ClassifierMixin):
                                   'notes': ['not in DCAT-AP']}}})
 
     id: str = Field(default=..., description="""A slot to provide an URI for an entity within this schema.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity',
+                       'ActivityRole',
                        'AgenticEntity',
                        'Dataset',
                        'DefinedTerm',
@@ -1026,6 +1053,10 @@ class Activity(ClassifierMixin):
          'notes': ['not in DCAT-AP'],
          'recommended': True,
          'slot_uri': 'prov:wasAssociatedWith'} })
+    qualified_association: Optional[list[Association]] = Field(default=None, description="""The slot to specify, in the form of an Association, which AgenticEntity played a part in carrying out the Activity and in which role.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity'],
+         'in_subset': ['domain_agnostic_core'],
+         'notes': ['not in DCAT-AP'],
+         'slot_uri': 'prov:qualifiedAssociation'} })
     has_qualitative_attribute: Optional[list[QualitativeAttribute]] = Field(default=None, description="""The slot to relate a qualitative attribute to an EvaluatedEntity, EvaluatedActivity or AgenticEntity""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity', 'AgenticEntity', 'Entity'],
          'in_subset': ['domain_agnostic_core'],
          'notes': ['not in DCAT-AP'],
@@ -1041,6 +1072,34 @@ class Activity(ClassifierMixin):
          'inverse': 'has_part',
          'notes': ['not in DCAT-AP'],
          'slot_uri': 'dcterms:isPartOf'} })
+    type: Optional[DefinedTerm] = Field(default=None, description="""This slot is described in more detail within the class in which it is used.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Agent', 'ClassifierMixin', 'Dataset', 'LicenseDocument'],
+         'slot_uri': 'dcterms:type'} })
+    rdf_type: Optional[DefinedTerm] = Field(default=None, description="""The slot to specify the ontology class that is instantiated by an entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ClassifierMixin'],
+         'in_subset': ['domain_agnostic_core'],
+         'recommended': True,
+         'slot_uri': 'rdf:type'} })
+
+
+class ActivityRole(ClassifierMixin):
+    """
+    The role an AgenticEntity played in an Activity (e.g. principal investigator, sponsor or funder of a study). The role is a node of its own, so that a profile based on SKOS can identify it by the IRI of a concept of a controlled vocabulary (id) and a profile based on OWL can additionally classify it by an ontology class (rdf_type).
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'prov:Role',
+         'from_schema': 'https://w3id.org/nfdi-de/dcat-ap-plus',
+         'in_subset': ['domain_agnostic_core'],
+         'mixins': ['ClassifierMixin']})
+
+    id: str = Field(default=..., description="""A slot to provide an URI for an entity within this schema.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity',
+                       'ActivityRole',
+                       'AgenticEntity',
+                       'Dataset',
+                       'DefinedTerm',
+                       'Document',
+                       'Entity',
+                       'LegalResource',
+                       'LicenseDocument',
+                       'Resource'],
+         'in_subset': ['domain_agnostic_core']} })
     type: Optional[DefinedTerm] = Field(default=None, description="""This slot is described in more detail within the class in which it is used.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Agent', 'ClassifierMixin', 'Dataset', 'LicenseDocument'],
          'slot_uri': 'dcterms:type'} })
     rdf_type: Optional[DefinedTerm] = Field(default=None, description="""The slot to specify the ontology class that is instantiated by an entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ClassifierMixin'],
@@ -1083,6 +1142,7 @@ class AgenticEntity(ClassifierMixin):
                                     'range': 'AgenticEntity'}}})
 
     id: str = Field(default=..., description="""A slot to provide an URI for an entity within this schema.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity',
+                       'ActivityRole',
                        'AgenticEntity',
                        'Dataset',
                        'DefinedTerm',
@@ -1217,6 +1277,7 @@ class DataGeneratingActivity(Activity):
          'in_subset': ['domain_agnostic_core'],
          'slot_uri': 'prov:atLocation'} })
     id: str = Field(default=..., description="""A slot to provide an URI for an entity within this schema.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity',
+                       'ActivityRole',
                        'AgenticEntity',
                        'Dataset',
                        'DefinedTerm',
@@ -1329,6 +1390,10 @@ class DataGeneratingActivity(Activity):
          'notes': ['not in DCAT-AP'],
          'recommended': True,
          'slot_uri': 'prov:wasAssociatedWith'} })
+    qualified_association: Optional[list[Association]] = Field(default=None, description="""The slot to specify, in the form of an Association, which AgenticEntity played a part in carrying out the Activity and in which role.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity'],
+         'in_subset': ['domain_agnostic_core'],
+         'notes': ['not in DCAT-AP'],
+         'slot_uri': 'prov:qualifiedAssociation'} })
     has_qualitative_attribute: Optional[list[QualitativeAttribute]] = Field(default=None, description="""The slot to relate a qualitative attribute to an EvaluatedEntity, EvaluatedActivity or AgenticEntity""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity', 'AgenticEntity', 'Entity'],
          'in_subset': ['domain_agnostic_core'],
          'notes': ['not in DCAT-AP'],
@@ -1386,6 +1451,7 @@ class DataAnalysis(DataGeneratingActivity):
          'in_subset': ['domain_agnostic_core'],
          'slot_uri': 'prov:atLocation'} })
     id: str = Field(default=..., description="""A slot to provide an URI for an entity within this schema.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity',
+                       'ActivityRole',
                        'AgenticEntity',
                        'Dataset',
                        'DefinedTerm',
@@ -1498,6 +1564,10 @@ class DataAnalysis(DataGeneratingActivity):
          'notes': ['not in DCAT-AP'],
          'recommended': True,
          'slot_uri': 'prov:wasAssociatedWith'} })
+    qualified_association: Optional[list[Association]] = Field(default=None, description="""The slot to specify, in the form of an Association, which AgenticEntity played a part in carrying out the Activity and in which role.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity'],
+         'in_subset': ['domain_agnostic_core'],
+         'notes': ['not in DCAT-AP'],
+         'slot_uri': 'prov:qualifiedAssociation'} })
     has_qualitative_attribute: Optional[list[QualitativeAttribute]] = Field(default=None, description="""The slot to relate a qualitative attribute to an EvaluatedEntity, EvaluatedActivity or AgenticEntity""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity', 'AgenticEntity', 'Entity'],
          'in_subset': ['domain_agnostic_core'],
          'notes': ['not in DCAT-AP'],
@@ -2251,6 +2321,7 @@ class Dataset(ConfiguredBaseModel):
          'notes': ['stricter than DCAT-AP'],
          'slot_uri': 'prov:wasGeneratedBy'} })
     id: str = Field(default=..., description="""A slot to provide an URI for an entity within this schema.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity',
+                       'ActivityRole',
                        'AgenticEntity',
                        'Dataset',
                        'DefinedTerm',
@@ -2423,6 +2494,7 @@ class AnalysisDataset(Dataset):
          'notes': ['stricter than DCAT-AP'],
          'slot_uri': 'prov:wasGeneratedBy'} })
     id: str = Field(default=..., description="""A slot to provide an URI for an entity within this schema.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity',
+                       'ActivityRole',
                        'AgenticEntity',
                        'Dataset',
                        'DefinedTerm',
@@ -2650,6 +2722,7 @@ class DefinedTerm(ConfiguredBaseModel):
          'slot_usage': {'title': {'name': 'title', 'slot_uri': 'schema:name'}}})
 
     id: str = Field(default=..., description="""A slot to provide an URI for an entity within this schema.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity',
+                       'ActivityRole',
                        'AgenticEntity',
                        'Dataset',
                        'DefinedTerm',
@@ -2731,6 +2804,7 @@ class Device(AgenticEntity):
                                              'required': False}}})
 
     id: str = Field(default=..., description="""A slot to provide an URI for an entity within this schema.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity',
+                       'ActivityRole',
                        'AgenticEntity',
                        'Dataset',
                        'DefinedTerm',
@@ -3301,6 +3375,7 @@ class Entity(ClassifierMixin):
                        'TimeInstant'],
          'slot_uri': 'dcterms:description'} })
     id: str = Field(default=..., description="""A slot to provide an URI for an entity within this schema.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity',
+                       'ActivityRole',
                        'AgenticEntity',
                        'Dataset',
                        'DefinedTerm',
@@ -3352,6 +3427,7 @@ class EvaluatedActivity(Activity):
                                              'required': False}}})
 
     id: str = Field(default=..., description="""A slot to provide an URI for an entity within this schema.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity',
+                       'ActivityRole',
                        'AgenticEntity',
                        'Dataset',
                        'DefinedTerm',
@@ -3464,6 +3540,10 @@ class EvaluatedActivity(Activity):
          'notes': ['not in DCAT-AP'],
          'recommended': True,
          'slot_uri': 'prov:wasAssociatedWith'} })
+    qualified_association: Optional[list[Association]] = Field(default=None, description="""The slot to specify, in the form of an Association, which AgenticEntity played a part in carrying out the Activity and in which role.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity'],
+         'in_subset': ['domain_agnostic_core'],
+         'notes': ['not in DCAT-AP'],
+         'slot_uri': 'prov:qualifiedAssociation'} })
     has_qualitative_attribute: Optional[list[QualitativeAttribute]] = Field(default=None, description="""The slot to relate a qualitative attribute to an EvaluatedEntity, EvaluatedActivity or AgenticEntity""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity', 'AgenticEntity', 'Entity'],
          'in_subset': ['domain_agnostic_core'],
          'notes': ['not in DCAT-AP'],
@@ -3594,6 +3674,7 @@ class EvaluatedEntity(Entity):
                        'TimeInstant'],
          'slot_uri': 'dcterms:description'} })
     id: str = Field(default=..., description="""A slot to provide an URI for an entity within this schema.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity',
+                       'ActivityRole',
                        'AgenticEntity',
                        'Dataset',
                        'DefinedTerm',
@@ -3720,6 +3801,7 @@ class AnalysisSourceData(EvaluatedEntity):
                        'TimeInstant'],
          'slot_uri': 'dcterms:description'} })
     id: str = Field(default=..., description="""A slot to provide an URI for an entity within this schema.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity',
+                       'ActivityRole',
                        'AgenticEntity',
                        'Dataset',
                        'DefinedTerm',
@@ -4169,6 +4251,7 @@ class Software(AgenticEntity):
                                              'required': False}}})
 
     id: str = Field(default=..., description="""A slot to provide an URI for an entity within this schema.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity',
+                       'ActivityRole',
                        'AgenticEntity',
                        'Dataset',
                        'DefinedTerm',
@@ -4721,6 +4804,7 @@ class Document(SupportiveEntity):
          'from_schema': 'https://w3id.org/nfdi-de/dcat-ap-plus'})
 
     id: str = Field(default=..., description="""A slot to provide an URI for an entity within this schema.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity',
+                       'ActivityRole',
                        'AgenticEntity',
                        'Dataset',
                        'DefinedTerm',
@@ -5078,6 +5162,7 @@ class LegalResource(SupportiveEntity):
          'from_schema': 'https://w3id.org/nfdi-de/dcat-ap-plus'})
 
     id: str = Field(default=..., description="""A slot to provide an URI for an entity within this schema.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity',
+                       'ActivityRole',
                        'AgenticEntity',
                        'Dataset',
                        'DefinedTerm',
@@ -5185,6 +5270,7 @@ class LicenseDocument(SupportiveEntity):
          'recommended': True,
          'slot_uri': 'dcterms:type'} })
     id: str = Field(default=..., description="""A slot to provide an URI for an entity within this schema.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity',
+                       'ActivityRole',
                        'AgenticEntity',
                        'Dataset',
                        'DefinedTerm',
@@ -5820,6 +5906,7 @@ class Resource(SupportiveEntity):
          'from_schema': 'https://w3id.org/nfdi-de/dcat-ap-plus'})
 
     id: str = Field(default=..., description="""A slot to provide an URI for an entity within this schema.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity',
+                       'ActivityRole',
                        'AgenticEntity',
                        'Dataset',
                        'DefinedTerm',
@@ -6337,11 +6424,13 @@ class TimeInstant(SupportiveEntity):
 # Model rebuild
 # see https://pydantic-docs.helpmanual.io/usage/models/#rebuilding-a-model
 Agent.model_rebuild()
+Association.model_rebuild()
 Catalogue.model_rebuild()
 CatalogueRecord.model_rebuild()
 Checksum.model_rebuild()
 ClassifierMixin.model_rebuild()
 Activity.model_rebuild()
+ActivityRole.model_rebuild()
 AgenticEntity.model_rebuild()
 DataGeneratingActivity.model_rebuild()
 DataAnalysis.model_rebuild()

@@ -1,0 +1,23 @@
+# Example Activity object with qualified associations (the agents and the roles they played)
+---
+id: https://example.org/activity/001
+title:
+  - "Example activity carried out by two agents"
+carried_out_by:
+  - id: https://orcid.org/0000-0002-1825-0097
+  - id: https://example.org/organisations/sponsor-1
+  - id: https://example.org/organisations/funder-1
+qualified_association:
+  # SKOS-style role: the role is identified by the IRI of a concept of a controlled vocabulary
+  - agent: https://orcid.org/0000-0002-1825-0097
+    activity_role:
+      id: https://standards.iso.org/iso/19115/resources/Codelists/gml/CI_RoleCode.xml#principalInvestigator
+  # OWL-style role: the role node is additionally classified by an ontology class
+  - agent: https://example.org/organisations/sponsor-1
+    activity_role:
+      id: https://example.org/roles/sponsor
+      rdf_type:
+        id: https://example.org/ontology/SponsorRole
+        title: "sponsor role"
+  # The role is only recommended: an association with just an agent is valid
+  - agent: https://example.org/organisations/funder-1

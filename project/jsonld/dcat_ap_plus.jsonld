@@ -12,7 +12,7 @@
     "https://gitlab.com/opensourcelab/scientificdata/scidats/-/blob/feature/linkml-schemata/schemata/metadata_model_scidats_dcat_ap.yaml?ref_type=heads"
   ],
   "id": "https://w3id.org/nfdi-de/dcat-ap-plus",
-  "version": "0.1.0rc4.post33.dev0+b75744da",
+  "version": "0.1.0rc5.post1.dev0+dcd4c272",
   "imports": [
     "linkml:types"
   ],
@@ -728,6 +728,46 @@
       "owner": "Distribution",
       "domain_of": [
         "Distribution"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "activity_role",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/activity_role",
+      "description": "The slot to specify the role an AgenticEntity played in an Activity.",
+      "in_subset": [
+        "domain_agnostic_core"
+      ],
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://www.w3.org/ns/prov#hadRole"
+      ],
+      "slot_uri": "http://www.w3.org/ns/prov#hadRole",
+      "owner": "Association",
+      "domain_of": [
+        "Association"
+      ],
+      "range": "ActivityRole",
+      "recommended": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "agent",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/agent",
+      "description": "The agent that took part in an Activity. Its range and cardinality are specified in the classes in which this slot is used.",
+      "in_subset": [
+        "domain_agnostic_core"
+      ],
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://www.w3.org/ns/prov#agent"
+      ],
+      "slot_uri": "http://www.w3.org/ns/prov#agent",
+      "owner": "Association",
+      "domain_of": [
+        "Association"
       ],
       "range": "string",
       "@type": "SlotDefinition"
@@ -1532,6 +1572,7 @@
       "owner": "Resource",
       "domain_of": [
         "Activity",
+        "ActivityRole",
         "AgenticEntity",
         "Dataset",
         "DefinedTerm",
@@ -1959,6 +2000,28 @@
         "DatasetSeries"
       ],
       "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "qualified_association",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/qualified_association",
+      "description": "The slot to specify, in the form of an Association, which AgenticEntity played a part in carrying out the Activity and in which role.",
+      "in_subset": [
+        "domain_agnostic_core"
+      ],
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://www.w3.org/ns/prov#qualifiedAssociation"
+      ],
+      "slot_uri": "http://www.w3.org/ns/prov#qualifiedAssociation",
+      "owner": "Activity",
+      "domain_of": [
+        "Activity"
+      ],
+      "range": "Association",
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2846,6 +2909,36 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "Activity_qualified_association",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/qualified_association",
+      "description": "The slot to specify, in the form of an Association, which AgenticEntity played a part in carrying out the Activity and in which role.",
+      "notes": [
+        "not in DCAT-AP"
+      ],
+      "in_subset": [
+        "domain_agnostic_core"
+      ],
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://www.w3.org/ns/prov#qualifiedAssociation"
+      ],
+      "is_a": "qualified_association",
+      "domain": "Activity",
+      "slot_uri": "http://www.w3.org/ns/prov#qualifiedAssociation",
+      "alias": "qualified_association",
+      "owner": "Activity",
+      "domain_of": [
+        "Activity"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "qualified_association",
+      "range": "Association",
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "Agent_name",
       "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/name",
       "description": "A name of the agent.",
@@ -3017,6 +3110,31 @@
       "multivalued": true,
       "inlined": true,
       "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Association_agent",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/agent",
+      "description": "The slot to specify the AgenticEntity that took part in the Activity.",
+      "in_subset": [
+        "domain_agnostic_core"
+      ],
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "mappings": [
+        "http://www.w3.org/ns/prov#agent"
+      ],
+      "is_a": "agent",
+      "domain": "Association",
+      "slot_uri": "http://www.w3.org/ns/prov#agent",
+      "alias": "agent",
+      "owner": "Association",
+      "domain_of": [
+        "Association"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "agent",
+      "range": "AgenticEntity",
+      "required": true,
       "@type": "SlotDefinition"
     },
     {
@@ -6546,6 +6664,7 @@
         "Activity_had_output_entity",
         "Activity_had_input_activity",
         "Activity_carried_out_by",
+        "Activity_qualified_association",
         "Activity_has_qualitative_attribute",
         "Activity_has_quantitative_attribute",
         "Activity_part_of",
@@ -6554,6 +6673,29 @@
       ],
       "slot_usage": {},
       "class_uri": "http://www.w3.org/ns/prov#Activity",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "ActivityRole",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/ActivityRole",
+      "description": "The role an AgenticEntity played in an Activity (e.g. principal investigator, sponsor or funder of a study). The role is a node of its own, so that a profile based on SKOS can identify it by the IRI of a concept of a controlled vocabulary (id) and a profile based on OWL can additionally classify it by an ontology class (rdf_type).",
+      "in_subset": [
+        "domain_agnostic_core"
+      ],
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "exact_mappings": [
+        "prov:Role"
+      ],
+      "mixins": [
+        "ClassifierMixin"
+      ],
+      "slots": [
+        "id",
+        "ClassifierMixin_type",
+        "rdf_type"
+      ],
+      "slot_usage": {},
+      "class_uri": "http://www.w3.org/ns/prov#Role",
       "@type": "ClassDefinition"
     },
     {
@@ -6702,6 +6844,25 @@
       ],
       "slot_usage": {},
       "class_uri": "https://w3id.org/linkml/Any",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Association",
+      "definition_uri": "https://w3id.org/nfdi-de/dcat-ap-plus/Association",
+      "description": "The qualified form of the relation between an Activity and an AgenticEntity that played a part in carrying it out. It allows to additionally state in which role the AgenticEntity took part in the Activity.",
+      "in_subset": [
+        "domain_agnostic_core"
+      ],
+      "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
+      "exact_mappings": [
+        "prov:Association"
+      ],
+      "slots": [
+        "Association_agent",
+        "activity_role"
+      ],
+      "slot_usage": {},
+      "class_uri": "http://www.w3.org/ns/prov#Association",
       "@type": "ClassDefinition"
     },
     {
@@ -6889,6 +7050,7 @@
         "Activity_had_output_entity",
         "Activity_had_input_activity",
         "Activity_carried_out_by",
+        "Activity_qualified_association",
         "Activity_has_qualitative_attribute",
         "Activity_has_quantitative_attribute",
         "Activity_part_of",
@@ -6925,6 +7087,7 @@
         "Activity_had_output_entity",
         "Activity_had_input_activity",
         "Activity_carried_out_by",
+        "Activity_qualified_association",
         "Activity_has_qualitative_attribute",
         "Activity_has_quantitative_attribute",
         "Activity_part_of",
@@ -7221,6 +7384,7 @@
         "Activity_had_output_entity",
         "Activity_had_input_activity",
         "Activity_carried_out_by",
+        "Activity_qualified_association",
         "Activity_has_qualitative_attribute",
         "Activity_has_quantitative_attribute",
         "Activity_part_of",
@@ -7778,11 +7942,11 @@
   ],
   "metamodel_version": "1.12.0",
   "source_file": "dcat_ap_plus.yaml",
-  "source_file_date": "2026-10-14T14:29:27",
-  "source_file_size": 89430,
+  "source_file_date": "2026-10-23T16:47:42",
+  "source_file_size": 91536,
   "@type": "SchemaDefinition",
   "@context": [
-    "project/jsonld/dcat_ap_plus.context.jsonld",
+    "project\\jsonld/dcat_ap_plus.context.jsonld",
     "https://w3id.org/linkml/types.context.jsonld",
     {
       "@base": "https://w3id.org/nfdi-de/dcat-ap-plus/"

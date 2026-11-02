@@ -59,7 +59,7 @@ from linkml_runtime.linkml_model.types import Date, Decimal, Float, Integer, Str
 from linkml_runtime.utils.metamodelcore import Decimal, URIorCURIE, XSDDate
 
 metamodel_version = "1.12.0"
-version = "0.1.0rc4.post33.dev0+b75744da"
+version = "0.1.0rc5.post1.dev0+dcd4c272"
 
 # Namespaces
 AFE = CurieNamespace('AFE', 'http://purl.allotrope.org/ontologies/equipment#AFE_')
@@ -125,6 +125,10 @@ class NonNegativeInteger(Integer):
 
 # Class references
 class ActivityId(URIorCURIE):
+    pass
+
+
+class ActivityRoleId(URIorCURIE):
     pass
 
 
@@ -213,6 +217,7 @@ class Activity(YAMLRoot):
     had_output_entity: Optional[Union[dict[Union[str, EntityId], Union[dict, "Entity"]], list[Union[dict, "Entity"]]]] = empty_dict()
     had_input_activity: Optional[Union[dict[Union[str, ActivityId], Union[dict, "Activity"]], list[Union[dict, "Activity"]]]] = empty_dict()
     carried_out_by: Optional[Union[dict[Union[str, AgenticEntityId], Union[dict, "AgenticEntity"]], list[Union[dict, "AgenticEntity"]]]] = empty_dict()
+    qualified_association: Optional[Union[Union[dict, "Association"], list[Union[dict, "Association"]]]] = empty_list()
     has_qualitative_attribute: Optional[Union[Union[dict, "QualitativeAttribute"], list[Union[dict, "QualitativeAttribute"]]]] = empty_list()
     has_quantitative_attribute: Optional[Union[Union[dict, "QuantitativeAttribute"], list[Union[dict, "QuantitativeAttribute"]]]] = empty_list()
     part_of: Optional[Union[dict[Union[str, ActivityId], Union[dict, "Activity"]], list[Union[dict, "Activity"]]]] = empty_dict()
@@ -245,11 +250,48 @@ class Activity(YAMLRoot):
 
         self._normalize_inlined_as_list(slot_name="carried_out_by", slot_type=AgenticEntity, key_name="id", keyed=True)
 
+        if not isinstance(self.qualified_association, list):
+            self.qualified_association = [self.qualified_association] if self.qualified_association is not None else []
+        self.qualified_association = [v if isinstance(v, Association) else Association(**as_dict(v)) for v in self.qualified_association]
+
         self._normalize_inlined_as_list(slot_name="has_qualitative_attribute", slot_type=QualitativeAttribute, key_name="value", keyed=False)
 
         self._normalize_inlined_as_list(slot_name="has_quantitative_attribute", slot_type=QuantitativeAttribute, key_name="value", keyed=False)
 
         self._normalize_inlined_as_list(slot_name="part_of", slot_type=Activity, key_name="id", keyed=True)
+
+        if self.type is not None and not isinstance(self.type, DefinedTerm):
+            self.type = DefinedTerm(**as_dict(self.type))
+
+        if self.rdf_type is not None and not isinstance(self.rdf_type, DefinedTerm):
+            self.rdf_type = DefinedTerm(**as_dict(self.rdf_type))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class ActivityRole(YAMLRoot):
+    """
+    The role an AgenticEntity played in an Activity (e.g. principal investigator, sponsor or funder of a study). The
+    role is a node of its own, so that a profile based on SKOS can identify it by the IRI of a concept of a controlled
+    vocabulary (id) and a profile based on OWL can additionally classify it by an ontology class (rdf_type).
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = PROV["Role"]
+    class_class_curie: ClassVar[str] = "prov:Role"
+    class_name: ClassVar[str] = "ActivityRole"
+    class_model_uri: ClassVar[URIRef] = DCATAP_PLUS.ActivityRole
+
+    id: Union[str, ActivityRoleId] = None
+    type: Optional[Union[dict, "DefinedTerm"]] = None
+    rdf_type: Optional[Union[dict, "DefinedTerm"]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, ActivityRoleId):
+            self.id = ActivityRoleId(self.id)
 
         if self.type is not None and not isinstance(self.type, DefinedTerm):
             self.type = DefinedTerm(**as_dict(self.type))
@@ -343,6 +385,34 @@ class AgenticEntity(YAMLRoot):
 
 
 Any = Any
+
+@dataclass(repr=False)
+class Association(YAMLRoot):
+    """
+    The qualified form of the relation between an Activity and an AgenticEntity that played a part in carrying it out.
+    It allows to additionally state in which role the AgenticEntity took part in the Activity.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = PROV["Association"]
+    class_class_curie: ClassVar[str] = "prov:Association"
+    class_name: ClassVar[str] = "Association"
+    class_model_uri: ClassVar[URIRef] = DCATAP_PLUS.Association
+
+    agent: Union[str, AgenticEntityId] = None
+    activity_role: Optional[Union[dict, ActivityRole]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.agent):
+            self.MissingRequiredField("agent")
+        if not isinstance(self.agent, AgenticEntityId):
+            self.agent = AgenticEntityId(self.agent)
+
+        if self.activity_role is not None and not isinstance(self.activity_role, ActivityRole):
+            self.activity_role = ActivityRole(**as_dict(self.activity_role))
+
+        super().__post_init__(**kwargs)
+
 
 @dataclass(repr=False)
 class Catalogue(YAMLRoot):
@@ -2285,6 +2355,12 @@ slots.access_rights = Slot(uri=DCTERMS.accessRights, name="access_rights", curie
 slots.access_service = Slot(uri=DCAT.accessService, name="access_service", curie=DCAT.curie('accessService'),
                    model_uri=DCATAP_PLUS.access_service, domain=None, range=Optional[str])
 
+slots.activity_role = Slot(uri=PROV.hadRole, name="activity_role", curie=PROV.curie('hadRole'),
+                   model_uri=DCATAP_PLUS.activity_role, domain=None, range=Optional[Union[dict, ActivityRole]])
+
+slots.agent = Slot(uri=PROV.agent, name="agent", curie=PROV.curie('agent'),
+                   model_uri=DCATAP_PLUS.agent, domain=None, range=Optional[str])
+
 slots.algorithm = Slot(uri=SPDX.algorithm, name="algorithm", curie=SPDX.curie('algorithm'),
                    model_uri=DCATAP_PLUS.algorithm, domain=None, range=Optional[str])
 
@@ -2483,6 +2559,9 @@ slots.provenance = Slot(uri=DCTERMS.provenance, name="provenance", curie=DCTERMS
 slots.publisher = Slot(uri=DCTERMS.publisher, name="publisher", curie=DCTERMS.curie('publisher'),
                    model_uri=DCATAP_PLUS.publisher, domain=None, range=Optional[str])
 
+slots.qualified_association = Slot(uri=PROV.qualifiedAssociation, name="qualified_association", curie=PROV.curie('qualifiedAssociation'),
+                   model_uri=DCATAP_PLUS.qualified_association, domain=None, range=Optional[Union[Union[dict, Association], list[Union[dict, Association]]]])
+
 slots.qualified_attribution = Slot(uri=PROV.qualifiedAttribution, name="qualified_attribution", curie=PROV.curie('qualifiedAttribution'),
                    model_uri=DCATAP_PLUS.qualified_attribution, domain=None, range=Optional[str])
 
@@ -2606,6 +2685,9 @@ slots.Activity_had_input_activity = Slot(uri=PROV.wasInformedBy, name="Activity_
 slots.Activity_carried_out_by = Slot(uri=PROV.wasAssociatedWith, name="Activity_carried_out_by", curie=PROV.curie('wasAssociatedWith'),
                    model_uri=DCATAP_PLUS.Activity_carried_out_by, domain=Activity, range=Optional[Union[dict[Union[str, AgenticEntityId], Union[dict, "AgenticEntity"]], list[Union[dict, "AgenticEntity"]]]])
 
+slots.Activity_qualified_association = Slot(uri=PROV.qualifiedAssociation, name="Activity_qualified_association", curie=PROV.curie('qualifiedAssociation'),
+                   model_uri=DCATAP_PLUS.Activity_qualified_association, domain=Activity, range=Optional[Union[Union[dict, "Association"], list[Union[dict, "Association"]]]])
+
 slots.Agent_name = Slot(uri=FOAF.name, name="Agent_name", curie=FOAF.curie('name'),
                    model_uri=DCATAP_PLUS.Agent_name, domain=Agent, range=Union[str, list[str]])
 
@@ -2626,6 +2708,9 @@ slots.AnalysisDataset_was_generated_by = Slot(uri=PROV.wasGeneratedBy, name="Ana
 
 slots.AnalysisSourceData_was_generated_by = Slot(uri=PROV.wasGeneratedBy, name="AnalysisSourceData_was_generated_by", curie=PROV.curie('wasGeneratedBy'),
                    model_uri=DCATAP_PLUS.AnalysisSourceData_was_generated_by, domain=AnalysisSourceData, range=Optional[Union[dict[Union[str, DataGeneratingActivityId], Union[dict, DataGeneratingActivity]], list[Union[dict, DataGeneratingActivity]]]])
+
+slots.Association_agent = Slot(uri=PROV.agent, name="Association_agent", curie=PROV.curie('agent'),
+                   model_uri=DCATAP_PLUS.Association_agent, domain=Association, range=Union[str, AgenticEntityId])
 
 slots.Catalogue_applicable_legislation = Slot(uri=DCATAP.applicableLegislation, name="Catalogue_applicable_legislation", curie=DCATAP.curie('applicableLegislation'),
                    model_uri=DCATAP_PLUS.Catalogue_applicable_legislation, domain=Catalogue, range=Optional[Union[dict[Union[str, LegalResourceId], Union[dict, "LegalResource"]], list[Union[dict, "LegalResource"]]]])

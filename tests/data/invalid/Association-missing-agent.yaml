@@ -1,0 +1,4 @@
+# Invalid Association object: the required slot "agent" is missing
+---
+activity_role:
+  id: https://example.org/roles/sponsor

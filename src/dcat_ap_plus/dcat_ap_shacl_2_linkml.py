@@ -530,6 +530,15 @@ def build_dcatap_plus():
                                         multivalued= True,
                                         inlined_as_list= True,
                                         in_subset='domain_agnostic_core'))
+        builder.add_slot(SlotDefinition(name='qualified_association',
+                                        slot_uri= 'prov:qualifiedAssociation',
+                                        range= 'Association',
+                                        description= 'The slot to specify, in the form of an Association, which '
+                                                     'AgenticEntity played a part in carrying out the Activity and in '
+                                                     'which role.',
+                                        multivalued= True,
+                                        inlined_as_list= True,
+                                        in_subset='domain_agnostic_core'))
         builder.add_slot(SlotDefinition(name='realized_plan',
                                         slot_uri= 'prov:used',
                                         range= 'Plan',
@@ -558,6 +567,7 @@ def build_dcatap_plus():
                           'had_output_entity',
                           'had_input_activity',
                           'carried_out_by',
+                          'qualified_association',
                           'has_qualitative_attribute',
                           'has_quantitative_attribute',
                           'part_of']
@@ -601,6 +611,8 @@ def build_dcatap_plus():
             'had_input_activity':{
                 'notes':['not in DCAT-AP']},
             'carried_out_by':{
+                'notes':['not in DCAT-AP']},
+            'qualified_association':{
                 'notes':['not in DCAT-AP']}}
         activity.mixins = ['ClassifierMixin']
         activity.in_subset=['domain_agnostic_core']
@@ -848,6 +860,50 @@ def build_dcatap_plus():
                                               'inlined_as_list': True}}))
 
 
+    def add_association_context():
+        builder.add_slot(SlotDefinition(name='agent',
+                                        slot_uri= 'prov:agent',
+                                        description= 'The agent that took part in an Activity. Its range and '
+                                                     'cardinality are specified in the classes in which this slot is '
+                                                     'used.',
+                                        in_subset='domain_agnostic_core'))
+        builder.add_slot(SlotDefinition(name='activity_role',
+                                        slot_uri= 'prov:hadRole',
+                                        range= 'ActivityRole',
+                                        description= 'The slot to specify the role an AgenticEntity played in an '
+                                                     'Activity.',
+                                        recommended= True,
+                                        inlined= True,
+                                        in_subset='domain_agnostic_core'))
+        builder.add_class(ClassDefinition(name='ActivityRole',
+                                          mixins= ['ClassifierMixin'],
+                                          class_uri='prov:Role',
+                                          description='The role an AgenticEntity played in an Activity (e.g. principal '
+                                                      'investigator, sponsor or funder of a study). The role is a node '
+                                                      'of its own, so that a profile based on SKOS can identify it by '
+                                                      'the IRI of a concept of a controlled vocabulary (id) and a '
+                                                      'profile based on OWL can additionally classify it by an '
+                                                      'ontology class (rdf_type).',
+                                          slots = ['id'],
+                                          in_subset='domain_agnostic_core'))
+        builder.add_class(ClassDefinition(name='Association',
+                                          class_uri='prov:Association',
+                                          description='The qualified form of the relation between an Activity and an '
+                                                      'AgenticEntity that played a part in carrying it out. It allows '
+                                                      'to additionally state in which role the AgenticEntity took '
+                                                      'part in the Activity.',
+                                          slots = ['agent',
+                                                   'activity_role'],
+                                          slot_usage={
+                                              'agent':{
+                                                  'description': 'The slot to specify the AgenticEntity that took '
+                                                                 'part in the Activity.',
+                                                  'range': 'AgenticEntity',
+                                                  'required': True,
+                                                  'inlined': False}},
+                                          in_subset='domain_agnostic_core'))
+
+
     def add_planning_and_surrounding_context():
         builder.add_class(ClassDefinition(name='Surrounding',
                                           mixins= 'ClassifierMixin',
@@ -1043,6 +1099,7 @@ def build_dcatap_plus():
     add_classification_context()
     add_subject_of_interest_context()
     add_agent_context()
+    add_association_context()
     add_planning_and_surrounding_context()
     add_attribute_context()
     add_analysis_context()
