@@ -59,26 +59,24 @@ from linkml_runtime.linkml_model.types import Date, Decimal, Float, Integer, Str
 from linkml_runtime.utils.metamodelcore import Decimal, URIorCURIE, XSDDate
 
 metamodel_version = "1.12.0"
-version = "0.1.0rc4.post33.dev0+b75744da"
+version = "0.1.0rc5.post3.dev0+9c7d86ae"
 
 # Namespaces
-AFE = CurieNamespace('AFE', 'http://purl.allotrope.org/ontologies/equipment#AFE_')
 BFO = CurieNamespace('BFO', 'http://purl.obolibrary.org/obo/BFO_')
 IAO = CurieNamespace('IAO', 'http://purl.obolibrary.org/obo/IAO_')
 NCIT = CurieNamespace('NCIT', 'http://purl.obolibrary.org/obo/NCIT_')
 OBI = CurieNamespace('OBI', 'http://purl.obolibrary.org/obo/OBI_')
 SIO = CurieNamespace('SIO', 'http://semanticscience.org/resource/SIO_')
-SOSA = CurieNamespace('SOSA', 'http://www.w3.org/ns/sosa/')
 ADMS = CurieNamespace('adms', 'http://www.w3.org/ns/adms#')
+ALLOTROPE_EQUIPMENT = CurieNamespace('allotrope_equipment', 'http://purl.allotrope.org/ontologies/equipment#AFE_')
 DCAT = CurieNamespace('dcat', 'http://www.w3.org/ns/dcat#')
 DCATAP = CurieNamespace('dcatap', 'http://data.europa.eu/r5r/')
 DCATAP_PLUS = CurieNamespace('dcatap_plus', 'https://w3id.org/nfdi-de/dcat-ap-plus/')
 DCTERMS = CurieNamespace('dcterms', 'http://purl.org/dc/terms/')
 ELI = CurieNamespace('eli', 'http://data.europa.eu/eli/ontology#')
 EPOS = CurieNamespace('epos', 'https://www.epos-eu.org/epos-dcat-ap#')
-EX = CurieNamespace('ex', 'http://example.org/')
 FOAF = CurieNamespace('foaf', 'http://xmlns.com/foaf/0.1/')
-IANA = CurieNamespace('iana', 'https://www.iana.org/assignments/')
+IANA_MEDIATYPE = CurieNamespace('iana_mediatype', 'https://www.iana.org/assignments/')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
 LOCN = CurieNamespace('locn', 'http://www.w3.org/ns/locn#')
 ODRL = CurieNamespace('odrl', 'http://www.w3.org/ns/odrl/2/')
@@ -90,10 +88,10 @@ RDFS = CurieNamespace('rdfs', 'http://www.w3.org/2000/01/rdf-schema#')
 SCHEMA = CurieNamespace('schema', 'http://schema.org/')
 SH = CurieNamespace('sh', 'http://www.w3.org/ns/shacl#')
 SKOS = CurieNamespace('skos', 'http://www.w3.org/2004/02/skos/core#')
+SOSA = CurieNamespace('sosa', 'http://www.w3.org/ns/sosa/')
 SPDX = CurieNamespace('spdx', 'http://spdx.org/rdf/terms#')
 TIME = CurieNamespace('time', 'http://www.w3.org/2006/time#')
 VCARD = CurieNamespace('vcard', 'http://www.w3.org/2006/vcard/ns#')
-VL = CurieNamespace('vl', 'https://purl.eu/ns/shacl#')
 XSD = CurieNamespace('xsd', 'http://www.w3.org/2001/XMLSchema#')
 DEFAULT_ = DCATAP_PLUS
 

@@ -45,6 +45,9 @@ source = "uv-dynamic-versioning"
 path = "src/dcat_ap_plus/schema/dcat_ap_plus.yaml"
 pattern = """^(?:version:?\\s*\\")(?P<version>\\S*)(?:\\"\\s*# Managed by dynamic-versioning.).*$"""
 
+[tool.uv]
+cache-keys = [{ file = "pyproject.toml" }, { git = { commit = true, tags = true } }]
+
 # Ref.: https://github.com/ninoseki/uv-dynamic-versioning/
 [tool.uv-dynamic-versioning]
 vcs = "git"

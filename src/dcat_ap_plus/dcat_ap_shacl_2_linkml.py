@@ -40,8 +40,7 @@ PREFIX_MAP = {
     'rdfs': 'http://www.w3.org/2000/01/rdf-schema#',
     'sh': 'http://www.w3.org/ns/shacl#',
     'skos': 'http://www.w3.org/2004/02/skos/core#',
-    'vl': 'https://purl.eu/ns/shacl#',
-    'iana': 'https://www.iana.org/assignments/',
+    'iana.mediatype': 'https://www.iana.org/assignments/',
     'epos': 'https://www.epos-eu.org/epos-dcat-ap#',
     'schema': 'https://schema.org/'}
 
@@ -107,12 +106,15 @@ def ensure_synced():
             ["uv", "sync", "--reinstall-package", "dcat_ap_plus"],
             check=True,
             cwd=root_dir,
-            stdout=subprocess.DEVNULL,  # Hide standard output to keep logs clean
-            stderr=subprocess.STDOUT  # Show errors if they happen
+            capture_output=True,  # Output is captured and only printed if 'uv sync' fails
+            text=True
         )
         print("INFO: Environment synced successfully.")
     except subprocess.CalledProcessError as e:
         print(f"WARNING: 'uv sync' failed. Version metadata might be stale. Error: {e}")
+        print(f"         uv output (exit status {e.returncode}):")
+        for line in ((e.stdout or '') + (e.stderr or '')).strip().splitlines():
+            print(f"         | {line}")
     except FileNotFoundError:
         print("WARNING: 'uv' command not found. Please ensure uv is installed and in PATH.")
 
@@ -1013,11 +1015,10 @@ def build_dcatap_plus():
     builder.schema.prefixes['IAO'] = 'http://purl.obolibrary.org/obo/IAO_'
     builder.schema.prefixes['SIO'] = 'http://semanticscience.org/resource/SIO_'
     builder.schema.prefixes['NCIT']='http://purl.obolibrary.org/obo/NCIT_'
-    builder.schema.prefixes['SOSA']='http://www.w3.org/ns/sosa/'
-    builder.schema.prefixes['AFE']='http://purl.allotrope.org/ontologies/equipment#AFE_'
+    builder.schema.prefixes['sosa']='http://www.w3.org/ns/sosa/'
+    builder.schema.prefixes['allotrope.equipment']='http://purl.allotrope.org/ontologies/equipment#AFE_'
     builder.schema.prefixes['qudt']= 'http://qudt.org/schema/qudt/'
     builder.schema.prefixes['schema']= 'http://schema.org/'
-    builder.schema.prefixes['ex']= 'http://example.org/'
     builder.schema.title = 'DCAT-AP-PLUS'
     builder.schema.license = 'CC-BY 4.0'
     builder.schema.default_range = 'string'
@@ -1120,6 +1121,10 @@ def main():
     dump_schema(build_dcatap_linkml(),filename='dcat_ap_linkml.yaml')
     # 3. Build and dump DCAT-AP-PLUS
     dump_schema(build_dcatap_plus(),filename='dcat_ap_plus.yaml')
+    # 4. Ensure the environment is up-to-date with Git tags/commits for the dynamic version tags
+    ensure_synced()
+
+
 
 if __name__ == '__main__':
     main()
