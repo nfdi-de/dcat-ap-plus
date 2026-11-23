@@ -735,11 +735,8 @@
                 },
                 "title": {
                     "description": "The slot to provide a title for the EvaluatedEntity.",
-                    "items": {
-                        "type": "string"
-                    },
                     "type": [
-                        "array",
+                        "string",
                         "null"
                     ]
                 },
@@ -2783,11 +2780,8 @@
                 },
                 "title": {
                     "description": "The slot to provide a title for the Entity.",
-                    "items": {
-                        "type": "string"
-                    },
                     "type": [
-                        "array",
+                        "string",
                         "null"
                     ]
                 },
@@ -3034,11 +3028,8 @@
                 },
                 "title": {
                     "description": "The slot to provide a title for the EvaluatedEntity.",
-                    "items": {
-                        "type": "string"
-                    },
                     "type": [
-                        "array",
+                        "string",
                         "null"
                     ]
                 },
@@ -3922,5 +3913,5 @@
     "metamodel_version": "1.12.0",
     "title": "dcat-ap-plus",
     "type": "object",
-    "version": "0.1.0rc4.post33.dev0+b75744da"
+    "version": "0.1.0rc4.post34.dev0+13784da6"
 }

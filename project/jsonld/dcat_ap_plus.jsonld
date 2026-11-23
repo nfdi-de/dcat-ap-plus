@@ -12,7 +12,7 @@
     "https://gitlab.com/opensourcelab/scientificdata/scidats/-/blob/feature/linkml-schemata/schemata/metadata_model_scidats_dcat_ap.yaml?ref_type=heads"
   ],
   "id": "https://w3id.org/nfdi-de/dcat-ap-plus",
-  "version": "0.1.0rc4.post33.dev0+b75744da",
+  "version": "0.1.0rc4.post34.dev0+13784da6",
   "imports": [
     "linkml:types"
   ],
@@ -5950,7 +5950,6 @@
       "is_usage_slot": true,
       "usage_slot_name": "title",
       "range": "string",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -6095,7 +6094,6 @@
       "is_usage_slot": true,
       "usage_slot_name": "title",
       "range": "string",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -6874,8 +6872,8 @@
       ],
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
       "exact_mappings": [
-        "prov:Activity",
-        "OBI:0200000"
+        "OBI:0200000",
+        "prov:Activity"
       ],
       "close_mappings": [
         "NCIT:C25391"
@@ -7092,12 +7090,12 @@
         "hardware instrument"
       ],
       "exact_mappings": [
-        "prov:Agent",
         "epos:Equipment",
         "OBI:0000968",
         "http://purl.obolibrary.org/obo/NCIT_C62103",
         "http://semanticscience.org/resource/SIO_000956",
-        "http://purl.allotrope.org/ontologies/equipment#AFE_0000354"
+        "http://purl.allotrope.org/ontologies/equipment#AFE_0000354",
+        "prov:Agent"
       ],
       "is_a": "AgenticEntity",
       "slots": [
@@ -7686,8 +7684,8 @@
       ],
       "from_schema": "https://w3id.org/nfdi-de/dcat-ap-plus",
       "exact_mappings": [
-        "prov:SoftwareAgent",
-        "schema:SoftwareApplication"
+        "schema:SoftwareApplication",
+        "prov:SoftwareAgent"
       ],
       "is_a": "AgenticEntity",
       "slots": [
@@ -7780,8 +7778,8 @@
   ],
   "metamodel_version": "1.12.0",
   "source_file": "dcat_ap_plus.yaml",
-  "source_file_date": "2026-10-14T17:00:39",
-  "source_file_size": 86907,
+  "source_file_date": "2026-11-17T19:10:55",
+  "source_file_size": 86909,
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/dcat_ap_plus.context.jsonld",

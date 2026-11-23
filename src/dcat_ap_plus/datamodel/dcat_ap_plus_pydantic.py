@@ -30,7 +30,7 @@ from pydantic import (
 
 
 metamodel_version = "1.12.0"
-version = "0.1.0rc4.post33.dev0+b75744da"
+version = "0.1.0rc4.post34.dev0+13784da6"
 
 
 class ConfiguredBaseModel(BaseModel):
@@ -3223,10 +3223,10 @@ class Entity(ClassifierMixin):
                                     'range': 'Entity'},
                         'title': {'description': 'The slot to provide a title for the '
                                                  'Entity.',
-                                  'multivalued': True,
+                                  'multivalued': False,
                                   'name': 'title'}}})
 
-    title: Optional[list[str]] = Field(default=None, description="""The slot to provide a title for the Entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity',
+    title: Optional[str] = Field(default=None, description="""The slot to provide a title for the Entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity',
                        'AgenticEntity',
                        'Any',
                        'Attribution',
@@ -3509,7 +3509,7 @@ class EvaluatedEntity(Entity):
                                              'required': False},
                         'title': {'description': 'The slot to provide a title for the '
                                                  'EvaluatedEntity.',
-                                  'multivalued': True,
+                                  'multivalued': False,
                                   'name': 'title'},
                         'was_generated_by': {'description': 'A slot to provide the '
                                                             'Activity which created '
@@ -3520,7 +3520,7 @@ class EvaluatedEntity(Entity):
                                              'range': 'Activity'}}})
 
     was_generated_by: Optional[list[Activity]] = Field(default=None, description="""A slot to provide the Activity which created the EvaluatedEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Dataset', 'EvaluatedEntity'], 'slot_uri': 'prov:wasGeneratedBy'} })
-    title: Optional[list[str]] = Field(default=None, description="""The slot to provide a title for the EvaluatedEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity',
+    title: Optional[str] = Field(default=None, description="""The slot to provide a title for the EvaluatedEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity',
                        'AgenticEntity',
                        'Any',
                        'Attribution',
@@ -3646,7 +3646,7 @@ class AnalysisSourceData(EvaluatedEntity):
                                              'range': 'DataGeneratingActivity'}}})
 
     was_generated_by: Optional[list[DataGeneratingActivity]] = Field(default=None, description="""A slot to provide the Activity which created the AnalysisSourceData.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Dataset', 'EvaluatedEntity'], 'slot_uri': 'prov:wasGeneratedBy'} })
-    title: Optional[list[str]] = Field(default=None, description="""The slot to provide a title for the EvaluatedEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity',
+    title: Optional[str] = Field(default=None, description="""The slot to provide a title for the EvaluatedEntity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Activity',
                        'AgenticEntity',
                        'Any',
                        'Attribution',

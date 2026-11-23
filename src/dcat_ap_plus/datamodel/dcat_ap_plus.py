@@ -59,7 +59,7 @@ from linkml_runtime.linkml_model.types import Date, Decimal, Float, Integer, Str
 from linkml_runtime.utils.metamodelcore import Decimal, URIorCURIE, XSDDate
 
 metamodel_version = "1.12.0"
-version = "0.1.0rc4.post33.dev0+b75744da"
+version = "0.1.0rc4.post34.dev0+13784da6"
 
 # Namespaces
 AFE = CurieNamespace('AFE', 'http://purl.allotrope.org/ontologies/equipment#AFE_')
@@ -1178,7 +1178,7 @@ class Entity(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = DCATAP_PLUS.Entity
 
     id: Union[str, EntityId] = None
-    title: Optional[Union[str, list[str]]] = empty_list()
+    title: Optional[str] = None
     description: Optional[str] = None
     other_identifier: Optional[Union[Union[dict, "Identifier"], list[Union[dict, "Identifier"]]]] = empty_list()
     has_qualitative_attribute: Optional[Union[Union[dict, "QualitativeAttribute"], list[Union[dict, "QualitativeAttribute"]]]] = empty_list()
@@ -1194,9 +1194,8 @@ class Entity(YAMLRoot):
         if not isinstance(self.id, EntityId):
             self.id = EntityId(self.id)
 
-        if not isinstance(self.title, list):
-            self.title = [self.title] if self.title is not None else []
-        self.title = [v if isinstance(v, str) else str(v) for v in self.title]
+        if self.title is not None and not isinstance(self.title, str):
+            self.title = str(self.title)
 
         if self.description is not None and not isinstance(self.description, str):
             self.description = str(self.description)
@@ -1260,7 +1259,7 @@ class EvaluatedEntity(Entity):
 
     id: Union[str, EvaluatedEntityId] = None
     was_generated_by: Optional[Union[dict[Union[str, ActivityId], Union[dict, Activity]], list[Union[dict, Activity]]]] = empty_dict()
-    title: Optional[Union[str, list[str]]] = empty_list()
+    title: Optional[str] = None
     description: Optional[str] = None
     other_identifier: Optional[Union[Union[dict, "Identifier"], list[Union[dict, "Identifier"]]]] = empty_list()
 
@@ -1272,9 +1271,8 @@ class EvaluatedEntity(Entity):
 
         self._normalize_inlined_as_list(slot_name="was_generated_by", slot_type=Activity, key_name="id", keyed=True)
 
-        if not isinstance(self.title, list):
-            self.title = [self.title] if self.title is not None else []
-        self.title = [v if isinstance(v, str) else str(v) for v in self.title]
+        if self.title is not None and not isinstance(self.title, str):
+            self.title = str(self.title)
 
         if self.description is not None and not isinstance(self.description, str):
             self.description = str(self.description)
@@ -2999,7 +2997,7 @@ slots.Distribution_title = Slot(uri=DCTERMS.title, name="Distribution_title", cu
                    model_uri=DCATAP_PLUS.Distribution_title, domain=Distribution, range=Optional[Union[str, list[str]]])
 
 slots.Entity_title = Slot(uri=DCTERMS.title, name="Entity_title", curie=DCTERMS.curie('title'),
-                   model_uri=DCATAP_PLUS.Entity_title, domain=Entity, range=Optional[Union[str, list[str]]])
+                   model_uri=DCATAP_PLUS.Entity_title, domain=Entity, range=Optional[str])
 
 slots.Entity_description = Slot(uri=DCTERMS.description, name="Entity_description", curie=DCTERMS.curie('description'),
                    model_uri=DCATAP_PLUS.Entity_description, domain=Entity, range=Optional[str])
@@ -3017,7 +3015,7 @@ slots.EvaluatedActivity_other_identifier = Slot(uri=ADMS.identifier, name="Evalu
                    model_uri=DCATAP_PLUS.EvaluatedActivity_other_identifier, domain=EvaluatedActivity, range=Optional[Union[Union[dict, "Identifier"], list[Union[dict, "Identifier"]]]])
 
 slots.EvaluatedEntity_title = Slot(uri=DCTERMS.title, name="EvaluatedEntity_title", curie=DCTERMS.curie('title'),
-                   model_uri=DCATAP_PLUS.EvaluatedEntity_title, domain=EvaluatedEntity, range=Optional[Union[str, list[str]]])
+                   model_uri=DCATAP_PLUS.EvaluatedEntity_title, domain=EvaluatedEntity, range=Optional[str])
 
 slots.EvaluatedEntity_description = Slot(uri=DCTERMS.description, name="EvaluatedEntity_description", curie=DCTERMS.curie('description'),
                    model_uri=DCATAP_PLUS.EvaluatedEntity_description, domain=EvaluatedEntity, range=Optional[str])

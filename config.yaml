@@ -58,6 +58,11 @@ generator_args:
     mergeimports: true
     use_class_uri_names: false
     closed: false
+    suffix: "Shape"
+    expand_subproperty_of: true
+    recommended_warnings: true
+    include_range_class_descendants: true
+    diff_stable: true
   shex:
     mergeimports: true
   sqlddl:
