@@ -30,7 +30,7 @@ from pydantic import (
 
 
 metamodel_version = "1.12.0"
-version = "0.1.0rc4.post33.dev0+b75744da"
+version = "0.1.0rc5.post3.dev0+ac6ee82c"
 
 
 class ConfiguredBaseModel(BaseModel):
