@@ -17,8 +17,11 @@
         <link rel="next" href="../dcat-ap-plus-users/">
       
       
+        
+      
+      
       <link rel="icon" href="../images/DCAT-AP-PLUS-Logo.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
     
     
       
@@ -26,10 +29,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.84d31ad4.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -60,7 +63,6 @@
     
       
 
-    
     
     
   </head>
@@ -279,9 +281,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Home
+  
+
     
   </span>
+  
   
 
       </a>
@@ -301,9 +308,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Design Patterns
+  
+
     
   </span>
+  
   
 
       </a>
@@ -323,9 +335,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Extending Rules
+  
+
     
   </span>
+  
   
 
       </a>
@@ -345,9 +362,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Automatic Generation
+  
+
     
   </span>
+  
   
 
       </a>
@@ -367,9 +389,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Schema
+  
+
     
   </span>
+  
   
 
       </a>
@@ -398,9 +425,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Versioning
+  
+
     
   </span>
+  
   
 
           <span class="md-nav__icon md-icon"></span>
@@ -411,9 +443,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Versioning
+  
+
     
   </span>
+  
   
 
       </a>
@@ -436,7 +473,9 @@
         <li class="md-nav__item">
   <a href="#versioning-scheme-schemaver" class="md-nav__link">
     <span class="md-ellipsis">
-      Versioning scheme: SchemaVer
+      
+        Versioning scheme: SchemaVer
+      
     </span>
   </a>
   
@@ -446,7 +485,9 @@
           <li class="md-nav__item">
   <a href="#examples-of-each-level" class="md-nav__link">
     <span class="md-ellipsis">
-      Examples of each level
+      
+        Examples of each level
+      
     </span>
   </a>
   
@@ -460,7 +501,9 @@
         <li class="md-nav__item">
   <a href="#relationship-to-dcat-ap-versions" class="md-nav__link">
     <span class="md-ellipsis">
-      Relationship to DCAT-AP versions
+      
+        Relationship to DCAT-AP versions
+      
     </span>
   </a>
   
@@ -469,7 +512,9 @@
         <li class="md-nav__item">
   <a href="#dynamic-versioning-in-development" class="md-nav__link">
     <span class="md-ellipsis">
-      Dynamic versioning in development
+      
+        Dynamic versioning in development
+      
     </span>
   </a>
   
@@ -495,9 +540,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Users
+  
+
     
   </span>
+  
   
 
       </a>
@@ -517,9 +567,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     About
+  
+
     
   </span>
+  
   
 
       </a>
@@ -556,7 +611,9 @@
         <li class="md-nav__item">
   <a href="#versioning-scheme-schemaver" class="md-nav__link">
     <span class="md-ellipsis">
-      Versioning scheme: SchemaVer
+      
+        Versioning scheme: SchemaVer
+      
     </span>
   </a>
   
@@ -566,7 +623,9 @@
           <li class="md-nav__item">
   <a href="#examples-of-each-level" class="md-nav__link">
     <span class="md-ellipsis">
-      Examples of each level
+      
+        Examples of each level
+      
     </span>
   </a>
   
@@ -580,7 +639,9 @@
         <li class="md-nav__item">
   <a href="#relationship-to-dcat-ap-versions" class="md-nav__link">
     <span class="md-ellipsis">
-      Relationship to DCAT-AP versions
+      
+        Relationship to DCAT-AP versions
+      
     </span>
   </a>
   
@@ -589,7 +650,9 @@
         <li class="md-nav__item">
   <a href="#dynamic-versioning-in-development" class="md-nav__link">
     <span class="md-ellipsis">
-      Dynamic versioning in development
+      
+        Dynamic versioning in development
+      
     </span>
   </a>
   
@@ -605,6 +668,7 @@
           
           
             <div class="md-content" data-md-component="content">
+              
               <article class="md-content__inner md-typeset">
                 
                   
@@ -661,7 +725,7 @@
 <p>The DCAT-AP version that DCAT-AP+ is built on is documented in the schema's <code>source</code> field and in the generated schema description.</p>
 <h2 id="dynamic-versioning-in-development">Dynamic versioning in development</h2>
 <p>During development, the version string in the schema YAML header is managed by <a href="https://github.com/pypa/hatch-vcs"><code>setuptools-scm</code> / <code>hatch-vcs</code></a> via a dynamic versioning plugin. This is why the schema header shows a version like:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0.1.0rc3.post21.dev0+913fb36&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">"0.1.0rc3.post21.dev0+913fb36"</span>
 </code></pre></div>
 <p>This string is <strong>auto-generated from git tags</strong>. Hence, it should not be edited manually. The components mean:</p>
 <table>
@@ -743,10 +807,11 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link", "search.highlight", "navigation.expand", "navigation.instant", "navigation.instant.progress", "navigation.tracking"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "default": ["stable"], "provider": "mike"}}</script>
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.tabs.link", "search.highlight", "navigation.expand", "navigation.instant", "navigation.instant.progress", "navigation.tracking"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "default": ["stable"], "provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      <script src="../assets/javascripts/bundle.a5f9d56c.min.js"></script>
       
     
   </body>
